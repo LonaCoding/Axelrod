@@ -48,7 +48,11 @@ with open(FileName,'w') as outFile:
     #print("Trial run {num}:".format(num=newFileNameNumber))
     print("Ranking (Names):")
     print(rankName)
-    print("--------------------------------------------------")
+    print("==================================================")
+    print("List of players:")
+    for s in AllStratPlayers: #list of strategies in play
+        print(s)
+    print("==================================================")
     print("Ranking (position):")
     print(rank)
     print("--------------------------------------------------")
