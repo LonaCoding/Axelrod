@@ -4,7 +4,7 @@ from axelrod.action import Action
 C, D = Action.C, Action.D
 
 
-class ShortMemFuzzy(Player):
+class ShortMemDynamicThreshold(Player):
     """
     A player starts by always cooperating for the first 10 moves.
 
@@ -25,7 +25,7 @@ class ShortMemFuzzy(Player):
     - ShortMem: [Andre2013]_
     """
 
-    name = "ShortMemFuzzy"
+    name = "ShortMemDynamicThreshold"
     classifier = {
         "memory_depth": float("inf"),
         "stochastic": True,
@@ -39,7 +39,7 @@ class ShortMemFuzzy(Player):
     def strategy(opponent: Player) -> Action:
         """Actual strategy definition that determines player's action."""
 
-        threshold=3
+        threshold=3 #have this parameter adjustable, if possible, from outside (as input argument)
 
         if len(opponent.history) <= 10:
             return C
@@ -50,17 +50,9 @@ class ShortMemFuzzy(Player):
 
         CtoDdiff=C_counts - D_counts
 
-        if opponent.defections > len(opponent.history) / 10.0:
-            return D
-        return C
-
         if C_counts - D_counts >= threshold:
-            #add fuzzy probabilistic
-
             return C
         elif D_counts - C_counts >= threshold:
-            #add fuzzy probabilistic
-
             return D
         else:
             return opponent.history[-1]
