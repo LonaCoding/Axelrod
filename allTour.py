@@ -16,12 +16,13 @@ AllStratPlayers = [s() for s in axl.all_strategies]
 ##tournament
 tournament = axl.Tournament(AllStratPlayers, turns=10, repetitions=3)
 TourRes = tournament.play() #tournament results
+#find way to write these to file
 win=TourRes.wins
 score=TourRes.scores
 rank=TourRes.ranking
 rankName=TourRes.ranked_names
 CoopCount=TourRes.cooperation
 
-print(win)
+print(rankName)
 #pprint.pprint(win)
 
