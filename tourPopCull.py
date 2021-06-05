@@ -80,3 +80,7 @@ players = [axl.TitForTat(), axl.TitForTat()]
 
 #def TournamentWithResultFile(players,turns,repetitions,iterations,newFileNameNumber):
 TournamentWithResPopCull(AllStratPlayers,20,3,2,2)
+
+
+#use modified moran process, moranEvolution.py
+#population pool selected from other best

@@ -148,4 +148,4 @@ AllStratPlayers = [s() for s in axl.all_strategies]
 
 #def TournamentWithResultFile(players,turns,repetitions,iterations,newFileNameNumber):
 #TournamentWithResultFile(AllStratPlayers,20,3,2,3)
-TournamentWithResult(AllStratPlayers,20,3,2)
+TournamentWithResult(AllStratPlayers,20,3,3)
