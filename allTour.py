@@ -2,7 +2,7 @@ import axelrod as axl
 import pprint #for formatting output lists
 import sys #outout terminal result to file
 
-#print("Start")
+#pprint.pprint("Start")
 #axl.all_strategies
 
 def TournamentWithResultFile(players,turns,repetitions,iterations,newFileNameNumber):
@@ -13,7 +13,7 @@ def TournamentWithResultFile(players,turns,repetitions,iterations,newFileNameNum
     while n<iterations+1:
         #AllStratPlayers = [s() for s in axl.all_strategies]
         #for s in AllStratPlayers: #list of strategies in play
-        #    print(s)
+        #    pprint.pprint(s)
 
         ##single match:
         #match = axl.Match(AllStratPlayers, turns=3)
@@ -30,11 +30,11 @@ def TournamentWithResultFile(players,turns,repetitions,iterations,newFileNameNum
         rankName=TourRes.ranked_names
         CoopCount=TourRes.cooperation
 
-        #print(rankName)
-        #pprint.pprint(win)
+        #pprint.pprint(rankName)
+        #ppprint.pprint.ppprint.pprint(win)
 
         #output to file
-        #print("Writing to file")
+        #pprint.pprint("Writing to file")
         orig_stdOut=sys.stdout
 
 
@@ -49,27 +49,27 @@ def TournamentWithResultFile(players,turns,repetitions,iterations,newFileNameNum
 
         with open(FileName,'w') as outFile:
             sys.stdout=outFile
-            print("Trial run {numTrial}:".format(numTrial=n))
-            print("..................................................")
-            print("Ranking (Names):")
-            print(rankName)
-            print("==================================================")
-            print("List of players:")
+            pprint.pprint("Trial run {numTrial}:".format(numTrial=n))
+            pprint.pprint("..................................................")
+            pprint.pprint("Ranking (Names):")
+            pprint.pprint(rankName)
+            pprint.pprint("==================================================")
+            pprint.pprint("List of players:")
             for s in AllStratPlayers: #list of strategies in play
-                print(s)
-            print("==================================================")
-            print("Ranking (position):")
-            print(rank)
-            print("--------------------------------------------------")
-            print("Score:")
-            print(score)
-            print("--------------------------------------------------")
-            print("Wins:")
-            print(win)
-            print("--------------------------------------------------")
-            print("Cooperation Count:")
-            print(CoopCount)
-            print("***************************************************")
+                pprint.pprint(s)
+            pprint.pprint("==================================================")
+            pprint.pprint("Ranking (position):")
+            pprint.pprint(rank)
+            pprint.pprint("--------------------------------------------------")
+            pprint.pprint("Score:")
+            pprint.pprint(score)
+            pprint.pprint("--------------------------------------------------")
+            pprint.pprint("Wins:")
+            pprint.pprint(win)
+            pprint.pprint("--------------------------------------------------")
+            pprint.pprint("Cooperation Count:")
+            pprint.pprint(CoopCount)
+            pprint.pprint("***************************************************")
             sys.stdout=orig_stdOut #change standard output back to default/normal
             n=n+1
 
@@ -82,7 +82,7 @@ def TournamentWithResult(players,turns,repetitions,iterations):
     while n<iterations+1:
         #AllStratPlayers = [s() for s in axl.all_strategies]
         #for s in AllStratPlayers: #list of strategies in play
-        #    print(s)
+        #    pprint.pprint(s)
 
         ##single match:
         #match = axl.Match(AllStratPlayers, turns=3)
@@ -99,11 +99,11 @@ def TournamentWithResult(players,turns,repetitions,iterations):
         rankName=TourRes.ranked_names
         CoopCount=TourRes.cooperation
 
-        #print(rankName)
-        #pprint.pprint(win)
+        #pprint.pprint(rankName)
+        #ppprint.pprint.ppprint.pprint(win)
 
         #output to file
-        #print("Writing to file")
+        #pprint.pprint("Writing to file")
         #orig_stdOut=sys.stdout
 
 
@@ -121,30 +121,31 @@ def TournamentWithResult(players,turns,repetitions,iterations):
         print("Trial run {numTrial}:".format(numTrial=n))
         print("..................................................")
         print("Ranking (Names):")
-        print(rankName)
+        pprint.pprint(rankName)
         print("==================================================")
         print("List of players:")
         for s in AllStratPlayers: #list of strategies in play
             print(s)
         print("==================================================")
         print("Ranking (position):")
-        print(rank)
+        pprint.pprint(rank)
         print("--------------------------------------------------")
         print("Score:")
-        print(score)
+        pprint.pprint(score)
         print("--------------------------------------------------")
         print("Wins:")
-        print(win)
+        pprint.pprint(win)
         print("--------------------------------------------------")
         print("Cooperation Count:")
-        print(CoopCount)
+        pprint.pprint(CoopCount)
+        print("***************************************************")
         print("***************************************************")
             #sys.stdout=orig_stdOut #change standard output back to default/normal
         n=n+1
 
 AllStratPlayers = [s() for s in axl.all_strategies]
     #for s in AllStratPlayers: #list of strategies in play
-    #    print(s)
+    #    pprint.pprint(s)
 
 #def TournamentWithResultFile(players,turns,repetitions,iterations,newFileNameNumber):
 #TournamentWithResultFile(AllStratPlayers,20,3,2,3)
