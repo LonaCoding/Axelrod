@@ -11,8 +11,8 @@ from axelrod.graph import Graph, complete_graph
 from axelrod.match import Match
 from axelrod.random_ import BulkRandomGenerator, RandomGenerator
 
-
-class MoranProcess(object):
+#original: MoranProcess
+class MoranEvolutionaryProcess(object):
     def __init__(
         self,
         players: List[Player],
