@@ -71,7 +71,7 @@ def MoranTour(players,iterations):
     #for s in AllStratPlayers: #list of strategies in play
     #    pprint.pprint(s)
 
-player=[axl.TitForTat(), axl.Random(), axl.Negation()]
+player=[axl.TitForTat(), axl.Random(), axl.Negation(),axl.CyclerCCD(), axl.MemoryOnePlayer(), axl.Inverse()]
 
 #def TournamentWithResultFile(players,turns,repetitions,iterations,newFileNameNumber):
 #TournamentWithResultFile(AllStratPlayers,20,3,2,3)

@@ -11,6 +11,8 @@ from axelrod.graph import Graph, complete_graph
 from axelrod.match import Match
 from axelrod.random_ import BulkRandomGenerator, RandomGenerator
 
+import statistics as st
+
 
 class MoranProcess(object):
     def __init__(
@@ -186,17 +188,50 @@ class MoranProcess(object):
         An index of the above list selected at random proportionally to the list
         element divided by the total.
         """
+        perc=25
         if fitness_transformation is None:
             csums = np.cumsum(scores)
+            print(scores)
+            print("........")
+            #med=st.median(scores)
+            llim=np.percentile(scores,perc)
+            ulim=np.percentile(scores,100-perc)
+            print(llim)
+            print("+++++++++++++++++")
+            print(ulim)
+            print("===========")
+            
         else:
+            print("-----")
             csums = np.cumsum([fitness_transformation(s) for s in scores])
         total = csums[-1]
+
+        upp=[]
+        low=[]
+        for n,m in enumerate(scores):
+            if m>ulim:
+                upp.append(n)
+            elif m<llim:
+                low.append(n)
+        if low==[]:
+            print("empty lower")
+            rl = self._random.randrange(0, len(self.players))
+            low.append(rl)
+        if upp==[]:
+            print("empty upper")
+            ru = self._random.randrange(0, len(self.players))
+            upp.append(ru)
+        print(low)
+        print("***********************")
+        print(upp)
+        print("/////////////////////////")
+
         r = self._random.random() * total
 
         for i, x in enumerate(csums):
             if x >= r:
                 break
-        return i
+        return low,upp
 
     def mutate(self, index: int) -> Player:
         """Mutate the player at index.
@@ -270,16 +305,16 @@ class MoranProcess(object):
             # possible choices
             scores.pop(index)
             # Make sure to get the correct index post-pop
-            j = self.fitness_proportionate_selection(
+            l,u = self.fitness_proportionate_selection(
                 scores, fitness_transformation=self.fitness_transformation
             )
-            if j >= index:
-                j += 1
+            #if j >= index:
+            #    j += 1
         else:
-            j = self.fitness_proportionate_selection(
+            l,u = self.fitness_proportionate_selection(
                 scores, fitness_transformation=self.fitness_transformation
             )
-        return j
+        return l,u
 
     def fixation_check(self) -> bool:
         """
@@ -318,15 +353,21 @@ class MoranProcess(object):
             raise StopIteration
         if self.mode == "bd":
             # Birth then death
-            j = self.birth()
-            i = self.death(j)
+            l,u = self.birth()
+            #i = self.death(j)
         elif self.mode == "db":
             # Death then birth
             i = self.death()
             self.players[i] = None
-            j = self.birth(i)
+            l,u = self.birth(i)
         # Mutate and/or replace player i with clone of player j
-        self.players[i] = self.mutate(j)
+        c=0
+        for j in u:
+            print("j is {}".format(j))
+            k=l[c]
+            print("k is {}".format(k))
+            self.players[k]=self.mutate(j)
+            c=c+1
         # Record population.
         self.populations.append(self.population_distribution())
         return self
