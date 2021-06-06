@@ -71,9 +71,12 @@ def MoranTour(players,iterations):
     #for s in AllStratPlayers: #list of strategies in play
     #    pprint.pprint(s)
 
-player=[axl.TitForTat(), axl.Random(), axl.Negation()]
+player3=[axl.TitForTat(), axl.Random(), axl.Negation()]
+
+player6=[axl.TitForTat(), axl.Random(), axl.Negation(),axl.CyclerCCD(), axl.MemoryOnePlayer(), axl.Inverse()]
+
 
 #def TournamentWithResultFile(players,turns,repetitions,iterations,newFileNameNumber):
 #TournamentWithResultFile(AllStratPlayers,20,3,2,3)
 #TournamentWithResult(AllStratPlayers,50,3,5)
-MoranTour(player,1)
+MoranTour(player6,1)
