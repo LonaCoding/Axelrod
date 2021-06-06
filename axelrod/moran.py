@@ -586,11 +586,11 @@ class MoranEvoEliteProcess(object):
         game: Game = None,
         deterministic_cache: DeterministicCache = None,
         mutation_rate: float = 0.0,
-        mode: str = "bd",
+        mode: str = "bd", #other option: "db"
         interaction_graph: Graph = None,
         reproduction_graph: Graph = None,
         fitness_transformation: Callable = None,
-        mutation_method="transition",
+        mutation_method="transition", #other option: atomic (only for EvolvablePlayers)
         stop_on_fixation=True,
         seed=None,
     ) -> None:
@@ -598,8 +598,14 @@ class MoranEvoEliteProcess(object):
         An agent based Moran process class. In each round, each player plays a
         Match with each other player. Players are assigned a fitness score by
         their total score from all matches in the round. A player is chosen to
-        reproduce proportionally to fitness, possibly mutated, and is cloned.
-        The clone replaces a randomly chosen player.
+        reproduce 
+        --proportionally to fitness--
+        based on their fitness, where the best are first to be chosen
+
+        , possibly mutated, and is cloned.
+        The clone replaces the worst player.
+        
+        --The clone replaces a randomly chosen player.--
 
         If the mutation_rate is 0, the population will eventually fixate on
         exactly one player type. In this case a StopIteration exception is
@@ -749,18 +755,62 @@ class MoranEvoEliteProcess(object):
         -------
         An index of the above list selected at random proportionally to the list
         element divided by the total.
+
         """
         if fitness_transformation is None:
             csums = np.cumsum(scores)
         else:
             csums = np.cumsum([fitness_transformation(s) for s in scores])
         total = csums[-1]
+
+        #randomity
         r = self._random.random() * total
+
+
 
         for i, x in enumerate(csums):
             if x >= r:
                 break
-        return i
+        return i #an index that is located at location r
+
+    def best_rank_selection(
+        self, scores: List, fitness_transformation: Callable = None
+    ) -> int:
+        """Randomly selects an individual proportionally to score.
+
+        have to modify this such that it is not random, but uses incrementing counter
+        to select from best to worse, until 2 before half of population
+
+        Parameters
+        ----------
+        scores: Any sequence of real numbers
+        fitness_transformation: A function mapping a score to a (non-negative) float
+
+        Returns
+        -------
+        An index of the above list selected at random proportionally to the list
+        element divided by the total.
+
+        An index of the above list selected according to which has the best fitness
+
+        """
+        if fitness_transformation is None:
+            csums = np.cumsum(scores)
+        else:
+            csums = np.cumsum([fitness_transformation(s) for s in scores])
+        total = csums[-1] #cumulative sum of scores
+
+        #csums will be a list of cimulative sums. need to know format
+
+        #randomity
+        #r = self._random.random() * total #r is fitness threshold
+        r = total #ensures last one selected
+
+
+        for i, x in enumerate(csums):
+            if x >= r:
+                break
+        return i #an index location of a value whose x reaches fitness threshold
 
     def mutate(self, index: int) -> Player:
         """Mutate the player at index.
@@ -819,6 +869,38 @@ class MoranEvoEliteProcess(object):
             i = self.index[vertex]
         return i
 
+    def worst_death(self, index: int = None) -> int:
+        """
+        Selects the player to be removed.
+        The worst are selected
+
+        Note that the in the birth-death case, the player that is reproducing
+        may also be replaced. However in the death-birth case, this player will
+        be excluded from the choices.
+
+        Parameters
+        ----------
+        index:
+            The index of the player to be removed
+        """
+        if index is None:
+            # Select a player to be replaced globally
+            #randomity
+            i = self._random.randrange(0, len(self.players))
+
+            # Record internally for use in _matchup_indices
+            self.dead = i
+        else:
+            # Select locally
+            # index is not None in this case
+            vertex = self._random.choice(
+                sorted(
+                    self.reproduction_graph.out_vertices(self.locations[index])
+                )
+            )
+            i = self.index[vertex]
+        return i
+
     def birth(self, index: int = None) -> int:
         """The birth event.
 
@@ -845,6 +927,37 @@ class MoranEvoEliteProcess(object):
             )
         return j
 
+    def best_birth(self, index: int = None) -> int: #add count input arg/param
+        """The birth event.
+        remove dependency on fitness_proportionate_selection
+
+        Parameters
+        ----------
+        index:
+            The index of the player to be copied
+        """
+        # Compute necessary fitnesses.
+        scores = self.score_all()
+        if index is not None:
+            # Death has already occurred, so remove the dead player from the
+            # possible choices
+            scores.pop(index)
+            # Make sure to get the correct index post-pop
+            j = self.fitness_proportionate_selection(
+                scores, fitness_transformation=self.fitness_transformation
+            )
+            if j >= index:
+                j += 1
+        else:
+            j = self.fitness_proportionate_selection(
+                scores, fitness_transformation=self.fitness_transformation
+            )
+
+        #get list of rank index
+        #j=rankIndex[1]         #j= index of best player
+
+        return j
+
     def fixation_check(self) -> bool:
         """
         Checks if the population is all of a single type
@@ -868,13 +981,15 @@ class MoranEvoEliteProcess(object):
 
         - play the round's matches
         - chooses a player proportionally to fitness (total score) to reproduce
+        (change this part)
         - mutate, if appropriate
         - choose a player to be replaced
+        (change this part)
         - update the population
 
         Returns
         -------
-        MoranProcess:
+        MoranEvoEliteProcess:
             Returns itself with a new population
         """
         # Check the exit condition, that all players are of the same type.
@@ -882,14 +997,19 @@ class MoranEvoEliteProcess(object):
             raise StopIteration
         if self.mode == "bd":
             # Birth then death
+            #j = self.best_birth()
             j = self.birth()
             i = self.death(j)
+            #i = self.worst_death(j)
         elif self.mode == "db":
             # Death then birth
             i = self.death()
-            self.players[i] = None
+            #i = self.worst_death()
+            self.players[i] = None #delete player i
             j = self.birth(i)
+            #j = self.best_birth(i)
         # Mutate and/or replace player i with clone of player j
+        #make sure i and j is not random
         self.players[i] = self.mutate(j)
         # Record population.
         self.populations.append(self.population_distribution())
@@ -995,7 +1115,7 @@ class MoranEvoEliteProcess(object):
         """
         if not self.stop_on_fixation or self.mutation_rate != 0:
             raise ValueError(
-                "MoranProcess.play() will never exit if mutation_rate is"
+                "MoranEvoEliteProcess.play() will never exit if mutation_rate is"
                 "nonzero or stop_on_fixation is False. Use iteration instead."
             )
         while True:
