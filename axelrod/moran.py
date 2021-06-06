@@ -758,7 +758,7 @@ class MoranEvoEliteProcess(object):
 
         """
         if fitness_transformation is None:
-            csums = np.cumsum(scores)
+            csums = np.cumsum(scores) 
         else:
             csums = np.cumsum([fitness_transformation(s) for s in scores])
         total = csums[-1]
@@ -768,7 +768,7 @@ class MoranEvoEliteProcess(object):
 
 
 
-        for i, x in enumerate(csums):
+        for i, x in enumerate(csums): 
             if x >= r:
                 break
         return i #an index that is located at location r
@@ -795,9 +795,21 @@ class MoranEvoEliteProcess(object):
 
         """
         if fitness_transformation is None:
-            csums = np.cumsum(scores)
+            csums = np.cumsum(scores) #csums is ndarray list of dim 1
+            print(scores)
+            #scores is list of scores
+            #=findExtremeValue(scores,1) #1=max
+
+            sortScore=np.sort(scores)
         else:
-            csums = np.cumsum([fitness_transformation(s) for s in scores])
+            array=[fitness_transformation(s) for s in scores]
+            csums = np.cumsum(array)
+            print(array)
+
+        #find mode of scores. use for loop. take note of counter value.
+        #use random(0,2) as tiebreaker
+
+            
         total = csums[-1] #cumulative sum of scores
 
         #csums will be a list of cimulative sums. need to know format
@@ -807,8 +819,8 @@ class MoranEvoEliteProcess(object):
         r = total #ensures last one selected
 
 
-        for i, x in enumerate(csums):
-            if x >= r:
+        for i, x in enumerate(csums): #i is index of list
+            if x >= r:#x is cumulative sum
                 break
         return i #an index location of a value whose x reaches fitness threshold
 
@@ -884,6 +896,10 @@ class MoranEvoEliteProcess(object):
             The index of the player to be removed
         """
         if index is None:
+
+            #findExtremeValue()
+
+
             # Select a player to be replaced globally
             #randomity
             i = self._random.randrange(0, len(self.players))
@@ -892,6 +908,7 @@ class MoranEvoEliteProcess(object):
             self.dead = i
         else:
             # Select locally
+            #means the choice is made beforehand
             # index is not None in this case
             vertex = self._random.choice(
                 sorted(
@@ -900,6 +917,7 @@ class MoranEvoEliteProcess(object):
             )
             i = self.index[vertex]
         return i
+        
 
     def birth(self, index: int = None) -> int:
         """The birth event.
@@ -1009,7 +1027,13 @@ class MoranEvoEliteProcess(object):
             j = self.birth(i)
             #j = self.best_birth(i)
         # Mutate and/or replace player i with clone of player j
-        #make sure i and j is not random
+        #make sure i and j is not random. i and j are integers
+
+        #index list
+        iList=[] #get index of the worst
+        jList=[] #get index of the best
+
+
         self.players[i] = self.mutate(j)
         # Record population.
         self.populations.append(self.population_distribution())
