@@ -576,7 +576,7 @@ class ApproximateMoranProcess(MoranProcess):
             return match_scores[::-1]
 
 
-class MoranEvolutionaryProcess(object):
+class MoranEvoEliteProcess(object):
     def __init__(
         self,
         players: List[Player],
