@@ -76,12 +76,16 @@ player3=[axl.TitForTat(), axl.Random(), axl.Negation()]
 
 player6=[axl.TitForTat(), axl.Random(), axl.Negation(),axl.CyclerCCD(), axl.MemoryOnePlayer(), axl.Inverse()]
 
+#add players that were selected from 20-,50- and 200-turn tournaments' winners
 playerBest=[axl.TitForTat(), axl.Random(), axl.Negation(),axl.CyclerCCD(), axl.MemoryOnePlayer(), axl.Inverse()]
 
+#example from github
 players = [axl.Defector(), axl.Defector(), axl.Defector(),
        axl.Cooperator(), axl.Cooperator(), axl.Cooperator(),
        axl.TitForTat(), axl.TitForTat(), axl.TitForTat(),
        axl.Random()]
+
+
 
 #def TournamentWithResultFile(players,turns,repetitions,iterations,newFileNameNumber):
 #TournamentWithResultFile(AllStratPlayers,20,3,2,3)
