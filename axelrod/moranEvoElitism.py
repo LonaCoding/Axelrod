@@ -264,12 +264,18 @@ class MainEvoEliteMoranProcess(object):
         #initialize list of indices
         upp=[] #upper: List of indices slected for cloning
         low=[] #lower: List of indices slected for culling/elimiation/replacement
+        uppLim=[]
+        lowLim=[]
 
         for n,m in enumerate(scores):
             if m>ulim: #if score exceeeds the upper threshold
                 upp.append(n) #assign for cloning
             elif m<llim: #if score is below the lower threshold
                 low.append(n) #assign for culling
+            elif m==ulim: #if score matches the upper threshold
+                uppLim.append(n)
+            elif m==llim: #if score matches the lower threshold
+                lowLim.append(n)
 
         #implement list length checks. All list must be half of total population, 
         # unless population number is odd
@@ -448,20 +454,20 @@ class MainEvoEliteMoranProcess(object):
 
         #Mutate and/or replace player pCull from cullList 
         #with clone or mutated clone of player pClone from cloneList
-        counter=0
+        counter=0        
+
         for pClone in cloneList: #cloneList is list of integers
+            #implement error handling or preventative measure
+            #when pCull is list index value that is out of range
+            #due to counter exceeding list length
+            if counter>=len(cullList):
+                break #stop the replacement process
             print("j is {}".format(pClone))
             pCull=cullList[counter] #cullList is list of integers
             print("k is {}".format(pCull))
             self.players[pCull]=self.mutate(pClone)
             counter=counter+1
             
-            #implement error handling or preventative measure
-            #  when pCull is out of bounds
-            #due to counter exceeding list length
-            if len(cullList)<counter-1:
-                break #stop the replacement process
-
         # Record population.
         self.populations.append(self.population_distribution())
         return self
