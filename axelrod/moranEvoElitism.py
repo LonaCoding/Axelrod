@@ -1,4 +1,4 @@
-"""Implementation of the Moran process on Graphs, with evolutionary rules."""
+"""Implementation of the Moran process on Graphs, with elitist evolutionary rules."""
 
 from collections import Counter
 from typing import Callable, List, Optional, Set, Tuple
@@ -11,8 +11,12 @@ from axelrod.graph import Graph, complete_graph
 from axelrod.match import Match
 from axelrod.random_ import BulkRandomGenerator, RandomGenerator
 
+#unless indicated, majority of this code was not created by me
+#The only functions I modified and renamed:
+#splitPlayersByScore: copied, then modified and renamed from fitness_proportionate_selection
+
 class MainEvoEliteMoranProcess(object):
-    def __init__(
+    def __init__( #with additional comments made by J Candra for reference
         self,
         players: List[Player],
         turns: int = DEFAULT_TURNS,
@@ -20,7 +24,7 @@ class MainEvoEliteMoranProcess(object):
         noise: float = 0,
         game: Game = None,
         deterministic_cache: DeterministicCache = None,
-        mutation_rate: float = 0.0,
+        mutation_rate: float = 0.0, #no mutation by default
         mode: str = "bd", #other option: "db"
         interaction_graph: Graph = None,
         reproduction_graph: Graph = None,
@@ -176,6 +180,7 @@ class MainEvoEliteMoranProcess(object):
                 self.players.append(player)
         self.populations = [self.population_distribution()]
 
+    #The function below is no longer used, but kept here for reference for splitPlayersByScore
     def fitness_proportionate_selection(
         self, scores: List, fitness_transformation: Callable = None
     ) -> int:
@@ -190,30 +195,32 @@ class MainEvoEliteMoranProcess(object):
         -------
         An index of the above list selected at random proportionally to the list
         element divided by the total.
-
         """
         if fitness_transformation is None:
-            csums = np.cumsum(scores) 
+            csums = np.cumsum(scores)
         else:
             csums = np.cumsum([fitness_transformation(s) for s in scores])
         total = csums[-1]
-
-        #randomity
         r = self._random.random() * total
 
-
-
-        for i, x in enumerate(csums): 
+        for i, x in enumerate(csums):
             if x >= r:
                 break
-        return i #an index that is located at location r
+        return i
 
+    #The function below is a version of fitness_proportionate_selection
+    #adapted for Elitist Evolution and renamed for distinction.
+    #Parts of this code are copied from fitness_proportionate_selection,
+    #while others are written by J Candra
     def splitPlayersByScore(
-        self, scores: List, fitness_transformation: Callable = None
-    ) -> int:
+        self, scores: List, fitness_transformation: Callable = None,splitThresholdPercentile=50
+    ) -> int: #added input param argument for splitThresholdPercentile, which give nth-percentile
         """Divides the players based on their scores, 
         according to median (half) or nth-percentile
         as threshold
+
+        This function is adapted from fitness_proportionate_selection for Elitist Evolution.
+        Elitist Selection method is implemented.
 
         Parameters
         ----------
@@ -223,53 +230,70 @@ class MainEvoEliteMoranProcess(object):
         Returns
         -------
         2 lists of indexes derived from the above list, split according to fitness/score
-        The first list is indices belonging to lower bound that will be eliminated
-        The first list is indices belonging to upper bound that will be cloned
+        low: List of indices belonging to lower bound that will be eliminated
+        upp: List of indices belonging to upper bound that will be cloned
 
         """
-        perc=25 #50 for median/half
+        #perc=50 #50 for median/half. 25 for quarter
+        dispOutput=True #determines whether output will be printed to terminal or not
+
+        if dispOutput:    
+            print("~~~ Scores: ~~~")
+
         if fitness_transformation is None:
-            #csums = np.cumsum(scores) #csums is ndarray list of dim 1
-            print(scores)
             #scores is list of scores
-            llim=np.percentile(scores,perc)
-            ulim=np.percentile(scores,100-perc)
-            print(llim)
-            print("+++++++++++++++++")
-            print(ulim)
-            print("===========")
+            llim=np.percentile(scores,splitThresholdPercentile)
+            ulim=np.percentile(scores,100-splitThresholdPercentile)
+            if dispOutput:
+                print(scores)
 
         else:
-            array=[fitness_transformation(s) for s in scores]
-            #csums = np.cumsum(array)
-            print(array)
-            llim=np.percentile(array,perc)
-            ulim=np.percentile(array,100-perc)
+            array=[fitness_transformation(s) for s in scores]            
+            llim=np.percentile(array,splitThresholdPercentile)
+            ulim=np.percentile(array,100-splitThresholdPercentile)
+            if dispOutput:
+                print(array)
+        if dispOutput:    
+            print("*** Thresholds: ***")
+            print("+++ lower: +++")
             print(llim)
-            print("+++++++++++++++++")
+            print("+++ upper: +++")
             print(ulim)
             print("===========")
             
+        #initialize list of indices
+        upp=[] #upper: List of indices slected for cloning
+        low=[] #lower: List of indices slected for culling/elimiation/replacement
 
-        upp=[]
-        low=[]
         for n,m in enumerate(scores):
-            if m>ulim:
-                upp.append(n)
-            elif m<llim:
-                low.append(n)
+            if m>ulim: #if score exceeeds the upper threshold
+                upp.append(n) #assign for cloning
+            elif m<llim: #if score is below the lower threshold
+                low.append(n) #assign for culling
+
+        #implement list length checks. All list must be half of total population, 
+        # unless population number is odd
+        #if all score values are the same (thus low and upp is empty)
         if low==[]:
             print("empty lower")
+            #to implement:
+            #select half of total population at random
             rl = self._random.randrange(0, len(self.players))
             low.append(rl)
         if upp==[]:
             print("empty upper")
+            #to implement:
+            #select half of total population at random, provided they have not been selected by low
             ru = self._random.randrange(0, len(self.players))
             upp.append(ru)
-        print(low)
-        print("***********************")
-        print(upp)
-        print("/////////////////////////")
+
+        if dispOutput:
+            print("*** Split into lower and upper: ***")
+            print("+++ lower: +++")     
+            print(low)
+            print("+++ upper: +++")
+            print(upp)
+            print("/////////////////////////")
 
             
         #total = csums[-1] #cumulative sum of scores #csums will be a list of cimulative sums
@@ -310,11 +334,9 @@ class MainEvoEliteMoranProcess(object):
         # Just clone the player
         return self.players[index].clone()
 
-    def getCulledandCloneList(self, index: int = None) -> int: #add count input arg/param
-        """Produce the 2 list of indices that determines
-        which player will be cloned and which one will
-        be replaced with new clone
-        
+    #The function below is no longer used, but kept here for reference for getCulledandCloneList
+    def birth(self, index: int = None) -> int:
+        """The birth event.
 
         Parameters
         ----------
@@ -328,15 +350,54 @@ class MainEvoEliteMoranProcess(object):
             # possible choices
             scores.pop(index)
             # Make sure to get the correct index post-pop
+            j = self.fitness_proportionate_selection(
+                scores, fitness_transformation=self.fitness_transformation
+            )
+            if j >= index:
+                j += 1
+        else:
+            j = self.fitness_proportionate_selection(
+                scores, fitness_transformation=self.fitness_transformation
+            )
+        return j
+
+    #The function below is a slightly modified and renamed version
+    #of birth(self, index: int = None).
+    #Part of the function is still copied from birth().
+    #Some parts were removed because unused and redundant
+
+    def getCulledandCloneList(self, index: int = None) -> int: #add count input arg/param
+        """Produce the 2 list of indices that determines
+        which player will be cloned and which one will
+        be replaced with new clone
         
-        lowerList, upperList = self.splitPlayersByScore(
+
+        Parameters
+        ----------
+        index:
+            The index of the player to be copied
+
+        Returns
+        -------
+        2 lists of indexes derived from the above list, split according to fitness/score
+        lowerList:
+            List of indices belonging to lower bound that will be eliminated
+        upperList:
+            List of indices belonging to upper bound that will be cloned
+        """
+        # Compute necessary fitnesses.
+        scores = self.score_all()
+        if index is not None:
+            # Death has already occurred, so remove the dead player from the
+            # possible choices
+            scores.pop(index)
+            # Make sure to get the correct index post-pop
+        
+        lowerList, upperList = self.splitPlayersByScore( #this part is modified by J Candra
             scores, fitness_transformation=self.fitness_transformation
         )
 
-        #get list of rank index
-        #j=rankIndex[1]         #j= index of best player
-
-        return lowerList, upperList
+        return lowerList, upperList #this part is modified by J Candra
 
     def fixation_check(self) -> bool:
         """
@@ -355,6 +416,9 @@ class MainEvoEliteMoranProcess(object):
             self.fixated = True
         return self.fixated
 
+    #Modified by J Candra from the function of same name, without renaming function. 
+    # Original cannot be retained due to possible namespace clash
+    #Original version can be found in moran.py under MoranProcess class
     def __next__(self) -> object:
         """
         Iterate the population:
@@ -363,32 +427,40 @@ class MainEvoEliteMoranProcess(object):
         - chooses a player proportionally to fitness (total score) to reproduce
         (change this part)
         - mutate, if appropriate
-        - choose a player to be replaced
-        (change this part)
+        - choose half of all the players to be replaced with copies of the other half
         - update the population
 
         Returns
         -------
-        MoranEvoEliteProcess:
+        MainEvoEliteMoranProcess:
             Returns itself with a new population
         """
         # Check the exit condition, that all players are of the same type.
         if self.stop_on_fixation and self.fixation_check():
             raise StopIteration
 
+        #Perform score calculation and
         #get 2 list of indices, one of which whose scores are 
-        #under lower bounds and the other are above upper bounds    
+        #under lower bounds and represents players to be culled,
+        #and the other are above upper bounds and represents players 
+        #to be cloned and/or mutated    
         cullList, cloneList=self.getCulledandCloneList()
 
-        # Mutate and/or replace player culled from cullList 
-        # #with clone of player clone from cloneList
+        #Mutate and/or replace player pCull from cullList 
+        #with clone or mutated clone of player pClone from cloneList
         counter=0
-        for clone in cloneList: #cloneList is list of integers
-            print("j is {}".format(clone))
-            culled=cullList[counter] #cullList is list of integers
-            print("k is {}".format(culled))
-            self.players[culled]=self.mutate(clone)
+        for pClone in cloneList: #cloneList is list of integers
+            print("j is {}".format(pClone))
+            pCull=cullList[counter] #cullList is list of integers
+            print("k is {}".format(pCull))
+            self.players[pCull]=self.mutate(pClone)
             counter=counter+1
+            
+            #implement error handling or preventative measure
+            #  when pCull is out of bounds
+            #due to counter exceeding list length
+            if len(pCull)<counter-1:
+                break #stop the replacement process
 
         # Record population.
         self.populations.append(self.population_distribution())

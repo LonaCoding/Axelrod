@@ -1,2 +1,6 @@
-x=4
-print(x)
+x=False
+
+if x:
+    print("a")
+else:
+    print("b")
