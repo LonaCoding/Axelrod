@@ -22,7 +22,7 @@ def MoranTour(players,iterations):
 
         ##tournament
         #tournament = axl.Tournament(players, turns=turns, repetitions=repetitions) #orig turn=10
-        tournament = axl.EvoEliteMoranProcess(players, seed=1)
+        tournament = axl.MainEvoEliteMoranProcess(players, seed=2)
         TourRes = tournament.play() #tournament results
         #find way to write these to file
         win=tournament.winning_strategy_name
