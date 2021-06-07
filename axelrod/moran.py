@@ -1033,28 +1033,21 @@ class MoranEvoEliteProcess(object):
         # Check the exit condition, that all players are of the same type.
         if self.stop_on_fixation and self.fixation_check():
             raise StopIteration
-        if self.mode == "bd":
-            # Birth then death
-            #j = self.best_birth()
-            j = self.birth()
-            i = self.death(j)
-            #i = self.worst_death(j)
-        elif self.mode == "db":
-            # Death then birth
-            i = self.death()
-            #i = self.worst_death()
-            self.players[i] = None #delete player i
-            j = self.birth(i)
-            #j = self.best_birth(i)
-        # Mutate and/or replace player i with clone of player j
-        #make sure i and j is not random. i and j are integers
 
-        #index list
-        iList=[] #get index of the worst
-        jList=[] #get index of the best
+        #get 2 list of indices, one of which whose scores are 
+        #under lower bounds and the other are above upper bounds    
+        cullList, cloneList=getCulledandCloneList()
 
+        # Mutate and/or replace player culled from cullList 
+        # #with clone of player clone from cloneList
+        counter=0
+        for clone in cloneList: #cloneList is list of integers
+            print("j is {}".format(clone))
+            culled=cullList[counter] #cullList is list of integers
+            print("k is {}".format(culled))
+            self.players[culled]=self.mutate(clone)
+            counter=counter+1
 
-        self.players[i] = self.mutate(j)
         # Record population.
         self.populations.append(self.population_distribution())
         return self
