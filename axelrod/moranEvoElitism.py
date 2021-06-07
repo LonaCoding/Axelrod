@@ -11,8 +11,7 @@ from axelrod.graph import Graph, complete_graph
 from axelrod.match import Match
 from axelrod.random_ import BulkRandomGenerator, RandomGenerator
 
-#original: MoranProcess
-class MoranEvolutionaryProcess(object):
+class EvoEliteMoranProcess(object):
     def __init__(
         self,
         players: List[Player],
@@ -22,11 +21,11 @@ class MoranEvolutionaryProcess(object):
         game: Game = None,
         deterministic_cache: DeterministicCache = None,
         mutation_rate: float = 0.0,
-        mode: str = "bd",
+        mode: str = "bd", #other option: "db"
         interaction_graph: Graph = None,
         reproduction_graph: Graph = None,
         fitness_transformation: Callable = None,
-        mutation_method="transition",
+        mutation_method="transition", #other option: atomic (only for EvolvablePlayers)
         stop_on_fixation=True,
         seed=None,
     ) -> None:
@@ -34,12 +33,14 @@ class MoranEvolutionaryProcess(object):
         An agent based Moran process class. In each round, each player plays a
         Match with each other player. Players are assigned a fitness score by
         their total score from all matches in the round. A player is chosen to
-        reproduce proportionally to fitness, possibly mutated, and is cloned.
-        The clone replaces a randomly chosen player.
+        reproduce 
+        --proportionally to fitness--
+        based on their fitness, where the best are first to be chosen
 
-        Using evolutionary rules: 
-        Best player is chosen to reproduce (according to fitness)
+        , possibly mutated, and is cloned.
         The clone replaces the worst player.
+        
+        --The clone replaces a randomly chosen player.--
 
         If the mutation_rate is 0, the population will eventually fixate on
         exactly one player type. In this case a StopIteration exception is
@@ -189,18 +190,97 @@ class MoranEvolutionaryProcess(object):
         -------
         An index of the above list selected at random proportionally to the list
         element divided by the total.
+
         """
         if fitness_transformation is None:
-            csums = np.cumsum(scores)
+            csums = np.cumsum(scores) 
         else:
             csums = np.cumsum([fitness_transformation(s) for s in scores])
         total = csums[-1]
+
+        #randomity
         r = self._random.random() * total
 
-        for i, x in enumerate(csums):
+
+
+        for i, x in enumerate(csums): 
             if x >= r:
                 break
-        return i
+        return i #an index that is located at location r
+
+    def splitPlayersByScore(
+        self, scores: List, fitness_transformation: Callable = None
+    ) -> int:
+        """Divides the players based on their scores, 
+        according to median (half) or nth-percentile
+        as threshold
+
+        Parameters
+        ----------
+        scores: Any sequence of real numbers
+        fitness_transformation: A function mapping a score to a (non-negative) float
+
+        Returns
+        -------
+        2 lists of indexes derived from the above list, split according to fitness/score
+        The first list is indices belonging to lower bound that will be eliminated
+        The first list is indices belonging to upper bound that will be cloned
+
+        """
+        perc=25 #50 for median/half
+        if fitness_transformation is None:
+            #csums = np.cumsum(scores) #csums is ndarray list of dim 1
+            print(scores)
+            #scores is list of scores
+            llim=np.percentile(scores,perc)
+            ulim=np.percentile(scores,100-perc)
+            print(llim)
+            print("+++++++++++++++++")
+            print(ulim)
+            print("===========")
+
+        else:
+            array=[fitness_transformation(s) for s in scores]
+            #csums = np.cumsum(array)
+            print(array)
+            llim=np.percentile(array,perc)
+            ulim=np.percentile(array,100-perc)
+            print(llim)
+            print("+++++++++++++++++")
+            print(ulim)
+            print("===========")
+            
+
+        upp=[]
+        low=[]
+        for n,m in enumerate(scores):
+            if m>ulim:
+                upp.append(n)
+            elif m<llim:
+                low.append(n)
+        if low==[]:
+            print("empty lower")
+            rl = self._random.randrange(0, len(self.players))
+            low.append(rl)
+        if upp==[]:
+            print("empty upper")
+            ru = self._random.randrange(0, len(self.players))
+            upp.append(ru)
+        print(low)
+        print("***********************")
+        print(upp)
+        print("/////////////////////////")
+
+            
+        #total = csums[-1] #cumulative sum of scores #csums will be a list of cimulative sums
+        #randomity
+        #r = self._random.random() * total #r is fitness threshold
+
+
+        #for i, x in enumerate(csums): #i is index of list
+        #    if x >= r:#x is cumulative sum
+        #        break
+        return low,upp #2 lists of indices, one for culling and another for cloning
 
     def mutate(self, index: int) -> Player:
         """Mutate the player at index.
@@ -259,6 +339,44 @@ class MoranEvolutionaryProcess(object):
             i = self.index[vertex]
         return i
 
+    def worst_death(self, index: int = None) -> int:
+        """
+        Selects the player to be removed.
+        The worst are selected
+
+        Note that the in the birth-death case, the player that is reproducing
+        may also be replaced. However in the death-birth case, this player will
+        be excluded from the choices.
+
+        Parameters
+        ----------
+        index:
+            The index of the player to be removed
+        """
+        if index is None:
+
+            #findExtremeValue()
+
+
+            # Select a player to be replaced globally
+            #randomity
+            i = self._random.randrange(0, len(self.players))
+
+            # Record internally for use in _matchup_indices
+            self.dead = i
+        else:
+            # Select locally
+            #means the choice is made beforehand
+            # index is not None in this case
+            vertex = self._random.choice(
+                sorted(
+                    self.reproduction_graph.out_vertices(self.locations[index])
+                )
+            )
+            i = self.index[vertex]
+        return i
+        
+
     def birth(self, index: int = None) -> int:
         """The birth event.
 
@@ -285,6 +403,34 @@ class MoranEvolutionaryProcess(object):
             )
         return j
 
+    def getCulledandCloneList(self, index: int = None) -> int: #add count input arg/param
+        """Produce the 2 list of indices that determines
+        which player will be cloned and which one will
+        be replaced with new clone
+        
+
+        Parameters
+        ----------
+        index:
+            The index of the player to be copied
+        """
+        # Compute necessary fitnesses.
+        scores = self.score_all()
+        if index is not None:
+            # Death has already occurred, so remove the dead player from the
+            # possible choices
+            scores.pop(index)
+            # Make sure to get the correct index post-pop
+        
+        lowerList, upperList = self.splitPlayersByScore(
+            scores, fitness_transformation=self.fitness_transformation
+        )
+
+        #get list of rank index
+        #j=rankIndex[1]         #j= index of best player
+
+        return lowerList, upperList
+
     def fixation_check(self) -> bool:
         """
         Checks if the population is all of a single type
@@ -308,29 +454,35 @@ class MoranEvolutionaryProcess(object):
 
         - play the round's matches
         - chooses a player proportionally to fitness (total score) to reproduce
+        (change this part)
         - mutate, if appropriate
         - choose a player to be replaced
+        (change this part)
         - update the population
 
         Returns
         -------
-        MoranProcess:
+        MoranEvoEliteProcess:
             Returns itself with a new population
         """
         # Check the exit condition, that all players are of the same type.
         if self.stop_on_fixation and self.fixation_check():
             raise StopIteration
-        if self.mode == "bd":
-            # Birth then death
-            j = self.birth()
-            i = self.death(j)
-        elif self.mode == "db":
-            # Death then birth
-            i = self.death()
-            self.players[i] = None
-            j = self.birth(i)
-        # Mutate and/or replace player i with clone of player j
-        self.players[i] = self.mutate(j)
+
+        #get 2 list of indices, one of which whose scores are 
+        #under lower bounds and the other are above upper bounds    
+        cullList, cloneList=getCulledandCloneList()
+
+        # Mutate and/or replace player culled from cullList 
+        # #with clone of player clone from cloneList
+        counter=0
+        for clone in cloneList: #cloneList is list of integers
+            print("j is {}".format(clone))
+            culled=cullList[counter] #cullList is list of integers
+            print("k is {}".format(culled))
+            self.players[culled]=self.mutate(clone)
+            counter=counter+1
+
         # Record population.
         self.populations.append(self.population_distribution())
         return self
@@ -435,7 +587,7 @@ class MoranEvolutionaryProcess(object):
         """
         if not self.stop_on_fixation or self.mutation_rate != 0:
             raise ValueError(
-                "MoranProcess.play() will never exit if mutation_rate is"
+                "MoranEvoEliteProcess.play() will never exit if mutation_rate is"
                 "nonzero or stop_on_fixation is False. Use iteration instead."
             )
         while True:
@@ -489,92 +641,3 @@ class MoranEvolutionaryProcess(object):
         ax.set_ylabel("Number of Individuals")
         ax.legend()
         return ax
-
-
-class ApproximateMoranProcess(MoranProcess):
-    """
-    A class to approximate a Moran process based
-    on a distribution of potential Match outcomes.
-
-    Instead of playing the matches, the result is sampled
-    from a dictionary of player tuples to distribution of match outcomes
-    """
-
-    def __init__(
-        self,
-        players: List[Player],
-        cached_outcomes: dict,
-        mutation_rate: float = 0,
-        seed: Optional[int] = None,
-    ) -> None:
-        """
-        Parameters
-        ----------
-        players:
-        cached_outcomes:
-            Mapping tuples of players to instances of the moran.Pdf class.
-        mutation_rate:
-            The rate of mutation. Replicating players are mutated with
-            probability `mutation_rate`
-        """
-        super(ApproximateMoranProcess, self).__init__(
-            players,
-            turns=0,
-            noise=0,
-            deterministic_cache=None,
-            mutation_rate=mutation_rate,
-            seed=seed,
-        )
-        self.cached_outcomes = cached_outcomes
-
-    def set_players(self) -> None:
-        """Copy the initial players into the first population."""
-        self.players = []
-        for player in self.initial_players:
-            player.reset()
-            self.players.append(player)
-        self.populations = [self.population_distribution()]
-
-    def score_all(self) -> List:
-        """Plays the next round of the process. Every player is paired up
-        against every other player and the total scores are obtained from the
-        cached outcomes.
-
-        Returns
-        -------
-        scores:
-            List of scores for each player
-        """
-        N = len(self.players)
-        scores = [0] * N
-        for i in range(N):
-            for j in range(i + 1, N):
-                player_names = tuple(
-                    [str(self.players[i]), str(self.players[j])]
-                )
-                cached_score = self._get_scores_from_cache(player_names)
-                scores[i] += cached_score[0]
-                scores[j] += cached_score[1]
-        self.score_history.append(scores)
-        return scores
-
-    def _get_scores_from_cache(self, player_names: Tuple) -> Tuple:
-        """
-        Retrieve the scores from the players in the cache
-
-        Parameters
-        ----------
-        player_names:
-            The names of the players
-
-        Returns
-        -------
-        scores:
-            The scores of the players in that particular match
-        """
-        try:
-            match_scores = self.cached_outcomes[player_names].sample()
-            return match_scores
-        except KeyError:  # If players are stored in opposite order
-            match_scores = self.cached_outcomes[player_names[::-1]].sample()
-            return match_scores[::-1]
