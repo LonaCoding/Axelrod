@@ -773,13 +773,12 @@ class MoranEvoEliteProcess(object):
                 break
         return i #an index that is located at location r
 
-    def best_rank_selection(
+    def splitPlayersByScore(
         self, scores: List, fitness_transformation: Callable = None
     ) -> int:
-        """Randomly selects an individual proportionally to score.
-
-        have to modify this such that it is not random, but uses incrementing counter
-        to select from best to worse, until 2 before half of population
+        """Divides the players based on their scores, 
+        according to median (half) or nth-percentile
+        as threshold
 
         Parameters
         ----------
@@ -788,41 +787,65 @@ class MoranEvoEliteProcess(object):
 
         Returns
         -------
-        An index of the above list selected at random proportionally to the list
-        element divided by the total.
-
-        An index of the above list selected according to which has the best fitness
+        2 lists of indexes derived from the above list, split according to fitness/score
+        The first list is indices belonging to lower bound that will be eliminated
+        The first list is indices belonging to upper bound that will be cloned
 
         """
+        perc=25 #50 for median/half
         if fitness_transformation is None:
-            csums = np.cumsum(scores) #csums is ndarray list of dim 1
+            #csums = np.cumsum(scores) #csums is ndarray list of dim 1
             print(scores)
             #scores is list of scores
-            #=findExtremeValue(scores,1) #1=max
+            llim=np.percentile(scores,perc)
+            ulim=np.percentile(scores,100-perc)
+            print(llim)
+            print("+++++++++++++++++")
+            print(ulim)
+            print("===========")
 
-            sortScore=np.sort(scores)
         else:
             array=[fitness_transformation(s) for s in scores]
-            csums = np.cumsum(array)
+            #csums = np.cumsum(array)
             print(array)
+            llim=np.percentile(array,perc)
+            ulim=np.percentile(array,100-perc)
+            print(llim)
+            print("+++++++++++++++++")
+            print(ulim)
+            print("===========")
+            
 
-        #find mode of scores. use for loop. take note of counter value.
-        #use random(0,2) as tiebreaker
+        upp=[]
+        low=[]
+        for n,m in enumerate(scores):
+            if m>ulim:
+                upp.append(n)
+            elif m<llim:
+                low.append(n)
+        if low==[]:
+            print("empty lower")
+            rl = self._random.randrange(0, len(self.players))
+            low.append(rl)
+        if upp==[]:
+            print("empty upper")
+            ru = self._random.randrange(0, len(self.players))
+            upp.append(ru)
+        print(low)
+        print("***********************")
+        print(upp)
+        print("/////////////////////////")
 
             
-        total = csums[-1] #cumulative sum of scores
-
-        #csums will be a list of cimulative sums. need to know format
-
+        #total = csums[-1] #cumulative sum of scores #csums will be a list of cimulative sums
         #randomity
         #r = self._random.random() * total #r is fitness threshold
-        r = total #ensures last one selected
 
 
-        for i, x in enumerate(csums): #i is index of list
-            if x >= r:#x is cumulative sum
-                break
-        return i #an index location of a value whose x reaches fitness threshold
+        #for i, x in enumerate(csums): #i is index of list
+        #    if x >= r:#x is cumulative sum
+        #        break
+        return low,upp #2 lists of indices, one for culling and another for cloning
 
     def mutate(self, index: int) -> Player:
         """Mutate the player at index.
@@ -945,9 +968,11 @@ class MoranEvoEliteProcess(object):
             )
         return j
 
-    def best_birth(self, index: int = None) -> int: #add count input arg/param
-        """The birth event.
-        remove dependency on fitness_proportionate_selection
+    def getCulledandCloneList(self, index: int = None) -> int: #add count input arg/param
+        """Produce the 2 list of indices that determines
+        which player will be cloned and which one will
+        be replaced with new clone
+        
 
         Parameters
         ----------
@@ -961,20 +986,15 @@ class MoranEvoEliteProcess(object):
             # possible choices
             scores.pop(index)
             # Make sure to get the correct index post-pop
-            j = self.fitness_proportionate_selection(
-                scores, fitness_transformation=self.fitness_transformation
-            )
-            if j >= index:
-                j += 1
-        else:
-            j = self.fitness_proportionate_selection(
-                scores, fitness_transformation=self.fitness_transformation
-            )
+        
+        lowerList, upperList = self.splitPlayersByScore(
+            scores, fitness_transformation=self.fitness_transformation
+        )
 
         #get list of rank index
         #j=rankIndex[1]         #j= index of best player
 
-        return j
+        return lowerList, upperList
 
     def fixation_check(self) -> bool:
         """
