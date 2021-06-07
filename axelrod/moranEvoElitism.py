@@ -459,7 +459,7 @@ class MainEvoEliteMoranProcess(object):
             #implement error handling or preventative measure
             #  when pCull is out of bounds
             #due to counter exceeding list length
-            if len(pCull)<counter-1:
+            if len(cullList)<counter-1:
                 break #stop the replacement process
 
         # Record population.
@@ -554,6 +554,7 @@ class MainEvoEliteMoranProcess(object):
         # Reset all the players
         self.set_players()
 
+    #minor modifications to docs
     def play(self) -> List[Counter]:
         """
         Play the process out to completion. If played with mutation this will
