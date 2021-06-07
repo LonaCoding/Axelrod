@@ -4,7 +4,7 @@ import axelrod as axl
 import pprint #for formatting output lists
 import sys #outout terminal result to file
 
-def MoranTour(players,turns,seed=1,iterations):
+def MoranTour(players,turns,seed=1,iterations=1):
 
     csv=False
     n=1
@@ -42,8 +42,8 @@ def MoranTour(players,turns,seed=1,iterations):
         else:
             fileType=".txt"
 
-        ax = tournament.populations_plot()
-        plt.show() 
+        #popPlot = tournament.populations_plot()
+        #plt.show()
 
         #FileName="AllTournamentOutput{newFileNameNumber}{fileType}".format(newFileNameNumber=newFileNameNumber,fileType=fileType)#If want to modify naming format, replace the "ScrListBrandModel" part. DO NOT MODIFY ANYTHING ELSE, including bracket and .format() content. 
 
@@ -68,6 +68,8 @@ def MoranTour(players,turns,seed=1,iterations):
             #sys.stdout=orig_stdOut #change standard output back to default/normal
         n=n+1
 
+    return tournament
+
 #AllStratPlayers = [s() for s in axl.all_strategies]
     #for s in AllStratPlayers: #list of strategies in play
     #    pprint.pprint(s)
@@ -77,7 +79,16 @@ player3=[axl.TitForTat(), axl.Random(), axl.Negation()]
 player6=[axl.TitForTat(), axl.Random(), axl.Negation(),axl.CyclerCCD(), axl.MemoryOnePlayer(), axl.Inverse()]
 
 #add players that were selected from 20-,50- and 200-turn tournaments' winners
-playerBest=[axl.TitForTat(), axl.Random(), axl.Negation(),axl.CyclerCCD(), axl.MemoryOnePlayer(), axl.Inverse()]
+playerBest=[axl.EvolvedFSM6(), axl.SecondByRichardHufford(), axl.TitForTat(),axl.EvolvedFSM16(), axl.EvolvedHMM5(), axl.EvolvedLookerUp2_2_2(), axl.Michaelos()]
+
+#winners:
+#'Evolved FSM 6': 50-turn 1st
+#'Evolved HMM 5': 50-turn 2nd
+#'EvolvedLookerUp2_2_2': 50-turn 3rd
+#'Second by RichardHufford': 20-turn 1st
+#'Evolved FSM 16': 20-turn 2nd
+#'Michaelos: (D,)': 20-turn 3rd
+
 
 #example from github
 players = [axl.Defector(), axl.Defector(), axl.Defector(),
@@ -90,7 +101,9 @@ players = [axl.Defector(), axl.Defector(), axl.Defector(),
 #def TournamentWithResultFile(players,turns,repetitions,iterations,newFileNameNumber):
 #TournamentWithResultFile(AllStratPlayers,20,3,2,3)
 #TournamentWithResult(AllStratPlayers,50,3,5)
-MoranTour(player6,5,1,2)
+tournament=MoranTour(player6,8,3,1)
+popPlot = tournament.populations_plot()
+plt.show()
 
 
 
