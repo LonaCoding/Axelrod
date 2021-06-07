@@ -105,7 +105,7 @@ players = [axl.Defector(), axl.Defector(), axl.Defector(),
 #def TournamentWithResultFile(players,turns,repetitions,iterations,newFileNameNumber):
 #TournamentWithResultFile(AllStratPlayers,20,3,2,3)
 #TournamentWithResult(AllStratPlayers,50,3,5)
-tournament=MoranTour(playerBest,8,3,1)
+tournament=MoranTour(players,200,5,3)
 #popPlot = tournament.populations_plot()
 #plt.show()
 
