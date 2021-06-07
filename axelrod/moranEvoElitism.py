@@ -279,26 +279,40 @@ class MainEvoEliteMoranProcess(object):
 
         #implement list length checks. All list must be half of total population, 
         # unless population number is odd
-        #if all score values are the same (thus low and upp is empty)
-        if low==[]:
-            print("empty lower")
+        #if all score values are the same (thus both low and upp is empty)
+        halfPop=round(0.5*len(self.players)) #have it round down. find the right function
+#        if len(upp)<halfPop:
+            #get someone from uppLim. use while loop
+
+#        if low==[]:
+#            print("empty lower")
             #to implement:
-            #select half of total population at random
-            rl = self._random.randrange(0, len(self.players))
-            low.append(rl)
-        if upp==[]:
-            print("empty upper")
+            #select half of total population 
+            
+#        if upp==[]:
+#            print("empty upper")
             #to implement:
             #select half of total population at random, provided they have not been selected by low
-            ru = self._random.randrange(0, len(self.players))
-            upp.append(ru)
+            
+        
+        #if low==[] & upp==[]:
+            #create sequence of values of lenth equal to total players
+        #    rl = self._random.randrange(0, len(self.players))
+        #    low.append(rl)
+            #remove
+        #    ru = self._random.randrange(0, len(self.players))
+        #    upp.append(ru)
 
         if dispOutput:
             print("*** Split into lower and upper: ***")
             print("+++ lower: +++")     
             print(low)
+            print("+++ lower threshold: +++")     
+            print(lowLim)
             print("+++ upper: +++")
             print(upp)
+            print("+++ upper threshold: +++")     
+            print(uppLim)
             print("/////////////////////////")
 
             
@@ -400,7 +414,7 @@ class MainEvoEliteMoranProcess(object):
             # Make sure to get the correct index post-pop
         
         lowerList, upperList = self.splitPlayersByScore( #this part is modified by J Candra
-            scores, fitness_transformation=self.fitness_transformation
+            scores, fitness_transformation=self.fitness_transformation #add percentile input arg here!
         )
 
         return lowerList, upperList #this part is modified by J Candra

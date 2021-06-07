@@ -4,10 +4,11 @@ import axelrod as axl
 import pprint #for formatting output lists
 import sys #outout terminal result to file
 
-def MoranTour(players,turns,seed=1,iterations=1,newFileNameNumber=0):
+def MoranTour(players,turns,seedOffset=1,iterations=1,newFileNameNumber=0):
 
     csv=False
     n=1
+    seed=seedOffset+0 #get first seed
 
     while n<iterations+1:
         #AllStratPlayers = [s() for s in axl.all_strategies]
@@ -56,7 +57,7 @@ def MoranTour(players,turns,seed=1,iterations=1,newFileNameNumber=0):
 
         #with open(FileName,'w') as outFile:
             #sys.stdout=outFile
-        print("Trial run {numTrial}:".format(numTrial=n))
+        print("Trial run {numTrial}/seed {seedNum}:".format(numTrial=n,seedNum=seed))
         print("..................................................")
         print("winner:")
         print(win)
@@ -74,7 +75,7 @@ def MoranTour(players,turns,seed=1,iterations=1,newFileNameNumber=0):
         print("***************************************************")
             #sys.stdout=orig_stdOut #change standard output back to default/normal
         n=n+1
-
+        seed=seed+1
 
 #AllStratPlayers = [s() for s in axl.all_strategies]
     #for s in AllStratPlayers: #list of strategies in play
@@ -111,8 +112,9 @@ players = [axl.Defector(), axl.Defector(), axl.Defector(),
 #def TournamentWithResultFile(players,turns,repetitions,iterations,newFileNameNumber):
 #TournamentWithResultFile(AllStratPlayers,20,3,2,3)
 #TournamentWithResult(AllStratPlayers,50,3,5)
-#MoranTour(playerBest,200,5,3,2)
-MoranTour(playerBest,10,5,3,2)
+
+#MoranTour(players,turns,seedOffset=1,iterations=1,newFileNameNumber=0)
+MoranTour(playerBest,200,5,10,1)
 #popPlot = tournament.populations_plot()
 #plt.show()
 
