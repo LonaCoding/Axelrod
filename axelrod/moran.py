@@ -876,37 +876,13 @@ class EvoEliteMoranProcess(object):
         return self.players[index].clone()
         
 
-    def birth(self, index: int = None) -> int:
-        """The birth event.
-
-        Parameters
-        ----------
-        index:
-            The index of the player to be copied
-        """
-        # Compute necessary fitnesses.
-        scores = self.score_all()
-        if index is not None:
-            # Death has already occurred, so remove the dead player from the
-            # possible choices
-            scores.pop(index)
-            # Make sure to get the correct index post-pop
-            j = self.fitness_proportionate_selection(
-                scores, fitness_transformation=self.fitness_transformation
-            )
-            if j >= index:
-                j += 1
-        else:
-            j = self.fitness_proportionate_selection(
-                scores, fitness_transformation=self.fitness_transformation
-            )
-        return j
-
     def getCulledandCloneList(self, index: int = None) -> int: #add count input arg/param
         """Produce the 2 list of indices that determines
         which player will be cloned and which one will
         be replaced with new clone
-        
+
+        This function is adapted from Birth(self, index: int = None),
+        with pruning and output modification
 
         Parameters
         ----------
