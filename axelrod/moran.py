@@ -792,7 +792,7 @@ class EvoEliteMoranProcess(object):
         The first list is indices belonging to upper bound that will be cloned
 
         """
-        perc=25 #50 for median/half
+        perc=50 #50 for median/half
         if fitness_transformation is None:
             #csums = np.cumsum(scores) #csums is ndarray list of dim 1
             print(scores)
@@ -874,72 +874,6 @@ class EvoEliteMoranProcess(object):
                 return p.clone()
         # Just clone the player
         return self.players[index].clone()
-
-    def death(self, index: int = None) -> int:
-        """
-        Selects the player to be removed.
-
-        Note that the in the birth-death case, the player that is reproducing
-        may also be replaced. However in the death-birth case, this player will
-        be excluded from the choices.
-
-        Parameters
-        ----------
-        index:
-            The index of the player to be removed
-        """
-        if index is None:
-            # Select a player to be replaced globally
-            i = self._random.randrange(0, len(self.players))
-            # Record internally for use in _matchup_indices
-            self.dead = i
-        else:
-            # Select locally
-            # index is not None in this case
-            vertex = self._random.choice(
-                sorted(
-                    self.reproduction_graph.out_vertices(self.locations[index])
-                )
-            )
-            i = self.index[vertex]
-        return i
-
-    def worst_death(self, index: int = None) -> int:
-        """
-        Selects the player to be removed.
-        The worst are selected
-
-        Note that the in the birth-death case, the player that is reproducing
-        may also be replaced. However in the death-birth case, this player will
-        be excluded from the choices.
-
-        Parameters
-        ----------
-        index:
-            The index of the player to be removed
-        """
-        if index is None:
-
-            #findExtremeValue()
-
-
-            # Select a player to be replaced globally
-            #randomity
-            i = self._random.randrange(0, len(self.players))
-
-            # Record internally for use in _matchup_indices
-            self.dead = i
-        else:
-            # Select locally
-            #means the choice is made beforehand
-            # index is not None in this case
-            vertex = self._random.choice(
-                sorted(
-                    self.reproduction_graph.out_vertices(self.locations[index])
-                )
-            )
-            i = self.index[vertex]
-        return i
         
 
     def birth(self, index: int = None) -> int:
@@ -991,9 +925,6 @@ class EvoEliteMoranProcess(object):
             scores, fitness_transformation=self.fitness_transformation
         )
 
-        #get list of rank index
-        #j=rankIndex[1]         #j= index of best player
-
         return lowerList, upperList
 
     def fixation_check(self) -> bool:
@@ -1036,7 +967,7 @@ class EvoEliteMoranProcess(object):
 
         #get 2 list of indices, one of which whose scores are 
         #under lower bounds and the other are above upper bounds    
-        cullList, cloneList=getCulledandCloneList()
+        cullList, cloneList=self.getCulledandCloneList()
 
         # Mutate and/or replace player culled from cullList 
         # #with clone of player clone from cloneList
