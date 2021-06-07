@@ -76,10 +76,14 @@ def MoranTour(players,turns,seed=1,iterations=1):
 
 player3=[axl.TitForTat(), axl.Random(), axl.Negation()]
 
-player6=[axl.TitForTat(), axl.Random(), axl.Negation(),axl.CyclerCCD(), axl.MemoryOnePlayer(), axl.Inverse()]
+player6=[axl.TitForTat(), axl.Random(), axl.Negation(),
+        axl.CyclerCCD(), axl.MemoryOnePlayer(), axl.Inverse()]
 
 #add players that were selected from 20-,50- and 200-turn tournaments' winners
-playerBest=[axl.EvolvedFSM6(), axl.SecondByRichardHufford(), axl.TitForTat(),axl.EvolvedFSM16(), axl.EvolvedHMM5(), axl.EvolvedLookerUp2_2_2(), axl.Michaelos()]
+playerBest=[axl.EvolvedFSM6(), axl.SecondByRichardHufford(), axl.TitForTat(), 
+            axl.EvolvedFSM16(), axl.EvolvedHMM5(), axl.EvolvedLookerUp2_2_2(), 
+            axl.Michaelos(), axl.Defector(),axl.Cooperator(),axl.Random(),
+            axl.WinStayLoseShift(),axl.Grudger(),axl.Prober(), axl.TitFor2Tats()]
 
 #winners:
 #'Evolved FSM 6': 50-turn 1st
@@ -101,9 +105,9 @@ players = [axl.Defector(), axl.Defector(), axl.Defector(),
 #def TournamentWithResultFile(players,turns,repetitions,iterations,newFileNameNumber):
 #TournamentWithResultFile(AllStratPlayers,20,3,2,3)
 #TournamentWithResult(AllStratPlayers,50,3,5)
-tournament=MoranTour(player6,8,3,1)
-popPlot = tournament.populations_plot()
-plt.show()
+tournament=MoranTour(playerBest,8,3,1)
+#popPlot = tournament.populations_plot()
+#plt.show()
 
 
 
