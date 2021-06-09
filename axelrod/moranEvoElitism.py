@@ -336,8 +336,8 @@ class MainEvoEliteMoranProcess(object):
             if len(lowLimToPop)>1: #don't use this if lowLimToPop only has one element. will cause randrange empty list error
                 rand=self._random.randrange(0, len(lowLimToPop)-1) #o is first elem
                 low.append(lowLimToPop.pop(rand))
-            else:
-                e
+            elif len(lowLimToPop)==1:
+                low.append(lowLimToPop.pop()) #bypass the random number generator, else ill cause error due to short list
         if carryOver:
             uppLimToPop=lowLimToPop
         while len(upp)<PopSubsampleSize: #loop does not trigger if length of low is eaqual or greater
