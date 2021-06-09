@@ -5,6 +5,7 @@ from typing import Callable, List, Optional, Set, Tuple
 
 import matplotlib.pyplot as plt
 import numpy as np
+import math #needed for floor()
 from axelrod import DEFAULT_TURNS, EvolvablePlayer, Game, Player
 from axelrod.deterministic_cache import DeterministicCache
 from axelrod.graph import Graph, complete_graph
@@ -277,10 +278,13 @@ class MainEvoEliteMoranProcess(object):
             elif m==llim: #if score matches the lower threshold
                 lowLim.append(n)
 
+        PopulationSize=len(self.players)
+
         #implement list length checks. All list must be half of total population, 
         # unless population number is odd
-        #if all score values are the same (thus both low and upp is empty)
-        halfPop=round(0.5*len(self.players)) #have it round down. find the right function
+        
+        halfPop=math.floor(0.5*PopulationSize) #have it round down to floor value in case odd number. find the right function
+        #if value exceeds 0.5
 #        if len(upp)<halfPop:
             #get someone from uppLim. use while loop
 
@@ -295,13 +299,22 @@ class MainEvoEliteMoranProcess(object):
             #select half of total population at random, provided they have not been selected by low
             
         
-        #if low==[] & upp==[]:
+        if low==[] & upp==[]:#if all score values are the same (thus both low and upp is empty)
             #create sequence of values of lenth equal to total players
-        #    rl = self._random.randrange(0, len(self.players))
+            fullIndexList=list(range(PopulationSize)) #inspired by https://note.nkmk.me/en/python-range-usage/
+            p=0
+            rouletteLimit=halfPop
+            while p<halfPop:
+                r = self._random.randrange(0, rouletteLimit)
+                #add to low
+                p=p+1
+                rouletteLimit=rouletteLimit-1
         #    low.append(rl)
             #remove
         #    ru = self._random.randrange(0, len(self.players))
         #    upp.append(ru)
+
+
 
         if dispOutput:
             print("*** Split into lower and upper: ***")
