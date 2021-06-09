@@ -34,6 +34,7 @@ class MainEvoEliteMoranProcess(object):
         stop_on_fixation=True,
         seed=None,
         splitThresholdPercentile=50, #coded by J Candra. default: split population into half, by median. Range: 1-50
+        dispOutput=True,
     ) -> None:
         """
         An agent based Moran process class. In each round, each player plays a
@@ -103,8 +104,13 @@ class MainEvoEliteMoranProcess(object):
             (this part was coded by J Candra)
             n value of nth-percentile used to divide the population into seperate subpopulations
             for cloning and culling
+        dispOutput:
+            (this part was coded by J Candra)
+            Determines wether to print output of some information regarding process
+            of splitting the population.
         """
         assert (splitThresholdPercentile>0) and (splitThresholdPercentile<=50)#this part was coded by J Candra.
+        assert dispOutput in [True, False]#this part was coded by J Candra.
         m = mutation_method.lower()
         if m in ["atomic", "transition"]:
             self.mutation_method = m
@@ -116,6 +122,8 @@ class MainEvoEliteMoranProcess(object):
         assert (noise >= 0) and (noise <= 1)
         mode = mode.lower()
         assert mode in ["bd", "db"]
+        self.splitThresholdPercentile=splitThresholdPercentile
+        self.dispOutput=dispOutput        
         self.mode = mode
         if deterministic_cache is not None:
             self.deterministic_cache = deterministic_cache
@@ -220,7 +228,8 @@ class MainEvoEliteMoranProcess(object):
     #Parts of this code are copied from fitness_proportionate_selection,
     #while others are written by J Candra
     def splitPlayersByScore(
-        self, scores: List, fitness_transformation: Callable = None#,splitThresholdPercentile=50 #old reference
+        self, scores: List, fitness_transformation: Callable = None #,splitThresholdPercentile=50 #old reference
+        #,splitThresholdPercentile=50,dispOutput=True
     ) -> int: #added input param argument for splitThresholdPercentile, which give nth-percentile
         """Divides the players based on their scores, 
         according to median (half) or nth-percentile
@@ -242,7 +251,7 @@ class MainEvoEliteMoranProcess(object):
 
         """
         #perc=50 #50 for median/half. 25 for quarter
-        dispOutput=True #determines whether output will be printed to terminal or not
+        #dispOutput=True #determines whether output will be printed to terminal or not
 
         if dispOutput:  
             print("######################################")  
@@ -449,7 +458,8 @@ class MainEvoEliteMoranProcess(object):
         scores = self.score_all()
         
         lowerList, upperList = self.splitPlayersByScore( #this part is modified by J Candra
-            scores, fitness_transformation=self.fitness_transformation, #add percentile input arg here!
+            scores, fitness_transformation=self.fitness_transformation#, #add percentile input arg here!
+#            splitThresholdPercentile=self.splitThresholdPercentile,dispOutput=self.dispOutput
         )
 
         return lowerList, upperList #this part is modified by J Candra
