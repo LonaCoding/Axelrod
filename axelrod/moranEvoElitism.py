@@ -33,6 +33,7 @@ class MainEvoEliteMoranProcess(object):
         mutation_method="transition", #other option: atomic (only for EvolvablePlayers)
         stop_on_fixation=True,
         seed=None,
+        splitThresholdPercentile=50, #coded by J Candra. default: split population into half, by median. Range: 1-50
     ) -> None:
         """
         An agent based Moran process class. In each round, each player plays a
@@ -98,7 +99,12 @@ class MainEvoEliteMoranProcess(object):
             A bool indicating if the process should stop on fixation
         seed: int
             A random seed for reproducibility
+        splitThresholdPercentile: int 
+            (this part was coded by J Candra)
+            n value of nth-percentile used to divide the population into seperate subpopulations
+            for cloning and culling
         """
+        assert (splitThresholdPercentile>0) and (splitThresholdPercentile<=50)#this part was coded by J Candra.
         m = mutation_method.lower()
         if m in ["atomic", "transition"]:
             self.mutation_method = m
@@ -214,7 +220,7 @@ class MainEvoEliteMoranProcess(object):
     #Parts of this code are copied from fitness_proportionate_selection,
     #while others are written by J Candra
     def splitPlayersByScore(
-        self, scores: List, fitness_transformation: Callable = None,splitThresholdPercentile=50
+        self, scores: List, fitness_transformation: Callable = None#,splitThresholdPercentile=50 #old reference
     ) -> int: #added input param argument for splitThresholdPercentile, which give nth-percentile
         """Divides the players based on their scores, 
         according to median (half) or nth-percentile
@@ -243,19 +249,20 @@ class MainEvoEliteMoranProcess(object):
 
         if fitness_transformation is None:
             #scores is list of scores
-            llim=np.percentile(scores,splitThresholdPercentile)
-            ulim=np.percentile(scores,100-splitThresholdPercentile)
+            llim=np.percentile(scores,self.splitThresholdPercentile)
+            ulim=np.percentile(scores,100-self.splitThresholdPercentile)
             if dispOutput:
                 print(scores)
 
         else:
             array=[fitness_transformation(s) for s in scores]            
-            llim=np.percentile(array,splitThresholdPercentile)
-            ulim=np.percentile(array,100-splitThresholdPercentile)
+            llim=np.percentile(array,self.splitThresholdPercentile)
+            ulim=np.percentile(array,100-self.splitThresholdPercentile)
             if dispOutput:
                 print(array)
         if dispOutput:    
             print("*** Thresholds: ***")
+            print("percentile: {}".format(self.splitThresholdPercentile))
             print("+++ lower: +++")
             print(llim)
             print("+++ upper: +++")
@@ -309,6 +316,7 @@ class MainEvoEliteMoranProcess(object):
         #   11111112
         #at what condition would len(low)=threshold-missing and len(lowLim)<missing
 
+        ##only if using median as limit
         #if low==[] & upp==[]:#if all score values are the same (thus both low and upp is empty)
         #    #create sequence of values of lenth equal to total players
         #    fullIndexList=list(range(PopulationSize)) #inspired by https://note.nkmk.me/en/python-range-usage/
@@ -338,15 +346,21 @@ class MainEvoEliteMoranProcess(object):
                 low.append(lowLimToPop.pop(rand))
             elif len(lowLimToPop)==1:
                 low.append(lowLimToPop.pop()) #bypass the random number generator, else ill cause error due to short list
+            else:#if lowLimToPop is empty
+                break #stop the loop.
         if carryOver:
             uppLimToPop=lowLimToPop
         while len(upp)<PopSubsampleSize: #loop does not trigger if length of low is eaqual or greater
             if len(uppLimToPop)>1: #don't use this if uppLimToPop only has one element. will cause randrange empty list error                
                 rand=self._random.randrange(0, len(uppLimToPop)-1)
                 upp.append(uppLimToPop.pop(rand))
-
-
-            
+            if len(uppLimToPop)>1: #don't use this if lowLimToPop only has one element. will cause randrange empty list error
+                rand=self._random.randrange(0, len(uppLimToPop)-1) #o is first elem
+                upp.append(uppLimToPop.pop(rand))
+            elif len(uppLimToPop)==1:
+                upp.append(uppLimToPop.pop()) #bypass the random number generator, else ill cause error due to short list
+            else:#if uppLimToPop is empty
+                break #stop the loop.
 
         if dispOutput:
             print("*** Split into lower and upper: ***")
@@ -431,7 +445,7 @@ class MainEvoEliteMoranProcess(object):
     #Part of the function is still copied from birth().
     #Some parts were removed because unused and redundant
 
-    def getCulledandCloneList(self, index: int = None) -> int: #add count input arg/param
+    def getCulledandCloneList(self,splitThresholdPercentile) -> int: #add count input arg/param
         """Produce the 2 list of indices that determines
         which player will be cloned and which one will
         be replaced with new clone
@@ -439,8 +453,11 @@ class MainEvoEliteMoranProcess(object):
 
         Parameters
         ----------
-        index:
-            The index of the player to be copied
+        splitThresholdPercentile:
+            N value of Nth-percentile that determines where boundary
+            of splitting the population into clone candidates and
+            culling candidates is located, which will be used to sort
+            and assign indices into lists: lowerList and upperList.
 
         Returns
         -------
@@ -452,14 +469,10 @@ class MainEvoEliteMoranProcess(object):
         """
         # Compute necessary fitnesses.
         scores = self.score_all()
-        if index is not None:
-            # Death has already occurred, so remove the dead player from the
-            # possible choices
-            scores.pop(index)
-            # Make sure to get the correct index post-pop
         
         lowerList, upperList = self.splitPlayersByScore( #this part is modified by J Candra
-            scores, fitness_transformation=self.fitness_transformation #add percentile input arg here!
+            scores, fitness_transformation=self.fitness_transformation, #add percentile input arg here!
+            splitThresholdPercentile=splitThresholdPercentile
         )
 
         return lowerList, upperList #this part is modified by J Candra
@@ -509,7 +522,7 @@ class MainEvoEliteMoranProcess(object):
         #under lower bounds and represents players to be culled,
         #and the other are above upper bounds and represents players 
         #to be cloned and/or mutated    
-        cullList, cloneList=self.getCulledandCloneList()
+        cullList, cloneList=self.getCulledandCloneList(splitThresholdPercentile=self.splitThresholdPercentile)
 
         #Mutate and/or replace player pCull from cullList 
         #with clone or mutated clone of player pClone from cloneList
