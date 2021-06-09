@@ -284,9 +284,15 @@ class MainEvoEliteMoranProcess(object):
         # unless population number is odd
         
         halfPop=math.floor(0.5*PopulationSize) #have it round down to floor value in case odd number. find the right function
-        #if value exceeds 0.5
-#        if len(upp)<halfPop:
-            #get someone from uppLim. use while loop
+        #alt: if value exceeds 0.5, reduce by 0.5
+        #get someone from uppLim. use while loop
+
+        while len(low)<halfPop: #loop does not trigger if length of low is eaqual or greater
+            rand=self._random.randrange(0, len(lowLim))
+            low.append(lowLim.pop(rand))
+        while len(upp)<halfPop: #loop does not trigger if length of low is eaqual or greater
+            rand=self._random.randrange(0, len(uppLim))
+            upp.append(uppLim.pop(rand))
 
 #        if low==[]:
 #            print("empty lower")
@@ -303,16 +309,20 @@ class MainEvoEliteMoranProcess(object):
             #create sequence of values of lenth equal to total players
             fullIndexList=list(range(PopulationSize)) #inspired by https://note.nkmk.me/en/python-range-usage/
             p=0
-            rouletteLimit=halfPop
-            while p<halfPop:
-                r = self._random.randrange(0, rouletteLimit)
-                #add to low
-                p=p+1
-                rouletteLimit=rouletteLimit-1
-        #    low.append(rl)
-            #remove
-        #    ru = self._random.randrange(0, len(self.players))
-        #    upp.append(ru)
+            while len(low)<halfPop:
+                randLow = self._random.randrange(0, len(fullIndexList))
+                #add to low the value that was popped from fullIndexList
+                low.append(fullIndexList.pop(randLow))
+                #randUpp = self._random.randrange(0, len(fullIndexList))
+                #add to low the value that was popped from fullIndexList
+                #upp.append(fullIndexList.pop(randUpp))
+            
+            upp=fullIndexList #copy the remaining list as upp
+            if PopulationSize%2==1: #if PopulationSize is odd-number
+                randPop = self._random.randrange(0, len(upp))
+                midVal=upp.pop(randPop)
+
+
 
 
 
