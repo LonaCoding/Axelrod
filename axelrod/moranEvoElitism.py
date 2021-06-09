@@ -244,7 +244,8 @@ class MainEvoEliteMoranProcess(object):
         #perc=50 #50 for median/half. 25 for quarter
         dispOutput=True #determines whether output will be printed to terminal or not
 
-        if dispOutput:    
+        if dispOutput:  
+            print("######################################")  
             print("~~~ Scores: ~~~")
 
         if fitness_transformation is None:
@@ -261,13 +262,12 @@ class MainEvoEliteMoranProcess(object):
             if dispOutput:
                 print(array)
         if dispOutput:    
-            print("*** Thresholds: ***")
-            print("percentile: {}".format(self.splitThresholdPercentile))
-            print("+++ lower: +++")
-            print(llim)
-            print("+++ upper: +++")
-            print(ulim)
-            print("===========")
+            print("====================================")
+            print("+++ Thresholds: +++")
+            print("Percentile: {}".format(self.splitThresholdPercentile))
+            print("Lower: {}".format(llim))
+            print("Upper: {}".format(ulim))
+            print("====================================")
             
         #initialize list of indices
         upp=[] #upper: List of indices slected for cloning
@@ -291,24 +291,14 @@ class MainEvoEliteMoranProcess(object):
         # unless population number is odd
         
         halfPop=math.floor(0.5*PopulationSize) #have it round down to floor value in case odd number. find the right function
-        PopSubsampleSize=math.floor(splitThresholdPercentile*PopulationSize/100)
+        PopSubsampleSize=math.floor(self.splitThresholdPercentile*PopulationSize/100)
         #alt: if value exceeds 0.5, reduce by 0.5
-        #get someone from uppLim. use while loop
-
-        if low==[]:
-            print("empty lower")
-            #to implement:
-            #select half of total population 
-            
-        if upp==[]:
-            print("empty upper")
-            #to implement:
-            #select half of total population at random, provided they have not been selected by low
 
         lowSize=len(low)
         uppSize=len(upp)
         print("lower list size: {}".format(lowSize))
         print("upper list size: {}".format(uppSize))
+        print("====================================")
 
         #low=[] if smallest score = lowlimit and all score between smallest to threshold is threshold
         #guaratees lowLim>0
@@ -363,26 +353,14 @@ class MainEvoEliteMoranProcess(object):
                 break #stop the loop.
 
         if dispOutput:
-            print("*** Split into lower and upper: ***")
-            print("+++ lower: +++")     
-            print(low)
-            print("+++ lower threshold: +++")     
-            print(lowLim)
-            print("+++ upper: +++")
-            print(upp)
-            print("+++ upper threshold: +++")     
-            print(uppLim)
-            print("/////////////////////////")
+            print("*** Split into lower and upper lists: ***")
+            print("lower: {}".format(low))     
+            print("lower threshold: {}".format(lowLim))
+            print("....................................")     
+            print("upper threshold: {}".format(uppLim))
+            print("upper: {}".format(upp))     
+            print("====================================")
 
-            
-        #total = csums[-1] #cumulative sum of scores #csums will be a list of cimulative sums
-        #randomity
-        #r = self._random.random() * total #r is fitness threshold
-
-
-        #for i, x in enumerate(csums): #i is index of list
-        #    if x >= r:#x is cumulative sum
-        #        break
         return low,upp #2 lists of indices, one for culling and another for cloning
 
     def mutate(self, index: int) -> Player:
@@ -445,7 +423,7 @@ class MainEvoEliteMoranProcess(object):
     #Part of the function is still copied from birth().
     #Some parts were removed because unused and redundant
 
-    def getCulledandCloneList(self,splitThresholdPercentile) -> int: #add count input arg/param
+    def getCulledandCloneList(self) -> int: #add count input arg/param
         """Produce the 2 list of indices that determines
         which player will be cloned and which one will
         be replaced with new clone
@@ -472,7 +450,6 @@ class MainEvoEliteMoranProcess(object):
         
         lowerList, upperList = self.splitPlayersByScore( #this part is modified by J Candra
             scores, fitness_transformation=self.fitness_transformation, #add percentile input arg here!
-            splitThresholdPercentile=splitThresholdPercentile
         )
 
         return lowerList, upperList #this part is modified by J Candra
@@ -522,7 +499,7 @@ class MainEvoEliteMoranProcess(object):
         #under lower bounds and represents players to be culled,
         #and the other are above upper bounds and represents players 
         #to be cloned and/or mutated    
-        cullList, cloneList=self.getCulledandCloneList(splitThresholdPercentile=self.splitThresholdPercentile)
+        cullList, cloneList=self.getCulledandCloneList()
 
         #Mutate and/or replace player pCull from cullList 
         #with clone or mutated clone of player pClone from cloneList
