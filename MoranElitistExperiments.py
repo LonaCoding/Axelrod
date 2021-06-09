@@ -114,7 +114,8 @@ players = [axl.Defector(), axl.Defector(), axl.Defector(),
 #TournamentWithResult(AllStratPlayers,50,3,5)
 
 #MoranTour(players,turns,seedOffset=1,iterations=1,newFileNameNumber=0)
-MoranTour(playerBest,200,5,10,1)
+#MoranTour(playerBest,200,5,10,1) #real
+MoranTour(playerBest,10,5,10,1)
 #popPlot = tournament.populations_plot()
 #plt.show()
 

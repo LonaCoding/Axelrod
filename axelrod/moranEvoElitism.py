@@ -284,47 +284,69 @@ class MainEvoEliteMoranProcess(object):
         # unless population number is odd
         
         halfPop=math.floor(0.5*PopulationSize) #have it round down to floor value in case odd number. find the right function
+        PopSubsampleSize=math.floor(splitThresholdPercentile*PopulationSize/100)
         #alt: if value exceeds 0.5, reduce by 0.5
         #get someone from uppLim. use while loop
 
-        while len(low)<halfPop: #loop does not trigger if length of low is eaqual or greater
-            rand=self._random.randrange(0, len(lowLim))
-            low.append(lowLim.pop(rand))
-        while len(upp)<halfPop: #loop does not trigger if length of low is eaqual or greater
-            rand=self._random.randrange(0, len(uppLim))
-            upp.append(uppLim.pop(rand))
-
-#        if low==[]:
-#            print("empty lower")
+        if low==[]:
+            print("empty lower")
             #to implement:
             #select half of total population 
             
-#        if upp==[]:
-#            print("empty upper")
+        if upp==[]:
+            print("empty upper")
             #to implement:
             #select half of total population at random, provided they have not been selected by low
+
+        lowSize=len(low)
+        uppSize=len(upp)
+        print("lower list size: {}".format(lowSize))
+        print("upper list size: {}".format(uppSize))
+
+        #low=[] if smallest score = lowlimit and all score between smallest to threshold is threshold
+        #guaratees lowLim>0
+        #   11123444
+        #   11111112
+        #at what condition would len(low)=threshold-missing and len(lowLim)<missing
+
+        #if low==[] & upp==[]:#if all score values are the same (thus both low and upp is empty)
+        #    #create sequence of values of lenth equal to total players
+        #    fullIndexList=list(range(PopulationSize)) #inspired by https://note.nkmk.me/en/python-range-usage/
+        #    while len(low)<PopSubsampleSize: #median limit
+        #        randLow = self._random.randrange(0, len(fullIndexList))
+        #        #add to low the value that was popped from fullIndexList
+        #        low.append(fullIndexList.pop(randLow))
+        #        #randUpp = self._random.randrange(0, len(fullIndexList))
+        #        #add to low the value that was popped from fullIndexList
+        #        #upp.append(fullIndexList.pop(randUpp))
+        #
+        #    upp=fullIndexList #copy the remaining list as upp (only if limit is median)
+        #    
+        #    while len(upp)>PopSubsampleSize:
+        #        randPop = self._random.randrange(0, len(upp))
+        #        midVal=upp.pop(randPop)
+
+
+        lowLimToPop=lowLim
+        uppLimToPop=uppLim
+        carryOver=0 #default. flag.
+        if lowLim==uppLim: #if both list are the same, because limit is median (percentile: 50)
+            carryOver=1
+        while len(low)<PopSubsampleSize: #loop does not trigger if length of low is eaqual or greater
+            if len(lowLimToPop)>1: #don't use this if lowLimToPop only has one element. will cause randrange empty list error
+                rand=self._random.randrange(0, len(lowLimToPop)-1) #o is first elem
+                low.append(lowLimToPop.pop(rand))
+            else:
+                e
+        if carryOver:
+            uppLimToPop=lowLimToPop
+        while len(upp)<PopSubsampleSize: #loop does not trigger if length of low is eaqual or greater
+            if len(uppLimToPop)>1: #don't use this if uppLimToPop only has one element. will cause randrange empty list error                
+                rand=self._random.randrange(0, len(uppLimToPop)-1)
+                upp.append(uppLimToPop.pop(rand))
+
+
             
-        
-        if low==[] & upp==[]:#if all score values are the same (thus both low and upp is empty)
-            #create sequence of values of lenth equal to total players
-            fullIndexList=list(range(PopulationSize)) #inspired by https://note.nkmk.me/en/python-range-usage/
-            p=0
-            while len(low)<halfPop:
-                randLow = self._random.randrange(0, len(fullIndexList))
-                #add to low the value that was popped from fullIndexList
-                low.append(fullIndexList.pop(randLow))
-                #randUpp = self._random.randrange(0, len(fullIndexList))
-                #add to low the value that was popped from fullIndexList
-                #upp.append(fullIndexList.pop(randUpp))
-            
-            upp=fullIndexList #copy the remaining list as upp
-            if PopulationSize%2==1: #if PopulationSize is odd-number
-                randPop = self._random.randrange(0, len(upp))
-                midVal=upp.pop(randPop)
-
-
-
-
 
         if dispOutput:
             print("*** Split into lower and upper: ***")
