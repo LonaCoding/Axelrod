@@ -28,6 +28,6 @@ destFolderPlot="MoranElitistExperiments_Output/Plots"
 
 #execute functions
 numberFileMovedText=searchAndMoveFiles(outPrefixText,destFolderText)
-print("Number of Text files moved: ".format(numberFileMovedText))
+print("Number of Text files moved: {}".format(numberFileMovedText))
 numberFileMovedPlot=searchAndMoveFiles(outPrefixPlot,destFolderPlot)
-print("Number of plot files moved: ".format(numberFileMovedPlot))
+print("Number of plot files moved: {}".format(numberFileMovedPlot))
