@@ -690,3 +690,40 @@ class MainEvoEliteMoranProcess(object):
         ax.set_ylabel("Number of Individuals")
         ax.legend()
         return ax
+
+    def populations_subplot(self, ax=None):
+        """
+        Create a stackplot of the population distributions at each iteration of
+        the Moran process.
+
+        Parameters
+        ----------------
+        ax: matplotlib axis
+            Allows the plot to be written to a given matplotlib axis.
+            Default is None.
+
+        Returns
+        -----------
+        A matplotlib axis object
+
+        """
+        player_names = self.populations[0].keys()
+        if ax is None:
+            _, ax = plt.subplots()
+        else:
+            ax = ax
+
+        plot_data = []
+        labels = []
+        for name in player_names:
+            labels.append(name)
+            values = [counter[name] for counter in self.populations]
+            plot_data.append(values)
+            domain = range(len(values))
+
+        ax.stackplot(domain, plot_data, labels=labels)
+        ax.set_title("Moran Process Population by Iteration")
+        ax.set_xlabel("Iteration")
+        ax.set_ylabel("Number of Individuals")
+        ax.legend()
+        return ax
