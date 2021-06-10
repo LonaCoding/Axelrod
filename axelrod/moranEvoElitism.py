@@ -253,7 +253,7 @@ class MainEvoEliteMoranProcess(object):
         #perc=50 #50 for median/half. 25 for quarter
         #dispOutput=True #determines whether output will be printed to terminal or not
 
-        if dispOutput:  
+        if self.dispOutput:  
             print("######################################")  
             print("~~~ Scores: ~~~")
 
@@ -261,19 +261,19 @@ class MainEvoEliteMoranProcess(object):
             #scores is list of scores
             llim=np.percentile(scores,self.splitThresholdPercentile)
             ulim=np.percentile(scores,100-self.splitThresholdPercentile)
-            if dispOutput:
+            if self.dispOutput:
                 print(scores)
 
         else:
             array=[fitness_transformation(s) for s in scores]            
             llim=np.percentile(array,self.splitThresholdPercentile)
             ulim=np.percentile(array,100-self.splitThresholdPercentile)
-            if dispOutput:
+            if self.dispOutput:
                 print(array)
-        if dispOutput:    
+        if self.dispOutput:    
             print("====================================")
             print("+++ Thresholds: +++")
-            print("Percentile: {}".format(self.splitThresholdPercentile))
+            print("Percentile: {}%".format(self.splitThresholdPercentile))
             print("Lower: {}".format(llim))
             print("Upper: {}".format(ulim))
             print("====================================")
@@ -305,9 +305,10 @@ class MainEvoEliteMoranProcess(object):
 
         lowSize=len(low)
         uppSize=len(upp)
-        print("lower list size: {}".format(lowSize))
-        print("upper list size: {}".format(uppSize))
-        print("====================================")
+        if self.dispOutput:
+            print("lower list size: {}".format(lowSize))
+            print("upper list size: {}".format(uppSize))
+            print("====================================")
 
         #low=[] if smallest score = lowlimit and all score between smallest to threshold is threshold
         #guaratees lowLim>0
@@ -361,13 +362,13 @@ class MainEvoEliteMoranProcess(object):
             else:#if uppLimToPop is empty
                 break #stop the loop.
 
-        if dispOutput:
+        if self.dispOutput:
             print("*** Split into lower and upper lists: ***")
-            print("lower: {}".format(low))     
+            print("lower:           {}".format(low))     
             print("lower threshold: {}".format(lowLim))
             print("....................................")     
             print("upper threshold: {}".format(uppLim))
-            print("upper: {}".format(upp))     
+            print("upper:           {}".format(upp))     
             print("====================================")
 
         return low,upp #2 lists of indices, one for culling and another for cloning
@@ -521,9 +522,11 @@ class MainEvoEliteMoranProcess(object):
             #due to counter exceeding list length
             if counter>=len(cullList):
                 break #stop the replacement process
-            print("j is {}".format(pClone))
+            if self.dispOutput:
+                print("j = {}".format(pClone))
             pCull=cullList[counter] #cullList is list of integers
-            print("k is {}".format(pCull))
+            if self.dispOutput:
+                print("k = {}".format(pCull))
             self.players[pCull]=self.mutate(pClone)
             counter=counter+1
             
