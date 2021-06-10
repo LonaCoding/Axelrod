@@ -1,0 +1,216 @@
+>>> Output of Elitist Selection (Modified) Moran Process <<<
+------------------------------------------------------------
+Output
+Experiment parameters:
+1. Player Agents:
+Evolved FSM 6
+Second by RichardHufford
+Tit For Tat
+Evolved FSM 16
+Evolved HMM 5
+EvolvedLookerUp2_2_2
+Michaelos: (D,)
+Defector
+Cooperator
+Random: 0.5
+Win-Stay Lose-Shift
+Grudger
+Prober
+Tit For 2 Tats
+2. newFileNameNumber for plot:           7
+3. (Number of) turns:                    5
+4. Starting seed (seedOffset):           5
+5. createPlot:                           False
+6. PlotFileType:                         .png
+7. (use) csv (as output's file format):  False
+------------------------------------------------------------
+######################################
+~~~ Scores: ~~~
+[36.0, 35.2, 35.6, 36.6, 32.6, 33.4, 40.79999999999999, 34.60000000000001, 31.799999999999997, 31.4, 34.2, 34.6, 33.599999999999994, 33.6]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 34.400000000000006
+Upper: 34.400000000000006
+====================================
+lower list size: 7
+upper list size: 7
+====================================
+*** Split into lower and upper lists: ***
+lower:           [4, 5, 8, 9, 10, 12, 13]
+lower threshold: []
+....................................
+upper threshold: []
+upper:           [0, 1, 2, 3, 6, 7, 11]
+====================================
+cloned = 0
+killed = 4
+cloned = 1
+killed = 5
+cloned = 2
+killed = 8
+cloned = 3
+killed = 9
+cloned = 6
+killed = 10
+cloned = 7
+killed = 12
+cloned = 11
+killed = 13
+######################################
+~~~ Scores: ~~~
+[33.39999999999999, 33.4, 33.4, 33.400000000000006, 33.39999999999999, 33.4, 38.199999999999996, 22.600000000000005, 33.39999999999999, 33.4, 38.199999999999996, 33.4, 22.600000000000005, 33.4]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 33.4
+Upper: 33.4
+====================================
+lower list size: 5
+upper list size: 3
+====================================
+*** Split into lower and upper lists: ***
+lower:           [0, 4, 7, 8, 12, 1, 11]
+lower threshold: []
+....................................
+upper threshold: [1, 2, 5, 9, 11, 13]
+upper:           [3, 6, 10, 5, 9, 2, 13]
+====================================
+cloned = 3
+killed = 0
+cloned = 6
+killed = 4
+cloned = 10
+killed = 7
+cloned = 5
+killed = 8
+cloned = 9
+killed = 12
+cloned = 2
+killed = 1
+cloned = 13
+killed = 11
+######################################
+~~~ Scores: ~~~
+[36.599999999999994, 36.6, 36.6, 36.6, 41.8, 36.6, 41.8, 41.8, 36.599999999999994, 36.6, 41.8, 36.6, 36.599999999999994, 36.6]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 36.6
+Upper: 36.6
+====================================
+lower list size: 3
+upper list size: 4
+====================================
+*** Split into lower and upper lists: ***
+lower:           [0, 8, 12, 3, 2, 5, 11]
+lower threshold: []
+....................................
+upper threshold: [1, 2, 3, 5, 9, 11, 13]
+upper:           [4, 6, 7, 10, 9, 1, 13]
+====================================
+cloned = 4
+killed = 0
+cloned = 6
+killed = 8
+cloned = 7
+killed = 12
+cloned = 10
+killed = 3
+cloned = 9
+killed = 2
+cloned = 1
+killed = 5
+cloned = 13
+killed = 11
+######################################
+~~~ Scores: ~~~
+[38.6, 34.199999999999996, 34.199999999999996, 38.6, 38.6, 34.199999999999996, 38.6, 38.6, 38.6, 34.199999999999996, 38.6, 34.199999999999996, 38.6, 34.199999999999996]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 38.6
+Upper: 38.6
+====================================
+lower list size: 6
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [1, 2, 5, 9, 11, 13, 8]
+lower threshold: []
+....................................
+upper threshold: [0, 3, 4, 6, 7, 8, 10, 12]
+upper:           [3, 7, 0, 4, 6, 10, 12]
+====================================
+cloned = 3
+killed = 1
+cloned = 7
+killed = 2
+cloned = 0
+killed = 5
+cloned = 4
+killed = 9
+cloned = 6
+killed = 11
+cloned = 10
+killed = 13
+cloned = 12
+killed = 8
+Trial run 1/seed 5:
+..................................................
+winner:
+Michaelos: (D,)
+==================================================
+List of players:
+Evolved FSM 6
+Second by RichardHufford
+Tit For Tat
+Evolved FSM 16
+Evolved HMM 5
+EvolvedLookerUp2_2_2
+Michaelos: (D,)
+Defector
+Cooperator
+Random: 0.5
+Win-Stay Lose-Shift
+Grudger
+Prober
+Tit For 2 Tats
+==================================================
+Results:
+[Counter({'Evolved FSM 6': 1,
+          'Second by RichardHufford': 1,
+          'Tit For Tat': 1,
+          'Evolved FSM 16': 1,
+          'Evolved HMM 5': 1,
+          'EvolvedLookerUp2_2_2': 1,
+          'Michaelos: (D,)': 1,
+          'Defector': 1,
+          'Cooperator': 1,
+          'Random: 0.5': 1,
+          'Win-Stay Lose-Shift': 1,
+          'Grudger': 1,
+          'Prober': 1,
+          'Tit For 2 Tats': 1}),
+ Counter({'Evolved FSM 6': 2,
+          'Second by RichardHufford': 2,
+          'Tit For Tat': 2,
+          'Evolved FSM 16': 2,
+          'Michaelos: (D,)': 2,
+          'Defector': 2,
+          'Grudger': 2}),
+ Counter({'Evolved FSM 16': 4,
+          'Michaelos: (D,)': 4,
+          'Tit For Tat': 2,
+          'Second by RichardHufford': 2,
+          'Grudger': 2}),
+ Counter({'Michaelos: (D,)': 8,
+          'Tit For Tat': 2,
+          'Evolved FSM 16': 2,
+          'Grudger': 2}),
+ Counter({'Michaelos: (D,)': 14})]
+--------------------------------------------------
+Score:
+[[36.0, 35.2, 35.6, 36.6, 32.6, 33.4, 40.79999999999999, 34.60000000000001, 31.799999999999997, 31.4, 34.2, 34.6, 33.599999999999994, 33.6], [33.39999999999999, 33.4, 33.4, 33.400000000000006, 33.39999999999999, 33.4, 38.199999999999996, 22.600000000000005, 33.39999999999999, 33.4, 38.199999999999996, 33.4, 22.600000000000005, 33.4], [36.599999999999994, 36.6, 36.6, 36.6, 41.8, 36.6, 41.8, 41.8, 36.599999999999994, 36.6, 41.8, 36.6, 36.599999999999994, 36.6], [38.6, 34.199999999999996, 34.199999999999996, 38.6, 38.6, 34.199999999999996, 38.6, 38.6, 38.6, 34.199999999999996, 38.6, 34.199999999999996, 38.6, 34.199999999999996]]
+***************************************************
+***************************************************

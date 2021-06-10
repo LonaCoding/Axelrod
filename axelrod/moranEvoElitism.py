@@ -6,6 +6,7 @@ from typing import Callable, List, Optional, Set, Tuple
 import matplotlib.pyplot as plt
 import numpy as np
 import math #needed for floor()
+import pprint #for neater output
 from axelrod import DEFAULT_TURNS, EvolvablePlayer, Game, Player
 from axelrod.deterministic_cache import DeterministicCache
 from axelrod.graph import Graph, complete_graph
@@ -262,14 +263,14 @@ class MainEvoEliteMoranProcess(object):
             llim=np.percentile(scores,self.splitThresholdPercentile)
             ulim=np.percentile(scores,100-self.splitThresholdPercentile)
             if self.dispOutput:
-                print(scores)
+                pprint.pprint(scores)
 
         else:
             array=[fitness_transformation(s) for s in scores]            
             llim=np.percentile(array,self.splitThresholdPercentile)
             ulim=np.percentile(array,100-self.splitThresholdPercentile)
             if self.dispOutput:
-                print(array)
+                pprint.pprint(array)
         if self.dispOutput:    
             print("====================================")
             print("+++ Thresholds: +++")
