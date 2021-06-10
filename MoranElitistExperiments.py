@@ -1,4 +1,5 @@
 import random
+import math
 import matplotlib.pyplot as plt
 import axelrod as axl
 import pprint #for formatting output lists
@@ -8,7 +9,7 @@ def MoranProcTour(
     agents,
     newFileNameNumber,
     turns=10,
-    seedOffset=1,
+    firstSeed=1,
     iterations=1,
     createPlot=False,
     PlotFileType=".png",
@@ -25,7 +26,7 @@ def MoranProcTour(
         print(a)
     print("2. newFileNameNumber for plot:           {}".format(newFileNameNumber))    
     print("3. (Number of) turns:                    {}".format(turns))
-    print("4. Starting seed (seedOffset):           {}".format(seedOffset))
+    print("4. Starting seed (firstSeed):           {}".format(firstSeed))
     print("5. createPlot:                           {}".format(createPlot))
     print("6. PlotFileType:                         {}".format(PlotFileType))    
     print("7. (use) csv (as output's file format):  {}".format(csv))
@@ -33,7 +34,7 @@ def MoranProcTour(
     
     #Initialize
     n=1 #counter for interation loop
-    seed=seedOffset #set first seed
+    seed=firstSeed #set first seed
 
     while n<iterations+1: #iteration loop for repeating tests
         #AllStratPlayers = [s() for s in axl.all_strategies]
@@ -89,6 +90,7 @@ def MoranProcTour(
         n=n+1
         seed=seed+1
 
+#Initialize population of player agents
 player3=[axl.TitForTat(), axl.Random(), axl.Negation()]
 
 player6=[axl.TitForTat(), axl.Random(), axl.Negation(),
@@ -115,7 +117,10 @@ players = [axl.Defector(), axl.Defector(), axl.Defector(),
        axl.TitForTat(), axl.TitForTat(), axl.TitForTat(),
        axl.Random()]
 
-seedRandFLoat=round(random()*(10**random.randint(0,10))) #generate random starting seed
+#generating random values for seed
+#randPow=random.randint(0,10)
+#RandFloat=random.random()
+initSeed=math.floor(random.random()*(10**random.randint(0,10))) #generate random starting seed
 
 #Additional input parameters for MoranProcTour: 
 #PlotFileType options (,PlotFileType=".____"): 
@@ -123,8 +128,8 @@ seedRandFLoat=round(random()*(10**random.randint(0,10))) #generate random starti
 
 #MoranProcTour(players,newFileNameNumber,turns=10,seedOffset=1,iterations=1,createPlot=False,PlotFileType=".png",csv=False)
 
-#MoranProcTour(playerBest,8,200,seedRandFLoat,10) #real
-#MoranProcTour(playerBest,7,5,5,1) #testing
+#MoranProcTour(playerBest,8,200,initSeed,10) #real
+MoranProcTour(playerBest,7,5,initSeed,1) #testing
 
 
 
