@@ -22,7 +22,6 @@ def MoranProcTour(
     #print test parameters information
     print(">>> Output of Elitist Selection (Modified) Moran Process <<<")
     print("------------------------------------------------------------")
-    print("Output")
     print("Experiment parameters:")
     print("1. Player Agents: {}".format(len(agents)))
     for a in agents: #list of strategies in play
