@@ -133,9 +133,10 @@ players = [axl.Defector(), axl.Defector(), axl.Defector(),
 AllStratPlayers = [s() for s in axl.all_strategies]
 
 #generating random values for seed
-#randPow=random.randint(0,10)
+#Seed value must be between 0 and 2**32 - 1, else trigger ValueError
+#randPow=random.randint(1,9) #9 is maximum, because 10**9<2**32<10**10 and else will trigger ValueError
 #RandFloat=random.random()
-initSeed=math.floor(random.random()*(10**random.randint(0,10))) #generate random starting seed
+initSeed=math.floor(random.random()*(10**random.randint(1,9))) #generate random starting seed
 
 #convertor
 desiredClonedPopSize=5 #sets the number of player agents that will be cloned and the ones that will be culled
@@ -150,7 +151,7 @@ percentile=desiredClonedPopSize/len(agentPlayers) #convertor
 
 #MoranProcTour(players,newFileNameNumber,turns=10,seedOffset=1,iterations=1,splitThresholdPercentile=50,displayOutput=False,createPlot=False,PlotFileType=".png",csv=False)
 #MoranProcTour(AllStratPlayers,13,200,initSeed,10,50,True) #all strategies
-MoranProcTour(playerBest,19,200,initSeed,20,50,True,True) #real
+MoranProcTour(playerBest,20,200,initSeed,20,25,True,True) #real
 #MoranProcTour(playerBest,18,5,initSeed,2,50,True,True) #testing
 
 #next test do perc=25
