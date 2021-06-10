@@ -1,6 +1,6 @@
 import random
 import math
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as mplot
 import axelrod as axl
 import pprint #for formatting output lists
 import sys #outout terminal result to file
@@ -11,8 +11,10 @@ def MoranProcTour(
     turns=10,
     firstSeed=1,
     iterations=1,
+    splitThresholdPercentile=50, 
+    displayOutput=False,
     createPlot=False,
-    PlotFileType=".png",
+    PlotFileType="PNG",
     csv=False
     ):
 
@@ -21,15 +23,17 @@ def MoranProcTour(
     print("------------------------------------------------------------")
     print("Output")
     print("Experiment parameters:")
-    print("1. Player Agents:")
+    print("1. Player Agents: {}".format(len(agents)))
     for a in agents: #list of strategies in play
         print(a)
     print("2. newFileNameNumber for plot:           {}".format(newFileNameNumber))    
     print("3. (Number of) turns:                    {}".format(turns))
     print("4. Starting seed (firstSeed):            {}".format(firstSeed))
-    print("5. createPlot:                           {}".format(createPlot))
-    print("6. PlotFileType:                         {}".format(PlotFileType))    
-    print("7. (use) csv (as output's file format):  {}".format(csv))
+    print("5. splitThresholdPercentile:             {}%".format(splitThresholdPercentile))
+    print("6. displayOutput:                        {}".format(displayOutput))    
+    print("7. createPlot:                           {}".format(createPlot))
+    print("8. PlotFileType:                         {}".format(PlotFileType))    
+    print("9. (use) csv (as output's file format):  {}".format(csv))
     print("------------------------------------------------------------")
     
     #Initialize
@@ -51,17 +55,24 @@ def MoranProcTour(
         else:
             fileType=".txt"
 
-        #PlotFileType=".png"
+        #PlotFileType="png"
         #options: eps, jpeg, jpg, pdf, pgf, png, ps, raw, rgba, svg, svgz, tif, tiff
-
-        plotFileName="EliteMoranProc{newFileNameNumber}_{iterNum}{PlotFileType}".format(newFileNameNumber=newFileNameNumber,iterNum=n,PlotFileType=PlotFileType)#If want to modify naming format, replace the "ScrListBrandModel" part. DO NOT MODIFY ANYTHING ELSE, including bracket and .format() content. 
+        PlotFileTypeExt=PlotFileType.lower()
+        #print(PlotFileTypeExt) #testing
+        plotFileName="EliteMoranProc{newFileNameNumber}_{iterNum}.{PlotFileTypeExt}".format(newFileNameNumber=newFileNameNumber,iterNum=n,PlotFileTypeExt=PlotFileTypeExt)#If want to modify naming format, replace the "ScrListBrandModel" part. DO NOT MODIFY ANYTHING ELSE, including bracket and .format() content. 
 
         ##tournament
         #tournament = axl.MoranProcess(players=players, turns=200, seed=2)
-        tournament = axl.MainEvoEliteMoranProcess(agents,turns=turns, seed=seed)
+        tournament = axl.MainEvoEliteMoranProcess(
+            agents,turns=turns, 
+            seed=seed,
+            splitThresholdPercentile=splitThresholdPercentile,
+            dispOutput=displayOutput
+            )
         TourRes = tournament.play() #tournament results
         if createPlot:
-            plt.savefig(plotFileName)
+            plot = tournament.populations_plot()
+            mplot.savefig(plotFileName,format=PlotFileType)#, dpi=100)
         win=tournament.winning_strategy_name
         score=tournament.score_history
 
@@ -123,14 +134,21 @@ AllStratPlayers = [s() for s in axl.all_strategies]
 #RandFloat=random.random()
 initSeed=math.floor(random.random()*(10**random.randint(0,10))) #generate random starting seed
 
+#convertor
+desiredClonedPopSize=5 #sets the number of player agents that will be cloned and the ones that will be culled
+agentPlayers=playerBest #total number of player agents
+percentile=desiredClonedPopSize/len(agentPlayers) #convertor
+#put percentile in splitThresholdPercentile (splitThresholdPercentile=percentile)
+
+
 #Additional input parameters for MoranProcTour: 
 #PlotFileType options (,PlotFileType=".____"): 
-#".eps", ".jpeg", ".jpg", ".pdf", ".pgf", ".png", ".ps", ".raw," ".rgba", ".svg", ".svgz", ".tif", ".tiff"
+#"EPS", "JPEG", ".jpg", ".pdf", ".pgf", ".png", ".ps", ".raw," ".rgba", ".svg", ".svgz", ".tif", ".tiff"
 
-#MoranProcTour(players,newFileNameNumber,turns=10,seedOffset=1,iterations=1,createPlot=False,PlotFileType=".png",csv=False)
-MoranProcTour(AllStratPlayers,13,200,initSeed,10) #all strategies
-#MoranProcTour(playerBest,12,200,initSeed,20) #real
-#MoranProcTour(playerBest,9,5,initSeed,1) #testing
+#MoranProcTour(players,newFileNameNumber,turns=10,seedOffset=1,iterations=1,splitThresholdPercentile=50,displayOutput=False,createPlot=False,PlotFileType=".png",csv=False)
+#MoranProcTour(AllStratPlayers,13,200,initSeed,10,50,True) #all strategies
+#MoranProcTour(playerBest,15,200,initSeed,20,50,True,True) #real
+MoranProcTour(playerBest,17,5,initSeed,2,50,True,True) #testing
 
 
 
