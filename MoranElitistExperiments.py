@@ -116,6 +116,8 @@ players = [axl.Defector(), axl.Defector(), axl.Defector(),
        axl.TitForTat(), axl.TitForTat(), axl.TitForTat(),
        axl.Random()]
 
+AllStratPlayers = [s() for s in axl.all_strategies]
+
 #generating random values for seed
 #randPow=random.randint(0,10)
 #RandFloat=random.random()
@@ -126,8 +128,8 @@ initSeed=math.floor(random.random()*(10**random.randint(0,10))) #generate random
 #".eps", ".jpeg", ".jpg", ".pdf", ".pgf", ".png", ".ps", ".raw," ".rgba", ".svg", ".svgz", ".tif", ".tiff"
 
 #MoranProcTour(players,newFileNameNumber,turns=10,seedOffset=1,iterations=1,createPlot=False,PlotFileType=".png",csv=False)
-
-MoranProcTour(playerBest,11,200,initSeed,10) #real
+MoranProcTour(AllStratPlayers,13,200,initSeed,10) #all strategies
+#MoranProcTour(playerBest,12,200,initSeed,20) #real
 #MoranProcTour(playerBest,9,5,initSeed,1) #testing
 
 
