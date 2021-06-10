@@ -1,0 +1,9056 @@
+>>> Output of Elitist Selection (Modified) Moran Process <<<
+------------------------------------------------------------
+Output
+Experiment parameters:
+1. Player Agents:
+Evolved FSM 6
+Second by RichardHufford
+Tit For Tat
+Evolved FSM 16
+Evolved HMM 5
+EvolvedLookerUp2_2_2
+Michaelos: (D,)
+Defector
+Cooperator
+Random: 0.5
+Win-Stay Lose-Shift
+Grudger
+Prober
+Tit For 2 Tats
+2. newFileNameNumber for plot:           11
+3. (Number of) turns:                    200
+4. Starting seed (firstSeed):            4504
+5. createPlot:                           False
+6. PlotFileType:                         .png
+7. (use) csv (as output's file format):  False
+------------------------------------------------------------
+######################################
+~~~ Scores: ~~~
+[36.255,
+ 33.535000000000004,
+ 36.205,
+ 33.635,
+ 33.525,
+ 35.685,
+ 33.54,
+ 26.259999999999998,
+ 31.125,
+ 21.549999999999997,
+ 32.730000000000004,
+ 33.955,
+ 29.69,
+ 33.42999999999999]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 33.53
+Upper: 33.53
+====================================
+lower list size: 7
+upper list size: 7
+====================================
+*** Split into lower and upper lists: ***
+lower:           [4, 7, 8, 9, 10, 12, 13]
+lower threshold: []
+....................................
+upper threshold: []
+upper:           [0, 1, 2, 3, 5, 6, 11]
+====================================
+cloned = 0
+killed = 4
+cloned = 1
+killed = 7
+cloned = 2
+killed = 8
+cloned = 3
+killed = 9
+cloned = 5
+killed = 10
+cloned = 6
+killed = 12
+cloned = 11
+killed = 13
+######################################
+~~~ Scores: ~~~
+[38.89,
+ 31.610000000000007,
+ 38.93,
+ 34.83,
+ 38.89,
+ 38.37,
+ 36.665,
+ 31.935000000000006,
+ 38.93,
+ 34.83,
+ 38.37,
+ 36.22,
+ 36.33999999999999,
+ 36.22]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 36.5025
+Upper: 36.5025
+====================================
+lower list size: 7
+upper list size: 7
+====================================
+*** Split into lower and upper lists: ***
+lower:           [1, 3, 7, 9, 11, 12, 13]
+lower threshold: []
+....................................
+upper threshold: []
+upper:           [0, 2, 4, 5, 6, 8, 10]
+====================================
+cloned = 0
+killed = 1
+cloned = 2
+killed = 3
+cloned = 4
+killed = 7
+cloned = 5
+killed = 9
+cloned = 6
+killed = 11
+cloned = 8
+killed = 12
+cloned = 10
+killed = 13
+######################################
+~~~ Scores: ~~~
+[38.97,
+ 38.97,
+ 38.97,
+ 38.97,
+ 38.97,
+ 38.97,
+ 39.109999999999985,
+ 38.97,
+ 38.97,
+ 38.97,
+ 38.97,
+ 39.109999999999985,
+ 38.97,
+ 38.97]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 38.97
+Upper: 38.97
+====================================
+lower list size: 0
+upper list size: 2
+====================================
+*** Split into lower and upper lists: ***
+lower:           [12, 3, 10, 0, 5, 8, 1]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 12, 13]
+upper:           [6, 11, 4, 9, 7, 2, 13]
+====================================
+cloned = 6
+killed = 12
+cloned = 11
+killed = 3
+cloned = 4
+killed = 10
+cloned = 9
+killed = 0
+cloned = 7
+killed = 5
+cloned = 2
+killed = 8
+cloned = 13
+killed = 1
+######################################
+~~~ Scores: ~~~
+[38.94,
+ 38.94,
+ 38.94,
+ 39.06999999999999,
+ 38.94,
+ 38.94,
+ 39.06999999999999,
+ 38.94,
+ 38.94,
+ 38.94,
+ 38.94,
+ 39.06999999999999,
+ 39.06999999999999,
+ 38.94]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 38.94
+Upper: 38.94
+====================================
+lower list size: 0
+upper list size: 4
+====================================
+*** Split into lower and upper lists: ***
+lower:           [10, 5, 4, 9, 2, 1, 8]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 4, 5, 7, 8, 9, 10, 13]
+upper:           [3, 6, 11, 12, 7, 0, 13]
+====================================
+cloned = 3
+killed = 10
+cloned = 6
+killed = 5
+cloned = 11
+killed = 4
+cloned = 12
+killed = 9
+cloned = 7
+killed = 2
+cloned = 0
+killed = 1
+cloned = 13
+killed = 8
+######################################
+~~~ Scores: ~~~
+[38.879999999999995,
+ 38.879999999999995,
+ 38.879999999999995,
+ 38.99,
+ 38.99,
+ 38.99,
+ 38.99,
+ 38.879999999999995,
+ 38.879999999999995,
+ 38.99,
+ 38.99,
+ 38.99,
+ 38.99,
+ 38.879999999999995]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 38.99
+Upper: 38.99
+====================================
+lower list size: 6
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [0, 1, 2, 7, 8, 13, 11]
+lower threshold: []
+....................................
+upper threshold: [3, 4, 5, 6, 9, 10, 11, 12]
+upper:           [10, 3, 5, 9, 4, 6, 12]
+====================================
+cloned = 10
+killed = 0
+cloned = 3
+killed = 1
+cloned = 5
+killed = 2
+cloned = 9
+killed = 7
+cloned = 4
+killed = 8
+cloned = 6
+killed = 13
+cloned = 12
+killed = 11
+Trial run 1/seed 4504:
+..................................................
+winner: Michaelos: (D,)
+==================================================
+List of players:
+Evolved FSM 6
+Second by RichardHufford
+Tit For Tat
+Evolved FSM 16
+Evolved HMM 5
+EvolvedLookerUp2_2_2
+Michaelos: (D,)
+Defector
+Cooperator
+Random: 0.5
+Win-Stay Lose-Shift
+Grudger
+Prober
+Tit For 2 Tats
+==================================================
+Results:
+[Counter({'Evolved FSM 6': 1,
+          'Second by RichardHufford': 1,
+          'Tit For Tat': 1,
+          'Evolved FSM 16': 1,
+          'Evolved HMM 5': 1,
+          'EvolvedLookerUp2_2_2': 1,
+          'Michaelos: (D,)': 1,
+          'Defector': 1,
+          'Cooperator': 1,
+          'Random: 0.5': 1,
+          'Win-Stay Lose-Shift': 1,
+          'Grudger': 1,
+          'Prober': 1,
+          'Tit For 2 Tats': 1}),
+ Counter({'Evolved FSM 6': 2,
+          'Second by RichardHufford': 2,
+          'Tit For Tat': 2,
+          'Evolved FSM 16': 2,
+          'EvolvedLookerUp2_2_2': 2,
+          'Michaelos: (D,)': 2,
+          'Grudger': 2}),
+ Counter({'Evolved FSM 6': 4,
+          'Tit For Tat': 4,
+          'EvolvedLookerUp2_2_2': 4,
+          'Michaelos: (D,)': 2}),
+ Counter({'EvolvedLookerUp2_2_2': 4,
+          'Michaelos: (D,)': 4,
+          'Evolved FSM 6': 4,
+          'Tit For Tat': 2}),
+ Counter({'Michaelos: (D,)': 8, 'EvolvedLookerUp2_2_2': 4, 'Evolved FSM 6': 2}),
+ Counter({'Michaelos: (D,)': 14})]
+--------------------------------------------------
+Score:
+[[36.255,
+  33.535000000000004,
+  36.205,
+  33.635,
+  33.525,
+  35.685,
+  33.54,
+  26.259999999999998,
+  31.125,
+  21.549999999999997,
+  32.730000000000004,
+  33.955,
+  29.69,
+  33.42999999999999],
+ [38.89,
+  31.610000000000007,
+  38.93,
+  34.83,
+  38.89,
+  38.37,
+  36.665,
+  31.935000000000006,
+  38.93,
+  34.83,
+  38.37,
+  36.22,
+  36.33999999999999,
+  36.22],
+ [38.97,
+  38.97,
+  38.97,
+  38.97,
+  38.97,
+  38.97,
+  39.109999999999985,
+  38.97,
+  38.97,
+  38.97,
+  38.97,
+  39.109999999999985,
+  38.97,
+  38.97],
+ [38.94,
+  38.94,
+  38.94,
+  39.06999999999999,
+  38.94,
+  38.94,
+  39.06999999999999,
+  38.94,
+  38.94,
+  38.94,
+  38.94,
+  39.06999999999999,
+  39.06999999999999,
+  38.94],
+ [38.879999999999995,
+  38.879999999999995,
+  38.879999999999995,
+  38.99,
+  38.99,
+  38.99,
+  38.99,
+  38.879999999999995,
+  38.879999999999995,
+  38.99,
+  38.99,
+  38.99,
+  38.99,
+  38.879999999999995]]
+***************************************************
+***************************************************
+######################################
+~~~ Scores: ~~~
+[36.425000000000004,
+ 33.910000000000004,
+ 36.269999999999996,
+ 34.129999999999995,
+ 33.385,
+ 36.22,
+ 36.26499999999999,
+ 26.399999999999995,
+ 31.035,
+ 18.295,
+ 32.7,
+ 33.794999999999995,
+ 32.56,
+ 33.295]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 33.589999999999996
+Upper: 33.589999999999996
+====================================
+lower list size: 7
+upper list size: 7
+====================================
+*** Split into lower and upper lists: ***
+lower:           [4, 7, 8, 9, 10, 12, 13]
+lower threshold: []
+....................................
+upper threshold: []
+upper:           [0, 1, 2, 3, 5, 6, 11]
+====================================
+cloned = 0
+killed = 4
+cloned = 1
+killed = 7
+cloned = 2
+killed = 8
+cloned = 3
+killed = 9
+cloned = 5
+killed = 10
+cloned = 6
+killed = 12
+cloned = 11
+killed = 13
+######################################
+~~~ Scores: ~~~
+[38.89,
+ 32.36000000000001,
+ 38.93,
+ 34.83,
+ 38.89,
+ 38.37,
+ 36.665,
+ 31.935000000000006,
+ 38.93,
+ 34.83,
+ 38.37,
+ 36.22,
+ 37.08999999999999,
+ 36.22]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 36.8775
+Upper: 36.8775
+====================================
+lower list size: 7
+upper list size: 7
+====================================
+*** Split into lower and upper lists: ***
+lower:           [1, 3, 6, 7, 9, 11, 13]
+lower threshold: []
+....................................
+upper threshold: []
+upper:           [0, 2, 4, 5, 8, 10, 12]
+====================================
+cloned = 0
+killed = 1
+cloned = 2
+killed = 3
+cloned = 4
+killed = 6
+cloned = 5
+killed = 7
+cloned = 8
+killed = 9
+cloned = 10
+killed = 11
+cloned = 12
+killed = 13
+######################################
+~~~ Scores: ~~~
+[38.97,
+ 38.97,
+ 38.97,
+ 38.97,
+ 38.97,
+ 38.97,
+ 38.97,
+ 38.97,
+ 38.97,
+ 38.97,
+ 38.97,
+ 38.97,
+ 39.109999999999985,
+ 39.109999999999985]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 38.97
+Upper: 38.97
+====================================
+lower list size: 0
+upper list size: 2
+====================================
+*** Split into lower and upper lists: ***
+lower:           [9, 3, 10, 6, 4, 7, 5]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+upper:           [12, 13, 1, 0, 2, 8, 11]
+====================================
+cloned = 12
+killed = 9
+cloned = 13
+killed = 3
+cloned = 1
+killed = 10
+cloned = 0
+killed = 6
+cloned = 2
+killed = 4
+cloned = 8
+killed = 7
+cloned = 11
+killed = 5
+######################################
+~~~ Scores: ~~~
+[38.94,
+ 38.94,
+ 38.94,
+ 39.06999999999999,
+ 38.94,
+ 38.94,
+ 38.94,
+ 38.94,
+ 38.94,
+ 39.06999999999999,
+ 38.94,
+ 38.94,
+ 39.069999999999986,
+ 39.06999999999999]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 38.94
+Upper: 38.94
+====================================
+lower list size: 0
+upper list size: 4
+====================================
+*** Split into lower and upper lists: ***
+lower:           [5, 8, 10, 2, 1, 6, 0]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 4, 5, 6, 7, 8, 10, 11]
+upper:           [3, 9, 12, 13, 4, 7, 11]
+====================================
+cloned = 3
+killed = 5
+cloned = 9
+killed = 8
+cloned = 12
+killed = 10
+cloned = 13
+killed = 2
+cloned = 4
+killed = 1
+cloned = 7
+killed = 6
+cloned = 11
+killed = 0
+######################################
+~~~ Scores: ~~~
+[38.879999999999995,
+ 38.879999999999995,
+ 38.99000000000001,
+ 38.989999999999995,
+ 38.879999999999995,
+ 38.99,
+ 38.879999999999995,
+ 38.879999999999995,
+ 38.99,
+ 38.99,
+ 38.989999999999995,
+ 38.879999999999995,
+ 38.989999999999995,
+ 38.989999999999995]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 38.989999999999995
+Upper: 38.989999999999995
+====================================
+lower list size: 6
+upper list size: 4
+====================================
+*** Split into lower and upper lists: ***
+lower:           [0, 1, 4, 6, 7, 11, 10]
+lower threshold: []
+....................................
+upper threshold: [3, 10, 12, 13]
+upper:           [2, 5, 8, 9, 12, 3, 13]
+====================================
+cloned = 2
+killed = 0
+cloned = 5
+killed = 1
+cloned = 8
+killed = 4
+cloned = 9
+killed = 6
+cloned = 12
+killed = 7
+cloned = 3
+killed = 11
+cloned = 13
+killed = 10
+Trial run 2/seed 4505:
+..................................................
+winner: Michaelos: (D,)
+==================================================
+List of players:
+Evolved FSM 6
+Second by RichardHufford
+Tit For Tat
+Evolved FSM 16
+Evolved HMM 5
+EvolvedLookerUp2_2_2
+Michaelos: (D,)
+Defector
+Cooperator
+Random: 0.5
+Win-Stay Lose-Shift
+Grudger
+Prober
+Tit For 2 Tats
+==================================================
+Results:
+[Counter({'Evolved FSM 6': 1,
+          'Second by RichardHufford': 1,
+          'Tit For Tat': 1,
+          'Evolved FSM 16': 1,
+          'Evolved HMM 5': 1,
+          'EvolvedLookerUp2_2_2': 1,
+          'Michaelos: (D,)': 1,
+          'Defector': 1,
+          'Cooperator': 1,
+          'Random: 0.5': 1,
+          'Win-Stay Lose-Shift': 1,
+          'Grudger': 1,
+          'Prober': 1,
+          'Tit For 2 Tats': 1}),
+ Counter({'Evolved FSM 6': 2,
+          'Second by RichardHufford': 2,
+          'Tit For Tat': 2,
+          'Evolved FSM 16': 2,
+          'EvolvedLookerUp2_2_2': 2,
+          'Michaelos: (D,)': 2,
+          'Grudger': 2}),
+ Counter({'Evolved FSM 6': 4,
+          'Tit For Tat': 4,
+          'EvolvedLookerUp2_2_2': 4,
+          'Michaelos: (D,)': 2}),
+ Counter({'Evolved FSM 6': 4,
+          'Tit For Tat': 4,
+          'Michaelos: (D,)': 4,
+          'EvolvedLookerUp2_2_2': 2}),
+ Counter({'Michaelos: (D,)': 8, 'Tit For Tat': 4, 'EvolvedLookerUp2_2_2': 2}),
+ Counter({'Michaelos: (D,)': 14})]
+--------------------------------------------------
+Score:
+[[36.425000000000004,
+  33.910000000000004,
+  36.269999999999996,
+  34.129999999999995,
+  33.385,
+  36.22,
+  36.26499999999999,
+  26.399999999999995,
+  31.035,
+  18.295,
+  32.7,
+  33.794999999999995,
+  32.56,
+  33.295],
+ [38.89,
+  32.36000000000001,
+  38.93,
+  34.83,
+  38.89,
+  38.37,
+  36.665,
+  31.935000000000006,
+  38.93,
+  34.83,
+  38.37,
+  36.22,
+  37.08999999999999,
+  36.22],
+ [38.97,
+  38.97,
+  38.97,
+  38.97,
+  38.97,
+  38.97,
+  38.97,
+  38.97,
+  38.97,
+  38.97,
+  38.97,
+  38.97,
+  39.109999999999985,
+  39.109999999999985],
+ [38.94,
+  38.94,
+  38.94,
+  39.06999999999999,
+  38.94,
+  38.94,
+  38.94,
+  38.94,
+  38.94,
+  39.06999999999999,
+  38.94,
+  38.94,
+  39.069999999999986,
+  39.06999999999999],
+ [38.879999999999995,
+  38.879999999999995,
+  38.99000000000001,
+  38.989999999999995,
+  38.879999999999995,
+  38.99,
+  38.879999999999995,
+  38.879999999999995,
+  38.99,
+  38.99,
+  38.989999999999995,
+  38.879999999999995,
+  38.989999999999995,
+  38.989999999999995]]
+***************************************************
+***************************************************
+######################################
+~~~ Scores: ~~~
+[36.085,
+ 33.895,
+ 36.18,
+ 33.665,
+ 33.68,
+ 35.825,
+ 35.82999999999999,
+ 26.4,
+ 31.080000000000002,
+ 22.080000000000002,
+ 32.745,
+ 33.675,
+ 31.69,
+ 33.449999999999996]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 33.67
+Upper: 33.67
+====================================
+lower list size: 7
+upper list size: 7
+====================================
+*** Split into lower and upper lists: ***
+lower:           [3, 7, 8, 9, 10, 12, 13]
+lower threshold: []
+....................................
+upper threshold: []
+upper:           [0, 1, 2, 4, 5, 6, 11]
+====================================
+cloned = 0
+killed = 3
+cloned = 1
+killed = 7
+cloned = 2
+killed = 8
+cloned = 4
+killed = 9
+cloned = 5
+killed = 10
+cloned = 6
+killed = 12
+cloned = 11
+killed = 13
+######################################
+~~~ Scores: ~~~
+[38.89,
+ 30.805000000000007,
+ 38.93,
+ 38.89,
+ 38.29,
+ 38.37,
+ 36.339999999999996,
+ 30.470000000000006,
+ 38.93,
+ 38.325,
+ 38.37,
+ 36.22,
+ 36.66499999999999,
+ 36.22]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 38.307500000000005
+Upper: 38.307500000000005
+====================================
+lower list size: 7
+upper list size: 7
+====================================
+*** Split into lower and upper lists: ***
+lower:           [1, 4, 6, 7, 11, 12, 13]
+lower threshold: []
+....................................
+upper threshold: []
+upper:           [0, 2, 3, 5, 8, 9, 10]
+====================================
+cloned = 0
+killed = 1
+cloned = 2
+killed = 4
+cloned = 3
+killed = 6
+cloned = 5
+killed = 7
+cloned = 8
+killed = 11
+cloned = 9
+killed = 12
+cloned = 10
+killed = 13
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [10, 3, 11, 9, 7, 1, 2]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [0, 12, 8, 5, 6, 4, 13]
+====================================
+cloned = 0
+killed = 10
+cloned = 12
+killed = 3
+cloned = 8
+killed = 11
+cloned = 5
+killed = 9
+cloned = 6
+killed = 7
+cloned = 4
+killed = 1
+cloned = 13
+killed = 2
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [11, 1, 10, 0, 5, 2, 3]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [9, 6, 4, 7, 12, 8, 13]
+====================================
+cloned = 9
+killed = 11
+cloned = 6
+killed = 1
+cloned = 4
+killed = 10
+cloned = 7
+killed = 0
+cloned = 12
+killed = 5
+cloned = 8
+killed = 2
+cloned = 13
+killed = 3
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [4, 9, 6, 5, 10, 3, 8]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [1, 0, 12, 11, 7, 2, 13]
+====================================
+cloned = 1
+killed = 4
+cloned = 0
+killed = 9
+cloned = 12
+killed = 6
+cloned = 11
+killed = 5
+cloned = 7
+killed = 10
+cloned = 2
+killed = 3
+cloned = 13
+killed = 8
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [7, 11, 5, 12, 0, 8, 9]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [10, 6, 4, 1, 3, 2, 13]
+====================================
+cloned = 10
+killed = 7
+cloned = 6
+killed = 11
+cloned = 4
+killed = 5
+cloned = 1
+killed = 12
+cloned = 3
+killed = 0
+cloned = 2
+killed = 8
+cloned = 13
+killed = 9
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [8, 9, 11, 3, 10, 5, 2]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [1, 7, 6, 4, 0, 12, 13]
+====================================
+cloned = 1
+killed = 8
+cloned = 7
+killed = 9
+cloned = 6
+killed = 11
+cloned = 4
+killed = 3
+cloned = 0
+killed = 10
+cloned = 12
+killed = 5
+cloned = 13
+killed = 2
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [9, 4, 7, 12, 8, 6, 2]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [5, 11, 10, 3, 0, 1, 13]
+====================================
+cloned = 5
+killed = 9
+cloned = 11
+killed = 4
+cloned = 10
+killed = 7
+cloned = 3
+killed = 12
+cloned = 0
+killed = 8
+cloned = 1
+killed = 6
+cloned = 13
+killed = 2
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [2, 1, 11, 9, 12, 10, 8]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [5, 3, 4, 7, 6, 0, 13]
+====================================
+cloned = 5
+killed = 2
+cloned = 3
+killed = 1
+cloned = 4
+killed = 11
+cloned = 7
+killed = 9
+cloned = 6
+killed = 12
+cloned = 0
+killed = 10
+cloned = 13
+killed = 8
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [7, 11, 9, 0, 12, 8, 3]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [6, 4, 1, 10, 5, 2, 13]
+====================================
+cloned = 6
+killed = 7
+cloned = 4
+killed = 11
+cloned = 1
+killed = 9
+cloned = 10
+killed = 0
+cloned = 5
+killed = 12
+cloned = 2
+killed = 8
+cloned = 13
+killed = 3
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [9, 11, 8, 1, 5, 2, 12]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [10, 3, 7, 6, 0, 4, 13]
+====================================
+cloned = 10
+killed = 9
+cloned = 3
+killed = 11
+cloned = 7
+killed = 8
+cloned = 6
+killed = 1
+cloned = 0
+killed = 5
+cloned = 4
+killed = 2
+cloned = 13
+killed = 12
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [9, 8, 2, 11, 0, 12, 4]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [3, 5, 1, 7, 6, 10, 13]
+====================================
+cloned = 3
+killed = 9
+cloned = 5
+killed = 8
+cloned = 1
+killed = 2
+cloned = 7
+killed = 11
+cloned = 6
+killed = 0
+cloned = 10
+killed = 12
+cloned = 13
+killed = 4
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [6, 1, 0, 9, 11, 2, 5]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [3, 4, 7, 10, 12, 8, 13]
+====================================
+cloned = 3
+killed = 6
+cloned = 4
+killed = 1
+cloned = 7
+killed = 0
+cloned = 10
+killed = 9
+cloned = 12
+killed = 11
+cloned = 8
+killed = 2
+cloned = 13
+killed = 5
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [10, 1, 5, 0, 8, 6, 3]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [9, 2, 12, 11, 7, 4, 13]
+====================================
+cloned = 9
+killed = 10
+cloned = 2
+killed = 1
+cloned = 12
+killed = 5
+cloned = 11
+killed = 0
+cloned = 7
+killed = 8
+cloned = 4
+killed = 6
+cloned = 13
+killed = 3
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [1, 12, 6, 10, 7, 4, 2]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [0, 11, 9, 3, 5, 8, 13]
+====================================
+cloned = 0
+killed = 1
+cloned = 11
+killed = 12
+cloned = 9
+killed = 6
+cloned = 3
+killed = 10
+cloned = 5
+killed = 7
+cloned = 8
+killed = 4
+cloned = 13
+killed = 2
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [10, 11, 5, 0, 6, 2, 9]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [7, 8, 1, 4, 3, 12, 13]
+====================================
+cloned = 7
+killed = 10
+cloned = 8
+killed = 11
+cloned = 1
+killed = 5
+cloned = 4
+killed = 0
+cloned = 3
+killed = 6
+cloned = 12
+killed = 2
+cloned = 13
+killed = 9
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [2, 6, 4, 0, 5, 11, 10]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [12, 8, 3, 7, 1, 9, 13]
+====================================
+cloned = 12
+killed = 2
+cloned = 8
+killed = 6
+cloned = 3
+killed = 4
+cloned = 7
+killed = 0
+cloned = 1
+killed = 5
+cloned = 9
+killed = 11
+cloned = 13
+killed = 10
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [9, 12, 1, 5, 4, 2, 6]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [3, 11, 7, 8, 10, 0, 13]
+====================================
+cloned = 3
+killed = 9
+cloned = 11
+killed = 12
+cloned = 7
+killed = 1
+cloned = 8
+killed = 5
+cloned = 10
+killed = 4
+cloned = 0
+killed = 2
+cloned = 13
+killed = 6
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [0, 8, 10, 9, 2, 4, 5]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [12, 3, 6, 7, 1, 11, 13]
+====================================
+cloned = 12
+killed = 0
+cloned = 3
+killed = 8
+cloned = 6
+killed = 10
+cloned = 7
+killed = 9
+cloned = 1
+killed = 2
+cloned = 11
+killed = 4
+cloned = 13
+killed = 5
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [9, 8, 2, 0, 6, 1, 12]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [7, 4, 11, 3, 5, 10, 13]
+====================================
+cloned = 7
+killed = 9
+cloned = 4
+killed = 8
+cloned = 11
+killed = 2
+cloned = 3
+killed = 0
+cloned = 5
+killed = 6
+cloned = 10
+killed = 1
+cloned = 13
+killed = 12
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [5, 7, 12, 0, 9, 8, 11]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [2, 1, 6, 10, 4, 3, 13]
+====================================
+cloned = 2
+killed = 5
+cloned = 1
+killed = 7
+cloned = 6
+killed = 12
+cloned = 10
+killed = 0
+cloned = 4
+killed = 9
+cloned = 3
+killed = 8
+cloned = 13
+killed = 11
+Trial run 3/seed 4506:
+..................................................
+winner: EvolvedLookerUp2_2_2
+==================================================
+List of players:
+Evolved FSM 6
+Second by RichardHufford
+Tit For Tat
+Evolved FSM 16
+Evolved HMM 5
+EvolvedLookerUp2_2_2
+Michaelos: (D,)
+Defector
+Cooperator
+Random: 0.5
+Win-Stay Lose-Shift
+Grudger
+Prober
+Tit For 2 Tats
+==================================================
+Results:
+[Counter({'Evolved FSM 6': 1,
+          'Second by RichardHufford': 1,
+          'Tit For Tat': 1,
+          'Evolved FSM 16': 1,
+          'Evolved HMM 5': 1,
+          'EvolvedLookerUp2_2_2': 1,
+          'Michaelos: (D,)': 1,
+          'Defector': 1,
+          'Cooperator': 1,
+          'Random: 0.5': 1,
+          'Win-Stay Lose-Shift': 1,
+          'Grudger': 1,
+          'Prober': 1,
+          'Tit For 2 Tats': 1}),
+ Counter({'Evolved FSM 6': 2,
+          'Second by RichardHufford': 2,
+          'Tit For Tat': 2,
+          'Evolved HMM 5': 2,
+          'EvolvedLookerUp2_2_2': 2,
+          'Michaelos: (D,)': 2,
+          'Grudger': 2}),
+ Counter({'Evolved FSM 6': 4,
+          'Tit For Tat': 4,
+          'EvolvedLookerUp2_2_2': 4,
+          'Evolved HMM 5': 2}),
+ Counter({'Evolved FSM 6': 4,
+          'Tit For Tat': 4,
+          'EvolvedLookerUp2_2_2': 4,
+          'Evolved HMM 5': 2}),
+ Counter({'Evolved FSM 6': 4,
+          'Tit For Tat': 4,
+          'EvolvedLookerUp2_2_2': 4,
+          'Evolved HMM 5': 2}),
+ Counter({'Evolved FSM 6': 6,
+          'EvolvedLookerUp2_2_2': 4,
+          'Tit For Tat': 2,
+          'Evolved HMM 5': 2}),
+ Counter({'Evolved FSM 6': 6,
+          'Tit For Tat': 4,
+          'Evolved HMM 5': 2,
+          'EvolvedLookerUp2_2_2': 2}),
+ Counter({'Evolved FSM 6': 8,
+          'Tit For Tat': 2,
+          'EvolvedLookerUp2_2_2': 2,
+          'Evolved HMM 5': 2}),
+ Counter({'Evolved FSM 6': 6,
+          'Tit For Tat': 4,
+          'EvolvedLookerUp2_2_2': 2,
+          'Evolved HMM 5': 2}),
+ Counter({'Evolved FSM 6': 6,
+          'Tit For Tat': 4,
+          'Evolved HMM 5': 2,
+          'EvolvedLookerUp2_2_2': 2}),
+ Counter({'Evolved FSM 6': 8,
+          'Tit For Tat': 2,
+          'EvolvedLookerUp2_2_2': 2,
+          'Evolved HMM 5': 2}),
+ Counter({'Tit For Tat': 4,
+          'Evolved FSM 6': 4,
+          'EvolvedLookerUp2_2_2': 4,
+          'Evolved HMM 5': 2}),
+ Counter({'Evolved FSM 6': 6, 'EvolvedLookerUp2_2_2': 4, 'Tit For Tat': 4}),
+ Counter({'EvolvedLookerUp2_2_2': 6, 'Tit For Tat': 6, 'Evolved FSM 6': 2}),
+ Counter({'Tit For Tat': 8, 'EvolvedLookerUp2_2_2': 4, 'Evolved FSM 6': 2}),
+ Counter({'Tit For Tat': 8, 'EvolvedLookerUp2_2_2': 4, 'Evolved FSM 6': 2}),
+ Counter({'Tit For Tat': 6, 'Evolved FSM 6': 4, 'EvolvedLookerUp2_2_2': 4}),
+ Counter({'Tit For Tat': 6, 'EvolvedLookerUp2_2_2': 6, 'Evolved FSM 6': 2}),
+ Counter({'EvolvedLookerUp2_2_2': 8, 'Tit For Tat': 4, 'Evolved FSM 6': 2}),
+ Counter({'EvolvedLookerUp2_2_2': 10, 'Tit For Tat': 4}),
+ Counter({'EvolvedLookerUp2_2_2': 12, 'Tit For Tat': 2}),
+ Counter({'EvolvedLookerUp2_2_2': 14})]
+--------------------------------------------------
+Score:
+[[36.085,
+  33.895,
+  36.18,
+  33.665,
+  33.68,
+  35.825,
+  35.82999999999999,
+  26.4,
+  31.080000000000002,
+  22.080000000000002,
+  32.745,
+  33.675,
+  31.69,
+  33.449999999999996],
+ [38.89,
+  30.805000000000007,
+  38.93,
+  38.89,
+  38.29,
+  38.37,
+  36.339999999999996,
+  30.470000000000006,
+  38.93,
+  38.325,
+  38.37,
+  36.22,
+  36.66499999999999,
+  36.22],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0]]
+***************************************************
+***************************************************
+######################################
+~~~ Scores: ~~~
+[36.28,
+ 32.830000000000005,
+ 36.1,
+ 33.985,
+ 33.84,
+ 36.275,
+ 35.69,
+ 26.499999999999996,
+ 31.065,
+ 20.759999999999998,
+ 32.465,
+ 33.675,
+ 31.745,
+ 33.47]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 33.5725
+Upper: 33.5725
+====================================
+lower list size: 7
+upper list size: 7
+====================================
+*** Split into lower and upper lists: ***
+lower:           [1, 7, 8, 9, 10, 12, 13]
+lower threshold: []
+....................................
+upper threshold: []
+upper:           [0, 2, 3, 4, 5, 6, 11]
+====================================
+cloned = 0
+killed = 1
+cloned = 2
+killed = 7
+cloned = 3
+killed = 8
+cloned = 4
+killed = 9
+cloned = 5
+killed = 10
+cloned = 6
+killed = 12
+cloned = 11
+killed = 13
+######################################
+~~~ Scores: ~~~
+[38.97,
+ 38.97,
+ 38.97,
+ 38.97,
+ 38.97,
+ 38.97,
+ 39.10999999999999,
+ 38.97,
+ 38.97,
+ 38.97,
+ 38.97,
+ 38.97,
+ 39.10999999999999,
+ 38.97]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 38.97
+Upper: 38.97
+====================================
+lower list size: 0
+upper list size: 2
+====================================
+*** Split into lower and upper lists: ***
+lower:           [10, 4, 1, 0, 8, 2, 7]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 13]
+upper:           [6, 12, 3, 5, 11, 9, 13]
+====================================
+cloned = 6
+killed = 10
+cloned = 12
+killed = 4
+cloned = 3
+killed = 1
+cloned = 5
+killed = 0
+cloned = 11
+killed = 8
+cloned = 9
+killed = 2
+cloned = 13
+killed = 7
+######################################
+~~~ Scores: ~~~
+[38.94,
+ 38.94,
+ 38.94,
+ 38.94,
+ 39.06999999999999,
+ 38.94,
+ 39.06999999999999,
+ 38.94,
+ 38.94,
+ 38.94,
+ 39.06999999999999,
+ 38.94,
+ 39.06999999999999,
+ 38.94]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 38.94
+Upper: 38.94
+====================================
+lower list size: 0
+upper list size: 4
+====================================
+*** Split into lower and upper lists: ***
+lower:           [8, 1, 5, 11, 9, 0, 7]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 5, 7, 8, 9, 11, 13]
+upper:           [4, 6, 10, 12, 2, 3, 13]
+====================================
+cloned = 4
+killed = 8
+cloned = 6
+killed = 1
+cloned = 10
+killed = 5
+cloned = 12
+killed = 11
+cloned = 2
+killed = 9
+cloned = 3
+killed = 0
+cloned = 13
+killed = 7
+######################################
+~~~ Scores: ~~~
+[38.879999999999995,
+ 38.99,
+ 38.879999999999995,
+ 38.879999999999995,
+ 38.99,
+ 38.99,
+ 38.99,
+ 38.879999999999995,
+ 38.99,
+ 38.879999999999995,
+ 38.99,
+ 38.99,
+ 38.99,
+ 38.879999999999995]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 38.99
+Upper: 38.99
+====================================
+lower list size: 6
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [0, 2, 3, 7, 9, 13, 4]
+lower threshold: []
+....................................
+upper threshold: [1, 4, 5, 6, 8, 10, 11, 12]
+upper:           [11, 1, 10, 5, 8, 6, 12]
+====================================
+cloned = 11
+killed = 0
+cloned = 1
+killed = 2
+cloned = 10
+killed = 3
+cloned = 5
+killed = 7
+cloned = 8
+killed = 9
+cloned = 6
+killed = 13
+cloned = 12
+killed = 4
+Trial run 4/seed 4507:
+..................................................
+winner: Michaelos: (D,)
+==================================================
+List of players:
+Evolved FSM 6
+Second by RichardHufford
+Tit For Tat
+Evolved FSM 16
+Evolved HMM 5
+EvolvedLookerUp2_2_2
+Michaelos: (D,)
+Defector
+Cooperator
+Random: 0.5
+Win-Stay Lose-Shift
+Grudger
+Prober
+Tit For 2 Tats
+==================================================
+Results:
+[Counter({'Evolved FSM 6': 1,
+          'Second by RichardHufford': 1,
+          'Tit For Tat': 1,
+          'Evolved FSM 16': 1,
+          'Evolved HMM 5': 1,
+          'EvolvedLookerUp2_2_2': 1,
+          'Michaelos: (D,)': 1,
+          'Defector': 1,
+          'Cooperator': 1,
+          'Random: 0.5': 1,
+          'Win-Stay Lose-Shift': 1,
+          'Grudger': 1,
+          'Prober': 1,
+          'Tit For 2 Tats': 1}),
+ Counter({'Evolved FSM 6': 2,
+          'Tit For Tat': 2,
+          'Evolved FSM 16': 2,
+          'Evolved HMM 5': 2,
+          'EvolvedLookerUp2_2_2': 2,
+          'Michaelos: (D,)': 2,
+          'Grudger': 2}),
+ Counter({'Michaelos: (D,)': 4,
+          'Grudger': 4,
+          'EvolvedLookerUp2_2_2': 2,
+          'Evolved FSM 16': 2,
+          'Evolved HMM 5': 2}),
+ Counter({'Michaelos: (D,)': 8,
+          'Evolved FSM 16': 2,
+          'Evolved HMM 5': 2,
+          'Grudger': 2}),
+ Counter({'Michaelos: (D,)': 14})]
+--------------------------------------------------
+Score:
+[[36.28,
+  32.830000000000005,
+  36.1,
+  33.985,
+  33.84,
+  36.275,
+  35.69,
+  26.499999999999996,
+  31.065,
+  20.759999999999998,
+  32.465,
+  33.675,
+  31.745,
+  33.47],
+ [38.97,
+  38.97,
+  38.97,
+  38.97,
+  38.97,
+  38.97,
+  39.10999999999999,
+  38.97,
+  38.97,
+  38.97,
+  38.97,
+  38.97,
+  39.10999999999999,
+  38.97],
+ [38.94,
+  38.94,
+  38.94,
+  38.94,
+  39.06999999999999,
+  38.94,
+  39.06999999999999,
+  38.94,
+  38.94,
+  38.94,
+  39.06999999999999,
+  38.94,
+  39.06999999999999,
+  38.94],
+ [38.879999999999995,
+  38.99,
+  38.879999999999995,
+  38.879999999999995,
+  38.99,
+  38.99,
+  38.99,
+  38.879999999999995,
+  38.99,
+  38.879999999999995,
+  38.99,
+  38.99,
+  38.99,
+  38.879999999999995]]
+***************************************************
+***************************************************
+######################################
+~~~ Scores: ~~~
+[36.2,
+ 34.55500000000001,
+ 36.23,
+ 33.834999999999994,
+ 33.91,
+ 35.845,
+ 34.964999999999996,
+ 26.22,
+ 31.005000000000003,
+ 20.775000000000002,
+ 32.72,
+ 33.77499999999999,
+ 29.920000000000005,
+ 33.30499999999999]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 33.80499999999999
+Upper: 33.80499999999999
+====================================
+lower list size: 7
+upper list size: 7
+====================================
+*** Split into lower and upper lists: ***
+lower:           [7, 8, 9, 10, 11, 12, 13]
+lower threshold: []
+....................................
+upper threshold: []
+upper:           [0, 1, 2, 3, 4, 5, 6]
+====================================
+cloned = 0
+killed = 7
+cloned = 1
+killed = 8
+cloned = 2
+killed = 9
+cloned = 3
+killed = 10
+cloned = 4
+killed = 11
+cloned = 5
+killed = 12
+cloned = 6
+killed = 13
+######################################
+~~~ Scores: ~~~
+[38.89,
+ 35.24,
+ 38.93,
+ 34.83,
+ 38.42,
+ 38.370000000000005,
+ 37.41499999999999,
+ 38.89,
+ 35.55,
+ 38.93,
+ 34.83,
+ 38.39,
+ 38.37,
+ 36.33999999999999]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 38.370000000000005
+Upper: 38.370000000000005
+====================================
+lower list size: 7
+upper list size: 6
+====================================
+*** Split into lower and upper lists: ***
+lower:           [1, 3, 6, 8, 10, 12, 13]
+lower threshold: []
+....................................
+upper threshold: [5]
+upper:           [0, 2, 4, 7, 9, 11, 5]
+====================================
+cloned = 0
+killed = 1
+cloned = 2
+killed = 3
+cloned = 4
+killed = 6
+cloned = 7
+killed = 8
+cloned = 9
+killed = 10
+cloned = 11
+killed = 12
+cloned = 5
+killed = 13
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [6, 10, 7, 1, 2, 5, 12]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [8, 4, 11, 9, 0, 3, 13]
+====================================
+cloned = 8
+killed = 6
+cloned = 4
+killed = 10
+cloned = 11
+killed = 7
+cloned = 9
+killed = 1
+cloned = 0
+killed = 2
+cloned = 3
+killed = 5
+cloned = 13
+killed = 12
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [7, 10, 0, 3, 12, 1, 2]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [9, 5, 8, 11, 6, 4, 13]
+====================================
+cloned = 9
+killed = 7
+cloned = 5
+killed = 10
+cloned = 8
+killed = 0
+cloned = 11
+killed = 3
+cloned = 6
+killed = 12
+cloned = 4
+killed = 1
+cloned = 13
+killed = 2
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [3, 9, 6, 8, 1, 12, 10]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [0, 5, 4, 11, 7, 2, 13]
+====================================
+cloned = 0
+killed = 3
+cloned = 5
+killed = 9
+cloned = 4
+killed = 6
+cloned = 11
+killed = 8
+cloned = 7
+killed = 1
+cloned = 2
+killed = 12
+cloned = 13
+killed = 10
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [0, 12, 10, 6, 1, 9, 2]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [11, 3, 5, 4, 8, 7, 13]
+====================================
+cloned = 11
+killed = 0
+cloned = 3
+killed = 12
+cloned = 5
+killed = 10
+cloned = 4
+killed = 6
+cloned = 8
+killed = 1
+cloned = 7
+killed = 9
+cloned = 13
+killed = 2
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [6, 2, 11, 7, 10, 8, 9]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [12, 5, 1, 0, 4, 3, 13]
+====================================
+cloned = 12
+killed = 6
+cloned = 5
+killed = 2
+cloned = 1
+killed = 11
+cloned = 0
+killed = 7
+cloned = 4
+killed = 10
+cloned = 3
+killed = 8
+cloned = 13
+killed = 9
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [2, 1, 7, 0, 6, 10, 3]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [5, 4, 12, 11, 9, 8, 13]
+====================================
+cloned = 5
+killed = 2
+cloned = 4
+killed = 1
+cloned = 12
+killed = 7
+cloned = 11
+killed = 0
+cloned = 9
+killed = 6
+cloned = 8
+killed = 10
+cloned = 13
+killed = 3
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [5, 10, 11, 7, 3, 9, 1]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [0, 2, 6, 12, 8, 4, 13]
+====================================
+cloned = 0
+killed = 5
+cloned = 2
+killed = 10
+cloned = 6
+killed = 11
+cloned = 12
+killed = 7
+cloned = 8
+killed = 3
+cloned = 4
+killed = 9
+cloned = 13
+killed = 1
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [2, 11, 5, 3, 7, 6, 8]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [1, 0, 4, 12, 10, 9, 13]
+====================================
+cloned = 1
+killed = 2
+cloned = 0
+killed = 11
+cloned = 4
+killed = 5
+cloned = 12
+killed = 3
+cloned = 10
+killed = 7
+cloned = 9
+killed = 6
+cloned = 13
+killed = 8
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [3, 1, 9, 5, 12, 11, 6]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [0, 10, 4, 2, 8, 7, 13]
+====================================
+cloned = 0
+killed = 3
+cloned = 10
+killed = 1
+cloned = 4
+killed = 9
+cloned = 2
+killed = 5
+cloned = 8
+killed = 12
+cloned = 7
+killed = 11
+cloned = 13
+killed = 6
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [12, 4, 0, 8, 5, 9, 2]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [11, 6, 10, 7, 3, 1, 13]
+====================================
+cloned = 11
+killed = 12
+cloned = 6
+killed = 4
+cloned = 10
+killed = 0
+cloned = 7
+killed = 8
+cloned = 3
+killed = 5
+cloned = 1
+killed = 9
+cloned = 13
+killed = 2
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [10, 4, 2, 6, 5, 11, 0]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [7, 12, 3, 9, 8, 1, 13]
+====================================
+cloned = 7
+killed = 10
+cloned = 12
+killed = 4
+cloned = 3
+killed = 2
+cloned = 9
+killed = 6
+cloned = 8
+killed = 5
+cloned = 1
+killed = 11
+cloned = 13
+killed = 0
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [11, 9, 6, 8, 5, 4, 1]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [0, 2, 3, 12, 7, 10, 13]
+====================================
+cloned = 0
+killed = 11
+cloned = 2
+killed = 9
+cloned = 3
+killed = 6
+cloned = 12
+killed = 8
+cloned = 7
+killed = 5
+cloned = 10
+killed = 4
+cloned = 13
+killed = 1
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [9, 8, 11, 4, 7, 1, 5]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [3, 0, 12, 6, 2, 10, 13]
+====================================
+cloned = 3
+killed = 9
+cloned = 0
+killed = 8
+cloned = 12
+killed = 11
+cloned = 6
+killed = 4
+cloned = 2
+killed = 7
+cloned = 10
+killed = 1
+cloned = 13
+killed = 5
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [12, 6, 0, 9, 1, 8, 3]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [4, 7, 11, 2, 5, 10, 13]
+====================================
+cloned = 4
+killed = 12
+cloned = 7
+killed = 6
+cloned = 11
+killed = 0
+cloned = 2
+killed = 9
+cloned = 5
+killed = 1
+cloned = 10
+killed = 8
+cloned = 13
+killed = 3
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [1, 9, 10, 7, 3, 11, 12]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [4, 8, 2, 6, 0, 5, 13]
+====================================
+cloned = 4
+killed = 1
+cloned = 8
+killed = 9
+cloned = 2
+killed = 10
+cloned = 6
+killed = 7
+cloned = 0
+killed = 3
+cloned = 5
+killed = 11
+cloned = 13
+killed = 12
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [0, 11, 8, 3, 10, 12, 4]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [5, 1, 2, 9, 6, 7, 13]
+====================================
+cloned = 5
+killed = 0
+cloned = 1
+killed = 11
+cloned = 2
+killed = 8
+cloned = 9
+killed = 3
+cloned = 6
+killed = 10
+cloned = 7
+killed = 12
+cloned = 13
+killed = 4
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [3, 6, 12, 4, 5, 9, 1]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [8, 7, 10, 11, 0, 2, 13]
+====================================
+cloned = 8
+killed = 3
+cloned = 7
+killed = 6
+cloned = 10
+killed = 12
+cloned = 11
+killed = 4
+cloned = 0
+killed = 5
+cloned = 2
+killed = 9
+cloned = 13
+killed = 1
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [7, 5, 10, 8, 1, 6, 4]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [12, 9, 2, 3, 0, 11, 13]
+====================================
+cloned = 12
+killed = 7
+cloned = 9
+killed = 5
+cloned = 2
+killed = 10
+cloned = 3
+killed = 8
+cloned = 0
+killed = 1
+cloned = 11
+killed = 6
+cloned = 13
+killed = 4
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [7, 11, 10, 1, 12, 0, 9]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [8, 6, 5, 3, 4, 2, 13]
+====================================
+cloned = 8
+killed = 7
+cloned = 6
+killed = 11
+cloned = 5
+killed = 10
+cloned = 3
+killed = 1
+cloned = 4
+killed = 12
+cloned = 2
+killed = 0
+cloned = 13
+killed = 9
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [1, 2, 4, 3, 7, 9, 8]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [5, 0, 10, 11, 6, 12, 13]
+====================================
+cloned = 5
+killed = 1
+cloned = 0
+killed = 2
+cloned = 10
+killed = 4
+cloned = 11
+killed = 3
+cloned = 6
+killed = 7
+cloned = 12
+killed = 9
+cloned = 13
+killed = 8
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [12, 9, 1, 3, 6, 7, 4]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [2, 10, 11, 5, 8, 0, 13]
+====================================
+cloned = 2
+killed = 12
+cloned = 10
+killed = 9
+cloned = 11
+killed = 1
+cloned = 5
+killed = 3
+cloned = 8
+killed = 6
+cloned = 0
+killed = 7
+cloned = 13
+killed = 4
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [9, 11, 8, 5, 3, 6, 1]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [4, 12, 0, 2, 7, 10, 13]
+====================================
+cloned = 4
+killed = 9
+cloned = 12
+killed = 11
+cloned = 0
+killed = 8
+cloned = 2
+killed = 5
+cloned = 7
+killed = 3
+cloned = 10
+killed = 6
+cloned = 13
+killed = 1
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [7, 1, 6, 10, 12, 5, 9]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [2, 8, 4, 3, 11, 0, 13]
+====================================
+cloned = 2
+killed = 7
+cloned = 8
+killed = 1
+cloned = 4
+killed = 6
+cloned = 3
+killed = 10
+cloned = 11
+killed = 12
+cloned = 0
+killed = 5
+cloned = 13
+killed = 9
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [7, 8, 10, 2, 3, 9, 12]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [5, 11, 0, 6, 4, 1, 13]
+====================================
+cloned = 5
+killed = 7
+cloned = 11
+killed = 8
+cloned = 0
+killed = 10
+cloned = 6
+killed = 2
+cloned = 4
+killed = 3
+cloned = 1
+killed = 9
+cloned = 13
+killed = 12
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [2, 3, 6, 5, 1, 11, 4]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [8, 9, 12, 7, 10, 0, 13]
+====================================
+cloned = 8
+killed = 2
+cloned = 9
+killed = 3
+cloned = 12
+killed = 6
+cloned = 7
+killed = 5
+cloned = 10
+killed = 1
+cloned = 0
+killed = 11
+cloned = 13
+killed = 4
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [0, 4, 8, 9, 2, 12, 3]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [11, 1, 6, 10, 7, 5, 13]
+====================================
+cloned = 11
+killed = 0
+cloned = 1
+killed = 4
+cloned = 6
+killed = 8
+cloned = 10
+killed = 9
+cloned = 7
+killed = 2
+cloned = 5
+killed = 12
+cloned = 13
+killed = 3
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [3, 9, 4, 11, 10, 6, 7]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [12, 5, 8, 2, 1, 0, 13]
+====================================
+cloned = 12
+killed = 3
+cloned = 5
+killed = 9
+cloned = 8
+killed = 4
+cloned = 2
+killed = 11
+cloned = 1
+killed = 10
+cloned = 0
+killed = 6
+cloned = 13
+killed = 7
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [7, 5, 6, 10, 8, 12, 9]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [2, 4, 3, 1, 0, 11, 13]
+====================================
+cloned = 2
+killed = 7
+cloned = 4
+killed = 5
+cloned = 3
+killed = 6
+cloned = 1
+killed = 10
+cloned = 0
+killed = 8
+cloned = 11
+killed = 12
+cloned = 13
+killed = 9
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [6, 10, 4, 9, 5, 1, 11]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [3, 8, 7, 0, 12, 2, 13]
+====================================
+cloned = 3
+killed = 6
+cloned = 8
+killed = 10
+cloned = 7
+killed = 4
+cloned = 0
+killed = 9
+cloned = 12
+killed = 5
+cloned = 2
+killed = 1
+cloned = 13
+killed = 11
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [10, 7, 5, 1, 12, 11, 6]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [0, 9, 8, 4, 2, 3, 13]
+====================================
+cloned = 0
+killed = 10
+cloned = 9
+killed = 7
+cloned = 8
+killed = 5
+cloned = 4
+killed = 1
+cloned = 2
+killed = 12
+cloned = 3
+killed = 11
+cloned = 13
+killed = 6
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [1, 0, 7, 11, 8, 6, 10]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [12, 3, 9, 5, 2, 4, 13]
+====================================
+cloned = 12
+killed = 1
+cloned = 3
+killed = 0
+cloned = 9
+killed = 7
+cloned = 5
+killed = 11
+cloned = 2
+killed = 8
+cloned = 4
+killed = 6
+cloned = 13
+killed = 10
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [0, 5, 1, 9, 2, 11, 8]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [12, 3, 10, 7, 6, 4, 13]
+====================================
+cloned = 12
+killed = 0
+cloned = 3
+killed = 5
+cloned = 10
+killed = 1
+cloned = 7
+killed = 9
+cloned = 6
+killed = 2
+cloned = 4
+killed = 11
+cloned = 13
+killed = 8
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [7, 9, 3, 4, 11, 5, 6]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [10, 12, 0, 1, 8, 2, 13]
+====================================
+cloned = 10
+killed = 7
+cloned = 12
+killed = 9
+cloned = 0
+killed = 3
+cloned = 1
+killed = 4
+cloned = 8
+killed = 11
+cloned = 2
+killed = 5
+cloned = 13
+killed = 6
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [5, 0, 10, 3, 7, 8, 4]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [2, 12, 11, 9, 6, 1, 13]
+====================================
+cloned = 2
+killed = 5
+cloned = 12
+killed = 0
+cloned = 11
+killed = 10
+cloned = 9
+killed = 3
+cloned = 6
+killed = 7
+cloned = 1
+killed = 8
+cloned = 13
+killed = 4
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [3, 11, 12, 1, 10, 2, 6]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [4, 5, 8, 7, 0, 9, 13]
+====================================
+cloned = 4
+killed = 3
+cloned = 5
+killed = 11
+cloned = 8
+killed = 12
+cloned = 7
+killed = 1
+cloned = 0
+killed = 10
+cloned = 9
+killed = 2
+cloned = 13
+killed = 6
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [8, 7, 1, 3, 4, 11, 0]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [6, 12, 5, 10, 9, 2, 13]
+====================================
+cloned = 6
+killed = 8
+cloned = 12
+killed = 7
+cloned = 5
+killed = 1
+cloned = 10
+killed = 3
+cloned = 9
+killed = 4
+cloned = 2
+killed = 11
+cloned = 13
+killed = 0
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [12, 3, 11, 6, 0, 10, 5]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [8, 4, 2, 9, 1, 7, 13]
+====================================
+cloned = 8
+killed = 12
+cloned = 4
+killed = 3
+cloned = 2
+killed = 11
+cloned = 9
+killed = 6
+cloned = 1
+killed = 0
+cloned = 7
+killed = 10
+cloned = 13
+killed = 5
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [6, 4, 5, 1, 11, 3, 8]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [2, 7, 12, 9, 0, 10, 13]
+====================================
+cloned = 2
+killed = 6
+cloned = 7
+killed = 4
+cloned = 12
+killed = 5
+cloned = 9
+killed = 1
+cloned = 0
+killed = 11
+cloned = 10
+killed = 3
+cloned = 13
+killed = 8
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [0, 7, 2, 10, 4, 6, 9]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [8, 11, 12, 1, 3, 5, 13]
+====================================
+cloned = 8
+killed = 0
+cloned = 11
+killed = 7
+cloned = 12
+killed = 2
+cloned = 1
+killed = 10
+cloned = 3
+killed = 4
+cloned = 5
+killed = 6
+cloned = 13
+killed = 9
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [2, 6, 4, 1, 7, 3, 10]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [8, 12, 9, 5, 0, 11, 13]
+====================================
+cloned = 8
+killed = 2
+cloned = 12
+killed = 6
+cloned = 9
+killed = 4
+cloned = 5
+killed = 1
+cloned = 0
+killed = 7
+cloned = 11
+killed = 3
+cloned = 13
+killed = 10
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [7, 5, 0, 1, 4, 3, 8]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [9, 6, 11, 10, 2, 12, 13]
+====================================
+cloned = 9
+killed = 7
+cloned = 6
+killed = 5
+cloned = 11
+killed = 0
+cloned = 10
+killed = 1
+cloned = 2
+killed = 4
+cloned = 12
+killed = 3
+cloned = 13
+killed = 8
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [0, 7, 11, 1, 5, 8, 3]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [6, 4, 10, 2, 12, 9, 13]
+====================================
+cloned = 6
+killed = 0
+cloned = 4
+killed = 7
+cloned = 10
+killed = 11
+cloned = 2
+killed = 1
+cloned = 12
+killed = 5
+cloned = 9
+killed = 8
+cloned = 13
+killed = 3
+Trial run 5/seed 4508:
+..................................................
+winner: EvolvedLookerUp2_2_2
+==================================================
+List of players:
+Evolved FSM 6
+Second by RichardHufford
+Tit For Tat
+Evolved FSM 16
+Evolved HMM 5
+EvolvedLookerUp2_2_2
+Michaelos: (D,)
+Defector
+Cooperator
+Random: 0.5
+Win-Stay Lose-Shift
+Grudger
+Prober
+Tit For 2 Tats
+==================================================
+Results:
+[Counter({'Evolved FSM 6': 1,
+          'Second by RichardHufford': 1,
+          'Tit For Tat': 1,
+          'Evolved FSM 16': 1,
+          'Evolved HMM 5': 1,
+          'EvolvedLookerUp2_2_2': 1,
+          'Michaelos: (D,)': 1,
+          'Defector': 1,
+          'Cooperator': 1,
+          'Random: 0.5': 1,
+          'Win-Stay Lose-Shift': 1,
+          'Grudger': 1,
+          'Prober': 1,
+          'Tit For 2 Tats': 1}),
+ Counter({'Evolved FSM 6': 2,
+          'Second by RichardHufford': 2,
+          'Tit For Tat': 2,
+          'Evolved FSM 16': 2,
+          'Evolved HMM 5': 2,
+          'EvolvedLookerUp2_2_2': 2,
+          'Michaelos: (D,)': 2}),
+ Counter({'Evolved FSM 6': 4,
+          'Tit For Tat': 4,
+          'Evolved HMM 5': 4,
+          'EvolvedLookerUp2_2_2': 2}),
+ Counter({'Evolved FSM 6': 4,
+          'Tit For Tat': 4,
+          'Evolved HMM 5': 4,
+          'EvolvedLookerUp2_2_2': 2}),
+ Counter({'Evolved FSM 6': 4,
+          'Evolved HMM 5': 4,
+          'Tit For Tat': 4,
+          'EvolvedLookerUp2_2_2': 2}),
+ Counter({'Tit For Tat': 4,
+          'EvolvedLookerUp2_2_2': 4,
+          'Evolved HMM 5': 4,
+          'Evolved FSM 6': 2}),
+ Counter({'Evolved HMM 5': 6,
+          'Tit For Tat': 4,
+          'EvolvedLookerUp2_2_2': 2,
+          'Evolved FSM 6': 2}),
+ Counter({'Evolved HMM 5': 6,
+          'Evolved FSM 6': 4,
+          'Tit For Tat': 2,
+          'EvolvedLookerUp2_2_2': 2}),
+ Counter({'Evolved HMM 5': 4,
+          'EvolvedLookerUp2_2_2': 4,
+          'Evolved FSM 6': 4,
+          'Tit For Tat': 2}),
+ Counter({'Evolved HMM 5': 4,
+          'EvolvedLookerUp2_2_2': 4,
+          'Evolved FSM 6': 4,
+          'Tit For Tat': 2}),
+ Counter({'Evolved HMM 5': 6,
+          'EvolvedLookerUp2_2_2': 4,
+          'Evolved FSM 6': 2,
+          'Tit For Tat': 2}),
+ Counter({'EvolvedLookerUp2_2_2': 6, 'Evolved HMM 5': 4, 'Tit For Tat': 4}),
+ Counter({'Tit For Tat': 8, 'EvolvedLookerUp2_2_2': 4, 'Evolved HMM 5': 2}),
+ Counter({'Tit For Tat': 10, 'EvolvedLookerUp2_2_2': 2, 'Evolved HMM 5': 2}),
+ Counter({'Tit For Tat': 6, 'EvolvedLookerUp2_2_2': 4, 'Evolved HMM 5': 4}),
+ Counter({'Evolved HMM 5': 6, 'EvolvedLookerUp2_2_2': 4, 'Tit For Tat': 4}),
+ Counter({'Evolved HMM 5': 6, 'Tit For Tat': 4, 'EvolvedLookerUp2_2_2': 4}),
+ Counter({'Evolved HMM 5': 6, 'Tit For Tat': 4, 'EvolvedLookerUp2_2_2': 4}),
+ Counter({'Evolved HMM 5': 8, 'EvolvedLookerUp2_2_2': 4, 'Tit For Tat': 2}),
+ Counter({'Evolved HMM 5': 10, 'EvolvedLookerUp2_2_2': 4}),
+ Counter({'Evolved HMM 5': 10, 'EvolvedLookerUp2_2_2': 4}),
+ Counter({'Evolved HMM 5': 10, 'EvolvedLookerUp2_2_2': 4}),
+ Counter({'Evolved HMM 5': 10, 'EvolvedLookerUp2_2_2': 4}),
+ Counter({'Evolved HMM 5': 10, 'EvolvedLookerUp2_2_2': 4}),
+ Counter({'Evolved HMM 5': 10, 'EvolvedLookerUp2_2_2': 4}),
+ Counter({'Evolved HMM 5': 10, 'EvolvedLookerUp2_2_2': 4}),
+ Counter({'Evolved HMM 5': 8, 'EvolvedLookerUp2_2_2': 6}),
+ Counter({'Evolved HMM 5': 10, 'EvolvedLookerUp2_2_2': 4}),
+ Counter({'Evolved HMM 5': 10, 'EvolvedLookerUp2_2_2': 4}),
+ Counter({'Evolved HMM 5': 10, 'EvolvedLookerUp2_2_2': 4}),
+ Counter({'Evolved HMM 5': 10, 'EvolvedLookerUp2_2_2': 4}),
+ Counter({'Evolved HMM 5': 12, 'EvolvedLookerUp2_2_2': 2}),
+ Counter({'Evolved HMM 5': 12, 'EvolvedLookerUp2_2_2': 2}),
+ Counter({'Evolved HMM 5': 12, 'EvolvedLookerUp2_2_2': 2}),
+ Counter({'Evolved HMM 5': 10, 'EvolvedLookerUp2_2_2': 4}),
+ Counter({'EvolvedLookerUp2_2_2': 8, 'Evolved HMM 5': 6}),
+ Counter({'EvolvedLookerUp2_2_2': 8, 'Evolved HMM 5': 6}),
+ Counter({'EvolvedLookerUp2_2_2': 8, 'Evolved HMM 5': 6}),
+ Counter({'Evolved HMM 5': 8, 'EvolvedLookerUp2_2_2': 6}),
+ Counter({'Evolved HMM 5': 8, 'EvolvedLookerUp2_2_2': 6}),
+ Counter({'EvolvedLookerUp2_2_2': 8, 'Evolved HMM 5': 6}),
+ Counter({'EvolvedLookerUp2_2_2': 10, 'Evolved HMM 5': 4}),
+ Counter({'EvolvedLookerUp2_2_2': 12, 'Evolved HMM 5': 2}),
+ Counter({'EvolvedLookerUp2_2_2': 12, 'Evolved HMM 5': 2}),
+ Counter({'EvolvedLookerUp2_2_2': 14})]
+--------------------------------------------------
+Score:
+[[36.2,
+  34.55500000000001,
+  36.23,
+  33.834999999999994,
+  33.91,
+  35.845,
+  34.964999999999996,
+  26.22,
+  31.005000000000003,
+  20.775000000000002,
+  32.72,
+  33.77499999999999,
+  29.920000000000005,
+  33.30499999999999],
+ [38.89,
+  35.24,
+  38.93,
+  34.83,
+  38.42,
+  38.370000000000005,
+  37.41499999999999,
+  38.89,
+  35.55,
+  38.93,
+  34.83,
+  38.39,
+  38.37,
+  36.33999999999999],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0]]
+***************************************************
+***************************************************
+######################################
+~~~ Scores: ~~~
+[36.440000000000005,
+ 33.04,
+ 36.269999999999996,
+ 34.05,
+ 33.79,
+ 35.735,
+ 35.629999999999995,
+ 26.22,
+ 31.02,
+ 21.134999999999998,
+ 32.614999999999995,
+ 33.474999999999994,
+ 32.04,
+ 33.33]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 33.402499999999996
+Upper: 33.402499999999996
+====================================
+lower list size: 7
+upper list size: 7
+====================================
+*** Split into lower and upper lists: ***
+lower:           [1, 7, 8, 9, 10, 12, 13]
+lower threshold: []
+....................................
+upper threshold: []
+upper:           [0, 2, 3, 4, 5, 6, 11]
+====================================
+cloned = 0
+killed = 1
+cloned = 2
+killed = 7
+cloned = 3
+killed = 8
+cloned = 4
+killed = 9
+cloned = 5
+killed = 10
+cloned = 6
+killed = 12
+cloned = 11
+killed = 13
+######################################
+~~~ Scores: ~~~
+[38.97,
+ 38.97,
+ 38.97,
+ 38.97,
+ 38.97,
+ 38.97,
+ 39.10999999999999,
+ 38.97,
+ 38.97,
+ 38.97,
+ 38.97,
+ 38.97,
+ 39.10999999999999,
+ 38.97]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 38.97
+Upper: 38.97
+====================================
+lower list size: 0
+upper list size: 2
+====================================
+*** Split into lower and upper lists: ***
+lower:           [11, 8, 4, 1, 3, 5, 7]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 13]
+upper:           [6, 12, 0, 9, 10, 2, 13]
+====================================
+cloned = 6
+killed = 11
+cloned = 12
+killed = 8
+cloned = 0
+killed = 4
+cloned = 9
+killed = 1
+cloned = 10
+killed = 3
+cloned = 2
+killed = 5
+cloned = 13
+killed = 7
+######################################
+~~~ Scores: ~~~
+[38.94,
+ 38.94,
+ 38.94,
+ 38.94,
+ 38.94,
+ 38.94,
+ 39.06999999999999,
+ 38.94,
+ 39.06999999999999,
+ 38.94,
+ 38.94,
+ 39.06999999999999,
+ 39.07,
+ 38.94]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 38.94
+Upper: 38.94
+====================================
+lower list size: 0
+upper list size: 4
+====================================
+*** Split into lower and upper lists: ***
+lower:           [7, 3, 10, 5, 9, 4, 2]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 7, 9, 10, 13]
+upper:           [6, 8, 11, 12, 0, 1, 13]
+====================================
+cloned = 6
+killed = 7
+cloned = 8
+killed = 3
+cloned = 11
+killed = 10
+cloned = 12
+killed = 5
+cloned = 0
+killed = 9
+cloned = 1
+killed = 4
+cloned = 13
+killed = 2
+######################################
+~~~ Scores: ~~~
+[38.879999999999995,
+ 38.879999999999995,
+ 38.879999999999995,
+ 38.989999999999995,
+ 38.879999999999995,
+ 38.99,
+ 38.99,
+ 38.99,
+ 38.99,
+ 38.879999999999995,
+ 38.99,
+ 38.99,
+ 38.99,
+ 38.88]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 38.989999999999995
+Upper: 38.989999999999995
+====================================
+lower list size: 6
+upper list size: 7
+====================================
+*** Split into lower and upper lists: ***
+lower:           [0, 1, 2, 4, 9, 13, 3]
+lower threshold: []
+....................................
+upper threshold: [3]
+upper:           [5, 6, 7, 8, 10, 11, 12]
+====================================
+cloned = 5
+killed = 0
+cloned = 6
+killed = 1
+cloned = 7
+killed = 2
+cloned = 8
+killed = 4
+cloned = 10
+killed = 9
+cloned = 11
+killed = 13
+cloned = 12
+killed = 3
+Trial run 6/seed 4509:
+..................................................
+winner: Michaelos: (D,)
+==================================================
+List of players:
+Evolved FSM 6
+Second by RichardHufford
+Tit For Tat
+Evolved FSM 16
+Evolved HMM 5
+EvolvedLookerUp2_2_2
+Michaelos: (D,)
+Defector
+Cooperator
+Random: 0.5
+Win-Stay Lose-Shift
+Grudger
+Prober
+Tit For 2 Tats
+==================================================
+Results:
+[Counter({'Evolved FSM 6': 1,
+          'Second by RichardHufford': 1,
+          'Tit For Tat': 1,
+          'Evolved FSM 16': 1,
+          'Evolved HMM 5': 1,
+          'EvolvedLookerUp2_2_2': 1,
+          'Michaelos: (D,)': 1,
+          'Defector': 1,
+          'Cooperator': 1,
+          'Random: 0.5': 1,
+          'Win-Stay Lose-Shift': 1,
+          'Grudger': 1,
+          'Prober': 1,
+          'Tit For 2 Tats': 1}),
+ Counter({'Evolved FSM 6': 2,
+          'Tit For Tat': 2,
+          'Evolved FSM 16': 2,
+          'Evolved HMM 5': 2,
+          'EvolvedLookerUp2_2_2': 2,
+          'Michaelos: (D,)': 2,
+          'Grudger': 2}),
+ Counter({'Michaelos: (D,)': 4,
+          'Evolved FSM 6': 2,
+          'Evolved HMM 5': 2,
+          'Tit For Tat': 2,
+          'EvolvedLookerUp2_2_2': 2,
+          'Grudger': 2}),
+ Counter({'Michaelos: (D,)': 8,
+          'Evolved FSM 6': 2,
+          'Evolved HMM 5': 2,
+          'Grudger': 2}),
+ Counter({'Michaelos: (D,)': 14})]
+--------------------------------------------------
+Score:
+[[36.440000000000005,
+  33.04,
+  36.269999999999996,
+  34.05,
+  33.79,
+  35.735,
+  35.629999999999995,
+  26.22,
+  31.02,
+  21.134999999999998,
+  32.614999999999995,
+  33.474999999999994,
+  32.04,
+  33.33],
+ [38.97,
+  38.97,
+  38.97,
+  38.97,
+  38.97,
+  38.97,
+  39.10999999999999,
+  38.97,
+  38.97,
+  38.97,
+  38.97,
+  38.97,
+  39.10999999999999,
+  38.97],
+ [38.94,
+  38.94,
+  38.94,
+  38.94,
+  38.94,
+  38.94,
+  39.06999999999999,
+  38.94,
+  39.06999999999999,
+  38.94,
+  38.94,
+  39.06999999999999,
+  39.07,
+  38.94],
+ [38.879999999999995,
+  38.879999999999995,
+  38.879999999999995,
+  38.989999999999995,
+  38.879999999999995,
+  38.99,
+  38.99,
+  38.99,
+  38.99,
+  38.879999999999995,
+  38.99,
+  38.99,
+  38.99,
+  38.88]]
+***************************************************
+***************************************************
+######################################
+~~~ Scores: ~~~
+[36.24,
+ 35.300000000000004,
+ 36.265,
+ 34.004999999999995,
+ 33.74499999999999,
+ 36.26,
+ 37.099999999999994,
+ 26.639999999999997,
+ 31.11,
+ 20.654999999999998,
+ 32.875,
+ 33.73499999999999,
+ 31.775000000000002,
+ 33.39]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 33.739999999999995
+Upper: 33.739999999999995
+====================================
+lower list size: 7
+upper list size: 7
+====================================
+*** Split into lower and upper lists: ***
+lower:           [7, 8, 9, 10, 11, 12, 13]
+lower threshold: []
+....................................
+upper threshold: []
+upper:           [0, 1, 2, 3, 4, 5, 6]
+====================================
+cloned = 0
+killed = 7
+cloned = 1
+killed = 8
+cloned = 2
+killed = 9
+cloned = 3
+killed = 10
+cloned = 4
+killed = 11
+cloned = 5
+killed = 12
+cloned = 6
+killed = 13
+######################################
+~~~ Scores: ~~~
+[38.89,
+ 34.995000000000005,
+ 38.93,
+ 34.83,
+ 38.239999999999995,
+ 38.370000000000005,
+ 36.33999999999999,
+ 38.89,
+ 34.885,
+ 38.93,
+ 34.83,
+ 38.235,
+ 38.37,
+ 36.66499999999999]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 38.2375
+Upper: 38.2375
+====================================
+lower list size: 7
+upper list size: 7
+====================================
+*** Split into lower and upper lists: ***
+lower:           [1, 3, 6, 8, 10, 11, 13]
+lower threshold: []
+....................................
+upper threshold: []
+upper:           [0, 2, 4, 5, 7, 9, 12]
+====================================
+cloned = 0
+killed = 1
+cloned = 2
+killed = 3
+cloned = 4
+killed = 6
+cloned = 5
+killed = 8
+cloned = 7
+killed = 10
+cloned = 9
+killed = 11
+cloned = 12
+killed = 13
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [10, 11, 0, 2, 3, 7, 9]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [5, 6, 12, 4, 1, 8, 13]
+====================================
+cloned = 5
+killed = 10
+cloned = 6
+killed = 11
+cloned = 12
+killed = 0
+cloned = 4
+killed = 2
+cloned = 1
+killed = 3
+cloned = 8
+killed = 7
+cloned = 13
+killed = 9
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [10, 0, 5, 7, 12, 6, 3]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [1, 9, 2, 11, 4, 8, 13]
+====================================
+cloned = 1
+killed = 10
+cloned = 9
+killed = 0
+cloned = 2
+killed = 5
+cloned = 11
+killed = 7
+cloned = 4
+killed = 12
+cloned = 8
+killed = 6
+cloned = 13
+killed = 3
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [3, 1, 7, 4, 9, 2, 8]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [11, 0, 6, 10, 12, 5, 13]
+====================================
+cloned = 11
+killed = 3
+cloned = 0
+killed = 1
+cloned = 6
+killed = 7
+cloned = 10
+killed = 4
+cloned = 12
+killed = 9
+cloned = 5
+killed = 2
+cloned = 13
+killed = 8
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [5, 12, 10, 1, 11, 7, 2]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [3, 4, 9, 0, 6, 8, 13]
+====================================
+cloned = 3
+killed = 5
+cloned = 4
+killed = 12
+cloned = 9
+killed = 10
+cloned = 0
+killed = 1
+cloned = 6
+killed = 11
+cloned = 8
+killed = 7
+cloned = 13
+killed = 2
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [3, 10, 9, 12, 0, 6, 11]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [5, 2, 8, 7, 4, 1, 13]
+====================================
+cloned = 5
+killed = 3
+cloned = 2
+killed = 10
+cloned = 8
+killed = 9
+cloned = 7
+killed = 12
+cloned = 4
+killed = 0
+cloned = 1
+killed = 6
+cloned = 13
+killed = 11
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [10, 9, 12, 6, 8, 4, 5]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [3, 11, 2, 7, 1, 0, 13]
+====================================
+cloned = 3
+killed = 10
+cloned = 11
+killed = 9
+cloned = 2
+killed = 12
+cloned = 7
+killed = 6
+cloned = 1
+killed = 8
+cloned = 0
+killed = 4
+cloned = 13
+killed = 5
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [10, 6, 3, 9, 8, 12, 5]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [0, 2, 1, 4, 11, 7, 13]
+====================================
+cloned = 0
+killed = 10
+cloned = 2
+killed = 6
+cloned = 1
+killed = 3
+cloned = 4
+killed = 9
+cloned = 11
+killed = 8
+cloned = 7
+killed = 12
+cloned = 13
+killed = 5
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [4, 6, 0, 5, 2, 10, 9]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [8, 3, 1, 12, 7, 11, 13]
+====================================
+cloned = 8
+killed = 4
+cloned = 3
+killed = 6
+cloned = 1
+killed = 0
+cloned = 12
+killed = 5
+cloned = 7
+killed = 2
+cloned = 11
+killed = 10
+cloned = 13
+killed = 9
+Trial run 7/seed 4510:
+..................................................
+winner: EvolvedLookerUp2_2_2
+==================================================
+List of players:
+Evolved FSM 6
+Second by RichardHufford
+Tit For Tat
+Evolved FSM 16
+Evolved HMM 5
+EvolvedLookerUp2_2_2
+Michaelos: (D,)
+Defector
+Cooperator
+Random: 0.5
+Win-Stay Lose-Shift
+Grudger
+Prober
+Tit For 2 Tats
+==================================================
+Results:
+[Counter({'Evolved FSM 6': 1,
+          'Second by RichardHufford': 1,
+          'Tit For Tat': 1,
+          'Evolved FSM 16': 1,
+          'Evolved HMM 5': 1,
+          'EvolvedLookerUp2_2_2': 1,
+          'Michaelos: (D,)': 1,
+          'Defector': 1,
+          'Cooperator': 1,
+          'Random: 0.5': 1,
+          'Win-Stay Lose-Shift': 1,
+          'Grudger': 1,
+          'Prober': 1,
+          'Tit For 2 Tats': 1}),
+ Counter({'Evolved FSM 6': 2,
+          'Second by RichardHufford': 2,
+          'Tit For Tat': 2,
+          'Evolved FSM 16': 2,
+          'Evolved HMM 5': 2,
+          'EvolvedLookerUp2_2_2': 2,
+          'Michaelos: (D,)': 2}),
+ Counter({'Evolved FSM 6': 4,
+          'Tit For Tat': 4,
+          'EvolvedLookerUp2_2_2': 4,
+          'Evolved HMM 5': 2}),
+ Counter({'EvolvedLookerUp2_2_2': 8, 'Evolved HMM 5': 4, 'Evolved FSM 6': 2}),
+ Counter({'EvolvedLookerUp2_2_2': 6, 'Evolved HMM 5': 6, 'Evolved FSM 6': 2}),
+ Counter({'EvolvedLookerUp2_2_2': 6, 'Evolved HMM 5': 6, 'Evolved FSM 6': 2}),
+ Counter({'EvolvedLookerUp2_2_2': 8, 'Evolved HMM 5': 4, 'Evolved FSM 6': 2}),
+ Counter({'EvolvedLookerUp2_2_2': 10, 'Evolved FSM 6': 2, 'Evolved HMM 5': 2}),
+ Counter({'EvolvedLookerUp2_2_2': 10, 'Evolved FSM 6': 2, 'Evolved HMM 5': 2}),
+ Counter({'EvolvedLookerUp2_2_2': 10, 'Evolved FSM 6': 4}),
+ Counter({'EvolvedLookerUp2_2_2': 14})]
+--------------------------------------------------
+Score:
+[[36.24,
+  35.300000000000004,
+  36.265,
+  34.004999999999995,
+  33.74499999999999,
+  36.26,
+  37.099999999999994,
+  26.639999999999997,
+  31.11,
+  20.654999999999998,
+  32.875,
+  33.73499999999999,
+  31.775000000000002,
+  33.39],
+ [38.89,
+  34.995000000000005,
+  38.93,
+  34.83,
+  38.239999999999995,
+  38.370000000000005,
+  36.33999999999999,
+  38.89,
+  34.885,
+  38.93,
+  34.83,
+  38.235,
+  38.37,
+  36.66499999999999],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0]]
+***************************************************
+***************************************************
+######################################
+~~~ Scores: ~~~
+[36.29,
+ 33.515,
+ 36.335,
+ 33.849999999999994,
+ 33.629999999999995,
+ 35.995,
+ 33.805,
+ 26.34,
+ 31.155,
+ 18.994999999999997,
+ 32.56,
+ 33.955,
+ 30.610000000000003,
+ 33.379999999999995]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 33.5725
+Upper: 33.5725
+====================================
+lower list size: 7
+upper list size: 7
+====================================
+*** Split into lower and upper lists: ***
+lower:           [1, 7, 8, 9, 10, 12, 13]
+lower threshold: []
+....................................
+upper threshold: []
+upper:           [0, 2, 3, 4, 5, 6, 11]
+====================================
+cloned = 0
+killed = 1
+cloned = 2
+killed = 7
+cloned = 3
+killed = 8
+cloned = 4
+killed = 9
+cloned = 5
+killed = 10
+cloned = 6
+killed = 12
+cloned = 11
+killed = 13
+######################################
+~~~ Scores: ~~~
+[38.97,
+ 38.97,
+ 38.97,
+ 38.97,
+ 38.97,
+ 38.97,
+ 39.10999999999999,
+ 38.97,
+ 38.97,
+ 38.97,
+ 38.97,
+ 38.97,
+ 39.10999999999999,
+ 38.97]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 38.97
+Upper: 38.97
+====================================
+lower list size: 0
+upper list size: 2
+====================================
+*** Split into lower and upper lists: ***
+lower:           [4, 3, 10, 0, 7, 9, 2]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 13]
+upper:           [6, 12, 5, 1, 8, 11, 13]
+====================================
+cloned = 6
+killed = 4
+cloned = 12
+killed = 3
+cloned = 5
+killed = 10
+cloned = 1
+killed = 0
+cloned = 8
+killed = 7
+cloned = 11
+killed = 9
+cloned = 13
+killed = 2
+######################################
+~~~ Scores: ~~~
+[38.94,
+ 38.94,
+ 38.94,
+ 39.06999999999999,
+ 39.06999999999999,
+ 38.94,
+ 39.06999999999999,
+ 38.94,
+ 38.94,
+ 38.94,
+ 38.94,
+ 38.94,
+ 39.06999999999999,
+ 38.94]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 38.94
+Upper: 38.94
+====================================
+lower list size: 0
+upper list size: 4
+====================================
+*** Split into lower and upper lists: ***
+lower:           [7, 1, 10, 5, 0, 9, 2]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 5, 7, 8, 9, 10, 11, 13]
+upper:           [3, 4, 6, 12, 8, 11, 13]
+====================================
+cloned = 3
+killed = 7
+cloned = 4
+killed = 1
+cloned = 6
+killed = 10
+cloned = 12
+killed = 5
+cloned = 8
+killed = 0
+cloned = 11
+killed = 9
+cloned = 13
+killed = 2
+######################################
+~~~ Scores: ~~~
+[38.879999999999995,
+ 38.989999999999995,
+ 38.879999999999995,
+ 38.989999999999995,
+ 38.99000000000001,
+ 38.989999999999995,
+ 38.99,
+ 38.99,
+ 38.879999999999995,
+ 38.879999999999995,
+ 38.989999999999995,
+ 38.879999999999995,
+ 38.989999999999995,
+ 38.879999999999995]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 38.989999999999995
+Upper: 38.989999999999995
+====================================
+lower list size: 6
+upper list size: 3
+====================================
+*** Split into lower and upper lists: ***
+lower:           [0, 2, 8, 9, 11, 13, 3]
+lower threshold: []
+....................................
+upper threshold: [1, 3, 5, 10, 12]
+upper:           [4, 6, 7, 5, 1, 10, 12]
+====================================
+cloned = 4
+killed = 0
+cloned = 6
+killed = 2
+cloned = 7
+killed = 8
+cloned = 5
+killed = 9
+cloned = 1
+killed = 11
+cloned = 10
+killed = 13
+cloned = 12
+killed = 3
+Trial run 8/seed 4511:
+..................................................
+winner: Michaelos: (D,)
+==================================================
+List of players:
+Evolved FSM 6
+Second by RichardHufford
+Tit For Tat
+Evolved FSM 16
+Evolved HMM 5
+EvolvedLookerUp2_2_2
+Michaelos: (D,)
+Defector
+Cooperator
+Random: 0.5
+Win-Stay Lose-Shift
+Grudger
+Prober
+Tit For 2 Tats
+==================================================
+Results:
+[Counter({'Evolved FSM 6': 1,
+          'Second by RichardHufford': 1,
+          'Tit For Tat': 1,
+          'Evolved FSM 16': 1,
+          'Evolved HMM 5': 1,
+          'EvolvedLookerUp2_2_2': 1,
+          'Michaelos: (D,)': 1,
+          'Defector': 1,
+          'Cooperator': 1,
+          'Random: 0.5': 1,
+          'Win-Stay Lose-Shift': 1,
+          'Grudger': 1,
+          'Prober': 1,
+          'Tit For 2 Tats': 1}),
+ Counter({'Evolved FSM 6': 2,
+          'Tit For Tat': 2,
+          'Evolved FSM 16': 2,
+          'Evolved HMM 5': 2,
+          'EvolvedLookerUp2_2_2': 2,
+          'Michaelos: (D,)': 2,
+          'Grudger': 2}),
+ Counter({'Grudger': 4,
+          'Michaelos: (D,)': 4,
+          'Evolved FSM 6': 2,
+          'EvolvedLookerUp2_2_2': 2,
+          'Evolved FSM 16': 2}),
+ Counter({'Michaelos: (D,)': 8, 'Grudger': 4, 'Evolved FSM 16': 2}),
+ Counter({'Michaelos: (D,)': 14})]
+--------------------------------------------------
+Score:
+[[36.29,
+  33.515,
+  36.335,
+  33.849999999999994,
+  33.629999999999995,
+  35.995,
+  33.805,
+  26.34,
+  31.155,
+  18.994999999999997,
+  32.56,
+  33.955,
+  30.610000000000003,
+  33.379999999999995],
+ [38.97,
+  38.97,
+  38.97,
+  38.97,
+  38.97,
+  38.97,
+  39.10999999999999,
+  38.97,
+  38.97,
+  38.97,
+  38.97,
+  38.97,
+  39.10999999999999,
+  38.97],
+ [38.94,
+  38.94,
+  38.94,
+  39.06999999999999,
+  39.06999999999999,
+  38.94,
+  39.06999999999999,
+  38.94,
+  38.94,
+  38.94,
+  38.94,
+  38.94,
+  39.06999999999999,
+  38.94],
+ [38.879999999999995,
+  38.989999999999995,
+  38.879999999999995,
+  38.989999999999995,
+  38.99000000000001,
+  38.989999999999995,
+  38.99,
+  38.99,
+  38.879999999999995,
+  38.879999999999995,
+  38.989999999999995,
+  38.879999999999995,
+  38.989999999999995,
+  38.879999999999995]]
+***************************************************
+***************************************************
+######################################
+~~~ Scores: ~~~
+[36.23500000000001,
+ 33.67,
+ 36.28,
+ 33.66,
+ 33.725,
+ 35.715,
+ 35.54,
+ 26.38,
+ 30.915000000000003,
+ 19.485,
+ 32.834999999999994,
+ 33.684999999999995,
+ 32.699999999999996,
+ 33.489999999999995]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 33.665
+Upper: 33.665
+====================================
+lower list size: 7
+upper list size: 7
+====================================
+*** Split into lower and upper lists: ***
+lower:           [3, 7, 8, 9, 10, 12, 13]
+lower threshold: []
+....................................
+upper threshold: []
+upper:           [0, 1, 2, 4, 5, 6, 11]
+====================================
+cloned = 0
+killed = 3
+cloned = 1
+killed = 7
+cloned = 2
+killed = 8
+cloned = 4
+killed = 9
+cloned = 5
+killed = 10
+cloned = 6
+killed = 12
+cloned = 11
+killed = 13
+######################################
+~~~ Scores: ~~~
+[38.89,
+ 31.25500000000001,
+ 38.93,
+ 38.89,
+ 38.36,
+ 38.37,
+ 37.839999999999996,
+ 31.090000000000003,
+ 38.93,
+ 38.2,
+ 38.37,
+ 36.22,
+ 36.66499999999999,
+ 36.22]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 38.28
+Upper: 38.28
+====================================
+lower list size: 7
+upper list size: 7
+====================================
+*** Split into lower and upper lists: ***
+lower:           [1, 6, 7, 9, 11, 12, 13]
+lower threshold: []
+....................................
+upper threshold: []
+upper:           [0, 2, 3, 4, 5, 8, 10]
+====================================
+cloned = 0
+killed = 1
+cloned = 2
+killed = 6
+cloned = 3
+killed = 7
+cloned = 4
+killed = 9
+cloned = 5
+killed = 11
+cloned = 8
+killed = 12
+cloned = 10
+killed = 13
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [4, 9, 12, 5, 7, 11, 6]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [8, 1, 3, 0, 10, 2, 13]
+====================================
+cloned = 8
+killed = 4
+cloned = 1
+killed = 9
+cloned = 3
+killed = 12
+cloned = 0
+killed = 5
+cloned = 10
+killed = 7
+cloned = 2
+killed = 11
+cloned = 13
+killed = 6
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [0, 1, 11, 8, 7, 4, 3]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [10, 2, 12, 5, 6, 9, 13]
+====================================
+cloned = 10
+killed = 0
+cloned = 2
+killed = 1
+cloned = 12
+killed = 11
+cloned = 5
+killed = 8
+cloned = 6
+killed = 7
+cloned = 9
+killed = 4
+cloned = 13
+killed = 3
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [6, 11, 4, 7, 1, 10, 5]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [2, 12, 8, 3, 9, 0, 13]
+====================================
+cloned = 2
+killed = 6
+cloned = 12
+killed = 11
+cloned = 8
+killed = 4
+cloned = 3
+killed = 7
+cloned = 9
+killed = 1
+cloned = 0
+killed = 10
+cloned = 13
+killed = 5
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [0, 3, 4, 7, 1, 10, 11]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [8, 5, 6, 2, 12, 9, 13]
+====================================
+cloned = 8
+killed = 0
+cloned = 5
+killed = 3
+cloned = 6
+killed = 4
+cloned = 2
+killed = 7
+cloned = 12
+killed = 1
+cloned = 9
+killed = 10
+cloned = 13
+killed = 11
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [10, 5, 9, 4, 8, 0, 2]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [7, 1, 12, 11, 3, 6, 13]
+====================================
+cloned = 7
+killed = 10
+cloned = 1
+killed = 5
+cloned = 12
+killed = 9
+cloned = 11
+killed = 4
+cloned = 3
+killed = 8
+cloned = 6
+killed = 0
+cloned = 13
+killed = 2
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [11, 9, 5, 3, 6, 1, 2]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [10, 8, 0, 4, 7, 12, 13]
+====================================
+cloned = 10
+killed = 11
+cloned = 8
+killed = 9
+cloned = 0
+killed = 5
+cloned = 4
+killed = 3
+cloned = 7
+killed = 6
+cloned = 12
+killed = 1
+cloned = 13
+killed = 2
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [4, 0, 10, 6, 7, 9, 1]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [8, 5, 12, 11, 2, 3, 13]
+====================================
+cloned = 8
+killed = 4
+cloned = 5
+killed = 0
+cloned = 12
+killed = 10
+cloned = 11
+killed = 6
+cloned = 2
+killed = 7
+cloned = 3
+killed = 9
+cloned = 13
+killed = 1
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [8, 11, 9, 0, 6, 5, 1]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [10, 2, 7, 12, 4, 3, 13]
+====================================
+cloned = 10
+killed = 8
+cloned = 2
+killed = 11
+cloned = 7
+killed = 9
+cloned = 12
+killed = 0
+cloned = 4
+killed = 6
+cloned = 3
+killed = 5
+cloned = 13
+killed = 1
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [2, 7, 6, 1, 11, 8, 5]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [4, 3, 0, 10, 9, 12, 13]
+====================================
+cloned = 4
+killed = 2
+cloned = 3
+killed = 7
+cloned = 0
+killed = 6
+cloned = 10
+killed = 1
+cloned = 9
+killed = 11
+cloned = 12
+killed = 8
+cloned = 13
+killed = 5
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [10, 7, 1, 8, 0, 6, 4]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [2, 9, 11, 3, 12, 5, 13]
+====================================
+cloned = 2
+killed = 10
+cloned = 9
+killed = 7
+cloned = 11
+killed = 1
+cloned = 3
+killed = 8
+cloned = 12
+killed = 0
+cloned = 5
+killed = 6
+cloned = 13
+killed = 4
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [7, 6, 1, 4, 11, 10, 3]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [8, 12, 0, 9, 2, 5, 13]
+====================================
+cloned = 8
+killed = 7
+cloned = 12
+killed = 6
+cloned = 0
+killed = 1
+cloned = 9
+killed = 4
+cloned = 2
+killed = 11
+cloned = 5
+killed = 10
+cloned = 13
+killed = 3
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [9, 4, 2, 0, 5, 11, 8]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [6, 1, 10, 7, 3, 12, 13]
+====================================
+cloned = 6
+killed = 9
+cloned = 1
+killed = 4
+cloned = 10
+killed = 2
+cloned = 7
+killed = 0
+cloned = 3
+killed = 5
+cloned = 12
+killed = 11
+cloned = 13
+killed = 8
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [2, 12, 3, 5, 0, 1, 8]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [6, 7, 10, 9, 4, 11, 13]
+====================================
+cloned = 6
+killed = 2
+cloned = 7
+killed = 12
+cloned = 10
+killed = 3
+cloned = 9
+killed = 5
+cloned = 4
+killed = 0
+cloned = 11
+killed = 1
+cloned = 13
+killed = 8
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [9, 6, 0, 7, 11, 1, 3]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [5, 10, 2, 12, 8, 4, 13]
+====================================
+cloned = 5
+killed = 9
+cloned = 10
+killed = 6
+cloned = 2
+killed = 0
+cloned = 12
+killed = 7
+cloned = 8
+killed = 11
+cloned = 4
+killed = 1
+cloned = 13
+killed = 3
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [2, 7, 10, 0, 6, 3, 1]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [11, 8, 9, 12, 4, 5, 13]
+====================================
+cloned = 11
+killed = 2
+cloned = 8
+killed = 7
+cloned = 9
+killed = 10
+cloned = 12
+killed = 0
+cloned = 4
+killed = 6
+cloned = 5
+killed = 3
+cloned = 13
+killed = 1
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [1, 4, 2, 11, 7, 9, 10]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [5, 12, 3, 6, 8, 0, 13]
+====================================
+cloned = 5
+killed = 1
+cloned = 12
+killed = 4
+cloned = 3
+killed = 2
+cloned = 6
+killed = 11
+cloned = 8
+killed = 7
+cloned = 0
+killed = 9
+cloned = 13
+killed = 10
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [4, 2, 0, 1, 12, 3, 8]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [6, 5, 11, 7, 9, 10, 13]
+====================================
+cloned = 6
+killed = 4
+cloned = 5
+killed = 2
+cloned = 11
+killed = 0
+cloned = 7
+killed = 1
+cloned = 9
+killed = 12
+cloned = 10
+killed = 3
+cloned = 13
+killed = 8
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [2, 8, 10, 12, 1, 0, 11]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [3, 4, 9, 7, 6, 5, 13]
+====================================
+cloned = 3
+killed = 2
+cloned = 4
+killed = 8
+cloned = 9
+killed = 10
+cloned = 7
+killed = 12
+cloned = 6
+killed = 1
+cloned = 5
+killed = 0
+cloned = 13
+killed = 11
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [2, 12, 11, 7, 0, 8, 9]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [5, 6, 10, 1, 4, 3, 13]
+====================================
+cloned = 5
+killed = 2
+cloned = 6
+killed = 12
+cloned = 10
+killed = 11
+cloned = 1
+killed = 7
+cloned = 4
+killed = 0
+cloned = 3
+killed = 8
+cloned = 13
+killed = 9
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [0, 6, 3, 12, 4, 11, 7]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [9, 8, 10, 2, 5, 1, 13]
+====================================
+cloned = 9
+killed = 0
+cloned = 8
+killed = 6
+cloned = 10
+killed = 3
+cloned = 2
+killed = 12
+cloned = 5
+killed = 4
+cloned = 1
+killed = 11
+cloned = 13
+killed = 7
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [1, 0, 2, 10, 11, 6, 8]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [7, 5, 12, 4, 3, 9, 13]
+====================================
+cloned = 7
+killed = 1
+cloned = 5
+killed = 0
+cloned = 12
+killed = 2
+cloned = 4
+killed = 10
+cloned = 3
+killed = 11
+cloned = 9
+killed = 6
+cloned = 13
+killed = 8
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [12, 10, 0, 9, 4, 6, 5]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [3, 8, 7, 2, 1, 11, 13]
+====================================
+cloned = 3
+killed = 12
+cloned = 8
+killed = 10
+cloned = 7
+killed = 0
+cloned = 2
+killed = 9
+cloned = 1
+killed = 4
+cloned = 11
+killed = 6
+cloned = 13
+killed = 5
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [11, 12, 10, 3, 9, 8, 1]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [0, 2, 4, 6, 7, 5, 13]
+====================================
+cloned = 0
+killed = 11
+cloned = 2
+killed = 12
+cloned = 4
+killed = 10
+cloned = 6
+killed = 3
+cloned = 7
+killed = 9
+cloned = 5
+killed = 8
+cloned = 13
+killed = 1
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [4, 0, 7, 5, 12, 9, 6]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [2, 1, 11, 10, 3, 8, 13]
+====================================
+cloned = 2
+killed = 4
+cloned = 1
+killed = 0
+cloned = 11
+killed = 7
+cloned = 10
+killed = 5
+cloned = 3
+killed = 12
+cloned = 8
+killed = 9
+cloned = 13
+killed = 6
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [11, 0, 10, 1, 4, 3, 12]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [2, 5, 7, 8, 9, 6, 13]
+====================================
+cloned = 2
+killed = 11
+cloned = 5
+killed = 0
+cloned = 7
+killed = 10
+cloned = 8
+killed = 1
+cloned = 9
+killed = 4
+cloned = 6
+killed = 3
+cloned = 13
+killed = 12
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [6, 7, 10, 4, 1, 8, 12]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [2, 9, 5, 3, 0, 11, 13]
+====================================
+cloned = 2
+killed = 6
+cloned = 9
+killed = 7
+cloned = 5
+killed = 10
+cloned = 3
+killed = 4
+cloned = 0
+killed = 1
+cloned = 11
+killed = 8
+cloned = 13
+killed = 12
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [6, 2, 11, 4, 0, 12, 3]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [7, 5, 8, 10, 9, 1, 13]
+====================================
+cloned = 7
+killed = 6
+cloned = 5
+killed = 2
+cloned = 8
+killed = 11
+cloned = 10
+killed = 4
+cloned = 9
+killed = 0
+cloned = 1
+killed = 12
+cloned = 13
+killed = 3
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [7, 12, 3, 11, 6, 5, 10]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [1, 0, 8, 9, 2, 4, 13]
+====================================
+cloned = 1
+killed = 7
+cloned = 0
+killed = 12
+cloned = 8
+killed = 3
+cloned = 9
+killed = 11
+cloned = 2
+killed = 6
+cloned = 4
+killed = 5
+cloned = 13
+killed = 10
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [10, 2, 1, 9, 7, 0, 11]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [12, 4, 8, 5, 3, 6, 13]
+====================================
+cloned = 12
+killed = 10
+cloned = 4
+killed = 2
+cloned = 8
+killed = 1
+cloned = 5
+killed = 9
+cloned = 3
+killed = 7
+cloned = 6
+killed = 0
+cloned = 13
+killed = 11
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [11, 10, 8, 1, 5, 7, 0]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [6, 9, 2, 3, 12, 4, 13]
+====================================
+cloned = 6
+killed = 11
+cloned = 9
+killed = 10
+cloned = 2
+killed = 8
+cloned = 3
+killed = 1
+cloned = 12
+killed = 5
+cloned = 4
+killed = 7
+cloned = 13
+killed = 0
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [6, 12, 7, 9, 10, 2, 4]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [1, 0, 11, 3, 8, 5, 13]
+====================================
+cloned = 1
+killed = 6
+cloned = 0
+killed = 12
+cloned = 11
+killed = 7
+cloned = 3
+killed = 9
+cloned = 8
+killed = 10
+cloned = 5
+killed = 2
+cloned = 13
+killed = 4
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [10, 2, 8, 7, 0, 3, 6]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [9, 1, 11, 5, 12, 4, 13]
+====================================
+cloned = 9
+killed = 10
+cloned = 1
+killed = 2
+cloned = 11
+killed = 8
+cloned = 5
+killed = 7
+cloned = 12
+killed = 0
+cloned = 4
+killed = 3
+cloned = 13
+killed = 6
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [3, 11, 6, 9, 2, 10, 4]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [0, 1, 12, 7, 5, 8, 13]
+====================================
+cloned = 0
+killed = 3
+cloned = 1
+killed = 11
+cloned = 12
+killed = 6
+cloned = 7
+killed = 9
+cloned = 5
+killed = 2
+cloned = 8
+killed = 10
+cloned = 13
+killed = 4
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [5, 10, 12, 7, 9, 1, 8]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [4, 0, 11, 3, 2, 6, 13]
+====================================
+cloned = 4
+killed = 5
+cloned = 0
+killed = 10
+cloned = 11
+killed = 12
+cloned = 3
+killed = 7
+cloned = 2
+killed = 9
+cloned = 6
+killed = 1
+cloned = 13
+killed = 8
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [6, 8, 9, 4, 1, 3, 11]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [2, 7, 5, 10, 12, 0, 13]
+====================================
+cloned = 2
+killed = 6
+cloned = 7
+killed = 8
+cloned = 5
+killed = 9
+cloned = 10
+killed = 4
+cloned = 12
+killed = 1
+cloned = 0
+killed = 3
+cloned = 13
+killed = 11
+######################################
+~~~ Scores: ~~~
+[39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0,
+ 39.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 39.0
+Upper: 39.0
+====================================
+lower list size: 0
+upper list size: 0
+====================================
+*** Split into lower and upper lists: ***
+lower:           [12, 3, 9, 8, 1, 6, 5]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+upper:           [2, 7, 11, 0, 4, 10, 13]
+====================================
+cloned = 2
+killed = 12
+cloned = 7
+killed = 3
+cloned = 11
+killed = 9
+cloned = 0
+killed = 8
+cloned = 4
+killed = 1
+cloned = 10
+killed = 6
+cloned = 13
+killed = 5
+Trial run 9/seed 4512:
+..................................................
+winner: EvolvedLookerUp2_2_2
+==================================================
+List of players:
+Evolved FSM 6
+Second by RichardHufford
+Tit For Tat
+Evolved FSM 16
+Evolved HMM 5
+EvolvedLookerUp2_2_2
+Michaelos: (D,)
+Defector
+Cooperator
+Random: 0.5
+Win-Stay Lose-Shift
+Grudger
+Prober
+Tit For 2 Tats
+==================================================
+Results:
+[Counter({'Evolved FSM 6': 1,
+          'Second by RichardHufford': 1,
+          'Tit For Tat': 1,
+          'Evolved FSM 16': 1,
+          'Evolved HMM 5': 1,
+          'EvolvedLookerUp2_2_2': 1,
+          'Michaelos: (D,)': 1,
+          'Defector': 1,
+          'Cooperator': 1,
+          'Random: 0.5': 1,
+          'Win-Stay Lose-Shift': 1,
+          'Grudger': 1,
+          'Prober': 1,
+          'Tit For 2 Tats': 1}),
+ Counter({'Evolved FSM 6': 2,
+          'Second by RichardHufford': 2,
+          'Tit For Tat': 2,
+          'Evolved HMM 5': 2,
+          'EvolvedLookerUp2_2_2': 2,
+          'Michaelos: (D,)': 2,
+          'Grudger': 2}),
+ Counter({'Evolved FSM 6': 4,
+          'Tit For Tat': 4,
+          'EvolvedLookerUp2_2_2': 4,
+          'Evolved HMM 5': 2}),
+ Counter({'Evolved FSM 6': 6, 'Tit For Tat': 4, 'EvolvedLookerUp2_2_2': 4}),
+ Counter({'EvolvedLookerUp2_2_2': 6, 'Evolved FSM 6': 6, 'Tit For Tat': 2}),
+ Counter({'EvolvedLookerUp2_2_2': 6, 'Evolved FSM 6': 6, 'Tit For Tat': 2}),
+ Counter({'Evolved FSM 6': 6, 'Tit For Tat': 4, 'EvolvedLookerUp2_2_2': 4}),
+ Counter({'EvolvedLookerUp2_2_2': 6, 'Tit For Tat': 4, 'Evolved FSM 6': 4}),
+ Counter({'Tit For Tat': 6, 'EvolvedLookerUp2_2_2': 6, 'Evolved FSM 6': 2}),
+ Counter({'EvolvedLookerUp2_2_2': 8, 'Tit For Tat': 4, 'Evolved FSM 6': 2}),
+ Counter({'EvolvedLookerUp2_2_2': 10, 'Evolved FSM 6': 4}),
+ Counter({'EvolvedLookerUp2_2_2': 8, 'Evolved FSM 6': 6}),
+ Counter({'EvolvedLookerUp2_2_2': 12, 'Evolved FSM 6': 2}),
+ Counter({'EvolvedLookerUp2_2_2': 10, 'Evolved FSM 6': 4}),
+ Counter({'EvolvedLookerUp2_2_2': 8, 'Evolved FSM 6': 6}),
+ Counter({'Evolved FSM 6': 8, 'EvolvedLookerUp2_2_2': 6}),
+ Counter({'EvolvedLookerUp2_2_2': 8, 'Evolved FSM 6': 6}),
+ Counter({'EvolvedLookerUp2_2_2': 8, 'Evolved FSM 6': 6}),
+ Counter({'EvolvedLookerUp2_2_2': 8, 'Evolved FSM 6': 6}),
+ Counter({'EvolvedLookerUp2_2_2': 8, 'Evolved FSM 6': 6}),
+ Counter({'EvolvedLookerUp2_2_2': 8, 'Evolved FSM 6': 6}),
+ Counter({'Evolved FSM 6': 8, 'EvolvedLookerUp2_2_2': 6}),
+ Counter({'EvolvedLookerUp2_2_2': 8, 'Evolved FSM 6': 6}),
+ Counter({'EvolvedLookerUp2_2_2': 8, 'Evolved FSM 6': 6}),
+ Counter({'EvolvedLookerUp2_2_2': 12, 'Evolved FSM 6': 2}),
+ Counter({'EvolvedLookerUp2_2_2': 12, 'Evolved FSM 6': 2}),
+ Counter({'EvolvedLookerUp2_2_2': 12, 'Evolved FSM 6': 2}),
+ Counter({'EvolvedLookerUp2_2_2': 12, 'Evolved FSM 6': 2}),
+ Counter({'EvolvedLookerUp2_2_2': 10, 'Evolved FSM 6': 4}),
+ Counter({'EvolvedLookerUp2_2_2': 12, 'Evolved FSM 6': 2}),
+ Counter({'EvolvedLookerUp2_2_2': 12, 'Evolved FSM 6': 2}),
+ Counter({'EvolvedLookerUp2_2_2': 10, 'Evolved FSM 6': 4}),
+ Counter({'EvolvedLookerUp2_2_2': 12, 'Evolved FSM 6': 2}),
+ Counter({'EvolvedLookerUp2_2_2': 10, 'Evolved FSM 6': 4}),
+ Counter({'EvolvedLookerUp2_2_2': 10, 'Evolved FSM 6': 4}),
+ Counter({'EvolvedLookerUp2_2_2': 12, 'Evolved FSM 6': 2}),
+ Counter({'EvolvedLookerUp2_2_2': 12, 'Evolved FSM 6': 2}),
+ Counter({'EvolvedLookerUp2_2_2': 12, 'Evolved FSM 6': 2}),
+ Counter({'EvolvedLookerUp2_2_2': 14})]
+--------------------------------------------------
+Score:
+[[36.23500000000001,
+  33.67,
+  36.28,
+  33.66,
+  33.725,
+  35.715,
+  35.54,
+  26.38,
+  30.915000000000003,
+  19.485,
+  32.834999999999994,
+  33.684999999999995,
+  32.699999999999996,
+  33.489999999999995],
+ [38.89,
+  31.25500000000001,
+  38.93,
+  38.89,
+  38.36,
+  38.37,
+  37.839999999999996,
+  31.090000000000003,
+  38.93,
+  38.2,
+  38.37,
+  36.22,
+  36.66499999999999,
+  36.22],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0],
+ [39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0,
+  39.0]]
+***************************************************
+***************************************************
+######################################
+~~~ Scores: ~~~
+[36.24,
+ 33.620000000000005,
+ 36.254999999999995,
+ 33.815,
+ 33.765,
+ 36.519999999999996,
+ 34.144999999999996,
+ 26.399999999999995,
+ 31.155,
+ 19.8,
+ 32.894999999999996,
+ 33.87499999999999,
+ 29.950000000000006,
+ 33.39]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 33.6925
+Upper: 33.6925
+====================================
+lower list size: 7
+upper list size: 7
+====================================
+*** Split into lower and upper lists: ***
+lower:           [1, 7, 8, 9, 10, 12, 13]
+lower threshold: []
+....................................
+upper threshold: []
+upper:           [0, 2, 3, 4, 5, 6, 11]
+====================================
+cloned = 0
+killed = 1
+cloned = 2
+killed = 7
+cloned = 3
+killed = 8
+cloned = 4
+killed = 9
+cloned = 5
+killed = 10
+cloned = 6
+killed = 12
+cloned = 11
+killed = 13
+######################################
+~~~ Scores: ~~~
+[38.97,
+ 38.97,
+ 38.97,
+ 38.97,
+ 38.97,
+ 38.97,
+ 39.10999999999999,
+ 38.97,
+ 38.97,
+ 38.97,
+ 38.97,
+ 38.97,
+ 39.10999999999999,
+ 38.97]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 38.97
+Upper: 38.97
+====================================
+lower list size: 0
+upper list size: 2
+====================================
+*** Split into lower and upper lists: ***
+lower:           [4, 5, 7, 8, 3, 10, 11]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 13]
+upper:           [6, 12, 1, 2, 9, 0, 13]
+====================================
+cloned = 6
+killed = 4
+cloned = 12
+killed = 5
+cloned = 1
+killed = 7
+cloned = 2
+killed = 8
+cloned = 9
+killed = 3
+cloned = 0
+killed = 10
+cloned = 13
+killed = 11
+######################################
+~~~ Scores: ~~~
+[38.94,
+ 38.94,
+ 38.94,
+ 38.94,
+ 39.06999999999999,
+ 39.06999999999999,
+ 39.06999999999999,
+ 38.94,
+ 38.94,
+ 38.94,
+ 38.94,
+ 38.94,
+ 39.06999999999999,
+ 38.94]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 38.94
+Upper: 38.94
+====================================
+lower list size: 0
+upper list size: 4
+====================================
+*** Split into lower and upper lists: ***
+lower:           [9, 10, 2, 0, 11, 7, 8]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 7, 8, 9, 10, 11, 13]
+upper:           [4, 5, 6, 12, 3, 1, 13]
+====================================
+cloned = 4
+killed = 9
+cloned = 5
+killed = 10
+cloned = 6
+killed = 2
+cloned = 12
+killed = 0
+cloned = 3
+killed = 11
+cloned = 1
+killed = 7
+cloned = 13
+killed = 8
+######################################
+~~~ Scores: ~~~
+[38.99,
+ 38.879999999999995,
+ 38.99,
+ 38.879999999999995,
+ 38.99,
+ 38.99,
+ 38.99,
+ 38.879999999999995,
+ 38.879999999999995,
+ 38.989999999999995,
+ 38.99,
+ 38.879999999999995,
+ 38.99,
+ 38.879999999999995]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 38.989999999999995
+Upper: 38.989999999999995
+====================================
+lower list size: 6
+upper list size: 7
+====================================
+*** Split into lower and upper lists: ***
+lower:           [1, 3, 7, 8, 11, 13, 9]
+lower threshold: []
+....................................
+upper threshold: [9]
+upper:           [0, 2, 4, 5, 6, 10, 12]
+====================================
+cloned = 0
+killed = 1
+cloned = 2
+killed = 3
+cloned = 4
+killed = 7
+cloned = 5
+killed = 8
+cloned = 6
+killed = 11
+cloned = 10
+killed = 13
+cloned = 12
+killed = 9
+Trial run 10/seed 4513:
+..................................................
+winner: Michaelos: (D,)
+==================================================
+List of players:
+Evolved FSM 6
+Second by RichardHufford
+Tit For Tat
+Evolved FSM 16
+Evolved HMM 5
+EvolvedLookerUp2_2_2
+Michaelos: (D,)
+Defector
+Cooperator
+Random: 0.5
+Win-Stay Lose-Shift
+Grudger
+Prober
+Tit For 2 Tats
+==================================================
+Results:
+[Counter({'Evolved FSM 6': 1,
+          'Second by RichardHufford': 1,
+          'Tit For Tat': 1,
+          'Evolved FSM 16': 1,
+          'Evolved HMM 5': 1,
+          'EvolvedLookerUp2_2_2': 1,
+          'Michaelos: (D,)': 1,
+          'Defector': 1,
+          'Cooperator': 1,
+          'Random: 0.5': 1,
+          'Win-Stay Lose-Shift': 1,
+          'Grudger': 1,
+          'Prober': 1,
+          'Tit For 2 Tats': 1}),
+ Counter({'Evolved FSM 6': 2,
+          'Tit For Tat': 2,
+          'Evolved FSM 16': 2,
+          'Evolved HMM 5': 2,
+          'EvolvedLookerUp2_2_2': 2,
+          'Michaelos: (D,)': 2,
+          'Grudger': 2}),
+ Counter({'Evolved FSM 6': 4,
+          'Michaelos: (D,)': 4,
+          'Tit For Tat': 2,
+          'Evolved HMM 5': 2,
+          'Grudger': 2}),
+ Counter({'Michaelos: (D,)': 8,
+          'Evolved FSM 6': 2,
+          'Evolved HMM 5': 2,
+          'Grudger': 2}),
+ Counter({'Michaelos: (D,)': 14})]
+--------------------------------------------------
+Score:
+[[36.24,
+  33.620000000000005,
+  36.254999999999995,
+  33.815,
+  33.765,
+  36.519999999999996,
+  34.144999999999996,
+  26.399999999999995,
+  31.155,
+  19.8,
+  32.894999999999996,
+  33.87499999999999,
+  29.950000000000006,
+  33.39],
+ [38.97,
+  38.97,
+  38.97,
+  38.97,
+  38.97,
+  38.97,
+  39.10999999999999,
+  38.97,
+  38.97,
+  38.97,
+  38.97,
+  38.97,
+  39.10999999999999,
+  38.97],
+ [38.94,
+  38.94,
+  38.94,
+  38.94,
+  39.06999999999999,
+  39.06999999999999,
+  39.06999999999999,
+  38.94,
+  38.94,
+  38.94,
+  38.94,
+  38.94,
+  39.06999999999999,
+  38.94],
+ [38.99,
+  38.879999999999995,
+  38.99,
+  38.879999999999995,
+  38.99,
+  38.99,
+  38.99,
+  38.879999999999995,
+  38.879999999999995,
+  38.989999999999995,
+  38.99,
+  38.879999999999995,
+  38.99,
+  38.879999999999995]]
+***************************************************
+***************************************************
