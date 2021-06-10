@@ -34,7 +34,7 @@ class MainEvoEliteMoranProcess(object):
         stop_on_fixation=True,
         seed=None,
         splitThresholdPercentile=50, #coded by J Candra. default: split population into half, by median. Range: 1-50
-        dispOutput=True,
+        dispOutput=True
     ) -> None:
         """
         An agent based Moran process class. In each round, each player plays a
@@ -287,11 +287,11 @@ class MainEvoEliteMoranProcess(object):
         for n,m in enumerate(scores):
             if m>ulim: #if score exceeeds the upper threshold
                 upp.append(n) #assign for cloning
-            elif m<llim: #if score is below the lower threshold
+            if m<llim: #if score is below the lower threshold
                 low.append(n) #assign for culling
-            elif m==ulim: #if score matches the upper threshold
+            if m==ulim: #if score matches the upper threshold
                 uppLim.append(n)
-            elif m==llim: #if score matches the lower threshold
+            if m==llim: #if score matches the lower threshold
                 lowLim.append(n)
 
         PopulationSize=len(self.players)
@@ -523,10 +523,10 @@ class MainEvoEliteMoranProcess(object):
             if counter>=len(cullList):
                 break #stop the replacement process
             if self.dispOutput:
-                print("j = {}".format(pClone))
+                print("cloned = {}".format(pClone))
             pCull=cullList[counter] #cullList is list of integers
             if self.dispOutput:
-                print("k = {}".format(pCull))
+                print("killed = {}".format(pCull))
             self.players[pCull]=self.mutate(pClone)
             counter=counter+1
             
