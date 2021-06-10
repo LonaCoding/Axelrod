@@ -74,7 +74,7 @@ def MoranProcTour(
         if createPlot:
             plot = tournament.populations_plot() #created the plot
             mplot.savefig(plotFileName,format=PlotFileType, dpi=100) #saves the plot as image
-            targetOutFolder = "MoranElitistExperiments_Output"
+            targetOutFolder = "MoranElitistExperiments_Output/Plots"
             outputNewPath = shutil.move(plotFileName, targetOutFolder) #move the saved image plot to output folder
         win=tournament.winning_strategy_name
         score=tournament.score_history
@@ -150,8 +150,10 @@ percentile=desiredClonedPopSize/len(agentPlayers) #convertor
 
 #MoranProcTour(players,newFileNameNumber,turns=10,seedOffset=1,iterations=1,splitThresholdPercentile=50,displayOutput=False,createPlot=False,PlotFileType=".png",csv=False)
 #MoranProcTour(AllStratPlayers,13,200,initSeed,10,50,True) #all strategies
-#MoranProcTour(playerBest,15,200,initSeed,20,50,True,True) #real
-MoranProcTour(playerBest,18,5,initSeed,2,50,True,True) #testing
+MoranProcTour(playerBest,19,200,initSeed,20,50,True,True) #real
+#MoranProcTour(playerBest,18,5,initSeed,2,50,True,True) #testing
+
+#next test do perc=25
 
 
 

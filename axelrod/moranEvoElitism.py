@@ -695,6 +695,7 @@ class MainEvoEliteMoranProcess(object):
         """
         Create a stackplot of the population distributions at each iteration of
         the Moran process.
+        Then put it as subplot
 
         Parameters
         ----------------
