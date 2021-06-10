@@ -26,7 +26,7 @@ def MoranProcTour(
         print(a)
     print("2. newFileNameNumber for plot:           {}".format(newFileNameNumber))    
     print("3. (Number of) turns:                    {}".format(turns))
-    print("4. Starting seed (firstSeed):           {}".format(firstSeed))
+    print("4. Starting seed (firstSeed):            {}".format(firstSeed))
     print("5. createPlot:                           {}".format(createPlot))
     print("6. PlotFileType:                         {}".format(PlotFileType))    
     print("7. (use) csv (as output's file format):  {}".format(csv))
@@ -72,8 +72,7 @@ def MoranProcTour(
 
         print("Trial run {numTrial}/seed {seedNum}:".format(numTrial=n,seedNum=seed))
         print("..................................................")
-        print("winner:")
-        print(win)
+        print("winner: {}".format(win))
         print("==================================================")
         print("List of players:")
         for a in agents: #list of strategies in play
@@ -83,7 +82,7 @@ def MoranProcTour(
         pprint.pprint(TourRes)
         print("--------------------------------------------------")
         print("Score:")
-        print(score)
+        pprint.pprint(score)
         print("***************************************************")
         print("***************************************************")
             #sys.stdout=orig_stdOut #change standard output back to default/normal
@@ -128,8 +127,8 @@ initSeed=math.floor(random.random()*(10**random.randint(0,10))) #generate random
 
 #MoranProcTour(players,newFileNameNumber,turns=10,seedOffset=1,iterations=1,createPlot=False,PlotFileType=".png",csv=False)
 
-#MoranProcTour(playerBest,8,200,initSeed,10) #real
-MoranProcTour(playerBest,7,5,initSeed,1) #testing
+MoranProcTour(playerBest,11,200,initSeed,10) #real
+#MoranProcTour(playerBest,9,5,initSeed,1) #testing
 
 
 
