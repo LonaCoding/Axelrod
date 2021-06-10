@@ -4,13 +4,38 @@ import axelrod as axl
 import pprint #for formatting output lists
 import sys #outout terminal result to file
 
-def MoranTour(players,turns,seedOffset=1,iterations=1,newFileNameNumber=0):
-
+def MoranProcTour(
+    agents,
+    newFileNameNumber,
+    turns=10,
+    seedOffset=1,
+    iterations=1,
+    createPlot=False,
+    PlotFileType=".png",
     csv=False
-    n=1
-    seed=seedOffset+0 #get first seed
+    ):
 
-    while n<iterations+1:
+    #print test parameters information
+    print(">>> Output of Elitist Selection (Modified) Moran Process <<<")
+    print("------------------------------------------------------------")
+    print("Output")
+    print("Experiment parameters:")
+    print("1. Player Agents:")
+    for a in agents: #list of strategies in play
+        print(a)
+    print("2. newFileNameNumber for plot:           {}".format(newFileNameNumber))    
+    print("3. (Number of) turns:                    {}".format(turns))
+    print("4. Starting seed (seedOffset):           {}".format(seedOffset))
+    print("5. createPlot:                           {}".format(createPlot))
+    print("6. PlotFileType:                         {}".format(PlotFileType))    
+    print("7. (use) csv (as output's file format):  {}".format(csv))
+    print("------------------------------------------------------------")
+    
+    #Initialize
+    n=1 #counter for interation loop
+    seed=seedOffset #set first seed
+
+    while n<iterations+1: #iteration loop for repeating tests
         #AllStratPlayers = [s() for s in axl.all_strategies]
         #for s in AllStratPlayers: #list of strategies in play
         #    pprint.pprint(s)
@@ -25,46 +50,33 @@ def MoranTour(players,turns,seedOffset=1,iterations=1,newFileNameNumber=0):
         else:
             fileType=".txt"
 
-        PlotFileType=".png"
+        #PlotFileType=".png"
         #options: eps, jpeg, jpg, pdf, pgf, png, ps, raw, rgba, svg, svgz, tif, tiff
 
         plotFileName="EliteMoranProc{newFileNameNumber}_{iterNum}{PlotFileType}".format(newFileNameNumber=newFileNameNumber,iterNum=n,PlotFileType=PlotFileType)#If want to modify naming format, replace the "ScrListBrandModel" part. DO NOT MODIFY ANYTHING ELSE, including bracket and .format() content. 
 
         ##tournament
-        #tournament = axl.Tournament(players, turns=turns, repetitions=repetitions) #orig turn=10
         #tournament = axl.MoranProcess(players=players, turns=200, seed=2)
-        tournament = axl.MainEvoEliteMoranProcess(players,turns=turns, seed=seed)
+        tournament = axl.MainEvoEliteMoranProcess(agents,turns=turns, seed=seed)
         TourRes = tournament.play() #tournament results
-        plt.savefig(plotFileName)
+        if createPlot:
+            plt.savefig(plotFileName)
         win=tournament.winning_strategy_name
         score=tournament.score_history
-        
-
-        #pprint.pprint(rankName)
-        #ppprint.pprint.ppprint.pprint(win)
-
-        #output to file
-        #pprint.pprint("Writing to file")
-        #orig_stdOut=sys.stdout
-
-
-        
-
-        #popPlot = tournament.populations_plot()
-        #plt.show()
 
         #FileName="AllTournamentOutput{newFileNameNumber}{fileType}".format(newFileNameNumber=newFileNameNumber,fileType=fileType)#If want to modify naming format, replace the "ScrListBrandModel" part. DO NOT MODIFY ANYTHING ELSE, including bracket and .format() content. 
 
         #with open(FileName,'w') as outFile:
             #sys.stdout=outFile
+
         print("Trial run {numTrial}/seed {seedNum}:".format(numTrial=n,seedNum=seed))
         print("..................................................")
         print("winner:")
         print(win)
         print("==================================================")
         print("List of players:")
-        for s in players: #list of strategies in play
-            print(s)
+        for a in agents: #list of strategies in play
+            print(a)
         print("==================================================")
         print("Results:")
         pprint.pprint(TourRes)
@@ -77,10 +89,6 @@ def MoranTour(players,turns,seedOffset=1,iterations=1,newFileNameNumber=0):
         n=n+1
         seed=seed+1
 
-#AllStratPlayers = [s() for s in axl.all_strategies]
-    #for s in AllStratPlayers: #list of strategies in play
-    #    pprint.pprint(s)
-
 player3=[axl.TitForTat(), axl.Random(), axl.Negation()]
 
 player6=[axl.TitForTat(), axl.Random(), axl.Negation(),
@@ -92,7 +100,7 @@ playerBest=[axl.EvolvedFSM6(), axl.SecondByRichardHufford(), axl.TitForTat(),
             axl.Michaelos(), axl.Defector(),axl.Cooperator(),axl.Random(),
             axl.WinStayLoseShift(),axl.Grudger(),axl.Prober(), axl.TitFor2Tats()]
 
-#winners:
+#winners of tournaments:
 #'Evolved FSM 6': 50-turn 1st
 #'Evolved HMM 5': 50-turn 2nd
 #'EvolvedLookerUp2_2_2': 50-turn 3rd
@@ -107,17 +115,16 @@ players = [axl.Defector(), axl.Defector(), axl.Defector(),
        axl.TitForTat(), axl.TitForTat(), axl.TitForTat(),
        axl.Random()]
 
+seedRandFLoat=round(random()*(10**random.randint(0,10))) #generate random starting seed
 
+#Additional input parameters for MoranProcTour: 
+#PlotFileType options (,PlotFileType=".____"): 
+#".eps", ".jpeg", ".jpg", ".pdf", ".pgf", ".png", ".ps", ".raw," ".rgba", ".svg", ".svgz", ".tif", ".tiff"
 
-#def TournamentWithResultFile(players,turns,repetitions,iterations,newFileNameNumber):
-#TournamentWithResultFile(AllStratPlayers,20,3,2,3)
-#TournamentWithResult(AllStratPlayers,50,3,5)
+#MoranProcTour(players,newFileNameNumber,turns=10,seedOffset=1,iterations=1,createPlot=False,PlotFileType=".png",csv=False)
 
-#MoranTour(players,turns,seedOffset=1,iterations=1,newFileNameNumber=0)
-#MoranTour(playerBest,200,5,10,1) #real
-MoranTour(playerBest,10,5,10,1)
-#popPlot = tournament.populations_plot()
-#plt.show()
+#MoranProcTour(playerBest,8,200,seedRandFLoat,10) #real
+#MoranProcTour(playerBest,7,5,5,1) #testing
 
 
 
