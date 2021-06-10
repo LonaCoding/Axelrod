@@ -8,3 +8,7 @@ else:
 y=4
 
 #print("test: {}".format(y))
+
+
+c=[1,2,3,4]
+print("test: {}".format(c))
