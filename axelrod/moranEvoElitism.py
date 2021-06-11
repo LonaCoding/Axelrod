@@ -34,6 +34,7 @@ class MainEvoEliteMoranProcess(object):
         mutation_method="transition", #other option: atomic (only for EvolvablePlayers)
         stop_on_fixation=True,
         seed=None,
+        #parameters coded by J Candra
         splitThresholdPercentile=50, #coded by J Candra. split population into half, by median. Range: 1-50
         dispOutput=True, #coded by J Candr
         ConvergeScoreLimit=5 #coded by J Candra
@@ -137,7 +138,8 @@ class MainEvoEliteMoranProcess(object):
         #Everything below here until the next comment is made by J Candra
         self.splitThresholdPercentile=splitThresholdPercentile
         self.dispOutput=dispOutput  
-        self.convergeScore=0   
+        self.ScoreConverged=False
+        self.ConvergeScore=0
         self.ConvergeScoreLimit=ConvergeScoreLimit
         #self.currBestPlayer= None #only use if needed
         #Everything above here until the next comment is made by J Candra
@@ -335,10 +337,10 @@ class MainEvoEliteMoranProcess(object):
         #at what condition would len(low)=threshold-missing and len(lowLim)<missing
 
         ##only if using median as limit
-        if low==[] & upp==[]:#if all score values are the same (thus both low and upp is empty)
-            self.convergeScore=self.convergeScore+1
+        if low==[] and upp==[]:#if all score values are the same (thus both low and upp is empty)
+            self.ConvergeScore=self.ConvergeScore+1
         else:
-            self.convergeScore=0 #reset
+            self.ConvergeScore=0 #reset
             
         #    #create sequence of values of lenth equal to total players
         #    fullIndexList=list(range(PopulationSize)) #inspired by https://note.nkmk.me/en/python-range-usage/
