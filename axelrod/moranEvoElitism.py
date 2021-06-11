@@ -728,7 +728,7 @@ class MainEvoEliteMoranProcess(object):
             domain = range(len(values))
 
         ax.stackplot(domain, plot_data, labels=labels)
-        ax.set_title("Moran Process Population by Generation") #Modified by J Candra: Iteration replaced by generation
+        ax.set_title("Elitist Selection Moran Process Population by Generation") #Modified by J Candra: Iteration replaced by generation
         ax.set_xlabel("Generation") #Modified by J Candra: Iteration replaced by generation
         ax.set_ylabel("Number of Individuals")
         ax.legend()
@@ -766,8 +766,8 @@ class MainEvoEliteMoranProcess(object):
             domain = range(len(values))
 
         ax.stackplot(domain, plot_data, labels=labels)
-        ax.set_title("Moran Process Population by Iteration")
-        ax.set_xlabel("Iteration")
+        ax.set_title("Moran Process Population by Generation")
+        ax.set_xlabel("Generation")
         ax.set_ylabel("Number of Individuals")
-        ax.legend()
+        #ax.legend() #out this seperate
         return ax
