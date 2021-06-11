@@ -61,9 +61,9 @@ def MoranProcTour(
 
     if createPlot>=2:
         row,col=largestFactor(iterations)
-        subplot, subplotAxis = mplot.subplots(row,col, figsize=(15, 6))
+        subplot, subplotAxes = mplot.subplots(row,col, figsize=(15, 6))
         subplot.subplots_adjust(hspace= .5,wspace=.001)
-        subplotAxis=subplotAxis.ravel()
+        subplotAxes=subplotAxes.ravel()
 
 
     while n<iterations+1: #iteration loop for repeating tests
@@ -101,7 +101,7 @@ def MoranProcTour(
         TourRes = tournament.play() #tournament results
 
         if createPlot>=2: #create subplot
-            subplotAxis[n] = tournament.populations_plot(subplotAxis[n])
+            subplotAxes[n] = tournament.populations_plot(subplotAxes[1][n])
 
         if createPlot==1 or createPlot==3: #create seperate plots
             plot = tournament.populations_plot() #created the plot
@@ -209,11 +209,13 @@ percentile=desiredClonedPopSize/len(agentPlayers) #convertor
 #MoranProcTour(players,newFileNameNumber,turns=10,seedOffset=1,iterations=1,splitThresholdPercentile=50,ConvergeScoreLimit=5,displayOutput=False,createPlot=0,PlotFileType=".png",csv=False)
 #MoranProcTour(AllStratPlayers,13,200,initSeed,10,50,True) #all strategies
 #MoranProcTour(playerBest1,20,200,initSeed,20,25,True,True) #real v1.0
-MoranProcTour(playerBest1,39,10,initSeed,5,50,True,1) #testing
+MoranProcTour(playerBest1,43,10,initSeed,3,50,50,True,1) #testing
 
 
-#MoranProcTour(playerBest1,39,200,42634304,20,25,50,True,2) #real v2.0
+#MoranProcTour(playerBest1,41,200,42634304,20,25,50,True,1) #real v2.0
 
+
+#raise ConvergeScoreLimit to 100?
 
 #next test do perc=25
 #try reducing population? or enlarging?

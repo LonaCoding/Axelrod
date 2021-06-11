@@ -728,14 +728,14 @@ class MainEvoEliteMoranProcess(object):
             domain = range(len(values))
 
         ax.stackplot(domain, plot_data, labels=labels)
-        #ax.suptitle("Moran Process Population by Generation", fontweight='bold')#added by J Candra: Iteration replaced by generation
-        ax.set_title("Moran Process Population by Generation ")
+        ax.suptitle("Moran Process Population by Generation", fontweight='bold')#added by J Candra: Iteration replaced by generation
+        #ax.set_title("Moran Process Population by Generation")
         #ax.set_title("Moran Process Population by Generation (Threshold: {}%)".format(self.splitThresholdPercentile))#Modified by J Candra: Iteration replaced by generation
-        #ax.set_title("Threshold: {Threshold}% / Players: {numPlayers}".format(Threshold=self.splitThresholdPercentile,numPlayers=len(self.players)), loc='left')#Modified by J Candra: Iteration replaced by generation        
+        ax.set_title("Threshold: {Threshold}% / Players: {numPlayers}".format(Threshold=self.splitThresholdPercentile,numPlayers=len(self.players)), loc='left')#Modified by J Candra: Iteration replaced by generation        
         ax.set_xlabel("Generation") #Modified by J Candra: Iteration replaced by generation
         ax.set_ylabel("Number of Individuals")
-        ax.legend()
-        #ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)
+        #ax.legend()
+        ax.legend(loc='upper left', borderaxespad=0.)
         return ax
 
     def populations_subplot(self, subplotPos=None,ax=None):

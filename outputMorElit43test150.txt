@@ -1,0 +1,213 @@
+>>> Output of Elitist Selection (Modified) Moran Process <<<
+------------------------------------------------------------
+Experiment parameters:
+1. Player Agents: 14
+Evolved FSM 6
+Second by RichardHufford
+Tit For Tat
+Evolved FSM 16
+Evolved HMM 5
+EvolvedLookerUp2_2_2
+Michaelos: (D,)
+Defector
+Cooperator
+Random: 0.5
+Win-Stay Lose-Shift
+Grudger
+Prober
+Tit For 2 Tats
+2. newFileNameNumber for plot:           43
+3. (Number of) turns:                    10
+4. Starting seed (firstSeed):            8525468
+5. iterations:                           3%
+6. splitThresholdPercentile:             50%
+7. ConvergeScoreLimit:                   50%
+8. displayOutput:                        True
+9. createPlot:                           1
+10.PlotFileType:                         PNG
+11.(use) csv (as output's file format):  False
+------------------------------------------------------------
+######################################
+~~~ Scores: ~~~
+[35.199999999999996,
+ 36.800000000000004,
+ 36.199999999999996,
+ 35.4,
+ 33.5,
+ 34.5,
+ 37.49999999999999,
+ 30.599999999999998,
+ 31.8,
+ 27.299999999999997,
+ 34.2,
+ 35.0,
+ 31.6,
+ 33.6]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 34.35
+Upper: 34.35
+====================================
+lower list size: 7
+upper list size: 7
+====================================
+*** Split into lower and upper lists: ***
+lower:           [4, 7, 8, 9, 10, 12, 13]
+lower threshold: []
+....................................
+upper threshold: []
+upper:           [0, 1, 2, 3, 5, 6, 11]
+====================================
+cloned = 0
+killed = 4
+cloned = 1
+killed = 7
+cloned = 2
+killed = 8
+cloned = 3
+killed = 9
+cloned = 5
+killed = 10
+cloned = 6
+killed = 12
+cloned = 11
+killed = 13
+######################################
+~~~ Scores: ~~~
+[38.400000000000006,
+ 38.400000000000006,
+ 38.4,
+ 38.4,
+ 38.4,
+ 38.4,
+ 41.2,
+ 38.4,
+ 38.4,
+ 38.400000000000006,
+ 38.4,
+ 38.400000000000006,
+ 41.2,
+ 38.4]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 38.4
+Upper: 38.4
+====================================
+lower list size: 0
+upper list size: 6
+====================================
+*** Split into lower and upper lists: ***
+lower:           [3, 8, 5, 2, 7, 4, 10]
+lower threshold: []
+....................................
+upper threshold: [2, 3, 4, 5, 7, 8, 10, 13]
+upper:           [0, 1, 6, 9, 11, 12, 13]
+====================================
+cloned = 0
+killed = 3
+cloned = 1
+killed = 8
+cloned = 6
+killed = 5
+cloned = 9
+killed = 2
+cloned = 11
+killed = 7
+cloned = 12
+killed = 4
+cloned = 13
+killed = 10
+######################################
+~~~ Scores: ~~~
+[37.8,
+ 37.8,
+ 37.8,
+ 37.8,
+ 40.4,
+ 40.4,
+ 40.400000000000006,
+ 37.800000000000004,
+ 37.8,
+ 37.8,
+ 37.8,
+ 37.8,
+ 40.400000000000006,
+ 37.8]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 37.8
+Upper: 37.8
+====================================
+lower list size: 0
+upper list size: 5
+====================================
+*** Split into lower and upper lists: ***
+lower:           [1, 9, 8, 11, 10, 3, 0]
+lower threshold: []
+....................................
+upper threshold: [0, 1, 2, 3, 8, 9, 10, 11, 13]
+upper:           [4, 5, 6, 7, 12, 2, 13]
+====================================
+cloned = 4
+killed = 1
+cloned = 5
+killed = 9
+cloned = 6
+killed = 8
+cloned = 7
+killed = 11
+cloned = 12
+killed = 10
+cloned = 2
+killed = 3
+cloned = 13
+killed = 0
+######################################
+~~~ Scores: ~~~
+[36.6,
+ 38.800000000000004,
+ 36.599999999999994,
+ 36.6,
+ 38.8,
+ 38.8,
+ 38.800000000000004,
+ 36.6,
+ 38.800000000000004,
+ 38.8,
+ 38.80000000000001,
+ 36.6,
+ 38.800000000000004,
+ 36.6]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 38.8
+Upper: 38.8
+====================================
+lower list size: 6
+upper list size: 5
+====================================
+*** Split into lower and upper lists: ***
+lower:           [0, 2, 3, 7, 11, 13, 4]
+lower threshold: []
+....................................
+upper threshold: [4, 5, 9]
+upper:           [1, 6, 8, 10, 12, 5, 9]
+====================================
+cloned = 1
+killed = 0
+cloned = 6
+killed = 2
+cloned = 8
+killed = 3
+cloned = 10
+killed = 7
+cloned = 12
+killed = 11
+cloned = 5
+killed = 13
+cloned = 9
+killed = 4
