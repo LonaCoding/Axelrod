@@ -6,6 +6,18 @@ import pprint #for formatting output lists
 import sys #outout terminal result to file
 import shutil #for moving files
 
+def largestFactor(inputValue):
+    n=1
+    a=1
+    b=1
+    while n <=math.sqrt(inputValue): #only look for factors up to square root
+        if inputValue%n==0: #if factor found    
+            a=n #current biggest factor
+        n=n+1
+    b=int(inputValue/a) #find other compliemntary factor
+
+    return a, b
+
 def MoranProcTour(
     agents,
     newFileNameNumber,
@@ -15,7 +27,7 @@ def MoranProcTour(
     splitThresholdPercentile=50,
     ConvergeScoreLimit=5,
     displayOutput=False,
-    createPlot=False,
+    createPlot=0,
     PlotFileType="PNG",
     csv=False
     ):
@@ -35,13 +47,24 @@ def MoranProcTour(
     print("7. ConvergeScoreLimit:                   {}%".format(ConvergeScoreLimit))
     print("8. displayOutput:                        {}".format(displayOutput))    
     print("9. createPlot:                           {}".format(createPlot))
-    print("10. PlotFileType:                         {}".format(PlotFileType))    
+    print("10.PlotFileType:                         {}".format(PlotFileType))    
     print("11.(use) csv (as output's file format):  {}".format(csv))
     print("------------------------------------------------------------")
     
     #Initialize
     n=1 #counter for interation loop
     seed=firstSeed #set first seed
+
+    #find largest factor of iterations to determine subplot grid dimensions
+
+
+
+    if createPlot>=2:
+        row,col=largestFactor(iterations)
+        subplot, subplotAxis = mplot.subplots(row,col, figsize=(15, 6))
+        subplot.subplots_adjust(hspace= .5,wspace=.001)
+        subplotAxis=subplotAxis.ravel()
+
 
     while n<iterations+1: #iteration loop for repeating tests
         #AllStratPlayers = [s() for s in axl.all_strategies]
@@ -62,7 +85,9 @@ def MoranProcTour(
         #options: eps, jpeg, jpg, pdf, pgf, png, ps, raw, rgba, svg, svgz, tif, tiff
         PlotFileTypeExt=PlotFileType.lower()
         #print(PlotFileTypeExt) #testing
-        plotFileName="EliteMoranProcPlot{newFileNameNumber}_{iterNum}.{PlotFileTypeExt}".format(newFileNameNumber=newFileNameNumber,iterNum=n,PlotFileTypeExt=PlotFileTypeExt)#If want to modify naming format, replace the "ScrListBrandModel" part. DO NOT MODIFY ANYTHING ELSE, including bracket and .format() content. 
+        plotFileName="EliteMoranProcPlot{newFileNameNumber}_{iterNum}.{PlotFileTypeExt}".format(newFileNameNumber=newFileNameNumber,iterNum=n,PlotFileTypeExt=PlotFileTypeExt)#If want to modify naming format, replace the "ScrListBrandModel" part. DO NOT MODIFY ANYTHING ELSE, including bracket and .format() content.         
+        subplotFileName="EliteMoranProcSubplot{newFileNameNumber}_{iterNum}.{PlotFileTypeExt}".format(newFileNameNumber=newFileNameNumber,iterNum=n,PlotFileTypeExt=PlotFileTypeExt)#If want to modify naming format, replace the "ScrListBrandModel" part. DO NOT MODIFY ANYTHING ELSE, including bracket and .format() content. 
+        targetOutFolder = "MoranElitistExperiments_Output/Plots"
 
         ##tournament
         #tournament = axl.MoranProcess(players=players, turns=200, seed=2)
@@ -74,10 +99,13 @@ def MoranProcTour(
             ConvergeScoreLimit=ConvergeScoreLimit
             )
         TourRes = tournament.play() #tournament results
-        if createPlot:
+
+        if createPlot>=2: #create subplot
+            subplotAxis[n] = tournament.populations_plot(subplotAxis[n])
+
+        if createPlot==1 or createPlot==3: #create seperate plots
             plot = tournament.populations_plot() #created the plot
             mplot.savefig(plotFileName,format=PlotFileType, dpi=100) #saves the plot as image
-            targetOutFolder = "MoranElitistExperiments_Output/Plots"
             outputNewPath = shutil.move(plotFileName, targetOutFolder) #move the saved image plot to output folder
         win=tournament.winning_strategy_name
         score=tournament.score_history
@@ -105,6 +133,10 @@ def MoranProcTour(
             #sys.stdout=orig_stdOut #change standard output back to default/normal
         n=n+1
         seed=seed+1
+    if createPlot>=2: #create subplot
+        mplot.savefig(subplotFileName,format=PlotFileType, dpi=100) #saves the plot as image
+        outputNewPath = shutil.move(subplotFileName, targetOutFolder) #move the saved image plot to output folder
+
 
 #Initialize population of player agents
 player3=[axl.TitForTat(), axl.Random(), axl.Negation()]
@@ -168,14 +200,19 @@ percentile=desiredClonedPopSize/len(agentPlayers) #convertor
 #Additional input parameters for MoranProcTour: 
 #PlotFileType options (,PlotFileType=".____"): 
 #"EPS", "JPEG", ".jpg", ".pdf", ".pgf", ".png", ".ps", ".raw," ".rgba", ".svg", ".svgz", ".tif", ".tiff"
+#createPlot options (,createPlot="_"):
+# 0: No plot
+# 1: Individual seperate plots, 1 for each iteration
+# 2: A single plot of combined subplots. where 1 subplot represents 1 iteration
+# 3: Plots from both options 1 and 2
 
-#MoranProcTour(players,newFileNameNumber,turns=10,seedOffset=1,iterations=1,splitThresholdPercentile=50,ConvergeScoreLimit=5,displayOutput=False,createPlot=False,PlotFileType=".png",csv=False)
+#MoranProcTour(players,newFileNameNumber,turns=10,seedOffset=1,iterations=1,splitThresholdPercentile=50,ConvergeScoreLimit=5,displayOutput=False,createPlot=0,PlotFileType=".png",csv=False)
 #MoranProcTour(AllStratPlayers,13,200,initSeed,10,50,True) #all strategies
 #MoranProcTour(playerBest1,20,200,initSeed,20,25,True,True) #real v1.0
-#MoranProcTour(playerBest1,18,5,initSeed,2,50,True,True) #testing
+MoranProcTour(playerBest1,39,10,initSeed,5,50,True,1) #testing
 
 
-MoranProcTour(playerBest2,37,200,12901,20,25,50,True,True) #real v2.0
+#MoranProcTour(playerBest1,39,200,42634304,20,25,50,True,2) #real v2.0
 
 
 #next test do perc=25

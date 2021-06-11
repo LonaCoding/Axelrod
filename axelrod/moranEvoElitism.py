@@ -715,7 +715,7 @@ class MainEvoEliteMoranProcess(object):
         """
         player_names = self.populations[0].keys()
         if ax is None:
-            _, ax = plt.subplots()
+            _, ax = plt.subplots() #original: _
         else:
             ax = ax
 
@@ -728,13 +728,17 @@ class MainEvoEliteMoranProcess(object):
             domain = range(len(values))
 
         ax.stackplot(domain, plot_data, labels=labels)
-        ax.set_title("Elitist Selection Moran Process Population by Generation") #Modified by J Candra: Iteration replaced by generation
+        #ax.suptitle("Moran Process Population by Generation", fontweight='bold')#added by J Candra: Iteration replaced by generation
+        ax.set_title("Moran Process Population by Generation ")
+        #ax.set_title("Moran Process Population by Generation (Threshold: {}%)".format(self.splitThresholdPercentile))#Modified by J Candra: Iteration replaced by generation
+        #ax.set_title("Threshold: {Threshold}% / Players: {numPlayers}".format(Threshold=self.splitThresholdPercentile,numPlayers=len(self.players)), loc='left')#Modified by J Candra: Iteration replaced by generation        
         ax.set_xlabel("Generation") #Modified by J Candra: Iteration replaced by generation
         ax.set_ylabel("Number of Individuals")
         ax.legend()
+        #ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)
         return ax
 
-    def populations_subplot(self, ax=None):
+    def populations_subplot(self, subplotPos=None,ax=None):
         """
         Create a stackplot of the population distributions at each iteration of
         the Moran process.
@@ -753,7 +757,7 @@ class MainEvoEliteMoranProcess(object):
         """
         player_names = self.populations[0].keys()
         if ax is None:
-            _, ax = plt.subplots()
+            fig, ax = plt.subplots(subplotPos)
         else:
             ax = ax
 
@@ -765,8 +769,9 @@ class MainEvoEliteMoranProcess(object):
             plot_data.append(values)
             domain = range(len(values))
 
+
         ax.stackplot(domain, plot_data, labels=labels)
-        ax.set_title("Moran Process Population by Generation")
+        ax.set_title("Moran Process Population by Generation (Threshold: {}%)".format(self.splitThresholdPercentile))#Modified by J Candra: Iteration replaced by generation
         ax.set_xlabel("Generation")
         ax.set_ylabel("Number of Individuals")
         #ax.legend() #out this seperate
