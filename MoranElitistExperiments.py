@@ -174,7 +174,7 @@ percentile=desiredClonedPopSize/len(agentPlayers) #convertor
 #MoranProcTour(playerBest1,18,5,initSeed,2,50,True,True) #testing
 
 
-MoranProcTour(playerBest2,23,200,306,20,50,True,True) #real v2.0
+MoranProcTour(playerBest2,24,200,306,20,50,displayOutput=True,createPlot=True) #real v2.0
 
 
 #next test do perc=25
