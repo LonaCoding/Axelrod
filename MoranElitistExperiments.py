@@ -30,12 +30,13 @@ def MoranProcTour(
     print("2. newFileNameNumber for plot:           {}".format(newFileNameNumber))    
     print("3. (Number of) turns:                    {}".format(turns))
     print("4. Starting seed (firstSeed):            {}".format(firstSeed))
-    print("5. splitThresholdPercentile:             {}%".format(splitThresholdPercentile))
-    print("6. ConvergeScoreLimit:                   {}%".format(ConvergeScoreLimit))
-    print("7. displayOutput:                        {}".format(displayOutput))    
-    print("8. createPlot:                           {}".format(createPlot))
-    print("9. PlotFileType:                         {}".format(PlotFileType))    
-    print("10.(use) csv (as output's file format):  {}".format(csv))
+    print("5. iterations:                           {}%".format(iterations))
+    print("6. splitThresholdPercentile:             {}%".format(splitThresholdPercentile))
+    print("7. ConvergeScoreLimit:                   {}%".format(ConvergeScoreLimit))
+    print("8. displayOutput:                        {}".format(displayOutput))    
+    print("9. createPlot:                           {}".format(createPlot))
+    print("10. PlotFileType:                         {}".format(PlotFileType))    
+    print("11.(use) csv (as output's file format):  {}".format(csv))
     print("------------------------------------------------------------")
     
     #Initialize
@@ -174,7 +175,7 @@ percentile=desiredClonedPopSize/len(agentPlayers) #convertor
 #MoranProcTour(playerBest1,18,5,initSeed,2,50,True,True) #testing
 
 
-MoranProcTour(playerBest2,24,200,306,20,50,displayOutput=True,createPlot=True) #real v2.0
+MoranProcTour(playerBest1,30,200,2456449104,20,50,50,True,True) #real v2.0
 
 
 #next test do perc=25
