@@ -34,9 +34,10 @@ class MainEvoEliteMoranProcess(object):
         mutation_method="transition", #other option: atomic (only for EvolvablePlayers)
         stop_on_fixation=True,
         seed=None,
-        splitThresholdPercentile=50, #coded by J Candra. split population into half, by median. Range: 1-50
-        dispOutput=True, #coded by J Candr
-        ConvergeScoreLimit=5 #coded by J Candra
+        #parameters coded by J Candra
+        splitThresholdPercentile: int=50, #coded by J Candra. split population into half, by median. Range: 1-50
+        dispOutput: bool=True, #coded by J Candr
+        ConvergeScoreLimit: int=5 #coded by J Candra
     ) -> None:
         """
         An agent based Moran process class. In each round, each player plays a
@@ -137,7 +138,8 @@ class MainEvoEliteMoranProcess(object):
         #Everything below here until the next comment is made by J Candra
         self.splitThresholdPercentile=splitThresholdPercentile
         self.dispOutput=dispOutput  
-        self.convergeScore=0   
+        self.ScoreConverged=False
+        #self.convergeScore=0
         self.ConvergeScoreLimit=ConvergeScoreLimit
         #self.currBestPlayer= None #only use if needed
         #Everything above here until the next comment is made by J Candra
@@ -245,7 +247,7 @@ class MainEvoEliteMoranProcess(object):
     #Parts of this code are copied from fitness_proportionate_selection,
     #while others are written by J Candra
     def splitPlayersByScore(
-        self, scores: List, fitness_transformation: Callable = None #,splitThresholdPercentile=50 #old reference
+        self, scores: List,convergeScore: int, fitness_transformation: Callable = None #,splitThresholdPercentile=50 #old reference
         #,splitThresholdPercentile=50,dispOutput=True
     ) -> int: #added input param argument for splitThresholdPercentile, which give nth-percentile
         """Divides the players based on their scores, 
@@ -335,10 +337,10 @@ class MainEvoEliteMoranProcess(object):
         #at what condition would len(low)=threshold-missing and len(lowLim)<missing
 
         ##only if using median as limit
-        if low==[] & upp==[]:#if all score values are the same (thus both low and upp is empty)
-            self.convergeScore=self.convergeScore+1
+        if low==[] and upp==[]:#if all score values are the same (thus both low and upp is empty)
+            convergeScore=convergeScore+1
         else:
-            self.convergeScore=0 #reset
+            convergeScore=0 #reset
             
         #    #create sequence of values of lenth equal to total players
         #    fullIndexList=list(range(PopulationSize)) #inspired by https://note.nkmk.me/en/python-range-usage/
@@ -393,7 +395,7 @@ class MainEvoEliteMoranProcess(object):
             print("upper:           {}".format(upp))     
             print("====================================")
 
-        return low,upp #2 lists of indices, one for culling and another for cloning
+        return low,upp,convergeScore #2 lists of indices, one for culling and another for cloning
 
     def mutate(self, index: int) -> Player:
         """Mutate the player at index.
@@ -455,7 +457,7 @@ class MainEvoEliteMoranProcess(object):
     #Part of the function is still copied from birth().
     #Some parts were removed because unused and redundant
 
-    def getCulledandCloneList(self) -> int: #add count input arg/param
+    def getCulledandCloneList(self,convergeScore: int) -> int: #add count input arg/param
         """Produce the 2 list of indices that determines
         which player will be cloned and which one will
         be replaced with new clone
@@ -480,12 +482,12 @@ class MainEvoEliteMoranProcess(object):
         # Compute necessary fitnesses.
         scores = self.score_all()
         
-        lowerList, upperList = self.splitPlayersByScore( #this part is modified by J Candra
-            scores, fitness_transformation=self.fitness_transformation#, #add percentile input arg here!
+        lowerList, upperList,convergeScore = self.splitPlayersByScore( #this part is modified by J Candra
+            scores,convergeScore, fitness_transformation=self.fitness_transformation#, #add percentile input arg here!
 #            splitThresholdPercentile=self.splitThresholdPercentile,dispOutput=self.dispOutput
         )
 
-        return lowerList, upperList #this part is modified by J Candra
+        return lowerList, upperList,convergeScore #this part is modified by J Candra
 
     def fixation_check(self) -> bool:
         """
@@ -506,7 +508,7 @@ class MainEvoEliteMoranProcess(object):
 
 
     #modified from fixation_check
-    def ConvergeScoreLimitCheck(self) -> bool:
+    def ConvergeScoreLimitCheck(self,convergeScore: int) -> bool:
         """
         Checks if the population is all of a single type
 
@@ -517,7 +519,7 @@ class MainEvoEliteMoranProcess(object):
         """
         classes = set(str(p) for p in self.players) #get unique player types
         self.ScoreConverged = False
-        if self.ConvergeScore>=self.ConvergeScoreLimit:
+        if convergeScore>=self.ConvergeScoreLimit:
             # Set the winning strategy name variable
             self.winning_strategy_name = str(classes)
             self.ScoreConverged = True
@@ -526,7 +528,7 @@ class MainEvoEliteMoranProcess(object):
     #Modified by J Candra from the function of same name, without renaming function. 
     # Original cannot be retained due to possible namespace clash
     #Original version can be found in moran.py under MoranProcess class
-    def __next__(self) -> object:
+    def __next__(self,convergeScore: int) -> object:
         """
         Iterate the population:
 
@@ -543,7 +545,7 @@ class MainEvoEliteMoranProcess(object):
             Returns itself with a new population
         """
         # Check the exit condition, that all players are of the same type.
-        if (self.stop_on_fixation and self.fixation_check()) or self.ConvergeScoreLimitCheck():
+        if (self.stop_on_fixation and self.fixation_check()) or self.ConvergeScoreLimitCheck(convergeScore):
             raise StopIteration
 
         #Perform score calculation and
@@ -551,7 +553,7 @@ class MainEvoEliteMoranProcess(object):
         #under lower bounds and represents players to be culled,
         #and the other are above upper bounds and represents players 
         #to be cloned and/or mutated    
-        cullList, cloneList=self.getCulledandCloneList()
+        cullList, cloneList,convergeScore=self.getCulledandCloneList(convergeScore)
 
         #Mutate and/or replace player pCull from cullList 
         #with clone or mutated clone of player pClone from cloneList
@@ -573,7 +575,7 @@ class MainEvoEliteMoranProcess(object):
             
         # Record population.
         self.populations.append(self.population_distribution())
-        return self
+        return self,convergeScore
 
     def _matchup_indices(self) -> Set[Tuple[int, int]]:
         """
@@ -674,6 +676,7 @@ class MainEvoEliteMoranProcess(object):
          populations:
             Returns a list of all the populations
         """
+        convergeScore=0 #initialize
         if not self.stop_on_fixation or self.mutation_rate != 0:
             raise ValueError(
                 "MoranEvoEliteProcess.play() will never exit if mutation_rate is"
@@ -681,7 +684,7 @@ class MainEvoEliteMoranProcess(object):
             )
         while True:
             try:
-                self.__next__()
+                convergeScore=self.__next__(convergeScore)
             except StopIteration:
                 break
         return self.populations
