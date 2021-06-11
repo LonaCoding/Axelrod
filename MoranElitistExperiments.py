@@ -12,7 +12,8 @@ def MoranProcTour(
     turns=10,
     firstSeed=1,
     iterations=1,
-    splitThresholdPercentile=50, 
+    splitThresholdPercentile=50,
+    ConvergeScoreLimit=5,
     displayOutput=False,
     createPlot=False,
     PlotFileType="PNG",
@@ -30,10 +31,11 @@ def MoranProcTour(
     print("3. (Number of) turns:                    {}".format(turns))
     print("4. Starting seed (firstSeed):            {}".format(firstSeed))
     print("5. splitThresholdPercentile:             {}%".format(splitThresholdPercentile))
-    print("6. displayOutput:                        {}".format(displayOutput))    
-    print("7. createPlot:                           {}".format(createPlot))
-    print("8. PlotFileType:                         {}".format(PlotFileType))    
-    print("9. (use) csv (as output's file format):  {}".format(csv))
+    print("6. ConvergeScoreLimit:                   {}%".format(ConvergeScoreLimit))
+    print("7. displayOutput:                        {}".format(displayOutput))    
+    print("8. createPlot:                           {}".format(createPlot))
+    print("9. PlotFileType:                         {}".format(PlotFileType))    
+    print("10.(use) csv (as output's file format):  {}".format(csv))
     print("------------------------------------------------------------")
     
     #Initialize
@@ -67,7 +69,8 @@ def MoranProcTour(
             agents,turns=turns, 
             seed=seed,
             splitThresholdPercentile=splitThresholdPercentile,
-            dispOutput=displayOutput
+            dispOutput=displayOutput,
+            ConvergeScoreLimit=ConvergeScoreLimit
             )
         TourRes = tournament.play() #tournament results
         if createPlot:
@@ -109,10 +112,27 @@ player6=[axl.TitForTat(), axl.Random(), axl.Negation(),
         axl.CyclerCCD(), axl.MemoryOnePlayer(), axl.Inverse()]
 
 #add players that were selected from 20-,50- and 200-turn tournaments' winners
-playerBest=[axl.EvolvedFSM6(), axl.SecondByRichardHufford(), axl.TitForTat(), 
+playerBest1=[axl.EvolvedFSM6(), axl.SecondByRichardHufford(), axl.TitForTat(), 
             axl.EvolvedFSM16(), axl.EvolvedHMM5(), axl.EvolvedLookerUp2_2_2(), 
             axl.Michaelos(), axl.Defector(),axl.Cooperator(),axl.Random(),
             axl.WinStayLoseShift(),axl.Grudger(),axl.Prober(), axl.TitFor2Tats()]
+
+#add players that were selected from 20-,50- and 200-turn tournaments' winners
+#as well as those according to results from drvinceknight's tournament repository
+playerBest2=[axl.EvolvedFSM6(), axl.SecondByRichardHufford(), axl.TitForTat(), 
+            axl.EvolvedFSM16(), axl.EvolvedHMM5(), axl.EvolvedLookerUp2_2_2(), 
+            axl.Michaelos(), axl.Defector(),axl.Cooperator(),axl.Random(),
+            axl.WinStayLoseShift(),axl.Grudger(),axl.Prober(), axl.TitFor2Tats(),
+            axl.EvolvedANNNoise05(),axl.Aggravater(),axl.RevisedDowning(),axl.Raider(),
+            axl.Prober3(),axl.FirstByDowning(),axl.Fortress3(),axl.EvolvedANN5(),axl.DBS()
+            ]
+
+
+
+#playerBestDouble=[axl.EvolvedFSM6()*2, axl.SecondByRichardHufford()*2, axl.TitForTat()*2,
+#                    axl.EvolvedFSM16()*2, axl.EvolvedHMM5()*2, axl.EvolvedLookerUp2_2_2()*2, 
+#                    axl.Michaelos()*2, axl.Defector()*2,axl.Cooperator()*2,axl.Random()*2,
+#                    axl.WinStayLoseShift()*2,axl.Grudger()*2,axl.Prober()*2, axl.TitFor2Tats()*2]
 
 #winners of tournaments:
 #'Evolved FSM 6': 50-turn 1st
@@ -139,7 +159,7 @@ initSeed=math.floor(random.random()*(10**random.randint(1,9))) #generate random 
 
 #convertor
 desiredClonedPopSize=5 #sets the number of player agents that will be cloned and the ones that will be culled
-agentPlayers=playerBest #total number of player agents
+agentPlayers=playerBest1 #total number of player agents
 percentile=desiredClonedPopSize/len(agentPlayers) #convertor
 #put percentile in splitThresholdPercentile (splitThresholdPercentile=percentile)
 
@@ -148,12 +168,17 @@ percentile=desiredClonedPopSize/len(agentPlayers) #convertor
 #PlotFileType options (,PlotFileType=".____"): 
 #"EPS", "JPEG", ".jpg", ".pdf", ".pgf", ".png", ".ps", ".raw," ".rgba", ".svg", ".svgz", ".tif", ".tiff"
 
-#MoranProcTour(players,newFileNameNumber,turns=10,seedOffset=1,iterations=1,splitThresholdPercentile=50,displayOutput=False,createPlot=False,PlotFileType=".png",csv=False)
+#MoranProcTour(players,newFileNameNumber,turns=10,seedOffset=1,iterations=1,splitThresholdPercentile=50,ConvergeScoreLimit=5,displayOutput=False,createPlot=False,PlotFileType=".png",csv=False)
 #MoranProcTour(AllStratPlayers,13,200,initSeed,10,50,True) #all strategies
-MoranProcTour(playerBest,20,200,initSeed,20,25,True,True) #real
-#MoranProcTour(playerBest,18,5,initSeed,2,50,True,True) #testing
+#MoranProcTour(playerBest1,20,200,initSeed,20,25,True,True) #real v1.0
+#MoranProcTour(playerBest1,18,5,initSeed,2,50,True,True) #testing
+
+
+MoranProcTour(playerBest2,23,200,306,20,50,True,True) #real v2.0
+
 
 #next test do perc=25
+#try reducing population? or enlarging?
 
 
 

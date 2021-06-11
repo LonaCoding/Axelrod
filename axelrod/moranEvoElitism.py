@@ -34,8 +34,9 @@ class MainEvoEliteMoranProcess(object):
         mutation_method="transition", #other option: atomic (only for EvolvablePlayers)
         stop_on_fixation=True,
         seed=None,
-        splitThresholdPercentile=50, #coded by J Candra. default: split population into half, by median. Range: 1-50
-        dispOutput=True
+        splitThresholdPercentile=50, #coded by J Candra. split population into half, by median. Range: 1-50
+        dispOutput=True, #coded by J Candr
+        ConvergeScoreLimit=5 #coded by J Candra
     ) -> None:
         """
         An agent based Moran process class. In each round, each player plays a
@@ -103,15 +104,25 @@ class MainEvoEliteMoranProcess(object):
             A random seed for reproducibility
         splitThresholdPercentile: int 
             (this part was coded by J Candra)
+            Default: 50.
             n value of nth-percentile used to divide the population into seperate subpopulations
             for cloning and culling
         dispOutput:
             (this part was coded by J Candra)
+            Default: False.
             Determines wether to print output of some information regarding process
             of splitting the population.
+        ConvergeScoreLimit:
+            (this part was coded by J Candra)
+            Default: 5.
+            Determines maximum number of score convergence before prematurely ending the moran process
         """
-        assert (splitThresholdPercentile>0) and (splitThresholdPercentile<=50)#this part was coded by J Candra.
-        assert dispOutput in [True, False]#this part was coded by J Candra.
+        #Everything below here until the next comment is made by J Candra
+        assert (splitThresholdPercentile>0) and (splitThresholdPercentile<=50)
+        assert dispOutput in [True, False]
+        assert ConvergeScoreLimit>0
+        #Everything above here until the next comment is made by J Candra
+        #everything below here until the next comment is part of the original code and not made by J Candra
         m = mutation_method.lower()
         if m in ["atomic", "transition"]:
             self.mutation_method = m
@@ -123,8 +134,13 @@ class MainEvoEliteMoranProcess(object):
         assert (noise >= 0) and (noise <= 1)
         mode = mode.lower()
         assert mode in ["bd", "db"]
+        #Everything below here until the next comment is made by J Candra
         self.splitThresholdPercentile=splitThresholdPercentile
-        self.dispOutput=dispOutput        
+        self.dispOutput=dispOutput  
+        self.convergeScore=0   
+        self.ConvergeScoreLimit=ConvergeScoreLimit
+        #self.currBestPlayer= None #only use if needed
+        #Everything above here until the next comment is made by J Candra
         self.mode = mode
         if deterministic_cache is not None:
             self.deterministic_cache = deterministic_cache
@@ -294,6 +310,7 @@ class MainEvoEliteMoranProcess(object):
                 uppLim.append(n)
             if m==llim: #if score matches the lower threshold
                 lowLim.append(n)
+            
 
         PopulationSize=len(self.players)
 
@@ -318,7 +335,11 @@ class MainEvoEliteMoranProcess(object):
         #at what condition would len(low)=threshold-missing and len(lowLim)<missing
 
         ##only if using median as limit
-        #if low==[] & upp==[]:#if all score values are the same (thus both low and upp is empty)
+        if low==[] & upp==[]:#if all score values are the same (thus both low and upp is empty)
+            self.convergeScore=self.convergeScore+1
+        else:
+            self.convergeScore=0 #reset
+            
         #    #create sequence of values of lenth equal to total players
         #    fullIndexList=list(range(PopulationSize)) #inspired by https://note.nkmk.me/en/python-range-usage/
         #    while len(low)<PopSubsampleSize: #median limit
@@ -483,6 +504,25 @@ class MainEvoEliteMoranProcess(object):
             self.fixated = True
         return self.fixated
 
+
+    #modified from fixation_check
+    def ConvergeScoreLimitCheck(self) -> bool:
+        """
+        Checks if the population is all of a single type
+
+        Returns
+        -------
+        Boolean:
+            True if Score Converged has occurred (population all has the same score)
+        """
+        classes = set(str(p) for p in self.players) #get unique player types
+        self.ScoreConverged = False
+        if self.ConvergeScore>=self.ConvergeScoreLimit:
+            # Set the winning strategy name variable
+            self.winning_strategy_name = str(classes)
+            self.ScoreConverged = True
+        return self.ScoreConverged
+
     #Modified by J Candra from the function of same name, without renaming function. 
     # Original cannot be retained due to possible namespace clash
     #Original version can be found in moran.py under MoranProcess class
@@ -503,7 +543,7 @@ class MainEvoEliteMoranProcess(object):
             Returns itself with a new population
         """
         # Check the exit condition, that all players are of the same type.
-        if self.stop_on_fixation and self.fixation_check():
+        if (self.stop_on_fixation and self.fixation_check()) or self.ConvergeScoreLimitCheck():
             raise StopIteration
 
         #Perform score calculation and
@@ -654,6 +694,7 @@ class MainEvoEliteMoranProcess(object):
         """
         return len(self.populations)
 
+#slightly modified by J Candra due to possible terminology confusion
     def populations_plot(self, ax=None):
         """
         Create a stackplot of the population distributions at each iteration of
@@ -685,8 +726,8 @@ class MainEvoEliteMoranProcess(object):
             domain = range(len(values))
 
         ax.stackplot(domain, plot_data, labels=labels)
-        ax.set_title("Moran Process Population by Iteration")
-        ax.set_xlabel("Iteration")
+        ax.set_title("Moran Process Population by Generation") #Modified by J Candra: Iteration replaced by generation
+        ax.set_xlabel("Generation") #Modified by J Candra: Iteration replaced by generation
         ax.set_ylabel("Number of Individuals")
         ax.legend()
         return ax
