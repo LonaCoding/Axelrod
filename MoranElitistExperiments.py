@@ -58,10 +58,7 @@ def MoranProcTour(
     
     if createPlot>=2:
         row,col=largestFactor(iterations) #find largest factor of iterations to determine subplot grid dimensions
-        subplotMain, subplotAxes = mplot.subplots(row,col) #sharey='col',figsize=(10, 6)
-        subplotMain.subplots_adjust(hspace= .5,wspace=.001)
-        #subplotAxes=subplotAxes.ravel()
-
+        subplotMain, subplotAxes = mplot.subplots(row,col,sharey='col',figsize=(15, 15)) #
 
     while n<iterations+1: #iteration loop for repeating tests
         #AllStratPlayers = [s() for s in axl.all_strategies]
@@ -106,8 +103,8 @@ def MoranProcTour(
                 r=r-1 #ensure the row does not follow quotient
                 c=col #subplot is at rightmost end
             c=c-1 #c=column position for subplot. Transpose to index notation
-            #currSubplotAxes=subplotAxes[r][c]
-            subplotAxes= tournament.populations_plot(iter=n,ax=subplotAxes,r=r,c=c) #do subplot
+
+            subplotAxes[r][c]= tournament.populations_plot(iter=n,ax=subplotAxes[r][c]) #do subplot
             
 
         if createPlot==1 or createPlot==3: #create seperate plots
@@ -157,7 +154,7 @@ def MoranProcTour(
         subplotMain.supxlabel('Generation')
         subplotMain.supylabel('Number of Individuals')
         subplotMain.legend(title="Player Agent Types",loc='upper right', borderaxespad=0.)
-        mplot.subplots_adjust(right=0.6) #offset between plot and legend
+        subplotMain.subplots_adjust(hspace= .5,wspace=.001,right=0.6) #offset between plot and legend
         mplot.savefig(subplotFileName,format=PlotFileType, dpi=100) #saves the plot as image
         outputNewPath = shutil.move(subplotFileName, targetOutFolder) #move the saved image plot to output folder
     
@@ -237,7 +234,7 @@ percentile=desiredClonedPopSize/len(agentPlayers) #convertor
 #MoranProcTour(players,newFileNameNumber,turns=10,seedOffset=1,iterations=1,splitThresholdPercentile=50,ConvergeScoreLimit=5,displayOutput=False,createPlot=0,PlotFileType=".png",csv=False)
 #MoranProcTour(AllStratPlayers,13,200,initSeed,10,50,True) #all strategies
 #MoranProcTour(playerBest1,20,200,initSeed,20,25,True,True) #real v1.0
-MoranProcTour(playerTest,47,10,initSeed,4,50,50,True,2) #testing
+MoranProcTour(playerTest,49,10,initSeed,20,50,50,True,2) #testing
 
 
 #MoranProcTour(playerBest1,41,200,42634304,20,25,50,True,1) #real v2.0
