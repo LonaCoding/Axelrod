@@ -55,15 +55,12 @@ def MoranProcTour(
     n=1 #counter for interation loop
     seed=firstSeed #set first seed
 
-    #find largest factor of iterations to determine subplot grid dimensions
-
-
-
+    
     if createPlot>=2:
-        row,col=largestFactor(iterations)
-        subplot, subplotAxes = mplot.subplots(row,col, figsize=(15, 6))
-        subplot.subplots_adjust(hspace= .5,wspace=.001)
-        subplotAxes=subplotAxes.ravel()
+        row,col=largestFactor(iterations) #find largest factor of iterations to determine subplot grid dimensions
+        subplotMain, subplotAxes = mplot.subplots(row,col) #sharey='col',figsize=(10, 6)
+        subplotMain.subplots_adjust(hspace= .5,wspace=.001)
+        #subplotAxes=subplotAxes.ravel()
 
 
     while n<iterations+1: #iteration loop for repeating tests
@@ -87,7 +84,8 @@ def MoranProcTour(
         #print(PlotFileTypeExt) #testing
         plotFileName="EliteMoranProcPlot{newFileNameNumber}_{iterNum}.{PlotFileTypeExt}".format(newFileNameNumber=newFileNameNumber,iterNum=n,PlotFileTypeExt=PlotFileTypeExt)#If want to modify naming format, replace the "ScrListBrandModel" part. DO NOT MODIFY ANYTHING ELSE, including bracket and .format() content.         
         subplotFileName="EliteMoranProcSubplot{newFileNameNumber}_{iterNum}.{PlotFileTypeExt}".format(newFileNameNumber=newFileNameNumber,iterNum=n,PlotFileTypeExt=PlotFileTypeExt)#If want to modify naming format, replace the "ScrListBrandModel" part. DO NOT MODIFY ANYTHING ELSE, including bracket and .format() content. 
-        targetOutFolder = "MoranElitistExperiments_Output/Plots"
+        #targetOutFolder = "MoranElitistExperiments_Output/Plots"
+        targetOutFolder = "MoranElitistExperiments_Output/testPlots"
 
         ##tournament
         #tournament = axl.MoranProcess(players=players, turns=200, seed=2)
@@ -101,12 +99,29 @@ def MoranProcTour(
         TourRes = tournament.play() #tournament results
 
         if createPlot>=2: #create subplot
-            subplotAxes[n] = tournament.populations_plot(subplotAxes[1][n])
+            #finds quotient and remainder of upcoming iteration after division with column size, 
+            #to determine position of next subplot, outputs quotient row and remainder collumn
+            r, c = divmod(n,col) # r=row position for subplot
+            if c==0: #if n%col=0,
+                r=r-1 #ensure the row does not follow quotient
+                c=col #subplot is at rightmost end
+            c=c-1 #c=column position for subplot. Transpose to index notation
+            #currSubplotAxes=subplotAxes[r][c]
+            subplotAxes= tournament.populations_plot(iter=n,ax=subplotAxes,r=r,c=c) #do subplot
+            
 
         if createPlot==1 or createPlot==3: #create seperate plots
-            plot = tournament.populations_plot() #created the plot
+            plotAxis = tournament.populations_plot() #created the plot
+
+            #final touches. Have to do it here because tournament.populations_plot could be used for subplots
+            #plotAxis.set_title("Iteration: {iter} || Threshold: {Threshold}% || Players: {numPlayers}".format(iter=n, Threshold=splitThresholdPercentile,numPlayers=len(agents)), loc='center') #Modified by J Candra: Iteration replaced by generation                    
+            #plotAxis.set_xlabel("Generation") #Modified by J Candra: Iteration replaced by generation
+            #plotAxis.set_ylabel("Number of Individuals")
+            #plotAxis.legend(title="Player Agent Types",loc='upper right', borderaxespad=0.)
+
             mplot.savefig(plotFileName,format=PlotFileType, dpi=100) #saves the plot as image
             outputNewPath = shutil.move(plotFileName, targetOutFolder) #move the saved image plot to output folder
+        
         win=tournament.winning_strategy_name
         score=tournament.score_history
 
@@ -130,13 +145,22 @@ def MoranProcTour(
         pprint.pprint(score)
         print("***************************************************")
         print("***************************************************")
-            #sys.stdout=orig_stdOut #change standard output back to default/normal
+            #sys.stdout=orig_stdOut #change standard output back to default/normal        
+
         n=n+1
         seed=seed+1
-    if createPlot>=2: #create subplot
+
+
+
+    if createPlot>=2: #end of loop, aggregate and create main plot
+        subplotMain.suptitle("Moran Process Population by Generation\nThreshold: {Threshold}% || Players: {numPlayers}".format(Threshold=splitThresholdPercentile,numPlayers=len(agents)), fontweight='bold')
+        subplotMain.supxlabel('Generation')
+        subplotMain.supylabel('Number of Individuals')
+        subplotMain.legend(title="Player Agent Types",loc='upper right', borderaxespad=0.)
+        mplot.subplots_adjust(right=0.6) #offset between plot and legend
         mplot.savefig(subplotFileName,format=PlotFileType, dpi=100) #saves the plot as image
         outputNewPath = shutil.move(subplotFileName, targetOutFolder) #move the saved image plot to output folder
-
+    
 
 #Initialize population of player agents
 player3=[axl.TitForTat(), axl.Random(), axl.Negation()]
@@ -182,6 +206,10 @@ players = [axl.Defector(), axl.Defector(), axl.Defector(),
        axl.TitForTat(), axl.TitForTat(), axl.TitForTat(),
        axl.Random()]
 
+playerTest=[axl.Defector(),axl.Cooperator(),axl.Random(),
+            axl.Defector(),axl.Cooperator(),axl.Random(),
+            axl.Defector(),axl.Cooperator(),axl.Random(),]
+
 AllStratPlayers = [s() for s in axl.all_strategies]
 
 #generating random values for seed
@@ -192,7 +220,7 @@ initSeed=math.floor(random.random()*(10**random.randint(1,9))) #generate random 
 
 #convertor
 desiredClonedPopSize=5 #sets the number of player agents that will be cloned and the ones that will be culled
-agentPlayers=playerBest1 #total number of player agents
+agentPlayers=playerBest1 #all player agents
 percentile=desiredClonedPopSize/len(agentPlayers) #convertor
 #put percentile in splitThresholdPercentile (splitThresholdPercentile=percentile)
 
@@ -209,7 +237,7 @@ percentile=desiredClonedPopSize/len(agentPlayers) #convertor
 #MoranProcTour(players,newFileNameNumber,turns=10,seedOffset=1,iterations=1,splitThresholdPercentile=50,ConvergeScoreLimit=5,displayOutput=False,createPlot=0,PlotFileType=".png",csv=False)
 #MoranProcTour(AllStratPlayers,13,200,initSeed,10,50,True) #all strategies
 #MoranProcTour(playerBest1,20,200,initSeed,20,25,True,True) #real v1.0
-MoranProcTour(playerBest1,43,10,initSeed,3,50,50,True,1) #testing
+MoranProcTour(playerTest,47,10,initSeed,4,50,50,True,2) #testing
 
 
 #MoranProcTour(playerBest1,41,200,42634304,20,25,50,True,1) #real v2.0

@@ -696,8 +696,8 @@ class MainEvoEliteMoranProcess(object):
         """
         return len(self.populations)
 
-#slightly modified by J Candra due to possible terminology confusion
-    def populations_plot(self, ax=None):
+#modified by J Candra to improve plot visualization and subplotting features
+    def populations_plot(self, iter=1, ax=None,r=0,c=0):
         """
         Create a stackplot of the population distributions at each iteration of
         the Moran process.
@@ -715,9 +715,15 @@ class MainEvoEliteMoranProcess(object):
         """
         player_names = self.populations[0].keys()
         if ax is None:
-            _, ax = plt.subplots() #original: _
-        else:
-            ax = ax
+            fig, ax = plt.subplots() #original: _
+            haveFig=True
+        else: #if want to subplot from outside using loops
+            #import 
+            ax = ax #axis
+            r=r #row position of subplot
+            c=c #collumn position of subplot
+            haveFig=False
+            
 
         plot_data = []
         labels = []
@@ -726,19 +732,24 @@ class MainEvoEliteMoranProcess(object):
             values = [counter[name] for counter in self.populations]
             plot_data.append(values)
             domain = range(len(values))
-
-        ax.stackplot(domain, plot_data, labels=labels)
-        ax.suptitle("Moran Process Population by Generation", fontweight='bold')#added by J Candra: Iteration replaced by generation
-        #ax.set_title("Moran Process Population by Generation")
-        #ax.set_title("Moran Process Population by Generation (Threshold: {}%)".format(self.splitThresholdPercentile))#Modified by J Candra: Iteration replaced by generation
-        ax.set_title("Threshold: {Threshold}% / Players: {numPlayers}".format(Threshold=self.splitThresholdPercentile,numPlayers=len(self.players)), loc='left')#Modified by J Candra: Iteration replaced by generation        
-        ax.set_xlabel("Generation") #Modified by J Candra: Iteration replaced by generation
-        ax.set_ylabel("Number of Individuals")
-        #ax.legend()
-        ax.legend(loc='upper left', borderaxespad=0.)
+        
+        if haveFig: #only do this if have Fig variable, else may cause error
+            ax.stackplot(domain, plot_data, labels=labels)
+            fig.suptitle("Moran Process Population by Generation", fontweight='bold') #added by J Candra: Iteration replaced by generation
+            #fig.suptitle("Moran Process Population by Generation\nThreshold: {Threshold}% || Players: {numPlayers}".format(Threshold=self.splitThresholdPercentile,numPlayers=len(self.players)), fontweight='bold')
+            #ax.set_title("Moran Process Population by Generation (Threshold: {}%)".format(self.splitThresholdPercentile)) #Modified by J Candra: Iteration replaced by generation
+            ax.set_title("Iteration: {iter} || Threshold: {Threshold}% || Players: {numPlayers}".format(iter=iter, Threshold=self.splitThresholdPercentile,numPlayers=len(self.players)), loc='center') #Modified by J Candra: Iteration replaced by generation        
+            ax.set_xlabel("Generation") #Modified by J Candra: Iteration replaced by generation
+            ax.set_ylabel("Number of Individuals")
+            #ax.legend() #Original
+            ax.legend(title="Player Agent Types",loc='upper right', borderaxespad=0.)
+        else: #if no Fig, then it is subplotting using external loop. need r and c
+            ax[r][c].stackplot(domain, plot_data, labels=labels)
+            ax[r][c].set_title("Iteration: {iter}".format(iter=iter), loc='center') #Modified by J Candra: Iteration replaced by generation        
+        
         return ax
 
-    def populations_subplot(self, subplotPos=None,ax=None):
+    def populations_subplot(self,ax=None):
         """
         Create a stackplot of the population distributions at each iteration of
         the Moran process.
@@ -757,7 +768,7 @@ class MainEvoEliteMoranProcess(object):
         """
         player_names = self.populations[0].keys()
         if ax is None:
-            fig, ax = plt.subplots(subplotPos)
+            fig, ax = plt.subplots()
         else:
             ax = ax
 

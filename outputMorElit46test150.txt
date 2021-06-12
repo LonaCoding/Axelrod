@@ -1,0 +1,333 @@
+>>> Output of Elitist Selection (Modified) Moran Process <<<
+------------------------------------------------------------
+Experiment parameters:
+1. Player Agents: 9
+Defector
+Cooperator
+Random: 0.5
+Defector
+Cooperator
+Random: 0.5
+Defector
+Cooperator
+Random: 0.5
+2. newFileNameNumber for plot:           46
+3. (Number of) turns:                    10
+4. Starting seed (firstSeed):            4240
+5. iterations:                           3%
+6. splitThresholdPercentile:             50%
+7. ConvergeScoreLimit:                   50%
+8. displayOutput:                        True
+9. createPlot:                           1
+10.PlotFileType:                         PNG
+11.(use) csv (as output's file format):  False
+------------------------------------------------------------
+######################################
+~~~ Scores: ~~~
+[26.0, 9.9, 17.8, 25.6, 10.8, 18.5, 26.0, 9.0, 20.6]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 18.5
+Upper: 18.5
+====================================
+lower list size: 4
+upper list size: 4
+====================================
+*** Split into lower and upper lists: ***
+lower:           [1, 2, 4, 7]
+lower threshold: [5]
+....................................
+upper threshold: [5]
+upper:           [0, 3, 6, 8]
+====================================
+cloned = 0
+killed = 1
+cloned = 3
+killed = 2
+cloned = 6
+killed = 4
+cloned = 8
+killed = 7
+######################################
+~~~ Scores: ~~~
+[13.2,
+ 16.0,
+ 16.8,
+ 12.8,
+ 13.2,
+ 7.499999999999999,
+ 12.399999999999999,
+ 5.6000000000000005,
+ 8.6]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 12.8
+Upper: 12.8
+====================================
+lower list size: 4
+upper list size: 4
+====================================
+*** Split into lower and upper lists: ***
+lower:           [5, 6, 7, 8]
+lower threshold: [3]
+....................................
+upper threshold: [3]
+upper:           [0, 1, 2, 4]
+====================================
+cloned = 0
+killed = 5
+cloned = 1
+killed = 6
+cloned = 2
+killed = 7
+cloned = 4
+killed = 8
+Trial run 1/seed 4240:
+..................................................
+winner: Defector
+==================================================
+List of players:
+Defector
+Cooperator
+Random: 0.5
+Defector
+Cooperator
+Random: 0.5
+Defector
+Cooperator
+Random: 0.5
+==================================================
+Results:
+[Counter({'Defector': 3, 'Cooperator': 3, 'Random: 0.5': 3}),
+ Counter({'Defector': 6, 'Random: 0.5': 3}),
+ Counter({'Defector': 9})]
+--------------------------------------------------
+Score:
+[[26.0, 9.9, 17.8, 25.6, 10.8, 18.5, 26.0, 9.0, 20.6],
+ [13.2,
+  16.0,
+  16.8,
+  12.8,
+  13.2,
+  7.499999999999999,
+  12.399999999999999,
+  5.6000000000000005,
+  8.6]]
+***************************************************
+***************************************************
+######################################
+~~~ Scores: ~~~
+[23.6,
+ 10.8,
+ 20.299999999999997,
+ 26.4,
+ 10.5,
+ 17.5,
+ 24.400000000000002,
+ 9.3,
+ 19.0]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 19.0
+Upper: 19.0
+====================================
+lower list size: 4
+upper list size: 4
+====================================
+*** Split into lower and upper lists: ***
+lower:           [1, 4, 5, 7]
+lower threshold: [8]
+....................................
+upper threshold: [8]
+upper:           [0, 2, 3, 6]
+====================================
+cloned = 0
+killed = 1
+cloned = 2
+killed = 4
+cloned = 3
+killed = 5
+cloned = 6
+killed = 7
+######################################
+~~~ Scores: ~~~
+[14.399999999999999,
+ 14.0,
+ 8.799999999999999,
+ 13.2,
+ 7.7,
+ 14.0,
+ 14.0,
+ 13.6,
+ 7.599999999999999]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 13.6
+Upper: 13.6
+====================================
+lower list size: 4
+upper list size: 4
+====================================
+*** Split into lower and upper lists: ***
+lower:           [2, 3, 4, 8]
+lower threshold: [7]
+....................................
+upper threshold: [7]
+upper:           [0, 1, 5, 6]
+====================================
+cloned = 0
+killed = 2
+cloned = 1
+killed = 3
+cloned = 5
+killed = 4
+cloned = 6
+killed = 8
+Trial run 2/seed 4241:
+..................................................
+winner: Defector
+==================================================
+List of players:
+Defector
+Cooperator
+Random: 0.5
+Defector
+Cooperator
+Random: 0.5
+Defector
+Cooperator
+Random: 0.5
+==================================================
+Results:
+[Counter({'Defector': 3, 'Cooperator': 3, 'Random: 0.5': 3}),
+ Counter({'Defector': 6, 'Random: 0.5': 3}),
+ Counter({'Defector': 9})]
+--------------------------------------------------
+Score:
+[[23.6,
+  10.8,
+  20.299999999999997,
+  26.4,
+  10.5,
+  17.5,
+  24.400000000000002,
+  9.3,
+  19.0],
+ [14.399999999999999,
+  14.0,
+  8.799999999999999,
+  13.2,
+  7.7,
+  14.0,
+  14.0,
+  13.6,
+  7.599999999999999]]
+***************************************************
+***************************************************
+######################################
+~~~ Scores: ~~~
+[28.0,
+ 10.5,
+ 18.200000000000003,
+ 25.6,
+ 11.7,
+ 18.1,
+ 24.400000000000002,
+ 9.6,
+ 16.799999999999997]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 18.1
+Upper: 18.1
+====================================
+lower list size: 4
+upper list size: 4
+====================================
+*** Split into lower and upper lists: ***
+lower:           [1, 4, 7, 8]
+lower threshold: [5]
+....................................
+upper threshold: [5]
+upper:           [0, 2, 3, 6]
+====================================
+cloned = 0
+killed = 1
+cloned = 2
+killed = 4
+cloned = 3
+killed = 7
+cloned = 6
+killed = 8
+######################################
+~~~ Scores: ~~~
+[12.4, 13.2, 7.9, 14.0, 7.3999999999999995, 7.9, 16.0, 14.799999999999999, 14.4]
+====================================
++++ Thresholds: +++
+Percentile: 50%
+Lower: 13.2
+Upper: 13.2
+====================================
+lower list size: 4
+upper list size: 4
+====================================
+*** Split into lower and upper lists: ***
+lower:           [0, 2, 4, 5]
+lower threshold: [1]
+....................................
+upper threshold: [1]
+upper:           [3, 6, 7, 8]
+====================================
+cloned = 3
+killed = 0
+cloned = 6
+killed = 2
+cloned = 7
+killed = 4
+cloned = 8
+killed = 5
+Trial run 3/seed 4242:
+..................................................
+winner: Defector
+==================================================
+List of players:
+Defector
+Cooperator
+Random: 0.5
+Defector
+Cooperator
+Random: 0.5
+Defector
+Cooperator
+Random: 0.5
+==================================================
+Results:
+[Counter({'Defector': 3, 'Cooperator': 3, 'Random: 0.5': 3}),
+ Counter({'Defector': 6, 'Random: 0.5': 3}),
+ Counter({'Defector': 9})]
+--------------------------------------------------
+Score:
+[[28.0,
+  10.5,
+  18.200000000000003,
+  25.6,
+  11.7,
+  18.1,
+  24.400000000000002,
+  9.6,
+  16.799999999999997],
+ [12.4,
+  13.2,
+  7.9,
+  14.0,
+  7.3999999999999995,
+  7.9,
+  16.0,
+  14.799999999999999,
+  14.4]]
+***************************************************
+***************************************************

@@ -9,7 +9,7 @@ y = np.sin(x**2)
 a=3
 b=3
 
-subplotFileName="plotTest6.png"
+subplotFileName="plotTest7.png"
 targetOutFolder = "testPlotsGen"
 
 
@@ -31,5 +31,6 @@ for ax in range(a):
 #axs[0][0].plot(x, y)
 #axs[1][0].plot(x, y)
 #axs[1][1].scatter(x, y)
+plt.suptitle("a test plot\nNumber 7")
 plt.savefig(subplotFileName,format='PNG', dpi=100) #saves the plot as image
 outputNewPath = shutil.move(subplotFileName, targetOutFolder) #move the saved image plot to output fold

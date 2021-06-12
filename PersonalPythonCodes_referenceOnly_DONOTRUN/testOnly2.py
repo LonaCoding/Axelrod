@@ -36,5 +36,9 @@ r=16
 
 
 a,b=largestFactor(3) #1,2,3,5,6,10,15,30
-print(a)
-print(b)
+#print(a)
+#print(b)
+
+q,r =divmod(2,5)
+print(q)
+print(r)
