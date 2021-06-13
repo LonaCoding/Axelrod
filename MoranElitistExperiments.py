@@ -1,6 +1,7 @@
 import random
 import math
 import matplotlib.pyplot as mplot
+from matplotlib.gridspec import SubplotSpec
 import axelrod as axl
 import pprint #for formatting output lists
 import sys #outout terminal result to file
@@ -17,15 +18,6 @@ def largestFactor(inputValue):
     b=int(inputValue/a) #find other compliemntary factor
 
     return a, b
-
-#this function was fully copied (not made by me) 
-# from https://stackoverflow.com/questions/19385639/duplicate-items-in-legend-in-matplotlib
-#with some minor modifications
-# for making sure subplot legend has no repetitions
-def legend_without_duplicate_labels(ax,title=None,loc='upper right', borderaxespad=0.):
-    handles, labels = ax.get_legend_handles_labels()
-    unique = [(h, l) for i, (h, l) in enumerate(zip(handles, labels)) if l not in labels[:i]]
-    ax.legend(*zip(*unique),title=title,loc=loc, borderaxespad=borderaxespad)
 
 def MoranProcTour(
     agents,
@@ -67,7 +59,7 @@ def MoranProcTour(
     
     if createPlot>=2:
         row,col=largestFactor(iterations) #find largest factor of iterations to determine subplot grid dimensions
-        subplotMain, subplotAxes = mplot.subplots(row,col,sharey='row',figsize=(12, 12))
+        subplotMain, subplotAxes = mplot.subplots(row,col,sharey='row',figsize=(12, 12))#,tight_layout=False
         #sharey=row: everything on a single row shares the same y-axis
 
     while n<iterations+1: #iteration loop for repeating tests
@@ -159,17 +151,26 @@ def MoranProcTour(
 
 
 
-    if createPlot>=2: #end of loop, aggregate and create main plot
-        subplotMain.suptitle("Moran Process Population by Generation\nThreshold: {Threshold}% || Players: {numPlayers}".format(Threshold=splitThresholdPercentile,numPlayers=len(agents)), fontweight='bold')
-        subplotMain.supxlabel('Generation')
-        subplotMain.supylabel('Number of Individuals')
-        
+    if createPlot>=2: #end of loop, aggregate and create main plot #\nIteration
+        subplotMain.suptitle("Moran Process Population by Generation in Different Iterations\nThreshold: {Threshold}% || Players: {numPlayers}".format(Threshold=splitThresholdPercentile,numPlayers=len(agents)), fontweight='bold',fontsize='18')
+        subplotMain.supxlabel('Generation',fontweight='semibold',fontsize='16',ha='center')
+        subplotMain.supylabel('Number of Individuals',fontweight='semibold',fontsize='16',ha='center')
+        grid=mplot.GridSpec(r+1,c+1)
+        topAxis=subplotMain.add_subplot(grid[0,0:c], frameon=False)
+        topAxis.set_title("Iteration\n",fontweight='semibold',fontsize='16')
+        topAxis.set_frame_on(False)
+        topAxis.axis('off')
+        subplotAxes[0][1].set_title
+        #subplotAxes2 = subplotMain.secondary_xaxis('top')
+        #subplotAxes2.set_xlabel("Iteration")
+        #subplotMain.text(0.5,0.8,"Iteration",fontweight='bold',fontsize='14',ha='center')
+
         #subplotMain.legend(title="Player Agent Types",loc='upper right', borderaxespad=0.) #duplicated legend labels
         PlayerAgentColor,PlayerAgentLabel=subplotAxes[0][0].get_legend_handles_labels() #get legend from first plot #modified from https://www.delftstack.com/howto/matplotlib/how-to-make-a-single-legend-for-all-subplots-in-matplotlib/
-        subplotMain.legend(PlayerAgentColor, PlayerAgentLabel,title="Player Agent Types",loc='upper right', borderaxespad=0.) #apply first plot's legend as legend for entire figure
-
-        subplotMain.subplots_adjust(hspace= .02,wspace=.001,right=1) #offset between plot and legend
-        mplot.savefig(subplotFileName,format=PlotFileType, dpi=100) #saves the plot as image
+        subplotMain.legend(PlayerAgentColor, PlayerAgentLabel,title="Player Agent Types",loc='upper right', borderaxespad=0.) #,bbox_to_anchor=(0.8, 0.8) #apply first plot's legend as legend for entire figure
+        #subplotMain.tight_layout(pad=0)
+        subplotMain.subplots_adjust(left=0.8,hspace= .2,wspace=.001,right=0.8) #offset between plot and legend
+        mplot.savefig(subplotFileName,format=PlotFileType, dpi=300) #, bbox_inches='tight'#saves the plot as image
         outputNewPath=shutil.move(subplotFileName, targetOutFolder) #move the saved image plot to output folder
         
 
@@ -248,7 +249,7 @@ percentile=desiredClonedPopSize/len(agentPlayers) #convertor
 #MoranProcTour(players,newFileNameNumber,turns=10,seedOffset=1,iterations=1,splitThresholdPercentile=50,ConvergeScoreLimit=5,displayOutput=False,createPlot=0,PlotFileType=".png",csv=False)
 #MoranProcTour(AllStratPlayers,13,200,initSeed,10,50,True) #all strategies
 #MoranProcTour(playerBest1,20,200,initSeed,20,25,True,True) #real v1.0
-MoranProcTour(playerTest,52,10,initSeed,20,50,50,False,2) #testing
+MoranProcTour(playerTest,60,10,initSeed,20,50,50,False,2) #testing
 
 
 #MoranProcTour(playerBest1,41,200,42634304,20,25,50,True,1) #real v2.0
