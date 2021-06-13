@@ -715,7 +715,7 @@ class MainEvoEliteMoranProcess(object):
         """
         player_names = self.populations[0].keys()
         if ax is None:
-            fig, ax = plt.subplots() #original: _
+            fig, ax = plt.subplots(figsize=(12,12)) #original: _
             haveFig=True
         else: #if want to subplot from outside using loops
             #import 
