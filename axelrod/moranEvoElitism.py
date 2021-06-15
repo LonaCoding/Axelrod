@@ -746,7 +746,7 @@ class MainEvoEliteMoranProcess(object):
             #ax.legend() #Original
             ax.legend(title="Player Agent Types",loc='upper right', borderaxespad=0.)
         else: #if no Fig, then it is subplotting using external loop. need r and c
-            ax.set_title("{iter}".format(iter=iter), loc='center') #Modified by J Candra: Iteration replaced by generation        
+            ax.set_title("{iter}".format(iter=iter), loc='center', fontweight='semibold', color='#1c2e4a') #semibold #Modified by J Candra: Iteration replaced by generation        
             #ax.set_title("Iteration: {iter}".format(iter=iter), loc='center') #Modified by J Candra: Iteration replaced by generation        
             #ax[r][c].stackplot(domain, plot_data, labels=labels) #legacy, just in case
             #ax[r][c].set_title("Iteration: {iter}".format(iter=iter), loc='center') #Modified by J Candra: Iteration replaced by generation        

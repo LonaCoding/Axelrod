@@ -26,11 +26,12 @@ def MoranProcTour(
     firstSeed=1,
     iterations=1,
     splitThresholdPercentile=50,
-    ConvergeScoreLimit=5,
+    ConvergeScoreGenLimit=5,
     displayOutput=False,
     createPlot=0,
     PlotFileType="PNG",
-    csv=False
+    csv=False,
+    testing=False
     ):
 
     #print test parameters information
@@ -43,13 +44,14 @@ def MoranProcTour(
     print("2. newFileNameNumber for plot:           {}".format(newFileNameNumber))    
     print("3. (Number of) turns:                    {}".format(turns))
     print("4. Starting seed (firstSeed):            {}".format(firstSeed))
-    print("5. iterations:                           {}%".format(iterations))
+    print("5. iterations:                           {}".format(iterations))
     print("6. splitThresholdPercentile:             {}%".format(splitThresholdPercentile))
-    print("7. ConvergeScoreLimit:                   {}%".format(ConvergeScoreLimit))
+    print("7. ConvergeScoreGenLimit:                {}".format(ConvergeScoreGenLimit))
     print("8. displayOutput:                        {}".format(displayOutput))    
     print("9. createPlot:                           {}".format(createPlot))
     print("10.PlotFileType:                         {}".format(PlotFileType))    
     print("11.(use) csv (as output's file format):  {}".format(csv))
+    print("12.testing (mode):                       {}".format(testing))#determines file path to send plot images to 
     print("------------------------------------------------------------")
     
     #Initialize
@@ -59,7 +61,7 @@ def MoranProcTour(
     
     if createPlot>=2:
         row,col=largestFactor(iterations) #find largest factor of iterations to determine subplot grid dimensions
-        subplotMain, subplotAxes = mplot.subplots(row,col,sharey='row',figsize=(12, 12))#,tight_layout=False
+        subplotMain, subplotAxes = mplot.subplots(row,col,sharey='row',figsize=(14, 14))#,tight_layout=False #13 inches = 1024
         #sharey=row: everything on a single row shares the same y-axis
 
     while n<iterations+1: #iteration loop for repeating tests
@@ -83,8 +85,11 @@ def MoranProcTour(
         #print(PlotFileTypeExt) #testing
         plotFileName="EliteMoranProcPlot{newFileNameNumber}_{iterNum}.{PlotFileTypeExt}".format(newFileNameNumber=newFileNameNumber,iterNum=n,PlotFileTypeExt=PlotFileTypeExt)#If want to modify naming format, replace the "ScrListBrandModel" part. DO NOT MODIFY ANYTHING ELSE, including bracket and .format() content.         
         subplotFileName="EliteMoranProcSubplot{newFileNameNumber}_{iterNum}.{PlotFileTypeExt}".format(newFileNameNumber=newFileNameNumber,iterNum=n,PlotFileTypeExt=PlotFileTypeExt)#If want to modify naming format, replace the "ScrListBrandModel" part. DO NOT MODIFY ANYTHING ELSE, including bracket and .format() content. 
-        #targetOutFolder = "MoranElitistExperiments_Output/Plots"
-        targetOutFolder = "MoranElitistExperiments_Output/testPlots"
+        
+        if testing:
+            targetOutFolder = "MoranElitistExperiments_Output/testPlots"
+        else:
+            targetOutFolder = "MoranElitistExperiments_Output/Plots"
 
         ##tournament
         #tournament = axl.MoranProcess(players=players, turns=200, seed=2)
@@ -93,7 +98,7 @@ def MoranProcTour(
             seed=seed,
             splitThresholdPercentile=splitThresholdPercentile,
             dispOutput=displayOutput,
-            ConvergeScoreLimit=ConvergeScoreLimit
+            ConvergeScoreLimit=ConvergeScoreGenLimit
             )
         TourRes = tournament.play() #tournament results
 
@@ -150,26 +155,45 @@ def MoranProcTour(
         seed=seed+1
 
 
+    #shift iteration top axis title to the right
+    
+    tightLayout=False
+    
 
     if createPlot>=2: #end of loop, aggregate and create main plot #\nIteration
-        subplotMain.suptitle("Moran Process Population by Generation in Different Iterations\nThreshold: {Threshold}% || Players: {numPlayers}".format(Threshold=splitThresholdPercentile,numPlayers=len(agents)), fontweight='bold',fontsize='18')
-        subplotMain.supxlabel('Generation',fontweight='semibold',fontsize='16',ha='center')
-        subplotMain.supylabel('Number of Individuals',fontweight='semibold',fontsize='16',ha='center')
-        grid=mplot.GridSpec(r+1,c+1)
-        topAxis=subplotMain.add_subplot(grid[0,0:c], frameon=False)
-        topAxis.set_title("Iteration\n",fontweight='semibold',fontsize='16')
-        topAxis.set_frame_on(False)
-        topAxis.axis('off')
-        subplotAxes[0][1].set_title
-        #subplotAxes2 = subplotMain.secondary_xaxis('top')
-        #subplotAxes2.set_xlabel("Iteration")
-        #subplotMain.text(0.5,0.8,"Iteration",fontweight='bold',fontsize='14',ha='center')
+        subplotMain.suptitle("Moran Process Population by Generation in Different Iterations\nThreshold: {Threshold}% || Players: {numPlayers}".format(Threshold=splitThresholdPercentile,numPlayers=len(agents)), fontweight='black',fontsize='18')
+        subplotMain.supxlabel('Generation',fontweight='bold',fontsize='16',ha='center')
+        subplotMain.supylabel('Number of Individuals',fontweight='bold',fontsize='16',ha='center')
 
         #subplotMain.legend(title="Player Agent Types",loc='upper right', borderaxespad=0.) #duplicated legend labels
         PlayerAgentColor,PlayerAgentLabel=subplotAxes[0][0].get_legend_handles_labels() #get legend from first plot #modified from https://www.delftstack.com/howto/matplotlib/how-to-make-a-single-legend-for-all-subplots-in-matplotlib/
-        subplotMain.legend(PlayerAgentColor, PlayerAgentLabel,title="Player Agent Types",loc='upper right', borderaxespad=0.) #,bbox_to_anchor=(0.8, 0.8) #apply first plot's legend as legend for entire figure
-        #subplotMain.tight_layout(pad=0)
-        subplotMain.subplots_adjust(left=0.8,hspace= .2,wspace=.001,right=0.8) #offset between plot and legend
+        subplotMain.legend(reversed(PlayerAgentColor), reversed(PlayerAgentLabel),title="Player Agent Types",loc='upper right', borderaxespad=0.) #,bbox_to_anchor=(0.8, 0.8) #apply first plot's legend as legend for entire figure
+        #reverse order of legend keys
+
+        #Make top axis title/label "Iteration"
+        grid=mplot.GridSpec(r+1,c+1)
+        topAxis=subplotMain.add_subplot(grid[0,0:c], frameon=False) #make frame invisible
+        topAxis.set_frame_on(False) #make frame invisible
+        topAxis.axis('off') #make axis invisible
+
+        #create 2 modes, depends on wether to use tight layout or not
+        if tightLayout:
+            offset=0.6 #re-adjust
+            subplotMain.tight_layout(pad=0.5)
+        else:
+            offset=0.7 #re-adjust
+            subplotMain.subplots_adjust(left=0.05,hspace=0.2,bottom=0.05,wspace=0.001,right=0.825) #offset between plot and legend
+
+        topAxis.set_title("Iteration\n",fontweight='heavy',fontsize='16', color='#1c2e4a',x=offset) #loc='center'
+
+        #subplotAxes[0][1].set_title
+        #subplotMain.text(0.5,0.8,"Iteration",fontweight='bold',fontsize='14',ha='center')
+
+
+
+
+
+        #save plot as image and move the image to output folder
         mplot.savefig(subplotFileName,format=PlotFileType, dpi=300) #, bbox_inches='tight'#saves the plot as image
         outputNewPath=shutil.move(subplotFileName, targetOutFolder) #move the saved image plot to output folder
         
@@ -246,19 +270,34 @@ percentile=desiredClonedPopSize/len(agentPlayers) #convertor
 # 2: A single plot of combined subplots. where 1 subplot represents 1 iteration
 # 3: Plots from both options 1 and 2
 
-#MoranProcTour(players,newFileNameNumber,turns=10,seedOffset=1,iterations=1,splitThresholdPercentile=50,ConvergeScoreLimit=5,displayOutput=False,createPlot=0,PlotFileType=".png",csv=False)
+#MoranProcTour(players,newFileNameNumber,turns=10,seedOffset=1,iterations=1,splitThresholdPercentile=50,ConvergeScoreGenLimit=5,displayOutput=False,createPlot=0,PlotFileType=".png",csv=False,testing=False)
 #MoranProcTour(AllStratPlayers,13,200,initSeed,10,50,True) #all strategies
 #MoranProcTour(playerBest1,20,200,initSeed,20,25,True,True) #real v1.0
-MoranProcTour(playerTest,60,10,initSeed,20,50,50,False,2) #testing
+#MoranProcTour(playerTest,74,10,initSeed,20,50,50,False,3,True) #testing
+#                        fn|turn|seed|iter|st|cgl|do|cp|testing
+MoranProcTour(playerBest1,81,200,12901,20,50,100,True,2) #
 
+
+#combination to test
+#   perc    p1      p2
+#    50     x       
+#    25     
 
 #MoranProcTour(playerBest1,41,200,42634304,20,25,50,True,1) #real v2.0
 
+#vary the st=splitThresholdPercentile between 50 & 25
 
-#raise ConvergeScoreLimit to 100?
+#raise ConvergeScoreGenLimit to 100?
 
 #next test do perc=25
 #try reducing population? or enlarging?
+
+#p1, 12901, 50%: done
+
+#TO DO:
+#move testing input param to middle
+#change plot save file path once everything's correct
+
 
 
 
