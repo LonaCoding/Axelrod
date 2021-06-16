@@ -125,7 +125,9 @@ class ShortMemProbabilistic(Player):
         #the higher the D_counts (opponent defect), the more likely it will defect
         
         defectProb=D_counts/10 #the higher it is, the more likely to defect
+        cooperateProb=C_counts/10 #the higher it is, the more likely to cooperate
 
+        #self._random.random_choice(self.cooperateProb) #example reference taken from random.py
         randDefect1=random.random() #1 is not included
         if randDefect1<=defectProb:
             return D
