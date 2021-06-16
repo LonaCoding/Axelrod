@@ -268,20 +268,20 @@ percentile=desiredClonedPopSize/len(agentPlayers) #convertor
 # 0: No plot
 # 1: Individual seperate plots, 1 for each iteration
 # 2: A single plot of combined subplots. where 1 subplot represents 1 iteration
-# 3: Plots from both options 1 and 2
+# 3: Plots from both options 1 and 2 (still buggy)
 
 #MoranProcTour(players,newFileNameNumber,turns=10,seedOffset=1,iterations=1,splitThresholdPercentile=50,ConvergeScoreGenLimit=5,displayOutput=False,createPlot=0,PlotFileType=".png",csv=False,testing=False)
 #MoranProcTour(AllStratPlayers,13,200,initSeed,10,50,True) #all strategies
 #MoranProcTour(playerBest1,20,200,initSeed,20,25,True,True) #real v1.0
 #MoranProcTour(playerTest,74,10,initSeed,20,50,50,False,3,True) #testing
-#                        fn|turn|seed|iter|st|cgl|do|cp|testing
-MoranProcTour(playerBest1,81,200,12901,20,50,100,True,2) #
+#                     pop|fn|turn|seed|iter|st|cgl|do|cp|pft|csv|testing
+MoranProcTour(playerBest2,92,200,306,20,25,100,True,2,testing=False) #
 
 
 #combination to test
 #   perc    p1      p2
-#    50     x       
-#    25     
+#    50            
+#    25            
 
 #MoranProcTour(playerBest1,41,200,42634304,20,25,50,True,1) #real v2.0
 

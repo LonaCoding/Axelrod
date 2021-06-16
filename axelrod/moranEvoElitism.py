@@ -733,7 +733,16 @@ class MainEvoEliteMoranProcess(object):
             plot_data.append(values)
             domain = range(len(values))
         
-        ax.stackplot(domain, plot_data, labels=labels)
+        #how to sample a continous color
+        #inspired by https://stackoverflow.com/questions/31051488/combining-two-matplotlib-colormaps
+        #rainbow128=plt.cm.rainbow(np.linspace(0,1,128))
+        #newColors = np.vstack((rainbow128))
+        #newColorMap = matplotlib.colors.LinearSegmentedColormap.from_list('newColorMap', newColors)
+
+        #colorMap=plt.cm.gist_rainbow(np.linspace(0,1,len(labels))) #(colors too similar) converts color map to array. inspired by https://stackoverflow.com/questions/28144142/how-can-i-generate-a-colormap-array-from-a-simple-array-in-matplotlib
+        colorMap=plt.cm.tab20(np.linspace(0,1,20)) #(has to cycle back) converts color map to array. inspired by https://stackoverflow.com/questions/28144142/how-can-i-generate-a-colormap-array-from-a-simple-array-in-matplotlib
+        ax.stackplot(domain, plot_data, labels=labels, colors=colorMap, edgecolor='black')# baseline= {'zero', 'sym', 'wiggle', 'weighted_wiggle'}
+        #ax.cmap('tab20')
 
         if haveFig: #only do this if have Fig variable, else may cause error
             #ax.stackplot(domain, plot_data, labels=labels) #just in case
