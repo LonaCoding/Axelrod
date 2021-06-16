@@ -275,7 +275,7 @@ percentile=desiredClonedPopSize/len(agentPlayers) #convertor
 #MoranProcTour(playerBest1,20,200,initSeed,20,25,True,True) #real v1.0
 #MoranProcTour(playerTest,74,10,initSeed,20,50,50,False,3,True) #testing
 #                     pop|fn|turn|seed|iter|st|cgl|do|cp|pft|csv|testing
-MoranProcTour(playerBest2,92,200,306,20,25,100,True,2,testing=False) #
+MoranProcTour(playerBest1,94,200,306,20,50,100,True,2,testing=False) #
 
 
 #combination to test
