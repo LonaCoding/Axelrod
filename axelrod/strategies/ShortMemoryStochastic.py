@@ -1,6 +1,7 @@
 from axelrod import Player
 from axelrod.action import Action
 import random
+import math
 
 C, D = Action.C, Action.D
 
@@ -36,11 +37,31 @@ class ShortMemDynamicThreshold(Player):
         "manipulates_state": False,
     }
 
-    @staticmethod
-    def strategy(opponent: Player) -> Action:
+    #copied and adapted from rand.py
+    def __init__(self, offset: integer = 0, uniform: boolean = False) -> None:
+        """
+        Parameters
+        ----------
+        offset, int
+            How far should the starting value be.
+            If uniform is set to false, use radians or degree values (e.g. 30, 210)
+            Else, values starting from 16 will start to repeat the first 16 values
+            Modulus 16 is used in this case.
+
+        uniform, boolean
+            Whether to use the uniform-increase-and-decrease method, where values increment and decrement by 1 all the time,
+            or to use the non-uniform sine method, where values are determined by sine function and median is  not exactly in the middle
+
+        """
+        super().__init__()
+        self.offset = offset
+        self.uniform = uniform
+
+
+    def strategy(self, opponent: Player) -> Action:
         """Actual strategy definition that determines player's action."""
 
-        threshold=3 #have this parameter adjustable, if possible, from outside (as input argument)
+        #threshold=3 #have this parameter adjustable, if possible, from outside (as input argument)
 
         if len(opponent.history) <= 10:
             return C
@@ -50,21 +71,47 @@ class ShortMemDynamicThreshold(Player):
         D_counts = array.count(D)
 
         CtoDdiff=C_counts - D_counts
-
-        #0  10  -   10
-        #1  9   -   8
-        #2  8   -   6
-        #3  7   -   4
-        #4  6   -   2
-        #5  5       0
-        #6  4       2
-        #7  3       4
-        #8  2       6
-        #9  1       8
-        #10 0       10
+        # 10(-) =    0    -    10     
+        # 8 (-) =    1    -    9      
+        # 6 (-) =    2    -    8      
+        # 4 (-) =    3    -    7      
+        # 2 (-) =    4    -    6      
+        # 0     =    5    -    5       
+        # 2     =    6    -    4       
+        # 4     =    7    -    3       
+        # 6     =    8    -    2       
+        # 8     =    9    -    1       
+        # 10    =    10   -    0       
 
         #threshold changes between 10 and 0
 
+        #use win-stay-lose-shift principle
+        #                       offset=0    offset value in order to start there               
+        #minimum:   1   (-1)    -     22          270
+        #q1:        3   (-0.5)  -   20  24        210/330
+        #median/q2: 5   (0)     10  18  26        0
+        #q3:        7   (0.5)   12  16            30/150
+        #maximum:   9   (1)       14              90  
+
+        #oscillate between these numbers using sine function, so that no counters were needed
+        #use length of opponent history as x but convert to radian
+        #new threshold= 4sin(x)+5
+        #x=length_opponenthistory-10)*22.5 in radians
+        
+        offset=0 #30 if want to start halfway to max (7), 90 if want to start high (9), 270 if want to start low (1). have this parameter adjustable, if possible, from outside (as input argument)
+
+        if uniform:        
+            #The uniform method. Median is exactly in middle
+            count=(len(opponent.history)+offset-10)%16
+            if count>=8:
+                threshold=(16-count)+1
+            else:
+                threshold=count+1
+        else:    
+            #the sine method. Value changes are not uniform. Median is not exactly in middle
+            threshold=(4*round(math.sin(math.radians((len(opponent.history)-10)*22.5)+offset),1))+5
+
+        
 
         if C_counts - D_counts >= threshold:
             return C
@@ -95,7 +142,7 @@ class ShortMemProbabilistic(Player):
     - ShortMem: [Andre2013]_
     """
 
-    name = "ShortMemDynamicThreshold"
+    name = "ShortMemProbabilistic"
     classifier = {
         "memory_depth": float("inf"),
         "stochastic": True,
