@@ -88,16 +88,16 @@ class ShortMemDynamicThreshold(Player):
         
         #offset=0 #30 if want to start halfway to max (7), 90 if want to start high (9), 270 if want to start low (1). have this parameter adjustable, if possible, from outside (as input argument)
 
-        if uniform:        
+        if self.uniform:        
             #The uniform method. Median is exactly in middle
-            count=(len(opponent.history)+offset-10)%16
+            count=(len(opponent.history)+self.offset-10)%16
             if count>=8:
                 threshold=(16-count)+1
             else:
                 threshold=count+1
         else:    
             #the sine method. Value changes are not uniform. Median is not exactly in middle
-            threshold=(4*round(math.sin(math.radians((len(opponent.history)-10)*22.5)+offset),1))+5
+            threshold=(4*round(math.sin(math.radians((len(opponent.history)-10)*22.5)+self.offset),1))+5
 
             #        threshold   sine     offset=0    offset value in order to start there               
             #minimum:   1        (-1)    -     22          270
@@ -191,7 +191,7 @@ class ShortMemProbabilistic(Player):
         else: #chance of being cooperative or mimicking opponent's previous move (Tit-for-Tat)
             randCoop2=random.random()
             #generousTolerance=50 #Probability to choose to tolerate opponent and shows that willing to cooperate on their own volition instead of TFT
-            generousToleranceProb=generousTolerance/100
+            generousToleranceProb=self.generousTolerance/100
             if randCoop2>=generousToleranceProb:
                 return C
             else:
@@ -312,8 +312,8 @@ class ShortMemProbabilisticFuzzy(Player):
             #40:30:30
             #TFTbias=10 #scale: 1 to 100. range: -33 (no TFT) to 66 (always TFT)
             #MajorityBias=5 #Dominant's bias. Apply to which one matches the opponent's move. range: (depending on TFTbias, but assume it's extreme case of no TFT or TFTbias = 0) -50 to 50
-            TFTprob=(1/3)+(TFTbias/100) #Calculate TFT first because it should be greater than or equal to pure defect or cooperate
-            MajorityProb=((1-TFTprob)/2)+(MajorityBias/100)
+            TFTprob=(1/3)+(self.TFTbias/100) #Calculate TFT first because it should be greater than or equal to pure defect or cooperate
+            MajorityProb=((1-TFTprob)/2)+(self.MajorityBias/100)
             #SubProb=1-TFTprob-DomProb
             randUncertain=random.random()
             if randUncertain<=TFTprob:
