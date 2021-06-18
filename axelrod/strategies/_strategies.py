@@ -233,6 +233,7 @@ from .sequence_player import (  # pylint: disable=unused-import
     ThueMorseInverse,
 )
 from .shortmem import ShortMem
+from .shortmem_adv_jc import ShortMemDynamicThreshold,ShortMemProbabilistic,ShortMemProbabilisticFuzzy
 from .stalker import Stalker
 from .titfortat import (
     AdaptiveTitForTat,
@@ -451,6 +452,9 @@ all_strategies = [
     SecondByYamachi,
     SelfSteem,
     ShortMem,
+    ShortMemDynamicThreshold,
+    ShortMemProbabilistic,
+    ShortMemProbabilisticFuzzy,
     SlowTitForTwoTats2,
     SneakyTitForTat,
     SoftGrudger,
