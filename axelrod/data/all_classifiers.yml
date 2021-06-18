@@ -463,6 +463,14 @@ Evolved FSM 4:
   manipulates_state: false
   memory_depth: .inf
   stochastic: false
+Evolved FSM 6:
+  inspects_source: false
+  long_run_time: false
+  makes_use_of: !!set {}
+  manipulates_source: false
+  manipulates_state: false
+  memory_depth: .inf
+  stochastic: false
 Evolved HMM 5:
   inspects_source: false
   long_run_time: false
@@ -660,30 +668,6 @@ GTFT:
   manipulates_state: false
   memory_depth: 1
   stochastic: true
-Geller:
-  inspects_source: true
-  long_run_time: false
-  makes_use_of: !!set {}
-  manipulates_source: false
-  manipulates_state: false
-  memory_depth: .inf
-  stochastic: true
-Geller Cooperator:
-  inspects_source: true
-  long_run_time: false
-  makes_use_of: !!set {}
-  manipulates_source: false
-  manipulates_state: false
-  memory_depth: .inf
-  stochastic: false
-Geller Defector:
-  inspects_source: true
-  long_run_time: false
-  makes_use_of: !!set {}
-  manipulates_source: false
-  manipulates_state: false
-  memory_depth: .inf
-  stochastic: false
 General Soft Grudger:
   inspects_source: false
   long_run_time: false
@@ -1091,47 +1075,6 @@ Michaelos:
   manipulates_state: false
   memory_depth: .inf
   stochastic: true
-Mind Bender:
-  inspects_source: false
-  long_run_time: false
-  makes_use_of: !!set {}
-  manipulates_source: true
-  manipulates_state: false
-  memory_depth: -10
-  stochastic: false
-Mind Controller:
-  inspects_source: false
-  long_run_time: false
-  makes_use_of: !!set {}
-  manipulates_source: true
-  manipulates_state: false
-  memory_depth: -10
-  stochastic: false
-Mind Reader:
-  inspects_source: true
-  long_run_time: false
-  makes_use_of: !!set
-    game: null
-  manipulates_source: false
-  manipulates_state: false
-  memory_depth: .inf
-  stochastic: false
-Mind Warper:
-  inspects_source: false
-  long_run_time: false
-  makes_use_of: !!set {}
-  manipulates_source: true
-  manipulates_state: false
-  memory_depth: -10
-  stochastic: false
-Mirror Mind Reader:
-  inspects_source: true
-  long_run_time: false
-  makes_use_of: !!set {}
-  manipulates_source: true
-  manipulates_state: false
-  memory_depth: .inf
-  stochastic: false
 N Tit(s) For M Tat(s):
   inspects_source: false
   long_run_time: false
@@ -1333,15 +1276,6 @@ Prober 4:
   long_run_time: false
   makes_use_of: !!set {}
   manipulates_source: false
-  manipulates_state: false
-  memory_depth: .inf
-  stochastic: false
-Protected Mind Reader:
-  inspects_source: true
-  long_run_time: false
-  makes_use_of: !!set
-    game: null
-  manipulates_source: true
   manipulates_state: false
   memory_depth: .inf
   stochastic: false
@@ -1669,6 +1603,30 @@ ShortMem:
   manipulates_state: false
   memory_depth: .inf
   stochastic: false
+ShortMemDynamicThreshold:
+  inspects_source: false
+  long_run_time: false
+  makes_use_of: !!set {}
+  manipulates_source: false
+  manipulates_state: false
+  memory_depth: .inf
+  stochastic: false
+ShortMemProbabilistic:
+  inspects_source: false
+  long_run_time: false
+  makes_use_of: !!set {}
+  manipulates_source: false
+  manipulates_state: false
+  memory_depth: .inf
+  stochastic: true
+ShortMemProbabilisticFuzzy:
+  inspects_source: false
+  long_run_time: false
+  makes_use_of: !!set {}
+  manipulates_source: false
+  manipulates_state: false
+  memory_depth: .inf
+  stochastic: true
 Slow Tit For Two Tats 2:
   inspects_source: false
   long_run_time: false
@@ -1718,6 +1676,14 @@ SolutionB5:
   memory_depth: .inf
   stochastic: false
 Spiteful Tit For Tat:
+  inspects_source: false
+  long_run_time: false
+  makes_use_of: !!set {}
+  manipulates_source: false
+  manipulates_state: false
+  memory_depth: .inf
+  stochastic: false
+SpitefulCC:
   inspects_source: false
   long_run_time: false
   makes_use_of: !!set {}

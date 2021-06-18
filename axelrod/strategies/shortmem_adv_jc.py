@@ -157,7 +157,7 @@ class ShortMemProbabilistic(Player):
             or to choose to tolerate opponent and shows that it is willing to cooperate on their own volition instead of TFT
             The higher it is, the more often it cooperates and the more generous it is
             even if opponent defects, which could invite mutual cooperation with certain strategies.
-            Range of values: 0 to 100
+            Range of values: 0 to 100, on a scale of 100
             If set to 0, it will always TFT.
             If set to 100, it will always Cooperate.
 
@@ -230,7 +230,7 @@ class ShortMemProbabilisticFuzzy(Player):
     - ShortMem: [Andre2013]_
     """
 
-    name = "ShortMemDynamicThreshold"
+    name = "ShortMemProbabilisticFuzzy"
     classifier = {
         "memory_depth": float("inf"),
         "stochastic": True,
@@ -247,7 +247,7 @@ class ShortMemProbabilisticFuzzy(Player):
         TFTbias, int
             Probability of choosing to TFT, that is, copy opponent's previous move rather than choosing its
             own move without taking into account opponent's previous move
-            Range of values: -33 to 66
+            Range of values: -33 to 66, on a scale of 100
             If set to -33, it will never do TFT and will instead ignore opponent's previous move. 
             From here on out, only MajorityBias affects the move choice.
             If set to 66, it will always do TFT or copy opponent's previous move.
@@ -255,14 +255,18 @@ class ShortMemProbabilisticFuzzy(Player):
         MajorityBias, int
             Probability of choosing the majority, that is, which move that the opponent made the most within the last 10 turns,
             over the minority, which is the least move made by the opponent within the last 10 turns. 
-            Range of values: -50 to 50 (limits varies depending on TFTbias, but assume it's extreme case of no TFT or TFTbias = 0)
+            Range of values: -((1-((1/3)+TFTbias))/2) to (1-((1/3)+TFTbias))/2, on a scale of 100
+            Limits varies depending on the value of TFTbias, where they can only go as far as half of the remaining
+            portion after TFT's limits has been set.
+            For example, assuming it's extreme case of no TFT or TFTbias = 0, it would be -50 to 50 
             If set to -50 and TFTbias is 0, it will always make the move that the opponent made the least within the last 10 turns
             If set to 50 and TFTbias is 0, it will always make the move that the opponent made the most within the last 10 turns
 
         """
         super().__init__()
         assert (TFTbias>=-33) and (TFTbias<=66)
-        assert (MajorityBias>=-50) and (MajorityBias<=50)
+        majminsplit=((1-((1/3)+(TFTbias/100)))/2)*100
+        assert (MajorityBias>=-majminsplit) and (MajorityBias<=majminsplit)
         self.TFTbias = TFTbias
         self.MajorityBias = MajorityBias
 
@@ -306,8 +310,8 @@ class ShortMemProbabilisticFuzzy(Player):
             #possible actions: TFT, majority or minority
             #defect should be greater than cooperate 
             #40:30:30
-            TFTbias=10 #scale: 1 to 100. range: -33 (no TFT) to 66 (always TFT)
-            MajorityBias=5 #Dominant's bias. Apply to which one matches the opponent's move. range: (depending on TFTbias, but assume it's extreme case of no TFT or TFTbias = 0) -50 to 50
+            #TFTbias=10 #scale: 1 to 100. range: -33 (no TFT) to 66 (always TFT)
+            #MajorityBias=5 #Dominant's bias. Apply to which one matches the opponent's move. range: (depending on TFTbias, but assume it's extreme case of no TFT or TFTbias = 0) -50 to 50
             TFTprob=(1/3)+(TFTbias/100) #Calculate TFT first because it should be greater than or equal to pure defect or cooperate
             MajorityProb=((1-TFTprob)/2)+(MajorityBias/100)
             #SubProb=1-TFTprob-DomProb
