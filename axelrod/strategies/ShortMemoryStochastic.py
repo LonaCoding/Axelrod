@@ -83,22 +83,9 @@ class ShortMemDynamicThreshold(Player):
         # 8     =    9    -    1       
         # 10    =    10   -    0       
 
-        #threshold changes between 10 and 0
-
-        #use win-stay-lose-shift principle
-        #                       offset=0    offset value in order to start there               
-        #minimum:   1   (-1)    -     22          270
-        #q1:        3   (-0.5)  -   20  24        210/330
-        #median/q2: 5   (0)     10  18  26        0
-        #q3:        7   (0.5)   12  16            30/150
-        #maximum:   9   (1)       14              90  
-
-        #oscillate between these numbers using sine function, so that no counters were needed
-        #use length of opponent history as x but convert to radian
-        #new threshold= 4sin(x)+5
-        #x=length_opponenthistory-10)*22.5 in radians
+        #threshold changes between 1 and 9
         
-        offset=0 #30 if want to start halfway to max (7), 90 if want to start high (9), 270 if want to start low (1). have this parameter adjustable, if possible, from outside (as input argument)
+        #offset=0 #30 if want to start halfway to max (7), 90 if want to start high (9), 270 if want to start low (1). have this parameter adjustable, if possible, from outside (as input argument)
 
         if uniform:        
             #The uniform method. Median is exactly in middle
@@ -111,6 +98,17 @@ class ShortMemDynamicThreshold(Player):
             #the sine method. Value changes are not uniform. Median is not exactly in middle
             threshold=(4*round(math.sin(math.radians((len(opponent.history)-10)*22.5)+offset),1))+5
 
+            #        threshold   sine     offset=0    offset value in order to start there               
+            #minimum:   1        (-1)    -     22          270
+            #q1:        3        (-0.5)  -   20  24        210/330
+            #median/q2: 5        (0)     10  18  26        0
+            #q3:        7        (0.5)   12  16            30/150
+            #maximum:   9        (1)       14              90  
+
+            #oscillate between these numbers using sine function, so that no counters were needed
+            #use length of opponent history as x but convert to radian
+            #new threshold= 4sin(x)+5
+            #x=length_opponenthistory-10)*22.5 in radians
         
 
         if C_counts - D_counts >= threshold:
