@@ -220,7 +220,7 @@ playerBest2=[axl.EvolvedFSM6(), axl.SecondByRichardHufford(), axl.TitForTat(),
             axl.Prober3(),axl.FirstByDowning(),axl.Fortress3(),axl.EvolvedANN5(),axl.DBS()
             ]
 
-
+myPlayersAgainstTFT=[axl.ShortMemDynamicThreshold(),axl.ShortMemProbabilistic(),axl.ShortMemProbabilisticFuzzy(),axl.TitForTat()]            
 
 #playerBestDouble=[axl.EvolvedFSM6()*2, axl.SecondByRichardHufford()*2, axl.TitForTat()*2,
 #                    axl.EvolvedFSM16()*2, axl.EvolvedHMM5()*2, axl.EvolvedLookerUp2_2_2()*2, 
@@ -275,7 +275,12 @@ percentile=desiredClonedPopSize/len(agentPlayers) #convertor
 #MoranProcTour(playerBest1,20,200,initSeed,20,25,True,True) #real v1.0
 #MoranProcTour(playerTest,74,10,initSeed,20,50,50,False,3,True) #testing
 #                     pop|fn|turn|seed|iter|st|cgl|do|cp|pft|csv|testing
-MoranProcTour(playerBest1,94,200,306,20,50,100,True,2,testing=False) #
+#MoranProcTour(playerBest1,94,200,306,20,50,100,True,2,testing=False) #
+
+MoranProcTour(myPlayersAgainstTFT,101,200,initSeed,20,50,100,True,2,testing=False) #
+
+
+
 
 
 #combination to test
