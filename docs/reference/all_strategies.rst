@@ -100,6 +100,8 @@ Here are the docstrings of all the strategies in the library.
    :members:
 .. automodule:: axelrod.strategies.shortmem
    :members:
+.. automodule:: axelrod.strategies.shortmem_adv_jc
+   :members:
 .. automodule:: axelrod.strategies.selfsteem
    :members:
 .. automodule:: axelrod.strategies.stalker
