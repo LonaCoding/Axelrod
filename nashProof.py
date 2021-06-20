@@ -5,7 +5,11 @@ import sys #outout terminal result to file
 #print("Start")
 #axl.all_strategies
 
-def TournamentWithResPopCull(players,turns,repetitions,iterations,newFileNameNumber):
+#TFT starting with d vs TFT starting with c
+#normal match
+#check score each round and cumulatove score
+
+def TournamentWithNashEq(players,turns,repetitions,iterations,newFileNameNumber):
 
     csv=False
     n=1
@@ -29,6 +33,7 @@ def TournamentWithResPopCull(players,turns,repetitions,iterations,newFileNameNum
         rank=TourRes.ranking
         rankName=TourRes.ranked_names
         CoopCount=TourRes.cooperation
+        diff=TourRes.score_diffs
 
         #print(rankName)
         #pprint.pprint(win)
@@ -45,7 +50,7 @@ def TournamentWithResPopCull(players,turns,repetitions,iterations,newFileNameNum
 
         
 
-        FileName="AllTournamentOutput{newFileNameNumber}{fileType}".format(newFileNameNumber=newFileNameNumber,fileType=fileType)#If want to modify naming format, replace the "ScrListBrandModel" part. DO NOT MODIFY ANYTHING ELSE, including bracket and .format() content. 
+        FileName="NashEqOutput{newFileNameNumber}{fileType}".format(newFileNameNumber=newFileNameNumber,fileType=fileType)#If want to modify naming format, replace the "ScrListBrandModel" part. DO NOT MODIFY ANYTHING ELSE, including bracket and .format() content. 
 
         with open(FileName,'w') as outFile:
             sys.stdout=outFile
@@ -55,7 +60,7 @@ def TournamentWithResPopCull(players,turns,repetitions,iterations,newFileNameNum
             print(rankName)
             print("==================================================")
             print("List of players:")
-            for s in AllStratPlayers: #list of strategies in play
+            for s in players: #list of strategies in play
                 print(s)
             print("==================================================")
             print("Ranking (position):")
@@ -67,19 +72,18 @@ def TournamentWithResPopCull(players,turns,repetitions,iterations,newFileNameNum
             print("Wins:")
             print(win)
             print("--------------------------------------------------")
-            print("Cooperation Count:")
-            print(CoopCount)
+            print("Score difference:")
+            print(diff)
             print("***************************************************")
             sys.stdout=orig_stdOut #change standard output back to default/normal
             n=n+1
 
-#AllStratPlayers = [s() for s in axl.all_strategies]
-players = [axl.TitForTat(), axl.TitForTat()]
-    #for s in AllStratPlayers: #list of strategies in play
-    #    print(s)
+players = [axl.TitForTat(), axl.SuspiciousTitForTat()]
+
+#Both are TFT, but the difference is which first move
 
 #def TournamentWithResultFile(players,turns,repetitions,iterations,newFileNameNumber):
-TournamentWithResPopCull(AllStratPlayers,20,3,2,2)
+TournamentWithNashEq(players,20,3,2,1)
 
 
 #use modified moran process, moranEvolution.py
