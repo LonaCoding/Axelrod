@@ -81,9 +81,10 @@ def TournamentWithNashEq(players,turns,repetitions,iterations,newFileNameNumber)
 players = [axl.TitForTat(), axl.SuspiciousTitForTat()]
 
 #Both are TFT, but the difference is which first move
+#attempt to make alternating round
 
 #def TournamentWithResultFile(players,turns,repetitions,iterations,newFileNameNumber):
-TournamentWithNashEq(players,20,3,2,1)
+TournamentWithNashEq(players,21,3,2,2)
 
 
 #use modified moran process, moranEvolution.py
