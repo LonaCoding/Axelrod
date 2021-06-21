@@ -19,7 +19,7 @@ def largestFactor(inputValue):
 
     return a, b
 
-def MoranProcTour(
+def EliteMoranProcessTournament(
     agents,
     newFileNameNumber,
     turns=10,
@@ -31,11 +31,18 @@ def MoranProcTour(
     createPlot=0,
     PlotFileType="PNG",
     csv=False,
-    testing=False
+    testing=False,
+    experimentBatchNum=-2
     ):
 
     #print test parameters information
-    print(">>> Output of Elitist Selection (Modified) Moran Process <<<")
+    if experimentBatchNum<-1: #By default, assume only standalone experiment 
+        print(">>> Output of Elitist Selection (Modified) Moran Process <<<")
+    else:
+        if experimentBatchNum==-1: #if no experiment number was given, use the plot file numbe by default
+            experimentBatchNum=newFileNameNumber
+        print(">>> Experiment number {} <<<".format(experimentBatchNum)) 
+
     print("------------------------------------------------------------")
     print("Experiment parameters:")
     print("1. Player Agents: {}".format(len(agents)))
@@ -65,12 +72,11 @@ def MoranProcTour(
         #sharey=row: everything on a single row shares the same y-axis
 
     while n<iterations+1: #iteration loop for repeating tests
-        #AllStratPlayers = [s() for s in axl.all_strategies]
-        #for s in AllStratPlayers: #list of strategies in play
+        #for s in agents: #list of strategies in play
         #    pprint.pprint(s)
 
         ##single match:
-        #match = axl.Match(AllStratPlayers, turns=3)
+        #match = axl.Match(agents, turns=3)
         #match.play() 
         #res=match.result
 
@@ -83,8 +89,8 @@ def MoranProcTour(
         #options: eps, jpeg, jpg, pdf, pgf, png, ps, raw, rgba, svg, svgz, tif, tiff
         PlotFileTypeExt=PlotFileType.lower()
         #print(PlotFileTypeExt) #testing
-        plotFileName="EliteMoranProcPlot{newFileNameNumber}_{iterNum}.{PlotFileTypeExt}".format(newFileNameNumber=newFileNameNumber,iterNum=n,PlotFileTypeExt=PlotFileTypeExt)#If want to modify naming format, replace the "ScrListBrandModel" part. DO NOT MODIFY ANYTHING ELSE, including bracket and .format() content.         
-        subplotFileName="EliteMoranProcSubplot{newFileNameNumber}_{iterNum}.{PlotFileTypeExt}".format(newFileNameNumber=newFileNameNumber,iterNum=n,PlotFileTypeExt=PlotFileTypeExt)#If want to modify naming format, replace the "ScrListBrandModel" part. DO NOT MODIFY ANYTHING ELSE, including bracket and .format() content. 
+        plotFileName="EliteMoranProcPlot{newFileNameNumber}_{iterNum}.{PlotFileTypeExt}".format(newFileNameNumber=newFileNameNumber,iterNum=n,PlotFileTypeExt=PlotFileTypeExt)#If want to modify naming format, replace the "EliteMoranProcPlot" part. DO NOT MODIFY ANYTHING ELSE, including bracket and .format() content.         
+        subplotFileName="EliteMoranProcSubplot{newFileNameNumber}_{iterNum}.{PlotFileTypeExt}".format(newFileNameNumber=newFileNameNumber,iterNum=n,PlotFileTypeExt=PlotFileTypeExt)#If want to modify naming format, replace the "subplotFileName" part. DO NOT MODIFY ANYTHING ELSE, including bracket and .format() content. 
         
         if testing:
             targetOutFolder = "MoranElitistExperiments_Output/testPlots"
@@ -196,121 +202,131 @@ def MoranProcTour(
         #save plot as image and move the image to output folder
         mplot.savefig(subplotFileName,format=PlotFileType, dpi=300) #, bbox_inches='tight'#saves the plot as image
         outputNewPath=shutil.move(subplotFileName, targetOutFolder) #move the saved image plot to output folder
-        
 
-#Initialize population of player agents
-player3=[axl.TitForTat(), axl.Random(), axl.Negation()]
+    print("********** End of Experiment *************") 
 
-player6=[axl.TitForTat(), axl.Random(), axl.Negation(),
-        axl.CyclerCCD(), axl.MemoryOnePlayer(), axl.Inverse()]
+def Main_Experiment(multiExperimentBatches=False):
+    if multiExperimentBatches:
+        print(">>> Output of Elitist Selection (Modified) Moran Process <<<")
 
-#add players that were selected from 20-,50- and 200-turn tournaments' winners
-playerBest1=[axl.EvolvedFSM6(), axl.SecondByRichardHufford(), axl.TitForTat(), 
-            axl.EvolvedFSM16(), axl.EvolvedHMM5(), axl.EvolvedLookerUp2_2_2(), 
-            axl.Michaelos(), axl.Defector(),axl.Cooperator(),axl.Random(),
-            axl.WinStayLoseShift(),axl.Grudger(),axl.Prober(), axl.TitFor2Tats()]
+    #Initialize population of player agents
+    player3=[axl.TitForTat(), axl.Random(), axl.Negation()]
 
-#add players that were selected from 20-,50- and 200-turn tournaments' winners
-#as well as those according to results from drvinceknight's tournament repository
-playerBest2=[axl.EvolvedFSM6(), axl.SecondByRichardHufford(), axl.TitForTat(), 
-            axl.EvolvedFSM16(), axl.EvolvedHMM5(), axl.EvolvedLookerUp2_2_2(), 
-            axl.Michaelos(), axl.Defector(),axl.Cooperator(),axl.Random(),
-            axl.WinStayLoseShift(),axl.Grudger(),axl.Prober(), axl.TitFor2Tats(),
-            axl.EvolvedANNNoise05(),axl.Aggravater(),axl.RevisedDowning(),axl.Raider(),
-            axl.Prober3(),axl.FirstByDowning(),axl.Fortress3(),axl.EvolvedANN5(),axl.DBS()
-            ]
+    player6=[axl.TitForTat(), axl.Random(), axl.Negation(),
+            axl.CyclerCCD(), axl.MemoryOnePlayer(), axl.Inverse()]
 
-myPlayersAgainstTFT=[axl.ShortMemDynamicThreshold(),axl.ShortMemProbabilistic(),axl.ShortMemProbabilisticFuzzy(),axl.TitForTat()]            
+    #add players that were selected from 20-,50- and 200-turn tournaments' winners
+    playerBest1=[axl.EvolvedFSM6(), axl.SecondByRichardHufford(), axl.TitForTat(), 
+                axl.EvolvedFSM16(), axl.EvolvedHMM5(), axl.EvolvedLookerUp2_2_2(), 
+                axl.Michaelos(), axl.Defector(),axl.Cooperator(),axl.Random(),
+                axl.WinStayLoseShift(),axl.Grudger(),axl.Prober(), axl.TitFor2Tats()]
 
-myPlayersAgainstplayerBest1=[axl.ShortMemDynamicThreshold(),axl.ShortMemProbabilistic(),axl.ShortMemProbabilisticFuzzy(),
-                            axl.EvolvedFSM6(), axl.SecondByRichardHufford(), axl.TitForTat(), 
-                            axl.EvolvedFSM16(), axl.EvolvedHMM5(), axl.EvolvedLookerUp2_2_2(), 
-                            axl.Michaelos(), axl.Defector(),axl.Cooperator(),axl.Random(),
-                            axl.WinStayLoseShift(),axl.Grudger(),axl.Prober(), axl.TitFor2Tats()]            
+    #add players that were selected from 20-,50- and 200-turn tournaments' winners
+    #as well as those according to results from drvinceknight's tournament repository
+    playerBest2=[axl.EvolvedFSM6(), axl.SecondByRichardHufford(), axl.TitForTat(), 
+                axl.EvolvedFSM16(), axl.EvolvedHMM5(), axl.EvolvedLookerUp2_2_2(), 
+                axl.Michaelos(), axl.Defector(),axl.Cooperator(),axl.Random(),
+                axl.WinStayLoseShift(),axl.Grudger(),axl.Prober(), axl.TitFor2Tats(),
+                axl.EvolvedANNNoise05(),axl.Aggravater(),axl.RevisedDowning(),axl.Raider(),
+                axl.Prober3(),axl.FirstByDowning(),axl.Fortress3(),axl.EvolvedANN5(),axl.DBS()
+                ]
 
+    myPlayersAgainstTFT=[axl.ShortMemDynamicThreshold(),axl.ShortMemProbabilistic(),axl.ShortMemProbabilisticFuzzy(),axl.TitForTat()]            
 
-#playerBestDouble=[axl.EvolvedFSM6()*2, axl.SecondByRichardHufford()*2, axl.TitForTat()*2,
-#                    axl.EvolvedFSM16()*2, axl.EvolvedHMM5()*2, axl.EvolvedLookerUp2_2_2()*2, 
-#                    axl.Michaelos()*2, axl.Defector()*2,axl.Cooperator()*2,axl.Random()*2,
-#                    axl.WinStayLoseShift()*2,axl.Grudger()*2,axl.Prober()*2, axl.TitFor2Tats()*2]
-
-#winners of tournaments:
-#'Evolved FSM 6': 50-turn 1st
-#'Evolved HMM 5': 50-turn 2nd
-#'EvolvedLookerUp2_2_2': 50-turn 3rd
-#'Second by RichardHufford': 20-turn 1st
-#'Evolved FSM 16': 20-turn 2nd
-#'Michaelos: (D,)': 20-turn 3rd
+    myPlayersAgainstplayerBest1=[axl.ShortMemDynamicThreshold(),axl.ShortMemProbabilistic(),axl.ShortMemProbabilisticFuzzy(),
+                                axl.EvolvedFSM6(), axl.SecondByRichardHufford(), axl.TitForTat(), 
+                                axl.EvolvedFSM16(), axl.EvolvedHMM5(), axl.EvolvedLookerUp2_2_2(), 
+                                axl.Michaelos(), axl.Defector(),axl.Cooperator(),axl.Random(),
+                                axl.WinStayLoseShift(),axl.Grudger(),axl.Prober(), axl.TitFor2Tats()]            
 
 
-#example from github
-players = [axl.Defector(), axl.Defector(), axl.Defector(),
-       axl.Cooperator(), axl.Cooperator(), axl.Cooperator(),
-       axl.TitForTat(), axl.TitForTat(), axl.TitForTat(),
-       axl.Random()]
+    #playerBestDouble=[axl.EvolvedFSM6()*2, axl.SecondByRichardHufford()*2, axl.TitForTat()*2,
+    #                    axl.EvolvedFSM16()*2, axl.EvolvedHMM5()*2, axl.EvolvedLookerUp2_2_2()*2, 
+    #                    axl.Michaelos()*2, axl.Defector()*2,axl.Cooperator()*2,axl.Random()*2,
+    #                    axl.WinStayLoseShift()*2,axl.Grudger()*2,axl.Prober()*2, axl.TitFor2Tats()*2]
 
-playerTest=[axl.Defector(),axl.Cooperator(),axl.Random(),
-            axl.Defector(),axl.Cooperator(),axl.Random(),
-            axl.Defector(),axl.Cooperator(),axl.Random(),]
-
-AllStratPlayers = [s() for s in axl.all_strategies]
-
-#generating random values for seed
-#Seed value must be between 0 and 2**32 - 1, else trigger ValueError
-#randPow=random.randint(1,9) #9 is maximum, because 10**9<2**32<10**10 and else will trigger ValueError
-#RandFloat=random.random()
-initSeed=math.floor(random.random()*(10**random.randint(1,9))) #generate random starting seed
-
-#convertor
-desiredClonedPopSize=5 #sets the number of player agents that will be cloned and the ones that will be culled
-agentPlayers=playerBest1 #all player agents
-percentile=desiredClonedPopSize/len(agentPlayers) #convertor
-#put percentile in splitThresholdPercentile (splitThresholdPercentile=percentile)
+    #winners of tournaments:
+    #'Evolved FSM 6': 50-turn 1st
+    #'Evolved HMM 5': 50-turn 2nd
+    #'EvolvedLookerUp2_2_2': 50-turn 3rd
+    #'Second by RichardHufford': 20-turn 1st
+    #'Evolved FSM 16': 20-turn 2nd
+    #'Michaelos: (D,)': 20-turn 3rd
 
 
-#Additional input parameters for MoranProcTour: 
-#PlotFileType options (,PlotFileType=".____"): 
-#"EPS", "JPEG", ".jpg", ".pdf", ".pgf", ".png", ".ps", ".raw," ".rgba", ".svg", ".svgz", ".tif", ".tiff"
-#createPlot options (,createPlot="_"):
-# 0: No plot
-# 1: Individual seperate plots, 1 for each iteration
-# 2: A single plot of combined subplots. where 1 subplot represents 1 iteration
-# 3: Plots from both options 1 and 2 (still buggy)
+    #any starting population down here are examples from the original Axelrod library on github
+    DCTFTRplayers = [axl.Defector(), axl.Defector(), axl.Defector(),
+           axl.Cooperator(), axl.Cooperator(), axl.Cooperator(),
+           axl.TitForTat(), axl.TitForTat(), axl.TitForTat(),
+           axl.Random()]
 
-#MoranProcTour(players,newFileNameNumber,turns=10,seedOffset=1,iterations=1,splitThresholdPercentile=50,ConvergeScoreGenLimit=5,displayOutput=False,createPlot=0,PlotFileType=".png",csv=False,testing=False)
-#MoranProcTour(AllStratPlayers,13,200,initSeed,10,50,True) #all strategies
-#MoranProcTour(playerBest1,20,200,initSeed,20,25,True,True) #real v1.0
-#MoranProcTour(playerTest,74,10,initSeed,20,50,50,False,3,True) #testing
-#                     pop|fn|turn|seed|iter|st|cgl|do|cp|pft|csv|testing
-#MoranProcTour(playerBest1,94,200,306,20,50,100,True,2,testing=False) #
+    DCRplayers=[axl.Defector(),axl.Cooperator(),axl.Random(),
+                axl.Defector(),axl.Cooperator(),axl.Random(),
+                axl.Defector(),axl.Cooperator(),axl.Random(),]
 
-#MoranProcTour(myPlayersAgainstTFT,101,200,initSeed,20,50,100,True,2,testing=False) #my strategies vs TFT
+    AllStratPlayers = [s() for s in axl.all_strategies]
 
-MoranProcTour(myPlayersAgainstplayerBest1,102,200,initSeed,20,50,100,True,2,testing=False) #my strategies vs playerBest1
+    #generating random values for seed
+    #Seed value must be between 0 and 2**32 - 1, else trigger ValueError
+    #randPow=random.randint(1,9) #9 is maximum, because 10**9<2**32<10**10 and else will trigger ValueError
+    #RandFloat=random.random()
+    initSeed=math.floor(random.random()*(10**random.randint(1,9))) #generate random starting seed
+
+    #convertor
+    desiredClonedPopSize=5 #sets the number of player agents that will be cloned and the ones that will be culled
+    agentPlayers=playerBest1 #all player agents
+    percentile=desiredClonedPopSize/len(agentPlayers) #convertor
+    #put percentile in splitThresholdPercentile (splitThresholdPercentile=percentile)
+
+
+    #Additional input parameters for EliteMoranProcessTournament: 
+    #PlotFileType options (,PlotFileType=".____"): 
+    #"EPS", "JPEG", ".jpg", ".pdf", ".pgf", ".png", ".ps", ".raw," ".rgba", ".svg", ".svgz", ".tif", ".tiff"
+    #createPlot options (,createPlot="_"):
+    # 0: No plot
+    # 1: Individual seperate plots, 1 for each iteration
+    # 2: A single plot of combined subplots. where 1 subplot represents 1 iteration
+    # 3: Plots from both options 1 and 2 (still buggy)
+
+    #Older vresions of the function, kept here for posterity
+    #EliteMoranProcessTournament(players,newFileNameNumber,turns=10,seedOffset=1,iterations=1,splitThresholdPercentile=50,ConvergeScoreGenLimit=5,displayOutput=False,createPlot=0,PlotFileType=".png",csv=False,testing=False,experimentBatchNum=-1)
+    #EliteMoranProcessTournament(AllStratPlayers,13,200,initSeed,10,50) #all strategies
+    #EliteMoranProcessTournament(playerBest1,20,200,initSeed,20,25) #real v1.0
+    #EliteMoranProcessTournament(playerTest,74,10,initSeed,20,50,50,createPlot=3)
+
+    #Experiments
+    #Parameters to adjust for each experiment:
+    #Population
+    #(Plot) File number
+    #splitThresholdPercentile: vary the st=splitThresholdPercentile between 50 & 25
+    #experimentBatchNum (do not include if running only a single experiment)
+
+    #                                 pop|fn|turn|seed|iter|st|cgl|do|cp(pft|csv)
+    EliteMoranProcessTournament(playerBest1,111,200,initSeed,20,50,100,True,2,testing=False,experimentBatchNum=-1) #
+    EliteMoranProcessTournament(playerBest1,112,200,initSeed,20,25,100,True,2,testing=False,experimentBatchNum=-1) #
+    EliteMoranProcessTournament(playerBest2,113,200,initSeed,20,50,100,True,2,testing=False,experimentBatchNum=-1) #
+    EliteMoranProcessTournament(playerBest2,114,200,initSeed,20,25,100,True,2,testing=False,experimentBatchNum=-1) #
+
+
+
+    EliteMoranProcessTournament(myPlayersAgainstTFT,115,200,initSeed,20,50,100,True,2,testing=False,experimentBatchNum=-1) #my strategies vs TFT
+    EliteMoranProcessTournament(myPlayersAgainstTFT,116,200,initSeed,20,25,100,True,2,testing=False,experimentBatchNum=-1) #my strategies vs TFT
+
+    EliteMoranProcessTournament(myPlayersAgainstplayerBest1,103,200,initSeed,20,50,100,True,2,testing=False,experimentBatchNum=-1) #my strategies vs playerBest1 with population split threshold of 50%
+    EliteMoranProcessTournament(myPlayersAgainstplayerBest1,104,200,initSeed,20,25,100,True,2,testing=False,experimentBatchNum=-1) #my strategies vs playerBest1 with population split threshold of 25%
 
 
 
 
-#combination to test
-#   perc    p1      p2
-#    50            
-#    25            
+    #combination to test
+    #   perc    p1      p2
+    #    50            
+    #    25            
 
-#MoranProcTour(playerBest1,41,200,42634304,20,25,50,True,1) #real v2.0
-
-#vary the st=splitThresholdPercentile between 50 & 25
-
-#raise ConvergeScoreGenLimit to 100?
-
-#next test do perc=25
-#try reducing population? or enlarging?
-
-#p1, 12901, 50%: done
-
-#TO DO:
-#move testing input param to middle
-#change plot save file path once everything's correct
-
+#Main or driver function, containing the entirety of the experimental set-up and execution
+#input nparam: set to True if performing multiple experiments 
+#(each experiment has a different parameter configuration) and saving their results into a single file
+Main_Experiment(True) 
 
 
 
