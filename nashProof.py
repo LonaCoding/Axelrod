@@ -9,82 +9,107 @@ import sys #outout terminal result to file
 #normal match
 #check score each round and cumulatove score
 
-def TournamentWithNashEq(players,turns,repetitions,iterations,newFileNameNumber):
+def TournamentWithNashEq(players,turns,repetitions,newFileNameNumber):
 
     csv=False
-    n=1
 
-    while n<iterations+1:
-        #AllStratPlayers = [s() for s in axl.all_strategies]
-        #for s in AllStratPlayers: #list of strategies in play
-        #    print(s)
+    ##tournament
+    tournament = axl.Tournament(players, turns=turns, repetitions=repetitions) #orig turn=10
+    TourRes = tournament.play() #tournament results
+    #find way to write these to file
+    win=TourRes.wins
+    score=TourRes.scores
+    rank=TourRes.ranking
+    rankName=TourRes.ranked_names
+    CoopCount=TourRes.cooperation
+    diff=TourRes.score_diffs
 
-        ##single match:
-        #match = axl.Match(AllStratPlayers, turns=3)
-        #match.play() 
-        #res=match.result
+    orig_stdOut=sys.stdout
 
-        ##tournament
-        tournament = axl.Tournament(players, turns=turns, repetitions=repetitions) #orig turn=10
-        TourRes = tournament.play() #tournament results
-        #find way to write these to file
-        win=TourRes.wins
-        score=TourRes.scores
-        rank=TourRes.ranking
-        rankName=TourRes.ranked_names
-        CoopCount=TourRes.cooperation
-        diff=TourRes.score_diffs
-
-        #print(rankName)
-        #pprint.pprint(win)
-
-        #output to file
-        #print("Writing to file")
-        orig_stdOut=sys.stdout
-
-
-        if csv==True: #Choose file type of output
-            fileType=".csv"
-        else:
-            fileType=".txt"
+    if csv==True: #Choose file type of output
+        fileType=".csv"
+    else:
+        fileType=".txt"
 
         
 
-        FileName="NashEqOutput{newFileNameNumber}{fileType}".format(newFileNameNumber=newFileNameNumber,fileType=fileType)#If want to modify naming format, replace the "ScrListBrandModel" part. DO NOT MODIFY ANYTHING ELSE, including bracket and .format() content. 
+        FileName="NashEqOutputTour{newFileNameNumber}{fileType}".format(newFileNameNumber=newFileNameNumber,fileType=fileType)#If want to modify naming format, replace the "NashEqOutputTour" part. DO NOT MODIFY ANYTHING ELSE, including bracket and .format() content. 
 
         with open(FileName,'w') as outFile:
             sys.stdout=outFile
+            print("Nash Equilibrium Tournament:")
             print("Trial run {numTrial}:".format(numTrial=n))
             print("..................................................")
             print("Ranking (Names):")
-            print(rankName)
+            pprint.pprint(rankName)
             print("==================================================")
             print("List of players:")
             for s in players: #list of strategies in play
                 print(s)
             print("==================================================")
             print("Ranking (position):")
-            print(rank)
+            pprint.pprint(rank)
             print("--------------------------------------------------")
             print("Score:")
-            print(score)
+            pprint.pprint(score)
             print("--------------------------------------------------")
             print("Wins:")
-            print(win)
+            pprint.pprint(win)
             print("--------------------------------------------------")
             print("Score difference:")
-            print(diff)
+            pprint.pprint(diff)
             print("***************************************************")
             sys.stdout=orig_stdOut #change standard output back to default/normal
             n=n+1
 
-players = [axl.TitForTat(), axl.SuspiciousTitForTat()]
+def MatchWithNashEq(players,turns,iterations,newFileNameNumber):
+
+    csv=False
+    n=1
+
+    while n<=iterations:
+
+        ##single match:
+        match = axl.Match(players, turns=turns)
+        match.play() 
+        res=match.result
+
+        #print(rankName)
+        #pprint.pprint(win)
+        #output to file
+        #print("Writing to file")
+
+        orig_stdOut=sys.stdout
+
+        if csv==True: #Choose file type of output
+            fileType=".csv"
+        else:
+            fileType=".txt"
+
+        FileName="NashEqOutputMatch{newFileNameNumber}{iteration}{fileType}".format(newFileNameNumber=newFileNameNumber,iteration=n,fileType=fileType)#If want to modify naming format, replace the "NashEqOutputMatch" part. DO NOT MODIFY ANYTHING ELSE, including bracket and .format() content. 
+        with open(FileName,'w') as outFile:
+            sys.stdout=outFile
+            print("Nash Equilibrium Single Match:")
+            print("Trial run {numTrial}:".format(numTrial=n))
+            print("==================================================")
+            print("List of players:")
+            for s in players: #list of strategies in play
+                print(s)
+            print("==================================================")
+            print("Result:")
+            print(res)
+            print("***************************************************")
+            sys.stdout=orig_stdOut #change standard output back to default/normal
+        n=n+1
+
+
+TFT2players = [axl.TitForTat(), axl.SuspiciousTitForTat()]
 
 #Both are TFT, but the difference is which first move
 #attempt to make alternating round
 
 #def TournamentWithResultFile(players,turns,repetitions,iterations,newFileNameNumber):
-TournamentWithNashEq(players,21,3,2,2)
+TournamentWithNashEq(TFT2players,10,1,1,3)
 
 
 #use modified moran process, moranEvolution.py
