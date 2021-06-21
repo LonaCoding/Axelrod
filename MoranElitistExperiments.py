@@ -65,6 +65,9 @@ def EliteMoranProcessTournament(
     n=1 #counter for interation loop
     seed=firstSeed #set first seed
 
+    #create array for list of winners and their frequency
+    winners=[]
+
     
     if createPlot>=2:
         row,col=largestFactor(iterations) #find largest factor of iterations to determine subplot grid dimensions
@@ -157,17 +160,42 @@ def EliteMoranProcessTournament(
         print("***************************************************")
             #sys.stdout=orig_stdOut #change standard output back to default/normal        
 
+        #add winner to list or increment frequency if winner already in the  list
+        if win in winners:#if name already in list    
+            i=0
+            while i < len(winners):
+                if winners[i][0]==win:
+                    winners[i][1]=winners[i][1]+1
+                    break
+                i=i+1
+        else:
+            newEntry=[str(win),0]
+            winners.append(newEntry)#make new entry
+
+
         n=n+1
         seed=seed+1
 
 
     #shift iteration top axis title to the right
-    
+        #show how many times strategies won
+
+    currentBestFreq=0
+    for j in winners:
+        if j[1]>currentBestFreq:
+            currentBestFreq=j[1]
+            currentBestAgent=j[0]
+    print("Agent that won the most often: {name} ({freq} times)".format(name=currentBestAgent,freq=currentBestFreq))
+    print("List of winners and how many times they won:")
+    pprint.pprint(winners)
+    print(";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;")
+    print(";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;")
+
     tightLayout=False
     
 
     if createPlot>=2: #end of loop, aggregate and create main plot #\nIteration
-        subplotMain.suptitle("Moran Process Population by Generation in Different Iterations\nThreshold: {Threshold}% || Players: {numPlayers}".format(Threshold=splitThresholdPercentile,numPlayers=len(agents)), fontweight='black',fontsize='18')
+        subplotMain.suptitle("Moran Process Population by Generation in Different Iterations\nThreshold: {Threshold}% || Players: {numPlayers}|| Winner: {winner} ({freq})".format(Threshold=splitThresholdPercentile,numPlayers=len(agents), winner=currentBestAgent, freq=currentBestFreq), fontweight='black',fontsize='18')
         subplotMain.supxlabel('Generation',fontweight='bold',fontsize='16',ha='center')
         subplotMain.supylabel('Number of Individuals',fontweight='bold',fontsize='16',ha='center')
 
@@ -202,6 +230,7 @@ def EliteMoranProcessTournament(
         #save plot as image and move the image to output folder
         mplot.savefig(subplotFileName,format=PlotFileType, dpi=300) #, bbox_inches='tight'#saves the plot as image
         outputNewPath=shutil.move(subplotFileName, targetOutFolder) #move the saved image plot to output folder
+
 
     print("********** End of Experiment *************") 
 
