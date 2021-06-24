@@ -1,3 +1,5 @@
+#This entire file is created by J Candra
+#The purpose of this file is to conduct experiments and get the results of it
 import random
 import math
 import matplotlib.pyplot as mplot
