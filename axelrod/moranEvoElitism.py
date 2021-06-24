@@ -5,17 +5,21 @@ from typing import Callable, List, Optional, Set, Tuple
 
 import matplotlib.pyplot as plt
 import numpy as np
-import math #needed for floor()
-import pprint #for formatting output lists for neater output
+import math #added by J Candra. Needed for floor()
+import pprint #added by J Candra. Needed for formatting output lists for neater output
 from axelrod import DEFAULT_TURNS, EvolvablePlayer, Game, Player
 from axelrod.deterministic_cache import DeterministicCache
 from axelrod.graph import Graph, complete_graph
 from axelrod.match import Match
 from axelrod.random_ import BulkRandomGenerator, RandomGenerator
 
-#unless indicated, majority of this code was not created by me
-#The only functions I modified and renamed:
+#unless indicated, the majority of this code was not created by J Candra
+#The only functions J Candra modified and renamed:
 #splitPlayersByScore: copied, then modified and renamed from fitness_proportionate_selection
+#Functions modified by J Candra while still retaining the same name:
+#MainEvoEliteMoranProcess
+#
+
 
 class MainEvoEliteMoranProcess(object):
     def __init__( #with additional comments made by J Candra for reference
@@ -36,27 +40,24 @@ class MainEvoEliteMoranProcess(object):
         seed=None,
         #parameters coded by J Candra
         splitThresholdPercentile=50, #coded by J Candra. split population into half, by median. Range: 1-50
-        dispOutput=True, #coded by J Candr
-        ConvergeScoreLimit=5 #coded by J Candra
+        dispOutput=True, #coded by J Candra
+        ConvergeScoreLimit=5, #coded by J Candra
+        playerKnowsTurnLim=True
     ) -> None:
         """
         An agent based Moran process class. In each round, each player plays a
         Match with each other player. Players are assigned a fitness score by
         their total score from all matches in the round. A player is chosen to
-        reproduce 
-        --proportionally to fitness--
-        based on their fitness, where the best are first to be chosen
-
-        , possibly mutated, and is cloned.
-        The clone replaces the worst player.
-        
-        --The clone replaces a randomly chosen player.--
+        reproduce based on their fitness, where the best are first to be chosen, 
+        possibly mutated, and is cloned^. That clone replaces the worst player^.
 
         If the mutation_rate is 0, the population will eventually fixate on
         exactly one player type. In this case a StopIteration exception is
         raised and the play stops. If the mutation_rate is not zero, then the
         process will iterate indefinitely, so mp.play() will never exit, and
-        you should use the class as an iterator instead.
+        you should use the class as an iterator instead. The play also stops if
+        all the players produces the same scores with each other for a 
+        specified amount of consecutive turns^.
 
         When a player mutates it chooses a random player type from the initial
         population. This is not the only method yet emulates the common method
@@ -103,24 +104,32 @@ class MainEvoEliteMoranProcess(object):
             A bool indicating if the process should stop on fixation
         seed: int
             A random seed for reproducibility
-        splitThresholdPercentile: int 
+        splitThresholdPercentile: int
             (this part was coded by J Candra)
             Default: 50.
             n value of nth-percentile used to divide the population into seperate subpopulations
             for cloning and culling
-        dispOutput:
+        dispOutput: bool
             (this part was coded by J Candra)
             Default: False.
             Determines wether to print output of some information regarding process
             of splitting the population.
-        ConvergeScoreLimit:
+        ConvergeScoreLimit: int
             (this part was coded by J Candra)
             Default: 5.
             Determines maximum number of score convergence before prematurely ending the moran process
+        playerKnowsTurnLim: bool
+            (this part was coded by J Candra)
+            Default: True.
+            Determines wether all players knows how many turns they will play in the matches
+        
+        ^Modified or written by J Candra
+        
         """
         #Everything below here until the next comment is made by J Candra
         assert (splitThresholdPercentile>0) and (splitThresholdPercentile<=50)
         assert dispOutput in [True, False]
+        assert playerKnowsTurnLim in [True, False]
         assert ConvergeScoreLimit>0
         #Everything above here until the next comment is made by J Candra
         #everything below here until the next comment is part of the original code and not made by J Candra
@@ -141,6 +150,7 @@ class MainEvoEliteMoranProcess(object):
         self.ScoreConverged=False
         self.ConvergeScore=0
         self.ConvergeScoreLimit=ConvergeScoreLimit
+        self.playerKnowsTurnLim=playerKnowsTurnLim
         #self.currBestPlayer= None #only use if needed
         #Everything above here until the next comment is made by J Candra
         self.mode = mode
@@ -214,7 +224,7 @@ class MainEvoEliteMoranProcess(object):
                 self.players.append(player)
         self.populations = [self.population_distribution()]
 
-    #The function below is no longer used, but kept here for reference for splitPlayersByScore
+    #The function below is no longer used, but kept here for reference with splitPlayersByScore
     def fitness_proportionate_selection(
         self, scores: List, fitness_transformation: Callable = None
     ) -> int:
@@ -243,21 +253,20 @@ class MainEvoEliteMoranProcess(object):
         return i
 
     #The function below is a version of fitness_proportionate_selection
-    #adapted for Elitist Evolution and renamed for distinction.
-    #Parts of this code are copied from fitness_proportionate_selection,
-    #while others are written by J Candra
+    #adapted for Elitist Selection and renamed for distinction.
+    #Almost all parts of this code are written by J Candra, 
+    #except where indicated as copied from fitness_proportionate_selection,
     def splitPlayersByScore(
         self, scores: List, fitness_transformation: Callable = None #,splitThresholdPercentile=50 #old reference
         #,splitThresholdPercentile=50,dispOutput=True
     ) -> int: #added input param argument for splitThresholdPercentile, which give nth-percentile
-        """Divides the players based on their scores, 
-        according to median (half) or nth-percentile
-        as threshold
+        """Sorts and divides the players into 2 groups based on their scores, 
+        using median (half) or nth-percentile as the division threshold
 
-        This function is adapted from fitness_proportionate_selection for Elitist Evolution.
+        This function is adapted from fitness_proportionate_selection for Elitist Selection.
         Elitist Selection method is implemented.
 
-        Parameters
+        Parameters (retained from original code not made by J Candra)
         ----------
         scores: Any sequence of real numbers
         fitness_transformation: A function mapping a score to a (non-negative) float
@@ -276,7 +285,7 @@ class MainEvoEliteMoranProcess(object):
             print("######################################")  
             print("~~~ Scores: ~~~")
 
-        if fitness_transformation is None:
+        if fitness_transformation is None: #Not created by J Candra. Copied from fitness_proportionate_selection
             #scores is list of scores
             llim=np.percentile(scores,self.splitThresholdPercentile)
             ulim=np.percentile(scores,100-self.splitThresholdPercentile)
@@ -284,7 +293,7 @@ class MainEvoEliteMoranProcess(object):
                 pprint.pprint(scores)
 
         else:
-            array=[fitness_transformation(s) for s in scores]            
+            array=[fitness_transformation(s) for s in scores] #Not created by J Candra. Copied from fitness_proportionate_selection
             llim=np.percentile(array,self.splitThresholdPercentile)
             ulim=np.percentile(array,100-self.splitThresholdPercentile)
             if self.dispOutput:
@@ -303,7 +312,7 @@ class MainEvoEliteMoranProcess(object):
         uppLim=[]
         lowLim=[]
 
-        for n,m in enumerate(scores):
+        for n,m in enumerate(scores): #adapted from fitness_proportionate_selection (not wholy created) by J Candra
             if m>ulim: #if score exceeeds the upper threshold
                 upp.append(n) #assign for cloning
             if m<llim: #if score is below the lower threshold
@@ -315,13 +324,10 @@ class MainEvoEliteMoranProcess(object):
             
 
         PopulationSize=len(self.players)
-
-        #implement list length checks. All list must be half of total population, 
-        # unless population number is odd
         
-        halfPop=math.floor(0.5*PopulationSize) #have it round down to floor value in case odd number. find the right function
-        PopSubsampleSize=math.floor(self.splitThresholdPercentile*PopulationSize/100)
-        #alt: if value exceeds 0.5, reduce by 0.5
+        #halfPop=math.floor(0.5*PopulationSize) #have it round down to floor value in case odd number. find the right function
+        PopSubsampleSize=math.floor(self.splitThresholdPercentile*PopulationSize/100) #sets split population size
+        
 
         lowSize=len(low)
         uppSize=len(upp)
@@ -338,28 +344,11 @@ class MainEvoEliteMoranProcess(object):
 
         ##only if using median as limit
         if low==[] and upp==[]:#if all score values are the same (thus both low and upp is empty)
-            self.ConvergeScore=self.ConvergeScore+1
+            self.ConvergeScore=self.ConvergeScore+1 #addd counter for every consecutive turns ending in deadlock
         else:
-            self.ConvergeScore=0 #reset
-            
-        #    #create sequence of values of lenth equal to total players
-        #    fullIndexList=list(range(PopulationSize)) #inspired by https://note.nkmk.me/en/python-range-usage/
-        #    while len(low)<PopSubsampleSize: #median limit
-        #        randLow = self._random.randrange(0, len(fullIndexList))
-        #        #add to low the value that was popped from fullIndexList
-        #        low.append(fullIndexList.pop(randLow))
-        #        #randUpp = self._random.randrange(0, len(fullIndexList))
-        #        #add to low the value that was popped from fullIndexList
-        #        #upp.append(fullIndexList.pop(randUpp))
-        #
-        #    upp=fullIndexList #copy the remaining list as upp (only if limit is median)
-        #    
-        #    while len(upp)>PopSubsampleSize:
-        #        randPop = self._random.randrange(0, len(upp))
-        #        midVal=upp.pop(randPop)
+            self.ConvergeScore=0 #reset counter if no longer in deadlock
 
-
-        lowLimToPop=lowLim
+        lowLimToPop=lowLim #intializing
         uppLimToPop=uppLim
         carryOver=0 #default. flag.
         if lowLim==uppLim: #if both list are the same, because limit is median (percentile: 50)
@@ -369,7 +358,7 @@ class MainEvoEliteMoranProcess(object):
                 rand=self._random.randrange(0, len(lowLimToPop)-1) #o is first elem
                 low.append(lowLimToPop.pop(rand))
             elif len(lowLimToPop)==1:
-                low.append(lowLimToPop.pop()) #bypass the random number generator, else ill cause error due to short list
+                low.append(lowLimToPop.pop()) #bypass the random number generator, else it will cause error due to short list
             else:#if lowLimToPop is empty
                 break #stop the loop.
         if carryOver:
@@ -525,26 +514,28 @@ class MainEvoEliteMoranProcess(object):
             self.ScoreConverged = True
         return self.ScoreConverged
 
-    #Modified by J Candra from the function of same name, without renaming function. 
-    # Original cannot be retained due to possible namespace clash
+    #Heavily Modified by J Candra from the function of same name, without renaming function. 
+    #Almost all parts in this functions, unless indicated, are 
+    #Original version cannot be retained due to possible namespace clash
     #Original version can be found in moran.py under MoranProcess class
     def __next__(self) -> object:
-        """
+        """ 
         Iterate the population:
 
         - play the round's matches
-        - chooses a player proportionally to fitness (total score) to reproduce
-        (change this part)
+        - choose the worst half (or portion whose size was specified) of all the players to be replaced with copies of the other, best half (or  portion)^
         - mutate, if appropriate
-        - choose half of all the players to be replaced with copies of the other half
         - update the population
 
         Returns
         -------
-        MainEvoEliteMoranProcess:
+        MainEvoEliteMoranProcess:^
             Returns itself with a new population
+
+        ^Created by J Candra    
         """
         # Check the exit condition, that all players are of the same type.
+        # "or self.ConvergeScoreLimitCheck()" added by J Candra, the rest of these 2 lines of code were not made by J Candra
         if (self.stop_on_fixation and self.fixation_check()) or self.ConvergeScoreLimitCheck():
             raise StopIteration
 
@@ -570,11 +561,11 @@ class MainEvoEliteMoranProcess(object):
             pCull=cullList[counter] #cullList is list of integers
             if self.dispOutput:
                 print("killed = {}".format(pCull))
-            self.players[pCull]=self.mutate(pClone)
+            self.players[pCull]=self.mutate(pClone) #modified from original
             counter=counter+1
             
         # Record population.
-        self.populations.append(self.population_distribution())
+        self.populations.append(self.population_distribution()) #not made by J Candra
         return self
 
     def _matchup_indices(self) -> Set[Tuple[int, int]]:
@@ -608,6 +599,7 @@ class MainEvoEliteMoranProcess(object):
                 indices.add((i, j))
         return indices
 
+    #Minor additions made by J Candra
     def score_all(self) -> List:
         """Plays the next round of the process. Every player is paired up
         against every other player and the total scores are recorded.
@@ -617,6 +609,15 @@ class MainEvoEliteMoranProcess(object):
         scores:
             List of scores for each player
         """
+
+        ## Beginning of section coded by J Candra
+        if self.playerKnowsTurnLim:
+            match_attrLen=None #default settings. {"length": self.turns}. players know how manybturns there is in a match
+        else:
+            match_attrLen={"length": float('inf')} #players do not know how many turns tehre wil be, so assumes it is infinite
+
+        ## End of section coded by J Candra
+
         N = len(self.players)
         scores = [0] * N
         for i, j in self._matchup_indices():
@@ -630,6 +631,7 @@ class MainEvoEliteMoranProcess(object):
                 game=self.game,
                 deterministic_cache=self.deterministic_cache,
                 seed=next(self._bulk_random),
+                match_attributes=match_attrLen #added by J Candra
             )
             match.play()
             match_scores = match.final_score_per_turn()
