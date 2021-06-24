@@ -9,7 +9,7 @@ import sys #outout terminal result to file
 #normal match
 #check score each round and cumulatove score
 
-def TournamentWithNashEq(players,turns,repetitions,newFileNameNumber):
+def DuelTournament(players,turns,repetitions,newFileNameNumber):
 
     csv=False
 
@@ -62,7 +62,7 @@ def TournamentWithNashEq(players,turns,repetitions,newFileNameNumber):
             sys.stdout=orig_stdOut #change standard output back to default/normal
             n=n+1
 
-def MatchWithNashEq(players,turns,iterations,newFileNameNumber):
+def DuelMatch(players,turns,iterations,newFileNameNumber):
 
     csv=False
     n=1
@@ -72,7 +72,7 @@ def MatchWithNashEq(players,turns,iterations,newFileNameNumber):
         ##single match:
         match = axl.Match(players, turns=turns)
         match.play() 
-        res=match.result
+        res=match.result #only history of moves
 
         #print(rankName)
         #pprint.pprint(win)
@@ -102,6 +102,11 @@ def MatchWithNashEq(players,turns,iterations,newFileNameNumber):
             sys.stdout=orig_stdOut #change standard output back to default/normal
         n=n+1
 
+def updatePlayers(players):
+    players.pop()
+    
+    return
+
 
 TFT2players = [axl.TitForTat(), axl.SuspiciousTitForTat()]
 
@@ -109,8 +114,7 @@ TFT2players = [axl.TitForTat(), axl.SuspiciousTitForTat()]
 #attempt to make alternating round
 
 #def TournamentWithResultFile(players,turns,repetitions,iterations,newFileNameNumber):
-#TournamentWithNashEq(TFT2players,10,1,1,3)
-MatchWithNashEq(TFT2players,10,1,4)
+TournamentWithNashEq(TFT2players,10,1,1,3)
 
 
 #use modified moran process, moranEvolution.py

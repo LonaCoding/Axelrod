@@ -161,13 +161,15 @@ def EliteMoranProcessTournament(
             #sys.stdout=orig_stdOut #change standard output back to default/normal        
 
         #add winner to list or increment frequency if winner already in the  list
-        if win in winners:#if name already in list    
-            i=0
-            while i < len(winners):
-                if winners[i][0]==win:
-                    winners[i][1]=winners[i][1]+1
-                    break
-                i=i+1
+        for h in winners:  #fetch each entry in list
+            if h[0]==win:#if name already in list  
+                i=0
+                while i < len(winners):
+                    if winners[i][0]==win:
+                        winners[i][1]=winners[i][1]+1
+                        break
+                    i=i+1
+                break
         else:
             newEntry=[str(win),0]
             winners.append(newEntry)#make new entry
@@ -179,12 +181,18 @@ def EliteMoranProcessTournament(
 
     #shift iteration top axis title to the right
         #show how many times strategies won
-
+    currentBestAgent=0
     currentBestFreq=0
+    winX=[]
+    winY=[]
     for j in winners:
         if j[1]>currentBestFreq:
             currentBestFreq=j[1]
             currentBestAgent=j[0]
+        #get index list for baar graph
+        winX.append(j[0])
+        winY.append(j[1])
+
     print("Agent that won the most often: {name} ({freq} times)".format(name=currentBestAgent,freq=currentBestFreq))
     print("List of winners and how many times they won:")
     pprint.pprint(winners)
@@ -195,7 +203,7 @@ def EliteMoranProcessTournament(
     
 
     if createPlot>=2: #end of loop, aggregate and create main plot #\nIteration
-        subplotMain.suptitle("Moran Process Population by Generation in Different Iterations\nThreshold: {Threshold}% || Players: {numPlayers}|| Winner: {winner} ({freq})".format(Threshold=splitThresholdPercentile,numPlayers=len(agents), winner=currentBestAgent, freq=currentBestFreq), fontweight='black',fontsize='18')
+        subplotMain.suptitle("Moran Process Population by Generation in Different Iterations\nThreshold: {Threshold}% || Players: {numPlayers}|| Winner: {winner}".format(Threshold=splitThresholdPercentile,numPlayers=len(agents), winner=currentBestAgent), fontweight='black',fontsize='18',x=0.45)
         subplotMain.supxlabel('Generation',fontweight='bold',fontsize='16',ha='center')
         subplotMain.supylabel('Number of Individuals',fontweight='bold',fontsize='16',ha='center')
 
@@ -232,6 +240,7 @@ def EliteMoranProcessTournament(
         outputNewPath=shutil.move(subplotFileName, targetOutFolder) #move the saved image plot to output folder
 
 
+    #creat bar graph
     print("********** End of Experiment *************") 
 
 def Main_Experiment(multiExperimentBatches=False):
@@ -331,18 +340,18 @@ def Main_Experiment(multiExperimentBatches=False):
     #experimentBatchNum (do not include if running only a single experiment)
 
     #                                 pop|fn|turn|seed|iter|st|cgl|do|cp(pft|csv)
-    EliteMoranProcessTournament(playerBest1,111,200,initSeed,20,50,100,True,2,testing=False,experimentBatchNum=-1) #
-    EliteMoranProcessTournament(playerBest1,112,200,initSeed,20,25,100,True,2,testing=False,experimentBatchNum=-1) #
-    EliteMoranProcessTournament(playerBest2,113,200,initSeed,20,50,100,True,2,testing=False,experimentBatchNum=-1) #
-    EliteMoranProcessTournament(playerBest2,114,200,initSeed,20,25,100,True,2,testing=False,experimentBatchNum=-1) #
+    #EliteMoranProcessTournament(playerBest1,111,200,initSeed,20,50,100,True,2,testing=False,experimentBatchNum=-1) #
+    #EliteMoranProcessTournament(playerBest1,112,200,initSeed,20,25,100,True,2,testing=False,experimentBatchNum=-1) #
+    #EliteMoranProcessTournament(playerBest2,113,200,initSeed,20,50,100,True,2,testing=False,experimentBatchNum=-1) #
+    #EliteMoranProcessTournament(playerBest2,114,200,initSeed,20,25,100,True,2,testing=False,experimentBatchNum=-1) #
+#
+#
+#
+    #EliteMoranProcessTournament(myPlayersAgainstTFT,115,200,initSeed,20,50,100,True,2,testing=False,experimentBatchNum=-1) #my strategies vs TFT
+    #EliteMoranProcessTournament(myPlayersAgainstTFT,116,200,initSeed,20,25,100,True,2,testing=False,experimentBatchNum=-1) #my strategies vs TFT
 
-
-
-    EliteMoranProcessTournament(myPlayersAgainstTFT,115,200,initSeed,20,50,100,True,2,testing=False,experimentBatchNum=-1) #my strategies vs TFT
-    EliteMoranProcessTournament(myPlayersAgainstTFT,116,200,initSeed,20,25,100,True,2,testing=False,experimentBatchNum=-1) #my strategies vs TFT
-
-    EliteMoranProcessTournament(myPlayersAgainstplayerBest1,103,200,initSeed,20,50,100,True,2,testing=False,experimentBatchNum=-1) #my strategies vs playerBest1 with population split threshold of 50%
-    EliteMoranProcessTournament(myPlayersAgainstplayerBest1,104,200,initSeed,20,25,100,True,2,testing=False,experimentBatchNum=-1) #my strategies vs playerBest1 with population split threshold of 25%
+    EliteMoranProcessTournament(myPlayersAgainstplayerBest1,109,200,initSeed,20,50,100,True,2,testing=False,experimentBatchNum=-1) #my strategies vs playerBest1 with population split threshold of 50%
+    EliteMoranProcessTournament(myPlayersAgainstplayerBest1,110,200,initSeed,20,25,100,True,2,testing=False,experimentBatchNum=-1) #my strategies vs playerBest1 with population split threshold of 25%
 
 
 
