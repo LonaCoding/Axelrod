@@ -3,26 +3,23 @@ import axelrod as axl
 import pprint #for formatting output lists
 import sys #outout terminal result to file
 
-def DuelMatch(initPlayers,testPlayer,turns,iterations):
-
-    csv=False
-    n=1
-    
-    
+def DuelMatch(initPlayers,testPlayer,turns,iterations,match_attributes):
     players=[]
     fullPlayers=initPlayers #initialize as to preserve the original population
     #players.append(fullPlayers[-1]) #add first player
-    pc=1
+    
+    fpc=1
     for p in testPlayer:
         players.append(p)
+        pc=1
         for fp in fullPlayers:
             players.append(fp) #add next player
             sumFSt0=0 #reset
             sumFSt1=0 #reset
-            n=0
-            while n<=iterations:
+            i=0
+            while i<=iterations:
                 ##single match:
-                match = axl.Match(players, turns=turns) #Do the match
+                match = axl.Match(players, turns=turns,match_attributes=match_attributes) #Do the match
                 match.play() 
                 res=match.result #only history of moves
                 fs=match.final_score()
@@ -37,8 +34,7 @@ def DuelMatch(initPlayers,testPlayer,turns,iterations):
                 sumFSt0=sumFSt0+fst[0]
                 sumFSt1=sumFSt1+fst[1]
 
-                print("Nash Equilibrium Single Match:")
-                print("Trial run {numTrial}, Pair {playerCount} ({testPlayer}|{player}):".format(numTrial=n,playerCount=pc, testPlayer=str(p),player=str(fp)))
+                print("Nash Equilibrium Single Match {iter} of ({firstPC}) {testPlayer} vs ({PC}) {player}):".format(iter=i,firstPC=fpc,PC=pc, testPlayer=str(p),player=str(fp)))
                 print("==================================================")
                 print("List of players:")
                 for s in players: #list of strategies in play
@@ -46,7 +42,7 @@ def DuelMatch(initPlayers,testPlayer,turns,iterations):
                 print("==================================================")
                 #print("Result:")
                 #pprint.pprint(res)
-                print("--------------------------------------------------")
+                #print("--------------------------------------------------")
                 print("Final Scores: {}".format(fs))
                 #pprint.pprint(fs)
                 #print("--------------------------------------------------")
@@ -58,29 +54,46 @@ def DuelMatch(initPlayers,testPlayer,turns,iterations):
                 print("--------------------------------------------------")
                 #print("++++++++++++++++++++++++++++++++++++++++++++++++++")
                 #sys.stdout=orig_stdOut #change standard output back to default/normal
-                n=n+1
+                i=i+1
             average0=sumFSt0/iterations
             average1=sumFSt1/iterations
+            if average0>average1:
+                averageWinner=players[0]
+            elif average0<average1:
+                averageWinner=players[1]
+            else: #if tied
+                averageWinner="None (Tie)"
             print("++++++++++++++++++++++++++++++++++++++++++++++++++")
-            print("Average score: {}, {}".format(average0, average1))
+            print("Average final winner and score: {} ({}, {})".format(averageWinner, average0, average1))
             print("***************************************************")
             players.pop()
             pc=pc+1
         players.pop()
+        fpc=fpc+1
 
 
-AllStratPlayers = [s() for s in axl.all_strategies]
-playerToTest=[axl.ShortMemDynamicThreshold(),axl.ShortMemFuzzy(),axl.ShortMemProbabilistic(),axl.ShortMemProbPreferences()]
-myPlayersAgainstTFT=[axl.ShortMemDynamicThreshold(),axl.ShortMemFuzzy(),axl.ShortMemProbabilistic(),axl.ShortMemProbPreferences(),axl.TitForTat()]            
 
-TFT2players = [axl.TitForTat(), axl.SuspiciousTitForTat()]
+def DuelExperiment(playerKnowsTurnLim):
+    if playerKnowsTurnLim:
+        match_attrLen=None #default settings. {"length": self.turns}. players know how manybturns there is in a match
+    else:
+        match_attrLen={"length": float('inf')} #players do not know how many turns tehre wil be, so assumes it is infinite
 
-#Both are TFT, but the difference is which first move
-#attempt to make alternating round
+    AllStratPlayers = [s() for s in axl.all_strategies]
+    shortMemOnly=[axl.ShortMem()] #control/predecessor
+    playerToTest=[axl.ShortMemDynamicThreshold(),axl.ShortMemFuzzy(),axl.ShortMemProbabilistic(),axl.ShortMemProbPreferences()]
+    myPlayersAgainstTFT=[axl.ShortMemDynamicThreshold(),axl.ShortMemFuzzy(),axl.ShortMemProbabilistic(),axl.ShortMemProbPreferences(),axl.TitForTat()]            
 
-#def TournamentWithResultFile(players,turns,repetitions,iterations,newFileNameNumber):
-DuelMatch(AllStratPlayers,playerToTest,200,10)
+    TFT2players = [axl.TitForTat(), axl.SuspiciousTitForTat()]
+
+    #Both are TFT, but the difference is which first move
+    #attempt to make alternating round
+
+    #def TournamentWithResultFile(players,turns,repetitions,iterations,newFileNameNumber):
+    DuelMatch(AllStratPlayers,playerToTest,200,10,match_attributes=match_attrLen)
 
 
-#use modified moran process, moranEvolution.py
-#population pool selected from other best
+    #use modified moran process, moranEvolution.py
+    #population pool selected from other best
+
+DuelExperiment(True)
