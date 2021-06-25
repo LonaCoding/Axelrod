@@ -11,7 +11,7 @@ def DuelMatch(initPlayers,testPlayer,turns,iterations):
     
     players=[]
     fullPlayers=initPlayers #initialize as to preserve the original population
-    players.append(fullPlayers[-1]) #add first player
+    #players.append(fullPlayers[-1]) #add first player
     pc=1
     for p in testPlayer:
         players.append(p)
@@ -70,7 +70,7 @@ def DuelMatch(initPlayers,testPlayer,turns,iterations):
 
 
 AllStratPlayers = [s() for s in axl.all_strategies]
-playerToTest=[axl.ShortMemDynamicThreshold()]
+playerToTest=[axl.ShortMemDynamicThreshold(),axl.ShortMemFuzzy(),axl.ShortMemProbabilistic(),axl.ShortMemProbPreferences()]
 myPlayersAgainstTFT=[axl.ShortMemDynamicThreshold(),axl.ShortMemFuzzy(),axl.ShortMemProbabilistic(),axl.ShortMemProbPreferences(),axl.TitForTat()]            
 
 TFT2players = [axl.TitForTat(), axl.SuspiciousTitForTat()]
