@@ -282,8 +282,16 @@ def Main_Experiment(multiExperimentBatches=False):
                                 axl.EvolvedFSM6(), axl.SecondByRichardHufford(), axl.TitForTat(), 
                                 axl.EvolvedFSM16(), axl.EvolvedHMM5(), axl.EvolvedLookerUp2_2_2(), 
                                 axl.Michaelos(), axl.Defector(),axl.Cooperator(),axl.Random(),
-                                axl.WinStayLoseShift(),axl.Grudger(),axl.Prober(), axl.TitFor2Tats()]            
-
+                                axl.WinStayLoseShift(),axl.Grudger(),axl.Prober(), axl.TitFor2Tats()]       
+              
+    myPlayersAgainstplayerBest2=[axl.ShortMemDynamicThreshold(),axl.ShortMemFuzzy(),axl.ShortMemProbabilistic(),axl.ShortMemProbPreferences(),
+                                axl.EvolvedFSM6(), axl.SecondByRichardHufford(), axl.TitForTat(), 
+                                axl.EvolvedFSM16(), axl.EvolvedHMM5(), axl.EvolvedLookerUp2_2_2(), 
+                                axl.Michaelos(), axl.Defector(),axl.Cooperator(),axl.Random(),
+                                axl.WinStayLoseShift(),axl.Grudger(),axl.Prober(), axl.TitFor2Tats(),
+                                axl.EvolvedANNNoise05(),axl.Aggravater(),axl.RevisedDowning(),axl.Raider(),
+                                axl.Prober3(),axl.FirstByDowning(),axl.Fortress3(),axl.EvolvedANN5(),axl.DBS()
+                                ]   
 
     #playerBestDouble=[axl.EvolvedFSM6()*2, axl.SecondByRichardHufford()*2, axl.TitForTat()*2,
     #                    axl.EvolvedFSM16()*2, axl.EvolvedHMM5()*2, axl.EvolvedLookerUp2_2_2()*2, 
@@ -347,18 +355,20 @@ def Main_Experiment(multiExperimentBatches=False):
     #experimentBatchNum (do not include if running only a single experiment)
 
     #                                 pop|fn|turn|seed|iter|st|cgl|do|cp(pft|csv)
-    #EliteMoranProcessTournament(playerBest1,121,200,initSeed,20,50,100,True,2,testing=False,experimentBatchNum=-1,playerKnowsTurnLim=False) #
-    #EliteMoranProcessTournament(playerBest1,112,200,initSeed,20,25,100,True,2,testing=False,experimentBatchNum=-1,playerKnowsTurnLim=False) #
-    #EliteMoranProcessTournament(playerBest2,122,200,initSeed,20,50,100,True,2,testing=False,experimentBatchNum=-1,playerKnowsTurnLim=False) #
-    #EliteMoranProcessTournament(playerBest2,114,200,initSeed,20,25,100,True,2,testing=False,experimentBatchNum=-1,playerKnowsTurnLim=False) #
+    EliteMoranProcessTournament(playerBest1,126,200,initSeed,20,50,100,True,2,testing=False,experimentBatchNum=-1,playerKnowsTurnLim=True) #
+    #EliteMoranProcessTournament(playerBest1,112,200,initSeed,20,25,100,True,2,testing=False,experimentBatchNum=-1,playerKnowsTurnLim=True) #
+    EliteMoranProcessTournament(playerBest2,127,200,initSeed,20,50,100,True,2,testing=False,experimentBatchNum=-1,playerKnowsTurnLim=True) #
+    #EliteMoranProcessTournament(playerBest2,114,200,initSeed,20,25,100,True,2,testing=False,experimentBatchNum=-1,playerKnowsTurnLim=True) #
 #
 #
 #
-    EliteMoranProcessTournament(myPlayersAgainstTFT,123,200,initSeed,20,50,100,True,2,testing=False,experimentBatchNum=-1,playerKnowsTurnLim=False) #my strategies vs TFT
-    #EliteMoranProcessTournament(myPlayersAgainstTFT,116,200,initSeed,20,25,100,True,2,testing=False,experimentBatchNum=-1,playerKnowsTurnLim=False) #my strategies vs TFT
+    #EliteMoranProcessTournament(myPlayersAgainstTFT,123,200,initSeed,20,50,100,True,2,testing=False,experimentBatchNum=-1,playerKnowsTurnLim=True) #my strategies vs TFT
+    #EliteMoranProcessTournament(myPlayersAgainstTFT,116,200,initSeed,20,25,100,True,2,testing=False,experimentBatchNum=-1,playerKnowsTurnLim=True) #my strategies vs TFT
 
-    EliteMoranProcessTournament(myPlayersAgainstplayerBest1,124,200,initSeed,20,50,100,True,2,testing=False,experimentBatchNum=-1,playerKnowsTurnLim=False) #my strategies vs playerBest1 with population split threshold of 50%
-    #EliteMoranProcessTournament(myPlayersAgainstplayerBest1,110,200,initSeed,20,25,100,True,2,testing=False,experimentBatchNum=-1,playerKnowsTurnLim=False) #my strategies vs playerBest1 with population split threshold of 25%
+    EliteMoranProcessTournament(myPlayersAgainstplayerBest1,128,200,initSeed,20,50,100,True,2,testing=False,experimentBatchNum=-1,playerKnowsTurnLim=True) #my strategies vs playerBest1 with population split threshold of 50%
+    #EliteMoranProcessTournament(myPlayersAgainstplayerBest1,110,200,initSeed,20,25,100,True,2,testing=False,experimentBatchNum=-1,playerKnowsTurnLim=True) #my strategies vs playerBest1 with population split threshold of 25%
+    EliteMoranProcessTournament(myPlayersAgainstplayerBest2,129,200,initSeed,20,50,100,True,2,testing=False,experimentBatchNum=-1,playerKnowsTurnLim=True) #my strategies vs playerBest1 with population split threshold of 50%
+    #EliteMoranProcessTournament(myPlayersAgainstplayerBest2,110,200,initSeed,20,25,100,True,2,testing=False,experimentBatchNum=-1,playerKnowsTurnLim=True) #my strategies vs playerBest1 with population split threshold of 25%
 
 
 
