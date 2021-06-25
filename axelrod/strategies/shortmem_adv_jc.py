@@ -1,4 +1,5 @@
-#This file is a modified version of shortmem.py
+#This file is largely based on the shortmem.py that was part of the original Axelrod Python Library
+#With major changes and additions made by J Candra on it
 from axelrod import Player
 from axelrod.action import Action
 import random
@@ -267,9 +268,7 @@ class ShortMemFuzzy(Player):
 
 
         #3. last move (Influenced by Tit-For-Tat)
-        lastMove=opponent.history[-1]
-        lastMoveDefect=lastMove.count(D)
-        if lastMoveDefect==1: #if opponent defected last turn
+        if opponent.history[-1]==D: #if opponent defected last turn
             fuzzy=fuzzy+0.25
         else:
             fuzzy=fuzzy-0.25
@@ -507,7 +506,7 @@ class ShortMemProbPreferences(Player):
                     else: 
                         return D
 
-        #make fuzzy logic:
+        #Probability:
         #                                           probability tables
         #   d                           0   1   2   3   4   5   6   7   8   9   10 
         #situation = d x d              0   1   4   9   16  25  36  49  64  81  100
@@ -516,12 +515,7 @@ class ShortMemProbPreferences(Player):
         #situation = (10-d) x (10-d)    100 81  64  49  36  25  16  9   4   1   0                                                                      1
         #                                                  (n/2)^
 
-            #50-50 chance of being cooperative or mimicking opponent's previous move (Tit-for-Tat)
-            #randCoop2=random.random()
-            #if randCoop2>=0.5:
-            #    return C
-            #else:
-            #    return opponent.history[-1] #play Tit-for-Tat
+
 
 
         #if opponent defected all the time

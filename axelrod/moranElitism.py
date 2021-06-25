@@ -1,4 +1,6 @@
 """Implementation of the Moran process on Graphs, with elitist selection rules."""
+#This file is largely based on the moran.py that was part of the original Axelrod Python Library
+#With major changes and additions made by J Candra on it
 
 from collections import Counter
 from typing import Callable, List, Optional, Set, Tuple
