@@ -1,5 +1,6 @@
 #This entire file is created by J Candra
-#The purpose of this file is to conduct experiments and get the results of it
+#The purpose of this file is to conduct experiments involving 
+#Elitist Moran Process and get the results of said experiments
 import random
 import math
 import matplotlib.pyplot as mplot
@@ -34,7 +35,8 @@ def EliteMoranProcessTournament(
     PlotFileType="PNG",
     csv=False,
     testing=False,
-    experimentBatchNum=-2
+    experimentBatchNum=-2,
+    playerKnowsTurnLim=True
     ):
 
     #print test parameters information
@@ -61,6 +63,8 @@ def EliteMoranProcessTournament(
     print("10.PlotFileType:                         {}".format(PlotFileType))    
     print("11.(use) csv (as output's file format):  {}".format(csv))
     print("12.testing (mode):                       {}".format(testing))#determines file path to send plot images to 
+    print("13.experimentBatchNum(ber):              {}".format(experimentBatchNum))
+    print("14.(Does) playerKnowsTurnLim(it):        {}".format(playerKnowsTurnLim))#determines file path to send plot images to 
     print("------------------------------------------------------------")
     
     #Initialize
@@ -109,7 +113,8 @@ def EliteMoranProcessTournament(
             seed=seed,
             splitThresholdPercentile=splitThresholdPercentile,
             dispOutput=displayOutput,
-            ConvergeScoreLimit=ConvergeScoreGenLimit
+            ConvergeScoreLimit=ConvergeScoreGenLimit,
+            playerKnowsTurnLim=playerKnowsTurnLim
             )
         TourRes = tournament.play() #tournament results
 
@@ -271,9 +276,9 @@ def Main_Experiment(multiExperimentBatches=False):
                 axl.Prober3(),axl.FirstByDowning(),axl.Fortress3(),axl.EvolvedANN5(),axl.DBS()
                 ]
 
-    myPlayersAgainstTFT=[axl.ShortMemDynamicThreshold(),axl.ShortMemProbabilistic(),axl.ShortMemProbabilisticFuzzy(),axl.TitForTat()]            
+    myPlayersAgainstTFT=[axl.ShortMemDynamicThreshold(),axl.ShortMemFuzzy(),axl.ShortMemProbabilistic(),axl.ShortMemProbPreferences(),axl.TitForTat()]            
 
-    myPlayersAgainstplayerBest1=[axl.ShortMemDynamicThreshold(),axl.ShortMemProbabilistic(),axl.ShortMemProbabilisticFuzzy(),
+    myPlayersAgainstplayerBest1=[axl.ShortMemDynamicThreshold(),axl.ShortMemFuzzy(),axl.ShortMemProbabilistic(),axl.ShortMemProbPreferences(),
                                 axl.EvolvedFSM6(), axl.SecondByRichardHufford(), axl.TitForTat(), 
                                 axl.EvolvedFSM16(), axl.EvolvedHMM5(), axl.EvolvedLookerUp2_2_2(), 
                                 axl.Michaelos(), axl.Defector(),axl.Cooperator(),axl.Random(),
@@ -342,18 +347,18 @@ def Main_Experiment(multiExperimentBatches=False):
     #experimentBatchNum (do not include if running only a single experiment)
 
     #                                 pop|fn|turn|seed|iter|st|cgl|do|cp(pft|csv)
-    #EliteMoranProcessTournament(playerBest1,111,200,initSeed,20,50,100,True,2,testing=False,experimentBatchNum=-1) #
-    #EliteMoranProcessTournament(playerBest1,112,200,initSeed,20,25,100,True,2,testing=False,experimentBatchNum=-1) #
-    #EliteMoranProcessTournament(playerBest2,113,200,initSeed,20,50,100,True,2,testing=False,experimentBatchNum=-1) #
-    #EliteMoranProcessTournament(playerBest2,114,200,initSeed,20,25,100,True,2,testing=False,experimentBatchNum=-1) #
+    #EliteMoranProcessTournament(playerBest1,121,200,initSeed,20,50,100,True,2,testing=False,experimentBatchNum=-1,playerKnowsTurnLim=False) #
+    #EliteMoranProcessTournament(playerBest1,112,200,initSeed,20,25,100,True,2,testing=False,experimentBatchNum=-1,playerKnowsTurnLim=False) #
+    #EliteMoranProcessTournament(playerBest2,122,200,initSeed,20,50,100,True,2,testing=False,experimentBatchNum=-1,playerKnowsTurnLim=False) #
+    #EliteMoranProcessTournament(playerBest2,114,200,initSeed,20,25,100,True,2,testing=False,experimentBatchNum=-1,playerKnowsTurnLim=False) #
 #
 #
 #
-    #EliteMoranProcessTournament(myPlayersAgainstTFT,115,200,initSeed,20,50,100,True,2,testing=False,experimentBatchNum=-1) #my strategies vs TFT
-    #EliteMoranProcessTournament(myPlayersAgainstTFT,116,200,initSeed,20,25,100,True,2,testing=False,experimentBatchNum=-1) #my strategies vs TFT
+    EliteMoranProcessTournament(myPlayersAgainstTFT,123,200,initSeed,20,50,100,True,2,testing=False,experimentBatchNum=-1,playerKnowsTurnLim=False) #my strategies vs TFT
+    #EliteMoranProcessTournament(myPlayersAgainstTFT,116,200,initSeed,20,25,100,True,2,testing=False,experimentBatchNum=-1,playerKnowsTurnLim=False) #my strategies vs TFT
 
-    EliteMoranProcessTournament(myPlayersAgainstplayerBest1,109,200,initSeed,20,50,100,True,2,testing=False,experimentBatchNum=-1) #my strategies vs playerBest1 with population split threshold of 50%
-    EliteMoranProcessTournament(myPlayersAgainstplayerBest1,110,200,initSeed,20,25,100,True,2,testing=False,experimentBatchNum=-1) #my strategies vs playerBest1 with population split threshold of 25%
+    EliteMoranProcessTournament(myPlayersAgainstplayerBest1,124,200,initSeed,20,50,100,True,2,testing=False,experimentBatchNum=-1,playerKnowsTurnLim=False) #my strategies vs playerBest1 with population split threshold of 50%
+    #EliteMoranProcessTournament(myPlayersAgainstplayerBest1,110,200,initSeed,20,25,100,True,2,testing=False,experimentBatchNum=-1,playerKnowsTurnLim=False) #my strategies vs playerBest1 with population split threshold of 25%
 
 
 

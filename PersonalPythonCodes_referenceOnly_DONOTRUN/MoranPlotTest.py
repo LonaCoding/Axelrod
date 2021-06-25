@@ -30,7 +30,7 @@ while n<iterations+1:
     #find way to write these to file
     ax = tournament.populations_plot()
     #plt.show()
-    plt.savefig('test1.png', bbox_inches='tight')
+    plt.savefig('test2.png', bbox_inches='tight')
     win=tournament.winning_strategy_name
     score=tournament.score_history
     

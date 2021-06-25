@@ -1,0 +1,44 @@
+Nash Equilibrium Single Match:
+Trial run 1, Pair 1 (ShortMemDynamicThreshold: 0, False):
+==================================================
+List of players:
+Tit For Tat
+ShortMemProbPreferences: 10, 5
+==================================================
+Result:
+[(C, C), (C, C), (C, C), (C, C), (C, C), (C, C), (C, C), (C, C), (C, C), (C, C)]
+--------------------------------------------------
+Scores:
+ShortMemProbPreferences: 10, 5
+--------------------------------------------------
+Final Scores:
+(30, 30)
+--------------------------------------------------
+Final Scores per Turn:
+(3.0, 3.0)
+--------------------------------------------------
+Winner:
+False
+***************************************************
+Nash Equilibrium Single Match:
+Trial run 1, Pair 2 (ShortMemFuzzy):
+==================================================
+List of players:
+Tit For Tat
+ShortMemProbabilistic: 50
+==================================================
+Result:
+[(C, C), (C, C), (C, C), (C, C), (C, C), (C, C), (C, C), (C, C), (C, C), (C, C)]
+--------------------------------------------------
+Scores:
+ShortMemProbabilistic: 50
+--------------------------------------------------
+Final Scores:
+(30, 30)
+--------------------------------------------------
+Final Scores per Turn:
+(3.0, 3.0)
+--------------------------------------------------
+Winner:
+False
+***************************************************

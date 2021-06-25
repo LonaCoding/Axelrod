@@ -1,0 +1,380 @@
+Nash Equilibrium Single Match:
+Trial run 1, Pair 1 (ALLCorALLD):
+==================================================
+List of players:
+ShortMemDynamicThreshold: 0, False
+ALLCorALLD
+==================================================
+Scores:
+ALLCorALLD
+--------------------------------------------------
+Final Scores:
+(600, 600)
+--------------------------------------------------
+Final Scores per Turn:
+(3.0, 3.0)
+--------------------------------------------------
+Winner:
+False
+***************************************************
+Nash Equilibrium Single Match:
+Trial run 2, Pair 1 (ALLCorALLD):
+==================================================
+List of players:
+ShortMemDynamicThreshold: 0, False
+ALLCorALLD
+==================================================
+Scores:
+ALLCorALLD
+--------------------------------------------------
+Final Scores:
+(600, 600)
+--------------------------------------------------
+Final Scores per Turn:
+(3.0, 3.0)
+--------------------------------------------------
+Winner:
+False
+***************************************************
+Nash Equilibrium Single Match:
+Trial run 3, Pair 1 (ALLCorALLD):
+==================================================
+List of players:
+ShortMemDynamicThreshold: 0, False
+ALLCorALLD
+==================================================
+Scores:
+ALLCorALLD
+--------------------------------------------------
+Final Scores:
+(189, 244)
+--------------------------------------------------
+Final Scores per Turn:
+(0.945, 1.22)
+--------------------------------------------------
+Winner:
+ALLCorALLD
+***************************************************
+Nash Equilibrium Single Match:
+Trial run 4, Pair 1 (ALLCorALLD):
+==================================================
+List of players:
+ShortMemDynamicThreshold: 0, False
+ALLCorALLD
+==================================================
+Scores:
+ALLCorALLD
+--------------------------------------------------
+Final Scores:
+(600, 600)
+--------------------------------------------------
+Final Scores per Turn:
+(3.0, 3.0)
+--------------------------------------------------
+Winner:
+False
+***************************************************
+Nash Equilibrium Single Match:
+Trial run 5, Pair 1 (ALLCorALLD):
+==================================================
+List of players:
+ShortMemDynamicThreshold: 0, False
+ALLCorALLD
+==================================================
+Scores:
+ALLCorALLD
+--------------------------------------------------
+Final Scores:
+(600, 600)
+--------------------------------------------------
+Final Scores per Turn:
+(3.0, 3.0)
+--------------------------------------------------
+Winner:
+False
+***************************************************
+Nash Equilibrium Single Match:
+Trial run 6, Pair 1 (ALLCorALLD):
+==================================================
+List of players:
+ShortMemDynamicThreshold: 0, False
+ALLCorALLD
+==================================================
+Scores:
+ALLCorALLD
+--------------------------------------------------
+Final Scores:
+(189, 244)
+--------------------------------------------------
+Final Scores per Turn:
+(0.945, 1.22)
+--------------------------------------------------
+Winner:
+ALLCorALLD
+***************************************************
+Nash Equilibrium Single Match:
+Trial run 7, Pair 1 (ALLCorALLD):
+==================================================
+List of players:
+ShortMemDynamicThreshold: 0, False
+ALLCorALLD
+==================================================
+Scores:
+ALLCorALLD
+--------------------------------------------------
+Final Scores:
+(600, 600)
+--------------------------------------------------
+Final Scores per Turn:
+(3.0, 3.0)
+--------------------------------------------------
+Winner:
+False
+***************************************************
+Nash Equilibrium Single Match:
+Trial run 8, Pair 1 (ALLCorALLD):
+==================================================
+List of players:
+ShortMemDynamicThreshold: 0, False
+ALLCorALLD
+==================================================
+Scores:
+ALLCorALLD
+--------------------------------------------------
+Final Scores:
+(600, 600)
+--------------------------------------------------
+Final Scores per Turn:
+(3.0, 3.0)
+--------------------------------------------------
+Winner:
+False
+***************************************************
+Nash Equilibrium Single Match:
+Trial run 9, Pair 1 (ALLCorALLD):
+==================================================
+List of players:
+ShortMemDynamicThreshold: 0, False
+ALLCorALLD
+==================================================
+Scores:
+ALLCorALLD
+--------------------------------------------------
+Final Scores:
+(600, 600)
+--------------------------------------------------
+Final Scores per Turn:
+(3.0, 3.0)
+--------------------------------------------------
+Winner:
+False
+***************************************************
+Nash Equilibrium Single Match:
+Trial run 10, Pair 1 (ALLCorALLD):
+==================================================
+List of players:
+ShortMemDynamicThreshold: 0, False
+ALLCorALLD
+==================================================
+Scores:
+ALLCorALLD
+--------------------------------------------------
+Final Scores:
+(600, 600)
+--------------------------------------------------
+Final Scores per Turn:
+(3.0, 3.0)
+--------------------------------------------------
+Winner:
+False
+***************************************************
+Nash Equilibrium Single Match:
+Trial run 11, Pair 1 (ALLCorALLD):
+==================================================
+List of players:
+ShortMemDynamicThreshold: 0, False
+ALLCorALLD
+==================================================
+Scores:
+ALLCorALLD
+--------------------------------------------------
+Final Scores:
+(600, 600)
+--------------------------------------------------
+Final Scores per Turn:
+(3.0, 3.0)
+--------------------------------------------------
+Winner:
+False
+***************************************************
+Nash Equilibrium Single Match:
+Trial run 12, Pair 1 (ALLCorALLD):
+==================================================
+List of players:
+ShortMemDynamicThreshold: 0, False
+ALLCorALLD
+==================================================
+Scores:
+ALLCorALLD
+--------------------------------------------------
+Final Scores:
+(189, 244)
+--------------------------------------------------
+Final Scores per Turn:
+(0.945, 1.22)
+--------------------------------------------------
+Winner:
+ALLCorALLD
+***************************************************
+Nash Equilibrium Single Match:
+Trial run 13, Pair 1 (ALLCorALLD):
+==================================================
+List of players:
+ShortMemDynamicThreshold: 0, False
+ALLCorALLD
+==================================================
+Scores:
+ALLCorALLD
+--------------------------------------------------
+Final Scores:
+(600, 600)
+--------------------------------------------------
+Final Scores per Turn:
+(3.0, 3.0)
+--------------------------------------------------
+Winner:
+False
+***************************************************
+Nash Equilibrium Single Match:
+Trial run 14, Pair 1 (ALLCorALLD):
+==================================================
+List of players:
+ShortMemDynamicThreshold: 0, False
+ALLCorALLD
+==================================================
+Scores:
+ALLCorALLD
+--------------------------------------------------
+Final Scores:
+(600, 600)
+--------------------------------------------------
+Final Scores per Turn:
+(3.0, 3.0)
+--------------------------------------------------
+Winner:
+False
+***************************************************
+Nash Equilibrium Single Match:
+Trial run 15, Pair 1 (ALLCorALLD):
+==================================================
+List of players:
+ShortMemDynamicThreshold: 0, False
+ALLCorALLD
+==================================================
+Scores:
+ALLCorALLD
+--------------------------------------------------
+Final Scores:
+(189, 244)
+--------------------------------------------------
+Final Scores per Turn:
+(0.945, 1.22)
+--------------------------------------------------
+Winner:
+ALLCorALLD
+***************************************************
+Nash Equilibrium Single Match:
+Trial run 16, Pair 1 (ALLCorALLD):
+==================================================
+List of players:
+ShortMemDynamicThreshold: 0, False
+ALLCorALLD
+==================================================
+Scores:
+ALLCorALLD
+--------------------------------------------------
+Final Scores:
+(189, 244)
+--------------------------------------------------
+Final Scores per Turn:
+(0.945, 1.22)
+--------------------------------------------------
+Winner:
+ALLCorALLD
+***************************************************
+Nash Equilibrium Single Match:
+Trial run 17, Pair 1 (ALLCorALLD):
+==================================================
+List of players:
+ShortMemDynamicThreshold: 0, False
+ALLCorALLD
+==================================================
+Scores:
+ALLCorALLD
+--------------------------------------------------
+Final Scores:
+(600, 600)
+--------------------------------------------------
+Final Scores per Turn:
+(3.0, 3.0)
+--------------------------------------------------
+Winner:
+False
+***************************************************
+Nash Equilibrium Single Match:
+Trial run 18, Pair 1 (ALLCorALLD):
+==================================================
+List of players:
+ShortMemDynamicThreshold: 0, False
+ALLCorALLD
+==================================================
+Scores:
+ALLCorALLD
+--------------------------------------------------
+Final Scores:
+(600, 600)
+--------------------------------------------------
+Final Scores per Turn:
+(3.0, 3.0)
+--------------------------------------------------
+Winner:
+False
+***************************************************
+Nash Equilibrium Single Match:
+Trial run 19, Pair 1 (ALLCorALLD):
+==================================================
+List of players:
+ShortMemDynamicThreshold: 0, False
+ALLCorALLD
+==================================================
+Scores:
+ALLCorALLD
+--------------------------------------------------
+Final Scores:
+(600, 600)
+--------------------------------------------------
+Final Scores per Turn:
+(3.0, 3.0)
+--------------------------------------------------
+Winner:
+False
+***************************************************
+Nash Equilibrium Single Match:
+Trial run 20, Pair 1 (ALLCorALLD):
+==================================================
+List of players:
+ShortMemDynamicThreshold: 0, False
+ALLCorALLD
+==================================================
+Scores:
+ALLCorALLD
+--------------------------------------------------
+Final Scores:
+(189, 244)
+--------------------------------------------------
+Final Scores per Turn:
+(0.945, 1.22)
+--------------------------------------------------
+Winner:
+ALLCorALLD
+***************************************************
