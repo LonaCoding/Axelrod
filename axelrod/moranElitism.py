@@ -1,4 +1,4 @@
-"""Implementation of the Moran process on Graphs, with elitist evolutionary rules."""
+"""Implementation of the Moran process on Graphs, with elitist selection rules."""
 
 from collections import Counter
 from typing import Callable, List, Optional, Set, Tuple
@@ -17,11 +17,11 @@ from axelrod.random_ import BulkRandomGenerator, RandomGenerator
 #The only functions J Candra modified and renamed:
 #splitPlayersByScore: copied, then modified and renamed from fitness_proportionate_selection
 #Functions modified by J Candra while still retaining the same name:
-#MainEvoEliteMoranProcess
+#MainEliteMoranProcess
 #
 
 
-class MainEvoEliteMoranProcess(object):
+class MainEliteMoranProcess(object):
     def __init__( #with additional comments made by J Candra for reference
         self,
         players: List[Player],
@@ -152,7 +152,7 @@ class MainEvoEliteMoranProcess(object):
         self.ConvergeScoreLimit=ConvergeScoreLimit
         self.playerKnowsTurnLim=playerKnowsTurnLim
         #self.currBestPlayer= None #only use if needed
-        #Everything above here until the next comment is made by J Candra
+        #Everything above here until the previous comment is made by J Candra
         self.mode = mode
         if deterministic_cache is not None:
             self.deterministic_cache = deterministic_cache
@@ -208,6 +208,7 @@ class MainEvoEliteMoranProcess(object):
         )
         self.fixated = self.fixation_check()
 
+    #Not created nor modified by J Candra
     def set_players(self) -> None:
         """Copy the initial players into the first population, setting seeds as needed."""
         self.players = []
@@ -225,6 +226,7 @@ class MainEvoEliteMoranProcess(object):
         self.populations = [self.population_distribution()]
 
     #The function below is no longer used, but kept here for reference with splitPlayersByScore
+    #Not created nor modified by J Candra
     def fitness_proportionate_selection(
         self, scores: List, fitness_transformation: Callable = None
     ) -> int:
@@ -266,10 +268,18 @@ class MainEvoEliteMoranProcess(object):
         This function is adapted from fitness_proportionate_selection for Elitist Selection.
         Elitist Selection method is implemented.
 
-        Parameters (retained from original code not made by J Candra)
+        Parameters 
         ----------
+        (retained from original code not made by J Candra)
         scores: Any sequence of real numbers
         fitness_transformation: A function mapping a score to a (non-negative) float
+        
+        (Made by J Candra)
+        splitThresholdPercentile:
+            N value of Nth-percentile that determines where boundary
+            of splitting the population into clone candidates and
+            culling candidates is located, which will be used to sort
+            and assign indices into lists: lowerList and upperList.
 
         Returns
         -------
@@ -365,10 +375,10 @@ class MainEvoEliteMoranProcess(object):
             uppLimToPop=lowLimToPop
         while len(upp)<PopSubsampleSize: #loop does not trigger if length of low is eaqual or greater
             if len(uppLimToPop)>1: #don't use this if uppLimToPop only has one element. will cause randrange empty list error                
-                rand=self._random.randrange(0, len(uppLimToPop)-1)
+                rand=self._random.randrange(0, len(uppLimToPop)-1) #get random index
                 upp.append(uppLimToPop.pop(rand))
             if len(uppLimToPop)>1: #don't use this if lowLimToPop only has one element. will cause randrange empty list error
-                rand=self._random.randrange(0, len(uppLimToPop)-1) #o is first elem
+                rand=self._random.randrange(0, len(uppLimToPop)-1) 
                 upp.append(uppLimToPop.pop(rand))
             elif len(uppLimToPop)==1:
                 upp.append(uppLimToPop.pop()) #bypass the random number generator, else ill cause error due to short list
@@ -386,6 +396,7 @@ class MainEvoEliteMoranProcess(object):
 
         return low,upp #2 lists of indices, one for culling and another for cloning
 
+    #Not created nor modified by J Candra
     def mutate(self, index: int) -> Player:
         """Mutate the player at index.
 
@@ -415,6 +426,7 @@ class MainEvoEliteMoranProcess(object):
         return self.players[index].clone()
 
     #The function below is no longer used, but kept here for reference for getCulledandCloneList
+    #Not created nor modified by J Candra
     def birth(self, index: int = None) -> int:
         """The birth event.
 
@@ -445,20 +457,10 @@ class MainEvoEliteMoranProcess(object):
     #of birth(self, index: int = None).
     #Part of the function is still copied from birth().
     #Some parts were removed because unused and redundant
-
     def getCulledandCloneList(self) -> int: #add count input arg/param
         """Produce the 2 list of indices that determines
         which player will be cloned and which one will
         be replaced with new clone
-        
-
-        Parameters
-        ----------
-        splitThresholdPercentile:
-            N value of Nth-percentile that determines where boundary
-            of splitting the population into clone candidates and
-            culling candidates is located, which will be used to sort
-            and assign indices into lists: lowerList and upperList.
 
         Returns
         -------
@@ -468,16 +470,17 @@ class MainEvoEliteMoranProcess(object):
         upperList:
             List of indices belonging to upper bound that will be cloned
         """
-        # Compute necessary fitnesses.
-        scores = self.score_all()
+        # Compute necessary fitnesses. 
+        scores = self.score_all() #Not created by J Candra
         
-        lowerList, upperList = self.splitPlayersByScore( #this part is modified by J Candra
+        lowerList, upperList = self.splitPlayersByScore( #this part is modified by J Candra (replacing function)
             scores, fitness_transformation=self.fitness_transformation#, #add percentile input arg here!
 #            splitThresholdPercentile=self.splitThresholdPercentile,dispOutput=self.dispOutput
         )
 
         return lowerList, upperList #this part is modified by J Candra
 
+    #Not created nor modified by J Candra
     def fixation_check(self) -> bool:
         """
         Checks if the population is all of a single type
@@ -496,26 +499,29 @@ class MainEvoEliteMoranProcess(object):
         return self.fixated
 
 
-    #modified from fixation_check
+    #modified from fixation_check by J Candra
     def ConvergeScoreLimitCheck(self) -> bool:
         """
-        Checks if the population is all of a single type
+        Checks if score convergence and deadlock,
+        that is, when all players produces the
+        smae scores as with each other,
+        has occured for specified consecutive turns
 
         Returns
         -------
         Boolean:
             True if Score Converged has occurred (population all has the same score)
         """
-        classes = set(str(p) for p in self.players) #get unique player types
+        classes = set(str(p) for p in self.players) #Not created by J Candra
         self.ScoreConverged = False
         if self.ConvergeScore>=self.ConvergeScoreLimit:
             # Set the winning strategy name variable
-            self.winning_strategy_name = str(classes)
+            self.winning_strategy_name = str(classes) #Adapted by J Candra
             self.ScoreConverged = True
         return self.ScoreConverged
 
     #Heavily Modified by J Candra from the function of same name, without renaming function. 
-    #Almost all parts in this functions, unless indicated, are 
+    #Almost all parts in this function, unless indicated, are created or modified by J Candra
     #Original version cannot be retained due to possible namespace clash
     #Original version can be found in moran.py under MoranProcess class
     def __next__(self) -> object:
@@ -523,13 +529,15 @@ class MainEvoEliteMoranProcess(object):
         Iterate the population:
 
         - play the round's matches
-        - choose the worst half (or portion whose size was specified) of all the players to be replaced with copies of the other, best half (or  portion)^
+        - choose the worst half (or portion whose size was specified) 
+          of all the players to be replaced with copies of the other, 
+          best half (or  portion)^
         - mutate, if appropriate
         - update the population
 
         Returns
         -------
-        MainEvoEliteMoranProcess:^
+        MainEliteMoranProcess:^
             Returns itself with a new population
 
         ^Created by J Candra    
@@ -568,6 +576,7 @@ class MainEvoEliteMoranProcess(object):
         self.populations.append(self.population_distribution()) #not made by J Candra
         return self
 
+    #Not created nor modified by J Candra
     def _matchup_indices(self) -> Set[Tuple[int, int]]:
         """
         Generate the matchup pairs.
@@ -640,6 +649,7 @@ class MainEvoEliteMoranProcess(object):
         self.score_history.append(scores)
         return scores
 
+    #Not created nor modified by J Candra
     def population_distribution(self) -> Counter:
         """Returns the population distribution of the last iteration.
 
@@ -652,6 +662,7 @@ class MainEvoEliteMoranProcess(object):
         counter = Counter(player_names)
         return counter
 
+    #Not created nor modified by J Candra
     def __iter__(self) -> object:
         """
         Returns
@@ -660,14 +671,15 @@ class MainEvoEliteMoranProcess(object):
         """
         return self
 
+    #Not created nor modified by J Candra
     def reset(self) -> None:
         """Reset the process to replay."""
         self.winning_strategy_name = None
         self.score_history = []
         # Reset all the players
         self.set_players()
-
-    #minor modifications to docs
+    
+    #Not created nor modified by J Candra
     def play(self) -> List[Counter]:
         """
         Play the process out to completion. If played with mutation this will
@@ -690,6 +702,7 @@ class MainEvoEliteMoranProcess(object):
                 break
         return self.populations
 
+    #Not created nor modified by J Candra
     def __len__(self) -> int:
         """
         Returns
@@ -698,7 +711,7 @@ class MainEvoEliteMoranProcess(object):
         """
         return len(self.populations)
 
-#modified by J Candra to improve plot visualization and subplotting features
+    #modified by J Candra to improve plot visualization and subplotting features
     def populations_plot(self, iter=1, ax=None): #,r=0,c=0 $just in case
         """
         Create a stackplot of the population distributions at each iteration of
@@ -735,6 +748,8 @@ class MainEvoEliteMoranProcess(object):
             plot_data.append(values)
             domain = range(len(values))
         
+
+        #Most codes below this line are created or modified by J Candra
         #how to sample a continous color
         #inspired by https://stackoverflow.com/questions/31051488/combining-two-matplotlib-colormaps
         #rainbow128=plt.cm.rainbow(np.linspace(0,1,128))
@@ -743,17 +758,17 @@ class MainEvoEliteMoranProcess(object):
 
         #colorMap=plt.cm.gist_rainbow(np.linspace(0,1,len(labels))) #(colors too similar) converts color map to array. inspired by https://stackoverflow.com/questions/28144142/how-can-i-generate-a-colormap-array-from-a-simple-array-in-matplotlib
         colorMap=plt.cm.tab20(np.linspace(0,1,20)) #(has to cycle back) converts color map to array. inspired by https://stackoverflow.com/questions/28144142/how-can-i-generate-a-colormap-array-from-a-simple-array-in-matplotlib
-        ax.stackplot(domain, plot_data, labels=labels, colors=colorMap, edgecolor='black')# baseline= {'zero', 'sym', 'wiggle', 'weighted_wiggle'}
+        ax.stackplot(domain, plot_data, labels=labels, colors=colorMap, edgecolor='black') #Modified by J Candra
         #ax.cmap('tab20')
 
         if haveFig: #only do this if have Fig variable, else may cause error
             #ax.stackplot(domain, plot_data, labels=labels) #just in case
-            fig.suptitle("Moran Process Population by Generation", fontweight='bold') #added by J Candra: Iteration replaced by generation
+            fig.suptitle("Moran Process Population by Generation", fontweight='bold') #Modified by J Candra: Iteration replaced by generation
             #fig.suptitle("Moran Process Population by Generation\nThreshold: {Threshold}% || Players: {numPlayers}".format(Threshold=self.splitThresholdPercentile,numPlayers=len(self.players)), fontweight='bold')
             #ax.set_title("Moran Process Population by Generation (Threshold: {}%)".format(self.splitThresholdPercentile)) #Modified by J Candra: Iteration replaced by generation
             ax.set_title("Iteration: {iter} || Threshold: {Threshold}% || Players: {numPlayers}".format(iter=iter, Threshold=self.splitThresholdPercentile,numPlayers=len(self.players)), loc='center') #Modified by J Candra: Iteration replaced by generation        
             ax.set_xlabel("Generation") #Modified by J Candra: Iteration replaced by generation
-            ax.set_ylabel("Number of Individuals")
+            ax.set_ylabel("Number of Individuals") #Not created by J Candra
             #ax.legend() #Original
             ax.legend(title="Player Agent Types",loc='upper right', borderaxespad=0.)
         else: #if no Fig, then it is subplotting using external loop. need r and c

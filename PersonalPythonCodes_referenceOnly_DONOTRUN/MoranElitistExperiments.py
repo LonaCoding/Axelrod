@@ -32,7 +32,7 @@ def MoranTour(players,turns,seed=1,iterations=1,newFileNameNumber=0):
         ##tournament
         #tournament = axl.Tournament(players, turns=turns, repetitions=repetitions) #orig turn=10
         #tournament = axl.MoranProcess(players=players, turns=200, seed=2)
-        tournament = axl.MainEvoEliteMoranProcess(players,turns=turns, seed=seed)
+        tournament = axl.MainEliteMoranProcess(players,turns=turns, seed=seed)
         TourRes = tournament.play() #tournament results
         plt.savefig(plotFileName)
         win=tournament.winning_strategy_name

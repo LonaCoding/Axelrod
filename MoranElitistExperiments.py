@@ -104,7 +104,7 @@ def EliteMoranProcessTournament(
 
         ##tournament
         #tournament = axl.MoranProcess(players=players, turns=200, seed=2)
-        tournament = axl.MainEvoEliteMoranProcess(
+        tournament = axl.MainEliteMoranProcess(
             agents,turns=turns, 
             seed=seed,
             splitThresholdPercentile=splitThresholdPercentile,
