@@ -32,6 +32,8 @@ class ShortMemDynamicThreshold(Player):
     Inspired by:
 
     - ShortMem: [Andre2013]_
+    - Rapoport's strategy: [Axelrod1980]_
+    - TitForTat: [Axelrod1980]_
     """
 
     name = "ShortMemDynamicThreshold"
@@ -131,92 +133,6 @@ class ShortMemDynamicThreshold(Player):
             return opponent.history[-1]
 
 
-class ShortMemProbabilistic(Player):
-    """
-    (From the original:)　
-    A player starts by always cooperating for the first 10 moves.
-
-    From the tenth round on, the player analyzes the last ten actions, 
-
-    (Written by J Candra:)
-    counts the number of defections and randomly decides wether to defect or cooperate, but
-    with the likelihood to defect increasing the more often
-    the opponent defects
-
-    This strategy is similar to the Joss-Ann Transformer 
-    but instead of using a fixed, manually-specified probability,
-    this strategy relies on dynamically changing number of 
-    defections to set its probability.
-
-
-    Inspired by:
-
-    - ShortMem: [Andre2013]_
-    - JossAnnTransformer: [Ashlock2008]_
-    """
-
-    name = "ShortMemProbabilistic"
-    classifier = {
-        "memory_depth": float("inf"),
-        "stochastic": True,
-        "long_run_time": False,
-        "inspects_source": False,
-        "manipulates_source": False,
-        "manipulates_state": False,
-    }
-
-    
-    def __init__(self, generousTolerance: int = 50) -> None:
-        """
-        Parameters
-        ----------
-        generousTolerance, int
-            Probability of choosing to cooperate irather than TFT, once it decided it does not want to defect,
-            or to choose to tolerate opponent and shows that it is willing to cooperate on their own volition instead of TFT
-            The higher it is, the more often it cooperates and the more generous it is
-            even if opponent defects, which could invite mutual cooperation with certain strategies.
-            Range of values: 0 to 100, on a scale of 100
-            If set to 0, it will always TFT.
-            If set to 100, it will always Cooperate.
-
-        """
-        super().__init__()
-        assert (generousTolerance>=0) and (generousTolerance<=100)
-        self.generousTolerance = generousTolerance
-
-    def strategy(self, opponent: Player) -> Action:
-        """Actual strategy definition that determines player's action."""
-
-        if len(opponent.history) <= 10:
-            return C
-
-        array = opponent.history[-10:] #fetch the last 10 moves of the opponent and out into array
-        C_counts = array.count(C)
-        D_counts = array.count(D)
-
-
-        #everything below this line within this function is created by J Candra
-        #use C_counts and D_counts to adjust probability
-        #the higher the D_counts (opponent defect), the more likely it will defect
-        
-        defectProb=D_counts/10 #the higher it is, the more likely to defect
-        cooperateProb=C_counts/10 #the higher it is, the more likely to cooperate
-
-        #self._random.random_choice(self.cooperateProb) #example reference taken from random.py
-        randDefect1=random.random() #1 is not included
-        if randDefect1<=defectProb:
-            return D
-            #when opponent constantly defects for the last 10 moves, this strategy becomes grim trigger starting from the 11th move
-        else: #chance of being cooperative or mimicking opponent's previous move (Tit-for-Tat)
-            randCoop2=random.random()
-            #generousTolerance=50 #Probability to choose to tolerate opponent and shows that willing to cooperate on their own volition instead of TFT
-            generousToleranceProb=self.generousTolerance/100
-            if randCoop2>=generousToleranceProb:
-                return C
-            else:
-                return opponent.history[-1] #play Tit-for-Tat
-
-
 class ShortMemFuzzy(Player):
     """
     (From the original:)　
@@ -254,6 +170,8 @@ class ShortMemFuzzy(Player):
     Inspired by:
 
     - ShortMem: [Andre2013]_
+    - Rapoport's strategy: [Axelrod1980]_
+    - TitForTat: [Axelrod1980]_
     """
 
     name = "ShortMemFuzzy"
@@ -367,6 +285,97 @@ class ShortMemFuzzy(Player):
             return opponent.history[-1]
 
 
+class ShortMemProbabilistic(Player):
+    """
+    (From the original:)　
+    A player starts by always cooperating for the first 10 moves.
+
+    From the tenth round on, the player analyzes the last ten actions, 
+
+    (Written by J Candra:)
+    counts the number of defections and randomly decides wether to defect or cooperate, but
+    with the likelihood to defect increasing the more often
+    the opponent defects
+
+    This strategy is similar to Tit-For-Tat wrapped in Joss-Ann Transformer 
+    but instead of using a fixed, manually-specified probability,
+    this strategy relies on the dynamically changing number of 
+    opponent's defections to set its probability.
+
+
+    Inspired by:
+
+    - ShortMem: [Andre2013]_
+    - JossAnnTransformer: [Ashlock2008]_
+    - Rapoport's strategy: [Axelrod1980]_
+    - TitForTat: [Axelrod1980]_
+    """
+
+    name = "ShortMemProbabilistic"
+    classifier = {
+        "memory_depth": float("inf"),
+        "stochastic": True,
+        "long_run_time": False,
+        "inspects_source": False,
+        "manipulates_source": False,
+        "manipulates_state": False,
+    }
+
+    
+    def __init__(self, generousTolerance: int = 50) -> None:
+        """
+        Parameters
+        ----------
+        generousTolerance, int
+            Probability of choosing to cooperate irather than TFT, once it decided it does not want to defect,
+            or to choose to tolerate opponent and shows that it is willing to cooperate on their own volition instead of TFT
+            The higher it is, the more often it cooperates and the more generous it is
+            even if opponent defects, which could invite mutual cooperation with certain strategies.
+            Range of values: 0 to 100, on a scale of 100
+            If set to 0, it will always TFT.
+            If set to 100, it will always Cooperate.
+
+        """
+        super().__init__()
+        assert (generousTolerance>=0) and (generousTolerance<=100)
+        self.generousTolerance = generousTolerance
+
+    def strategy(self, opponent: Player) -> Action:
+        """Actual strategy definition that determines player's action."""
+
+        if len(opponent.history) <= 10:
+            return C
+
+        array = opponent.history[-10:] #fetch the last 10 moves of the opponent and out into array
+        C_counts = array.count(C)
+        D_counts = array.count(D)
+
+
+        #everything below this line within this function is created by J Candra
+        #use C_counts and D_counts to adjust probability
+        #the higher the D_counts (opponent defect), the more likely it will defect
+        
+        defectProb=D_counts/10 #the higher it is, the more likely to defect
+        cooperateProb=C_counts/10 #the higher it is, the more likely to cooperate
+
+        #self._random.random_choice(self.cooperateProb) #example reference taken from random.py
+        randDefect1=random.random() #1 is not included
+        if randDefect1<=defectProb:
+            return D
+            #when opponent constantly defects for the last 10 moves, this strategy becomes grim trigger starting from the 11th move
+        else: #chance of being cooperative or mimicking opponent's previous move (Tit-for-Tat)
+            randCoop2=random.random()
+            #generousTolerance=50 #Probability to choose to tolerate opponent and shows that willing to cooperate on their own volition instead of TFT
+            generousToleranceProb=self.generousTolerance/100
+            if randCoop2>=generousToleranceProb:
+                return C
+            else:
+                return opponent.history[-1] #play Tit-for-Tat
+
+
+
+
+
 class ShortMemProbPreferences(Player):
     """
         (From the original:)　
@@ -385,6 +394,8 @@ class ShortMemProbPreferences(Player):
         Inspired by:
 
         - ShortMem: [Andre2013]_
+        - Rapoport's strategy: [Axelrod1980]_
+        - TitForTat: [Axelrod1980]_
         """
 
     name = "ShortMemProbPreferences"

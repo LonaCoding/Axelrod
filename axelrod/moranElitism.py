@@ -17,11 +17,11 @@ from axelrod.random_ import BulkRandomGenerator, RandomGenerator
 #The only functions J Candra modified and renamed:
 #splitPlayersByScore: copied, then modified and renamed from fitness_proportionate_selection
 #Functions modified by J Candra while still retaining the same name:
-#MainEliteMoranProcess
+#EliteMoranProcess
 #
 
 
-class MainEliteMoranProcess(object):
+class EliteMoranProcess(object):
     def __init__( #with additional comments made by J Candra for reference
         self,
         players: List[Player],
@@ -537,7 +537,7 @@ class MainEliteMoranProcess(object):
 
         Returns
         -------
-        MainEliteMoranProcess:^
+        EliteMoranProcess:^
             Returns itself with a new population
 
         ^Created by J Candra    

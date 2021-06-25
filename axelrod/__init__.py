@@ -23,8 +23,8 @@ from axelrod.classifier import Classifiers
 from axelrod.evolvable_player import EvolvablePlayer
 from axelrod.mock_player import MockPlayer
 from axelrod.match import Match
-from axelrod.moran import MoranProcess, ApproximateMoranProcess, EvoEliteMoranProcess
-from axelrod.moranElitism import MainEliteMoranProcess
+from axelrod.moran import MoranProcess, ApproximateMoranProcess
+from axelrod.moranElitism import EliteMoranProcess
 from axelrod.strategies import *
 from axelrod.deterministic_cache import DeterministicCache
 from axelrod.match_generator import *
