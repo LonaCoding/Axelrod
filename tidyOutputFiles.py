@@ -20,7 +20,8 @@ def searchAndMoveFiles(FilePrefix,destFolder,fileDir=os.listdir()):
 #get file names that matches criteria
 
 #First part of file names to look for and move
-outPrefixText="outputMorElit"
+outPrefixText="outputMor"
+outPrefixText2="NashEqOutput"
 outPrefixPlot="EliteMoranProc"
 #destination folder relative paths
 destFolderText="MoranElitistExperiments_Output/TextOutputs"
@@ -29,5 +30,7 @@ destFolderPlot="MoranElitistExperiments_Output/Plots"
 #execute functions
 numberFileMovedText=searchAndMoveFiles(outPrefixText,destFolderText)
 print("Number of Text files moved: {}".format(numberFileMovedText))
+numberFileMovedText2=searchAndMoveFiles(outPrefixText2,destFolderText)
+print("Number of Nash Text files moved: {}".format(numberFileMovedText2))
 numberFileMovedPlot=searchAndMoveFiles(outPrefixPlot,destFolderPlot)
 print("Number of plot files moved: {}".format(numberFileMovedPlot))
