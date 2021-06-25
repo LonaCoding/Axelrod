@@ -273,7 +273,6 @@ class ShortMemFuzzy(Player):
         else:
             fuzzy=fuzzy-0.25
         
-        print("New strategy")
 
         #Determines next action based on fuzzy value
         if fuzzy>0:
